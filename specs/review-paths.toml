@@ -1,0 +1,8 @@
+# Paths a human must review before merge. The installer turns these into .github/CODEOWNERS; then turn on
+# "Require review from Code Owners" in branch protection. Re-run the installer after editing this file.
+# Agents may still build here. They just can't self-merge.
+
+# [[path]]
+# prefix = "db/migrations/"
+# owners = ["@your-github-handle"]
+# why = "schema is a one-way door"

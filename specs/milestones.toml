@@ -1,0 +1,15 @@
+# Milestones: what ships when, in what order. Enforced in CI by .agents/scripts/check_gates.py.
+# Agents pick the first ready feature in this file's order: milestones top to bottom (skipping ones whose ship date
+# has passed), features left to right. A spec in no milestone is backlog and is never picked.
+#
+# ship    "YYYY-MM-DD" (through the end of that day, UTC) · an ISO time with offset · "" = no date yet (no freeze)
+# freeze  "2d" (or "36h") before ship: only this milestone's features (and `allow`) merge as feat; fixes still merge;
+#         anything on `cut` is rejected.
+# After a milestone ships, `python3 .agents/scripts/ship.py <name>` archives its specs and writes the release page.
+
+[[milestone]]
+name = "v0.1"
+ship = ""                 # Pick a date within 2–4 weeks; a date is the forcing function.
+freeze = "2d"
+features = []             # slugs, in priority order
+cut = []                  # dropped if late. Decide this now, not at the deadline.
