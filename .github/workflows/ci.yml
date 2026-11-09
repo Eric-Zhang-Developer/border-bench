@@ -40,9 +40,19 @@ jobs:
         if: github.event_name == 'push'
         run: python3 .agents/scripts/check_markers.py --all
 
-      # Your project's own checks go here: tests, lint, build.
+      # The project's own checks: the pipeline's tests and the site's static build.
+      - uses: astral-sh/setup-uv@v7
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
       - name: Project checks
-        run: echo "Add your test command here (see specs/tech-stack.md, Checks)"
+        run: |
+          uv run pytest
+          npm --prefix site ci
+          npm --prefix site run build
+          test -f site/out/index.html
 
   issues:
     # After a merge: one issue per feature spec (closed when done), one GitHub milestone per milestone, and a
