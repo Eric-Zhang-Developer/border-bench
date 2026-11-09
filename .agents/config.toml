@@ -53,5 +53,5 @@ snapshot_paths = ["/"]
 secret_patterns = ["sk-", "sk_live_", "AIza", "ghp_", "github_pat_", "xox", "mongodb+srv://", "postgres://", "-----BEGIN"]
 
 [budget]
-monthly_usd = 0                  # project: your monthly cap
+monthly_usd = 60                 # project: your monthly cap
 reserve_final_hours = 3          # hackathon: keep this much capacity for the end

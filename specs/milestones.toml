@@ -8,8 +8,18 @@
 # After a milestone ships, `python3 .agents/scripts/ship.py <name>` archives its specs and writes the release page.
 
 [[milestone]]
-name = "v0.1"
-ship = ""                 # Pick a date within 2–4 weeks; a date is the forcing function.
+name = "mvp"
+ship = ""                 # Eric has not picked a date. Sonnet 4.5 retires 2026-11-30: archive and freeze before it.
 freeze = "2d"
-features = []             # slugs, in priority order
-cut = []                  # dropped if late. Decide this now, not at the deadline.
+features = [
+  "scaffold",
+  "runner",
+  "sonnet-45-archive",
+  "truth-modern",
+  "truth-history",
+  "scorer",
+  "prompt-pilot",
+  "full-run",
+  "strip-page",
+]
+cut = []

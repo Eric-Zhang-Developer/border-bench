@@ -1,0 +1,14 @@
+Draw the land borders and coastline of {target} from memory.
+
+Rules:
+- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.
+- Leave out overseas dependencies and Antarctic claims.
+- Use at most 400 points in total.
+- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.
+- Give your best attempt even if you are unsure. An approximate drawing is expected.
+
+Format:
+- Output only the GeoJSON MultiPolygon, with no other text.
+- It is a single GeoJSON MultiPolygon:
+  {"type": "MultiPolygon", "coordinates": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}
+- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.

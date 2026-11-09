@@ -1,18 +1,26 @@
 # NOW
 
-<!-- The resume file. Every session reads this FIRST and the session lead updates it LAST (in full size, only the
-lead edits it; builders put their state in done notes). Keep it under a screen. Facts, not plans you hope for. -->
-
-Updated: <YYYY-MM-DD> by <who>
+Updated: 2026-11-09 by Claude (planning session with Eric)
 
 ## Where things stand
-<!-- 3–5 lines: what works today, what's half-built, what's broken. Link done notes. -->
+- Nothing is built. The repo holds the working rules, the mission, three decisions and nine feature specs.
+- The prompt is tentative: three candidates in `specs/features/prompt-pilot/candidates/`, reasoning in
+  `specs/decisions/001-prompt.md`.
+- No model has been called and no dataset has been downloaded.
 
 ## Next step
-<!-- The ONE next thing, specific enough that a fresh agent could start it in 2 minutes. Usually a feature ID. -->
+`scaffold`, then `runner`, then `sonnet-45-archive`. The archive is the urgent one: Claude Sonnet 4.5 retires on
+2026-11-30 and is the first tile of every strip.
 
 ## Open questions
-<!-- Things waiting on a human. Link the `needs-human` issues. One-way doors first. -->
+- Eric: `ANTHROPIC_API_KEY` in `.env` (needed from `runner` on).
+- Eric: approve three downloads when asked: Natural Earth 50m countries, HGIS Germany 1820 states (via HistoGIS),
+  CShapes 2.0.
+- Eric: a ship date for the `mvp` milestone in `specs/milestones.toml`.
+- Eric: whether the pitch goes in this public repo.
+- Not verified: that the HGIS 1820 file includes Prussia's eastern provinces (`truth-history` checks first).
+- Not verified: the $50 cost estimate. The runner's cap is $60.
 
 ## Next milestone
-<!-- From specs/milestones.toml: name, ship date, what's still in, what's on the cut list. -->
+`mvp`, no date yet. In: scaffold, runner, sonnet-45-archive, truth-modern, truth-history, scorer, prompt-pilot,
+full-run, strip-page. Cut list: empty.

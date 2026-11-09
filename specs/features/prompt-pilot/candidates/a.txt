@@ -1,0 +1,1 @@
+Draw the outline of {target} as a set of polygons. Output ONLY a GeoJSON MultiPolygon using [longitude, latitude] coordinates, with no more than 400 points in total. No explanation, no code fences.
