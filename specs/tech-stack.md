@@ -4,9 +4,9 @@ New dependencies only through a `contract:` PR.
 
 | Layer | Choice |
 |---|---|
-| Pipeline | Python, run with uv, pinned to a version that has wheels for every dependency |
+| Pipeline | Python 3.13, run with uv (pinned in `pyproject.toml` and `.python-version`: it has wheels for every dependency; exact library versions are in `uv.lock`) |
 | Pipeline libraries | `anthropic`, `shapely`, `pyproj`, `numpy`, `Pillow`, `pytest` |
-| Site | Next.js static export, TypeScript, Tailwind, d3-geo drawing to SVG |
+| Site | Next.js 16.4.6 static export, TypeScript, Tailwind 4.3.3, d3-geo drawing to SVG (d3-geo is added by `strip-page`) |
 | Data / database | JSON and GeoJSON files in the repo. No database, no API routes, no auth |
 | Hosting | Vercel (a one-way door: Eric sets it up) |
 | Tests | pytest; the golden cases are in `specs/features/scorer/spec.md` |
@@ -47,5 +47,7 @@ npm --prefix site run build        # once the scaffold feature has merged
 ```
 
 ## Verify (see your change running)
-The scaffold feature sets `[verify].command` in `.agents/config.toml`: it rebuilds `results/results.json` from the
-committed runs with no API call, builds the site, and fails if a strip is missing a tile.
+`[verify].command` in `.agents/config.toml` is `python3 pipeline/verify.py`: it rebuilds `results/results.json` from
+the committed runs with no API call (once `pipeline/score.py` exists), builds the site, and fails if a strip is
+missing a tile. Its last line says which of those steps ran. It expects `results.json` to hold a `targets` list, each
+target with an `id` and a `models` list whose entries have an `id`.
