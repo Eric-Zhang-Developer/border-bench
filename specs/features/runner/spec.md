@@ -22,11 +22,14 @@ assignee: ""
 - The prompt text sent is the file's bytes with only `{target}` replaced.
 - A run file that already exists is never overwritten and never re-requested.
 - Spend: a running total in dollars across the whole `runs/` tree, from recorded usage and a price table in the
-  code. Before each call, stop if the total has reached the cap (default $60). A model with no known price is
-  treated as $50 per million output tokens.
+  code. Before each call, stop if the total plus the most that call could cost (a full 64,000-token answer) would
+  pass the cap (default $60), so spend can never end above it. A model with no known price is treated as $10 per
+  million input tokens and $50 per million output tokens, the dearest row in the table.
 - A refusal, an empty answer or a `max_tokens` stop is saved as it is, with its stop reason. Transport errors and
   rate limits retry; nothing else does.
-- `--dry-run` prints the calls it would make and their estimated cost, and makes none.
+- `--dry-run` prints the calls it would make and their estimated cost, and makes none. Because it makes no network
+  call it cannot read the live lineup: it uses the ids passed with `--models`, or every id in the price table.
+- `--list-models` prints the live lineup with release and retirement dates. It is free and needs the key.
 
 ## Validation
 - `uv run pytest pipeline/test_run.py` passes with the SDK mocked: prompt substitution is byte-exact, existing files
