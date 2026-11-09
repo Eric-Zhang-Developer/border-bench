@@ -2,7 +2,7 @@
 name: Every Claude model draws all six targets with the frozen prompt
 depends_on: [prompt-pilot]
 owns: [runs/p1/, results/, sheets/p1/]
-assignee: ""
+assignee: "eric-1"
 ---
 
 # Full run

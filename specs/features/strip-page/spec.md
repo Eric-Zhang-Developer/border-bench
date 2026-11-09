@@ -1,18 +1,22 @@
 ---
 name: One page where a stranger can see whether the models got better
-depends_on: [full-run]
+depends_on: [scaffold]
 owns: [site/]
-assignee: ""
+assignee: "eric-4"
 ---
 
 # Strip page
 
 ## Plan
-1. Load `results/results.json` at build time.
+1. Load `results/results.json` at build time if it exists; otherwise load `site/fixtures/results.json`, a copy of
+   `specs/features/scorer/results.example.json`, and show a visible "sample data" banner.
 2. Build the strip, the tile, the big view and the scrubber.
 3. Design pass, then deploy preview.
 
 ## Requirements
+- Built against the sample file, in parallel with the scorer and the model runs. The page must render any file
+  with the shape of `specs/features/scorer/results.example.json`, for any number of targets and models.
+- The "sample data" banner can never appear when `results/results.json` exists.
 - **Target picker**: six targets.
 - **Strip**: rectangle, circle, then one tile per model in release order.
 - **Tile**: truth as a filled shape, drawing as an outline, missed land in one colour and invented land in another;
@@ -34,6 +38,10 @@ assignee: ""
   drag the scrubber. Screenshots in the PR.
 - Every model in `results.json` has a tile on every strip (the verify command checks this).
 - Deploying to Vercel is Eric's step; the PR ends at a local build and screenshots.
+
+## Follow-up, once `full-run` is on main
+A `fix(strip-page)` PR by the same worker: screenshots of all six real strips, and any fix the real drawings call
+for (very small islands, a drawing far outside the frame, a failed drawing).
 
 ## Defaults
 Polygon morphing, share images and a leaderboard table are out. If a choice is purely visual, make it and show it.

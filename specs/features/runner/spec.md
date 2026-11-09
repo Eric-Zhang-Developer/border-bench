@@ -2,7 +2,7 @@
 name: One command asks a model to draw a target and saves the raw answer
 depends_on: [scaffold]
 owns: [pipeline/run.py, pipeline/test_run.py]
-assignee: ""
+assignee: "eric-1"
 ---
 
 # Runner
