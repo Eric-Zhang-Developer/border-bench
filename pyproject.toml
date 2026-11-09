@@ -1,0 +1,23 @@
+[project]
+name = "borderbench"
+version = "0.1.0"
+description = "AI models draw countries from memory; each drawing is scored against the true border."
+license = "MIT"
+# Pinned to one minor version so every machine and CI get the same prebuilt shapely and pyproj wheels.
+requires-python = "==3.13.*"
+dependencies = [
+    "anthropic",
+    "numpy",
+    "pillow",
+    "pyproj",
+    "shapely",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["pipeline"]
