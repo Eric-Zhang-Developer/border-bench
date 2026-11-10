@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Croatia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-4-5-20251101",
+  "model_display_name": "Claude Opus 4.5",
+  "model_created_at": "2025-11-24T00:00:00+00:00",
+  "target_id": "croatia",
+  "target": "Croatia as of 1 January 2024",
+  "raw": "I'll draw Croatia from memory. Croatia has a distinctive shape - it's often described as looking like a boomerang or crescent. Let me think through the key features:\n\n1. The mainland has a complex shape with:\n   - The Istrian peninsula in the northwest\n   - A long coastline along the Adriatic Sea\n   - The Dalmatian coast extending southeast\n   - The interior/continental part (Slavonia) extending east\n   - A narrow strip near Dubrovnik (Neum corridor splits it, but Croatia has territory on both sides)\n\n2. Major islands include Krk, Cres, Brač, Hvar, Korčula, and many smaller ones\n\nLet me construct this:\n\n- Northern border with Slovenia and Hungary\n- Eastern border with Serbia\n- Southern border with Bosnia and Herzegovina (which almost reaches the coast at Neum)\n- The coastline faces Italy across the Adriatic\n\nKey coordinates I recall:\n- Istria is around 45°N, 14°E\n- Zagreb is around 45.8°N, 16°E\n- Dubrovnik is around 42.6°N, 18.1°E\n- Eastern tip (Slavonia) reaches about 19°E\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [\n  [[\n    [13.50, 45.48], [13.60, 45.45], [13.75, 45.47], [13.85, 45.35], [13.90, 45.20],\n    [13.95, 45.00], [14.00, 44.88], [14.15, 44.95], [14.25, 45.05], [14.35, 45.15],\n    [14.45, 45.10], [14.55, 44.95], [14.75, 44.85], [14.90, 44.75], [15.05, 44.55],\n    [15.20, 44.45], [15.35, 44.25], [15.55, 44.10], [15.85, 43.90], [16.10, 43.70],\n    [16.40, 43.50], [16.70, 43.35], [17.00, 43.15], [17.25, 43.00], [17.45, 42.92],\n    [17.60, 42.75], [17.75, 42.70], [17.95, 42.60], [18.10, 42.58], [18.25, 42.55],\n    [18.45, 42.48], [18.45, 42.55], [18.50, 42.65], [18.40, 42.70], [18.20, 42.75],\n    [17.95, 42.85], [17.75, 42.95], [17.55, 43.05], [17.70, 43.10], [17.90, 43.25],\n    [18.10, 43.40], [18.35, 43.55], [18.55, 43.70], [18.75, 43.85], [18.95, 44.05],\n    [19.05, 44.20], [19.15, 44.40], [19.05, 44.60], [18.95, 44.80], [18.85, 45.00],\n    [18.95, 45.15], [19.00, 45.30], [18.90, 45.50], [18.80, 45.70], [18.65, 45.85],\n    [18.45, 45.90], [18.20, 45.85], [17.95, 45.80], [17.70, 45.78], [17.45, 45.75],\n    [17.20, 45.80], [16.95, 45.85], [16.70, 45.82], [16.45, 45.85], [16.30, 46.10],\n    [16.15, 46.25], [16.00, 46.35], [15.80, 46.30], [15.65, 46.22], [15.50, 46.15],\n    [15.30, 46.25], [15.15, 46.35], [14.95, 46.30], [14.80, 46.25], [14.65, 46.15],\n    [14.50, 46.00], [14.35, 45.85], [14.15, 45.70], [14.00, 45.60], [13.80, 45.58],\n    [13.60, 45.55], [13.50, 45.48]\n  ]],\n  [[\n    [14.35, 45.05], [14.50, 44.95], [14.65, 44.92], [14.75, 45.02], [14.55, 45.12], [14.35, 45.05]\n  ]],\n  [[\n    [14.25, 44.85], [14.45, 44.75], [14.60, 44.78], [14.50, 44.90], [14.25, 44.85]\n  ]],\n  [[\n    [16.35, 43.45], [16.55, 43.38], [16.70, 43.42], [16.50, 43.52], [16.35, 43.45]\n  ]],\n  [[\n    [16.60, 43.15], [16.85, 43.05], [17.05, 43.10], [16.85, 43.22], [16.60, 43.15]\n  ]]\n]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 1413,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-4-5-20251101",
+  "message_id": "msg_011Cgtcj5Jk4R2GR6Yk4uYJS",
+  "started_at": "2026-11-10T04:28:40.410+00:00",
+  "first_token_ms": 880,
+  "first_text_ms": 880,
+  "duration_ms": 18621,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    5.0,
+    25.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.036535,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:28:59+00:00"
+}

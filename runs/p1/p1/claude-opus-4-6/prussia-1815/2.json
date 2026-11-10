@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the Kingdom of Prussia as of 1 January 1816 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-4-6",
+  "model_display_name": "Claude Opus 4.6",
+  "model_created_at": "2026-02-04T00:00:00+00:00",
+  "target_id": "prussia-1815",
+  "target": "the Kingdom of Prussia as of 1 January 1816",
+  "raw": "\n\nI need to draw the Kingdom of Prussia as of January 1, 1816 - this is after the Congress of Vienna but before later acquisitions.\n\nIn 1816, Prussia consisted of several major territories:\n\n1. **Eastern provinces**: East Prussia, West Prussia, Pomerania, Brandenburg (including Berlin), Silesia, and the Province of Saxony (gained from Saxony at Vienna)\n2. **Western provinces**: The Rhineland and Westphalia (gained at Vienna)\n3. These two blocks were separated by territories of Hanover, Hesse, and other German states - making the western territories essentially exclaves connected by only thin corridors or not connected at all.\n\nLet me think about the geography:\n\n**Eastern block**: \n- East Prussia: around Königsberg, bordered by Russia (Memel area) to the north, Baltic Sea to the north, Poland to the south/east\n- West Prussia: connecting East Prussia to Pomerania, around Danzig area\n- Pomerania: Baltic coast from roughly Stolp to Stralsund area (including Rügen)\n- Brandenburg: centered on Berlin, extending to the Elbe\n- Silesia: extending southeast along the Oder to the Sudeten mountains\n- Province of Saxony: around Magdeburg, Halle, extending to Erfurt area (with Erfurt as an exclave or connected territory)\n\n**Western block**:\n- Rhineland: along the Rhine from roughly Koblenz to Kleve, including Cologne, Aachen, Trier\n- Westphalia: around Münster, Minden, extending east\n\nThe western and eastern blocks were connected by narrow strips or nearly connected through areas around the Province of Saxony and Westphalia.\n\nLet me try to draw this as carefully as I can with the point budget. I'll create the main eastern mass and the western provinces. The connection between east and west was quite thin - through areas near Wittgenstein and along the northern edge.\n\nActually, by 1816 the territories were more or less connected, though very narrowly in places. Let me treat it as two main polygons: the large eastern block and the western Rhineland-Westphalia block, plus some islands (Rügen).\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [\n  [[[9.50, 51.30], [9.70, 51.50], [9.90, 51.70], [10.10, 52.00], [10.30, 52.20], [10.50, 52.40], [10.80, 52.50], [11.00, 52.60], [11.20, 52.80], [11.10, 53.00], [11.00, 53.20], [10.90, 53.50], [10.80, 53.70], [10.90, 53.90], [11.10, 54.00], [11.30, 54.10], [11.50, 54.15], [11.80, 54.20], [12.00, 54.20], [12.20, 54.10], [12.40, 54.15], [12.50, 54.30], [12.80, 54.30], [13.10, 54.25], [13.30, 54.20], [13.50, 54.25], [13.70, 54.35], [14.00, 54.35], [14.20, 54.30], [14.40, 54.20], [14.60, 54.10], [14.80, 54.05], [15.00, 54.00], [15.20, 54.05], [15.40, 54.10], [15.60, 54.20], [15.80, 54.30], [16.00, 54.40], [16.20, 54.50], [16.40, 54.55], [16.70, 54.50], [16.90, 54.45], [17.10, 54.50], [17.30, 54.55], [17.60, 54.60], [17.80, 54.70], [18.00, 54.70], [18.30, 54.65], [18.50, 54.60], [18.80, 54.55], [18.90, 54.40], [18.80, 54.30], [18.70, 54.20], [18.65, 54.10], [18.70, 54.00], [18.80, 53.90], [18.90, 53.80], [19.00, 53.70], [19.10, 53.60], [19.20, 53.50], [19.40, 53.40], [19.60, 53.30], [19.80, 53.20], [19.90, 53.10], [20.00, 53.00], [20.10, 52.90], [20.20, 52.80], [20.30, 52.70], [20.40, 52.60], [20.50, 52.50], [20.60, 52.40], [20.50, 52.30], [20.40, 52.20], [20.30, 52.10], [20.20, 52.00], [20.10, 51.90], [20.00, 51.80], [19.80, 51.70], [19.60, 51.60], [19.40, 51.50], [19.20, 51.40], [19.00, 51.30], [18.80, 51.20], [18.60, 51.10], [18.40, 51.00], [18.20, 50.90], [18.00, 50.85], [17.80, 50.80], [17.60, 50.75], [17.40, 50.70], [17.20, 50.60], [17.00, 50.50], [16.80, 50.45], [16.60, 50.40], [16.40, 50.35], [16.20, 50.30], [16.00, 50.25], [15.80, 50.30], [15.60, 50.35], [15.40, 50.40], [15.20, 50.50], [15.00, 50.60], [14.90, 50.70], [14.80, 50.80], [14.70, 50.90], [14.60, 51.00], [14.50, 51.05], [14.40, 51.10], [14.30, 51.10], [14.20, 51.05], [14.10, 51.00], [14.00, 50.95], [13.80, 50.90], [13.60, 50.90], [13.40, 50.95], [13.20, 51.00], [13.00, 51.00], [12.80, 51.00], [12.60, 51.00], [12.40, 51.00], [12.20, 51.00], [12.00, 51.00], [11.80, 51.00], [11.60, 51.00], [11.40, 51.00], [11.20, 51.00], [11.00, 51.00], [10.80, 51.05], [10.60, 51.10], [10.40, 51.15], [10.20, 51.20], [10.00, 51.20], [9.80, 51.20], [9.60, 51.25], [9.50, 51.30]]],\n  [[[5.85, 49.50], [5.90, 49.60], [6.00, 49.80], [6.10, 50.00], [6.20, 50.10], [6.30, 50.20], [6.20, 50.30], [6.10, 50.40], [6.00, 50.50], [5.90, 50.70], [5.95, 50.80], [6.00, 50.90], [6.05, 51.00], [6.10, 51.10], [6.00, 51.20], [5.95, 51.30], [6.00, 51.40], [6.10, 51.50], [6.20, 51.60], [6.30, 51.70], [6.40, 51.80], [6.50, 51.85], [6.60, 51.90], [6.70, 51.95], [6.80, 52.00], [6.90, 52.10], [7.00, 52.15], [7.10, 52.20], [7.20, 52.30], [7.30, 52.40], [7.40, 52.45], [7.50, 52.45], [7.60, 52.40], [7.80, 52.35], [8.00, 52.30], [8.20, 52.25], [8.40, 52.20], [8.60, 52.10], [8.70, 52.00], [8.80, 51.90], [8.90, 51.80], [9.00, 51.70], [9.00, 51.60], [8.90, 51.50], [8.80, 51.40], [8.70, 51.30], [8.60, 51.20], [8.50, 51.10], [8.40, 51.00], [8.30, 50.90], [8.20, 50.80], [8.10, 50.70], [8.00, 50.60], [7.90, 50.50], [7.80, 50.40], [7.70, 50.30], [7.60, 50.20], [7.50, 50.10], [7.40, 50.05], [7.30, 50.00], [7.20, 49.90], [7.10, 49.80], [7.00, 49.70], [6.80, 49.60], [6.60, 49.55], [6.40, 49.50], [6.20, 49.45], [6.00, 49.45], [5.85, 49.50]]],\n  [[[13.10, 54.40], [13.20, 54.50], [13.40, 54.60], [13.50, 54.65], [13.70, 54.60], [13.70, 54.50], [13.60, 54.40], [13.40, 54.35], [13.20, 54.35], [13.10, 54.40]]],\n  [[[19.50, 54.30], [19.60, 54.40], [19.80, 54.50], [20.00, 54.55], [20.20, 54.60], [20.40, 54.65], [20.60, 54.70], [20.80, 54.75], [21.00, 54.80], [21.10, 54.85], [21.20, 54.90], [21.30, 54.95], [21.50, 55.00], [21.70, 55.05], [21.90, 55.10], [22.00, 55.15], [22.10, 55.10], [22.20, 55.00], [22.30, 54.90], [22.40, 54.80], [22.50, 54.60], [22.40, 54.40], [22.30, 54.30], [22.10, 54.20], [21.90, 54.10], [21.70, 54.05], [21.50, 54.00], [21.30, 53.95], [21.10, 53.90], [20.90, 53.85], [20.70, 53.80], [20.50, 53.80], [20.30, 53.85], [20.10, 53.90], [19.90, 54.00], [19.70, 54.10], [19.60, 54.20], [19.50, 54.30]]]\n]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 245,
+    "output_tokens": 3075,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-4-6",
+  "message_id": "msg_011CgthyTWCrjxffUedCU7mH",
+  "started_at": "2026-11-10T05:37:29.433+00:00",
+  "first_token_ms": 1607,
+  "first_text_ms": 1607,
+  "duration_ms": 39586,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    5.0,
+    25.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.0781,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:38:09+00:00"
+}

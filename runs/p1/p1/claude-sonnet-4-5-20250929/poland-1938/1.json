@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_display_name": "Claude Sonnet 4.5",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "I need to draw Poland's borders as of January 1, 1938. This is interwar Poland, which existed between WWI and WWII with significantly different borders than modern Poland.\n\nKey features of 1938 Poland:\n- Western border: with Germany (Weimar/Nazi Germany), including parts of Silesia\n- Northern border: with East Prussia (German exclave) and the Free City of Danzig, plus a short Baltic Sea coastline\n- Eastern border: with Lithuania, Latvia (brief), USSR (including Belarus and Ukraine)\n- Southern border: with Czechoslovakia and Romania\n- The country extended much further east than modern Poland, including cities like Lwów (Lviv) and Wilno (Vilnius)\n\nMajor geographical points to remember:\n- Baltic coast around Gdynia (Poland had the \"Polish Corridor\" to the sea)\n- The country was roughly centered more eastward than today\n- Western border was further east, including less of Silesia\n- Eastern border extended to approximately modern-day western Belarus and Ukraine\n- The shape was somewhat like a tilted rectangle extending northeast-southwest\n\nLet me sketch the approximate coordinates:\n\nNorthwest corner (Baltic): around 18.5°E, 54.8°N\nNortheast corner: around 28°E, 56°N (near Lithuania)\nSoutheast corner: around 26°E, 48°N (near Romania)\nSouthwest corner: around 17°E, 49°N (near Czechoslovakia)\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [18.5, 54.8],\n        [18.7, 54.7],\n        [18.9, 54.6],\n        [19.1, 54.5],\n        [19.3, 54.45],\n        [19.5, 54.4],\n        [19.7, 54.35],\n        [19.9, 54.3],\n        [20.1, 54.25],\n        [20.3, 54.2],\n        [20.5, 54.15],\n        [20.7, 54.1],\n        [21.0, 54.05],\n        [21.3, 54.0],\n        [21.6, 53.95],\n        [22.0, 53.9],\n        [22.5, 53.88],\n        [23.0, 53.9],\n        [23.5, 54.0],\n        [24.0, 54.2],\n        [24.5, 54.4],\n        [25.0, 54.5],\n        [25.5, 54.6],\n        [26.0, 54.7],\n        [26.5, 54.8],\n        [27.0, 54.85],\n        [27.5, 54.9],\n        [28.0, 55.0],\n        [28.2, 55.2],\n        [28.3, 55.4],\n        [28.3, 55.6],\n        [28.2, 55.8],\n        [28.0, 56.0],\n        [27.8, 55.9],\n        [27.5, 55.7],\n        [27.2, 55.5],\n        [27.0, 55.3],\n        [26.8, 55.1],\n        [26.6, 54.9],\n        [26.5, 54.7],\n        [26.5, 54.5],\n        [26.6, 54.3],\n        [26.7, 54.1],\n        [26.8, 53.9],\n        [27.0, 53.7],\n        [27.2, 53.5],\n        [27.4, 53.3],\n        [27.6, 53.1],\n        [27.8, 52.9],\n        [28.0, 52.7],\n        [28.2, 52.5],\n        [28.3, 52.3],\n        [28.4, 52.1],\n        [28.5, 51.9],\n        [28.6, 51.7],\n        [28.7, 51.5],\n        [28.7, 51.3],\n        [28.7, 51.1],\n        [28.6, 50.9],\n        [28.5, 50.7],\n        [28.3, 50.5],\n        [28.1, 50.3],\n        [27.9, 50.1],\n        [27.7, 49.9],\n        [27.5, 49.7],\n        [27.2, 49.5],\n        [26.9, 49.3],\n        [26.6, 49.2],\n        [26.3, 49.1],\n        [26.0, 49.0],\n        [25.7, 48.9],\n        [25.4, 48.8],\n        [25.1, 48.7],\n        [24.8, 48.6],\n        [24.5, 48.5],\n        [24.2, 48.45],\n        [23.9, 48.4],\n        [23.6, 48.4],\n        [23.3, 48.45],\n        [23.0, 48.5],\n        [22.7, 48.6],\n        [22.4, 48.7],\n        [22.1, 48.85],\n        [21.8, 49.0],\n        [21.5, 49.1],\n        [21.2, 49.2],\n        [20.9, 49.3],\n        [20.6, 49.35],\n        [20.3, 49.4],\n        [20.0, 49.45],\n        [19.7, 49.5],\n        [19.4, 49.55],\n        [19.1, 49.6],\n        [18.8, 49.65],\n        [18.5, 49.7],\n        [18.2, 49.75],\n        [17.9, 49.8],\n        [17.6, 49.85],\n        [17.3, 49.9],\n        [17.0, 50.0],\n        [16.8, 50.1],\n        [16.7, 50.2],\n        [16.6, 50.3],\n        [16.5, 50.4],\n        [16.5, 50.5],\n        [16.6, 50.6],\n        [16.7, 50.7],\n        [16.8, 50.8],\n        [17.0, 50.9],\n        [17.2, 51.0],\n        [17.4, 51.1],\n        [17.5, 51.2],\n        [17.6, 51.3],\n        [17.7, 51.4],\n        [17.7, 51.5],\n        [17.7, 51.6],\n        [17.6, 51.7],\n        [17.5, 51.8],\n        [17.4, 51.9],\n        [17.3, 52.0],\n        [17.2, 52.1],\n        [17.1, 52.2],\n        [17.0, 52.3],\n        [16.9, 52.4],\n        [16.8, 52.5],\n        [16.7, 52.6],\n        [16.6, 52.7],\n        [16.5, 52.8],\n        [16.5, 52.9],\n        [16.5, 53.0],\n        [16.6, 53.1],\n        [16.7, 53.2],\n        [16.8, 53.3],\n        [17.0, 53.4],\n        [17.2, 53.5],\n        [17.4, 53.6],\n        [17.6, 53.7],\n        [17.8, 53.8],\n        [18.0, 53.9],\n        [18.2, 54.0],\n        [18.3, 54.1],\n        [18.4, 54.2],\n        [18.45, 54.3],\n        [18.5, 54.4],\n        [18.5, 54.5],\n        [18.5, 54.6],\n        [18.5, 54.7],\n        [18.5, 54.8]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 2152,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtftaJ7f9AzewcGYu9tC",
+  "started_at": "2026-11-10T05:10:09.674+00:00",
+  "first_token_ms": 806,
+  "first_text_ms": 807,
+  "duration_ms": 25129,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.033006,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:10:34+00:00"
+}

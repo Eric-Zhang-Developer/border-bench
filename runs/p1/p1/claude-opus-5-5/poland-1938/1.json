@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-5-5",
+  "model_display_name": "Claude Opus 5.5",
+  "model_created_at": "2026-09-21T16:24:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "This is an approximate outline of interwar Poland as of 1 January 1938, before the Zaolzie annexation later that year. It has two polygons: the mainland and a simplified Hel Peninsula.\n\n- **North:** a short Baltic coast along the Polish Corridor. The Free City of Danzig is left out, and the Vistula forms the line with East Prussia.\n- **Northeast:** the Suwałki region and the Wilno (Vilnius) region down to the Latvian border.\n- **East:** the Soviet frontier runs west of Minsk, through Polesie and Volhynia, then down the Zbruch river.\n- **South:** the Romanian border follows the Dniester and Cheremosh. The Czechoslovak border follows the Carpathian ridge back to Cieszyn.\n- **West:** Polish Upper Silesia and the old Poznań border with Germany, back up to the coast.\n\n```geojson\n{\"type\":\"MultiPolygon\",\"coordinates\":[[[[17.9,54.83],[18.34,54.84],[18.55,54.7],[18.55,54.52],[18.56,54.45],[18.45,54.35],[18.5,54.2],[18.65,54.1],[18.8,54.0],[18.85,53.8],[19.1,53.6],[19.4,53.45],[19.7,53.4],[20.2,53.2],[20.7,53.15],[21.5,53.27],[22.0,53.45],[22.6,53.6],[22.8,54.0],[22.8,54.38],[23.3,54.25],[23.6,54.1],[24.0,54.05],[24.3,54.25],[24.6,54.5],[24.9,54.85],[25.4,55.1],[25.9,55.3],[26.6,55.68],[27.2,55.75],[27.6,55.7],[28.2,55.55],[28.0,55.1],[27.6,54.8],[27.3,54.4],[26.9,54.1],[26.9,53.6],[27.3,53.1],[27.6,52.7],[27.6,52.3],[28.0,52.0],[27.8,51.6],[27.2,51.4],[27.1,51.0],[27.3,50.6],[26.6,50.4],[26.2,50.0],[26.1,49.6],[26.3,49.1],[26.4,48.62],[25.8,48.6],[25.3,48.5],[25.0,48.25],[24.6,47.95],[24.0,48.35],[23.4,48.75],[22.6,49.08],[22.0,49.3],[21.3,49.45],[20.6,49.4],[20.2,49.25],[19.8,49.2],[19.45,49.6],[18.9,49.5],[18.6,49.75],[18.6,49.95],[18.35,50.05],[18.45,50.35],[18.75,50.5],[18.9,50.6],[18.6,51.05],[18.2,51.3],[17.8,51.2],[17.2,51.45],[16.5,51.75],[16.0,52.05],[15.85,52.3],[16.0,52.55],[16.3,52.85],[16.7,53.05],[17.2,53.15],[17.4,53.4],[17.3,53.7],[17.4,54.0],[17.6,54.3],[17.85,54.55],[17.9,54.83]]],[[[18.55,54.75],[18.82,54.6],[18.75,54.62],[18.55,54.72],[18.55,54.75]]]]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 345,
+    "output_tokens": 3059,
+    "output_tokens_details": {
+      "thinking_tokens": 1897
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-5-5",
+  "message_id": "msg_011Cgti6UuVT8pXnPv4oRgxL",
+  "started_at": "2026-11-10T05:39:04.753+00:00",
+  "first_token_ms": 1034,
+  "first_text_ms": 23240,
+  "duration_ms": 33657,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    4.0,
+    20.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.06256,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:39:38+00:00"
+}

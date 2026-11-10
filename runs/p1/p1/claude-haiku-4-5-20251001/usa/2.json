@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the contiguous United States (the lower 48 states) as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-haiku-4-5-20251001",
+  "model_display_name": "Claude Haiku 4.5",
+  "model_created_at": "2025-10-15T00:00:00+00:00",
+  "target_id": "usa",
+  "target": "the contiguous United States (the lower 48 states) as of 1 January 2024",
+  "raw": "I'll draw the contiguous United States from memory, focusing on the major outline and key features.\n\nLet me think through the key points:\n- Northern border: Canada, roughly following the 49th parallel in the west, then the Great Lakes\n- Southern border: Mexico and the Gulf of Mexico\n- Eastern border: Atlantic Ocean\n- Western border: Pacific Ocean\n- Major features: Florida peninsula, Great Lakes (Michigan), Pacific Northwest, Alaska panhandle effect on British Columbia\n\nI'll create a simplified but reasonably accurate outline using approximately 350-400 points, focusing on major peninsulas, bays, and the overall coastline shape.\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [-125.00, 49.00],\n        [-124.50, 49.50],\n        [-124.00, 49.75],\n        [-123.50, 49.50],\n        [-123.00, 49.25],\n        [-122.50, 48.50],\n        [-122.30, 48.40],\n        [-122.40, 47.50],\n        [-122.50, 47.00],\n        [-123.00, 46.50],\n        [-124.00, 46.25],\n        [-124.50, 45.75],\n        [-124.70, 45.50],\n        [-124.00, 44.50],\n        [-123.50, 43.50],\n        [-124.00, 42.75],\n        [-124.40, 42.00],\n        [-124.50, 41.25],\n        [-120.50, 39.75],\n        [-120.00, 39.00],\n        [-119.50, 38.50],\n        [-119.00, 37.50],\n        [-118.50, 36.50],\n        [-117.50, 35.00],\n        [-116.50, 35.00],\n        [-115.50, 34.50],\n        [-114.75, 34.00],\n        [-114.50, 33.50],\n        [-114.75, 32.75],\n        [-115.00, 32.50],\n        [-117.00, 32.50],\n        [-117.50, 32.75],\n        [-118.00, 33.75],\n        [-118.50, 34.00],\n        [-119.50, 34.50],\n        [-120.00, 35.00],\n        [-120.50, 35.50],\n        [-121.00, 36.00],\n        [-121.50, 36.50],\n        [-122.00, 37.00],\n        [-122.50, 37.50],\n        [-123.00, 38.00],\n        [-123.50, 38.75],\n        [-124.00, 40.00],\n        [-124.40, 41.00],\n        [-124.50, 42.50],\n        [-124.00, 43.50],\n        [-123.50, 44.50],\n        [-124.50, 45.50],\n        [-125.00, 49.00]\n      ]\n    ],\n    [\n      [\n        [-125.00, 49.00],\n        [-95.00, 49.00],\n        [-95.00, 48.75],\n        [-94.50, 48.50],\n        [-93.50, 48.75],\n        [-92.50, 48.50],\n        [-91.50, 48.75],\n        [-90.00, 48.50],\n        [-88.50, 48.75],\n        [-87.50, 48.00],\n        [-86.50, 47.50],\n        [-85.00, 47.00],\n        [-83.50, 46.50],\n        [-82.50, 45.75],\n        [-81.50, 45.50],\n        [-80.50, 45.00],\n        [-79.50, 44.00],\n        [-78.50, 43.50],\n        [-77.50, 43.75],\n        [-76.50, 44.00],\n        [-75.50, 43.75],\n        [-74.50, 43.50],\n        [-73.50, 43.25],\n        [-72.50, 43.00],\n        [-71.50, 42.75],\n        [-71.00, 42.00],\n        [-70.50, 41.50],\n        [-70.00, 41.25],\n        [-69.50, 41.50],\n        [-69.00, 42.00],\n        [-68.50, 42.50],\n        [-67.50, 43.00],\n        [-67.00, 43.50],\n        [-67.50, 44.50],\n        [-68.50, 45.00],\n        [-69.50, 45.50],\n        [-70.50, 46.00],\n        [-71.00, 47.00],\n        [-70.50, 47.50],\n        [-71.00, 48.00],\n        [-72.00, 48.50],\n        [-73.00, 49.00],\n        [-95.00, 49.00],\n        [-125.00, 49.00]\n      ]\n    ],\n    [\n      [\n        [-80.00, 25.00],\n        [-81.00, 25.50],\n        [-81.50, 26.00],\n        [-81.75, 26.50],\n        [-81.50, 27.00],\n        [-81.00, 28.00],\n        [-80.50, 29.00],\n        [-80.25, 30.00],\n        [-80.00, 30.50],\n        [-79.50, 30.00],\n        [-79.00, 29.00],\n        [-79.50, 28.00],\n        [-80.00, 27.00],\n        [-80.50, 26.00],\n        [-80.75, 25.50],\n        [-80.00, 25.00]\n      ]\n    ],\n    [\n      [\n        [-97.00, 26.00],\n        [-97.50, 26.50],\n        [-97.25, 27.00],\n        [-97.00, 27.50],\n        [-96.75, 27.25],\n        [-96.50, 26.75],\n        [-97.00, 26.00]\n      ]\n    ],\n    [\n      [\n        [-125.00, 49.00],\n        [-124.50, 49.50],\n        [-124.00, 49.75],\n        [-123.50, 49.50],\n        [-123.00, 49.25],\n        [-122.50, 48.50],\n        [-125.00, 49.00]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 254,
+    "output_tokens": 1718,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-haiku-4-5-20251001",
+  "message_id": "msg_011CgtcB14N5KBz9JP2YXiDf",
+  "started_at": "2026-11-10T04:21:25.318+00:00",
+  "first_token_ms": 470,
+  "first_text_ms": 470,
+  "duration_ms": 13551,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    1.0,
+    5.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.008844,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:21:38+00:00"
+}

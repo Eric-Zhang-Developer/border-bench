@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Indonesia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-haiku-4-5-20251001",
+  "model_display_name": "Claude Haiku 4.5",
+  "model_created_at": "2025-10-15T00:00:00+00:00",
+  "target_id": "indonesia",
+  "target": "Indonesia as of 1 January 2024",
+  "raw": "I'll draw Indonesia's land borders and coastline from memory. Indonesia is an archipelago consisting of thousands of islands stretching from Southeast Asia. Let me identify the major components:\n\nMajor territories to include:\n1. Sumatra (western side of archipelago)\n2. Java (central, densely populated island)\n3. Kalimantan (Borneo - large central island, shared with Malaysia and Brunei)\n4. Sulawesi (eastern central area)\n5. Papua (eastern part, shared with Papua New Guinea)\n6. Smaller islands: Bali, Lombok, Flores, Timor (Nusa Tenggara chain)\n7. Maluku (Moluccas)\n8. Riau Islands\n9. Various other island groups\n\nKey coordinates to remember:\n- Westernmost: around 95°E (Sumatra/Aceh)\n- Easternmost: around 141°E (Papua)\n- Northernmost: around 6°N (northern Sumatra/Aceh)\n- Southernmost: around 11°S (Timor)\n\nI'll create a simplified representation focusing on the major islands with approximate coastlines:\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [[[95.00, 5.50], [95.30, 5.80], [95.50, 5.50], [95.70, 5.30], [95.50, 4.80], [95.20, 4.90], [95.00, 5.50]]],\n    [[[95.20, 5.00], [96.50, 3.50], [98.50, 2.50], [100.50, 1.50], [101.50, 1.20], [102.50, 1.80], [103.00, 3.00], [102.50, 4.00], [101.00, 5.00], [99.50, 5.50], [98.00, 5.80], [96.50, 5.50], [95.50, 5.00], [95.20, 5.00]]],\n    [[[104.00, 6.00], [106.50, 5.50], [108.50, 5.80], [109.50, 6.20], [108.50, 7.00], [106.00, 7.50], [104.50, 7.00], [104.00, 6.00]]],\n    [[[108.00, -7.00], [114.50, -5.50], [119.50, -3.50], [121.50, -5.00], [120.50, -8.50], [117.00, -9.50], [112.50, -8.50], [109.50, -7.50], [108.00, -7.00]]],\n    [[[119.50, -1.50], [121.50, 0.50], [123.50, 1.50], [126.00, 2.00], [128.50, 1.50], [130.00, 0.50], [128.50, -2.00], [126.00, -3.50], [122.50, -5.00], [120.50, -4.50], [119.50, -1.50]]],\n    [[[122.00, -8.50], [124.50, -8.00], [126.50, -8.50], [128.00, -9.50], [124.00, -10.50], [122.00, -10.00], [122.00, -8.50]]],\n    [[[126.00, -9.00], [128.50, -8.00], [131.00, -7.50], [134.00, -6.50], [136.50, -7.00], [138.50, -8.50], [140.00, -9.50], [141.00, -10.00], [140.50, -11.00], [138.00, -11.50], [135.00, -10.50], [131.50, -11.00], [128.50, -10.50], [126.00, -9.00]]],\n    [[[120.50, -9.50], [122.00, -8.50], [123.00, -10.00], [122.50, -11.50], [120.50, -11.00], [120.50, -9.50]]]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 1094,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-haiku-4-5-20251001",
+  "message_id": "msg_011CgtcBhXwgo5PLdt22QZU9",
+  "started_at": "2026-11-10T04:21:34.776+00:00",
+  "first_token_ms": 417,
+  "first_text_ms": 418,
+  "duration_ms": 9996,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    1.0,
+    5.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.005712,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:21:44+00:00"
+}

@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the contiguous United States (the lower 48 states) as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-5",
+  "model_display_name": "Claude Sonnet 5",
+  "model_created_at": "2026-06-29T00:00:00+00:00",
+  "target_id": "usa",
+  "target": "the contiguous United States (the lower 48 states) as of 1 January 2024",
+  "raw": "```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[\n[-67.5,47.3],[-67.8,47.3],[-69.2,47.5],[-70.3,46.0],[-71.1,45.3],[-71.5,45.0],[-73.3,45.0],[-75.3,44.8],[-76.5,44.0],[-79.0,43.6],[-79.0,43.3],[-82.5,42.1],[-82.9,42.4],[-82.4,43.0],[-82.5,45.3],[-83.5,46.1],[-84.5,46.0],[-85.0,46.5],[-87.5,47.7],[-88.3,48.3],[-90.0,48.0],[-93.0,48.6],[-94.8,48.6],[-95.2,49.0],[-97.0,49.0],[-100.0,49.0],[-104.0,49.0],[-111.0,49.0],[-114.0,49.0],[-117.0,49.0],[-122.7,48.3],[-122.5,48.0],[-123.0,48.1],[-124.7,48.0],[-124.0,47.0],[-124.1,46.3],[-124.0,46.0],[-124.1,45.0],[-124.0,44.0],[-124.1,43.0],[-124.0,42.0],[-124.2,41.0],[-124.1,40.0],[-123.8,39.0],[-122.5,37.8],[-122.4,37.2],[-121.9,36.6],[-120.6,35.2],[-120.5,34.4],[-118.3,33.7],[-117.1,32.5],[-114.7,32.7],[-114.7,32.5],[-111.0,31.3],[-108.2,31.3],[-106.5,31.8],[-104.5,29.5],[-103.1,28.9],[-102.0,29.8],[-100.3,28.7],[-99.0,26.4],[-97.1,25.9],[-97.4,26.0],[-97.2,27.0],[-96.8,28.1],[-94.7,29.3],[-93.0,29.7],[-91.0,29.2],[-89.5,29.2],[-88.4,30.3],[-87.2,30.3],[-85.0,29.7],[-84.0,29.9],[-82.7,28.9],[-82.5,27.5],[-81.8,25.8],[-80.5,25.1],[-80.2,25.2],[-80.1,26.0],[-80.5,28.0],[-81.4,31.0],[-80.9,32.0],[-79.0,33.0],[-77.9,34.2],[-75.5,36.0],[-76.0,37.0],[-75.5,38.8],[-74.0,39.5],[-73.5,40.6],[-72.0,41.0],[-71.0,41.3],[-70.3,41.5],[-70.0,43.5],[-67.0,44.8],[-67.5,47.3]\n]]]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 356,
+    "output_tokens": 2751,
+    "output_tokens_details": {
+      "thinking_tokens": 1764
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-5",
+  "message_id": "msg_011CgtdhS1kP518H811brZCX",
+  "started_at": "2026-11-10T04:41:24.794+00:00",
+  "first_token_ms": 575,
+  "first_text_ms": 20291,
+  "duration_ms": 26849,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    2.0,
+    10.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.028222,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:41:51+00:00"
+}

@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-6",
+  "model_display_name": "Claude Sonnet 4.6",
+  "model_created_at": "2026-02-17T00:00:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "I'll draw Poland's borders as of January 1, 1938. At that time, Poland had its interwar borders (Second Polish Republic), which were quite different from today's Poland:\n\n- Poland extended further east (into what is now Ukraine, Belarus, Lithuania)\n- Poland did not have the western territories it gained after WWII (those were German)\n- Poland had access to the Baltic Sea through the \"Polish Corridor\"\n- Gdańsk (Danzig) was a Free City, not part of Poland\n- Vilnius (Wilno) was part of Poland\n- Lwów (Lviv) was part of Poland\n\nLet me trace the approximate borders:\n\n**Key border points (clockwise from northwest):**\n- Northwest: Polish Corridor on Baltic coast\n- North: Baltic Sea coast, then border with Germany (East Prussia)\n- Northeast: Lithuania border, then Soviet Union (Latvia area)\n- East: Soviet Union border (deep into what is now Belarus/Ukraine)\n- Southeast: Romania border\n- South: Czechoslovakia border\n- Southwest: Germany border\n- West: Germany border back to corridor\n\nThe Polish Corridor gave Poland a strip of Baltic coast. East Prussia was separated from Germany proper by this corridor.\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [14.12, 53.85],\n        [14.35, 54.05],\n        [14.80, 54.20],\n        [16.00, 54.40],\n        [17.50, 54.52],\n        [18.30, 54.68],\n        [18.55, 54.60],\n        [18.68, 54.42],\n        [18.30, 54.20],\n        [18.10, 53.90],\n        [18.50, 53.60],\n        [19.00, 53.50],\n        [19.60, 54.00],\n        [20.00, 54.20],\n        [20.80, 54.38],\n        [21.30, 54.35],\n        [22.00, 54.38],\n        [22.78, 54.37],\n        [23.47, 54.17],\n        [23.90, 53.90],\n        [23.95, 53.50],\n        [24.10, 53.00],\n        [24.35, 52.70],\n        [24.08, 52.30],\n        [23.92, 52.00],\n        [23.73, 51.60],\n        [23.60, 51.30],\n        [23.70, 50.90],\n        [24.00, 50.60],\n        [24.10, 50.20],\n        [23.70, 50.00],\n        [23.00, 50.00],\n        [22.50, 49.80],\n        [22.00, 49.60],\n        [21.40, 49.40],\n        [20.90, 49.30],\n        [20.40, 49.40],\n        [19.80, 49.20],\n        [19.30, 49.40],\n        [18.80, 49.50],\n        [18.57, 49.90],\n        [18.00, 50.00],\n        [17.60, 49.95],\n        [17.10, 50.20],\n        [16.65, 50.10],\n        [16.00, 50.45],\n        [15.60, 50.75],\n        [15.00, 51.00],\n        [14.80, 51.10],\n        [14.75, 51.50],\n        [14.60, 51.80],\n        [14.65, 52.60],\n        [14.35, 52.90],\n        [14.12, 53.40],\n        [14.12, 53.85]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 242,
+    "output_tokens": 977,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-6",
+  "message_id": "msg_011Cgtgdv6wKpbhBVow8JWfm",
+  "started_at": "2026-11-10T05:19:57.596+00:00",
+  "first_token_ms": 894,
+  "first_text_ms": 895,
+  "duration_ms": 14842,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.015381,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:20:12+00:00"
+}

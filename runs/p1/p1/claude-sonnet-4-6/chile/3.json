@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Chile as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-6",
+  "model_display_name": "Claude Sonnet 4.6",
+  "model_created_at": "2026-02-17T00:00:00+00:00",
+  "target_id": "chile",
+  "target": "Chile as of 1 January 2024",
+  "raw": "I'll draw Chile's borders from memory. Chile is a long, narrow country on the western coast of South America, running from about 17.5°S to 55.9°S (mainland), with the Andes forming its eastern border with Argentina and Bolivia, and the Pacific Ocean on the west. It also borders Peru in the north.\n\nKey points to remember:\n- Northern border with Peru around 17.5°S\n- Northern border with Bolivia (Chile has no border with Bolivia at sea level - Bolivia is landlocked partly due to War of the Pacific)\n- Eastern border with Argentina runs along the Andes\n- Southern tip around 55.9°S at Cabo de Hornos area\n- The coastline is very irregular in the south with many fjords\n- Easter Island and other islands excluded as \"overseas\" - actually Easter Island is part of Chile proper... but the rules say leave out overseas dependencies. I'll include only mainland and nearby islands like Chiloé.\n\nLet me sketch the main polygon for the mainland/connected territory, keeping points under 400.\n\nThe western coast goes from ~17.5°S down to ~55.9°S, and the country is very narrow (50-200 km wide).\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [-69.65, -17.5],\n        [-70.37, -18.35],\n        [-70.62, -19.0],\n        [-70.57, -19.5],\n        [-70.14, -20.0],\n        [-70.04, -20.5],\n        [-70.1, -21.0],\n        [-70.2, -21.5],\n        [-70.1, -22.0],\n        [-70.05, -22.5],\n        [-70.1, -23.0],\n        [-70.4, -23.5],\n        [-70.55, -24.0],\n        [-70.6, -24.5],\n        [-70.6, -25.0],\n        [-70.63, -25.5],\n        [-70.72, -26.0],\n        [-70.78, -26.5],\n        [-71.0, -27.0],\n        [-71.0, -27.5],\n        [-71.1, -28.0],\n        [-71.2, -28.5],\n        [-71.25, -29.0],\n        [-71.35, -29.5],\n        [-71.5, -30.0],\n        [-71.6, -30.5],\n        [-71.7, -31.0],\n        [-71.7, -31.5],\n        [-71.65, -32.0],\n        [-71.7, -32.5],\n        [-71.6, -33.0],\n        [-71.63, -33.5],\n        [-71.75, -34.0],\n        [-72.0, -34.5],\n        [-72.1, -35.0],\n        [-72.2, -35.5],\n        [-72.5, -36.0],\n        [-72.9, -36.5],\n        [-73.3, -37.0],\n        [-73.6, -37.5],\n        [-73.8, -38.0],\n        [-73.4, -38.5],\n        [-73.3, -39.0],\n        [-73.4, -39.5],\n        [-73.5, -40.0],\n        [-73.7, -40.5],\n        [-73.8, -41.0],\n        [-73.85, -41.5],\n        [-74.0, -42.0],\n        [-74.2, -42.5],\n        [-74.5, -43.0],\n        [-74.6, -43.5],\n        [-74.8, -44.0],\n        [-75.0, -44.5],\n        [-75.3, -45.0],\n        [-75.5, -45.5],\n        [-75.6, -46.0],\n        [-75.7, -46.5],\n        [-75.5, -47.0],\n        [-75.2, -47.5],\n        [-75.1, -48.0],\n        [-75.4, -48.5],\n        [-75.6, -49.0],\n        [-75.7, -49.5],\n        [-75.6, -50.0],\n        [-75.4, -50.5],\n        [-75.3, -51.0],\n        [-75.1, -51.5],\n        [-74.5, -52.0],\n        [-73.8, -52.5],\n        [-73.5, -52.9],\n        [-73.1, -53.3],\n        [-72.5, -53.5],\n        [-71.5, -53.6],\n        [-70.5, -53.6],\n        [-69.65, -54.0],\n        [-68.9, -54.1],\n        [-68.65, -54.5],\n        [-68.65, -55.0],\n        [-68.8, -55.5],\n        [-68.9, -55.9],\n        [-67.0, -55.9],\n        [-66.5, -55.5],\n        [-66.5, -55.0],\n        [-66.9, -54.5],\n        [-67.3, -54.0],\n        [-67.5, -53.5],\n        [-68.5, -53.1],\n        [-69.0, -52.6],\n        [-69.5, -52.1],\n        [-69.5, -51.5],\n        [-69.5, -50.5],\n        [-69.5, -50.0],\n        [-69.5, -49.5],\n        [-69.5, -49.0],\n        [-69.5, -48.5],\n        [-69.5, -48.0],\n        [-69.5, -47.5],\n        [-69.5, -47.0],\n        [-69.5, -46.5],\n        [-69.5, -46.0],\n        [-69.5, -45.5],\n        [-69.5, -45.0],\n        [-69.5, -44.5],\n        [-69.5, -44.0],\n        [-69.5, -43.5],\n        [-69.5, -43.0],\n        [-69.5, -42.5],\n        [-71.8, -42.0],\n        [-72.2, -41.5],\n        [-72.1, -41.0],\n        [-71.9, -40.5],\n        [-71.5, -40.0],\n        [-71.3, -39.5],\n        [-71.0, -39.0],\n        [-70.9, -38.5],\n        [-70.9, -38.0],\n        [-71.0, -37.5],\n        [-71.0, -37.0],\n        [-70.9, -36.5],\n        [-70.8, -36.0],\n        [-70.6, -35.5],\n        [-70.4, -35.0],\n        [-70.2, -34.5],\n        [-70.0, -34.0],\n        [-69.9, -33.5],\n        [-70.0, -33.0],\n        [-70.1, -32.5],\n        [-70.1, -32.0],\n        [-70.1, -31.5],\n        [-70.0, -31.0],\n        [-69.95, -30.5],\n        [-69.85, -30.0],\n        [-69.8, -29.5],\n        [-69.0, -29.0],\n        [-68.9, -28.5],\n        [-68.6, -28.0],\n        [-68.4, -27.5],\n        [-68.2, -27.0],\n        [-68.1, -26.5],\n        [-67.9, -26.0],\n        [-67.7, -25.5],\n        [-67.5, -25.0],\n        [-67.5, -24.5],\n        [-67.3, -24.0],\n        [-67.2, -23.5],\n        [-67.1, -23.0],\n        [-67.1, -22.5],\n        [-67.4, -22.0],\n        [-67.6, -21.5],\n        [-67.9, -21.0],\n        [-68.2, -20.5],\n        [-68.5, -20.0],\n        [-68.7, -19.5],\n        [-68.9, -19.0],\n        [-69.1, -18.5],\n        [-69.3, -18.0],\n        [-69.65, -17.5]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 242,
+    "output_tokens": 2209,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-6",
+  "message_id": "msg_011Cgtcb37ZCQFsTWiXRcTam",
+  "started_at": "2026-11-10T04:26:51.341+00:00",
+  "first_token_ms": 2089,
+  "first_text_ms": 2089,
+  "duration_ms": 26988,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.033861,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:27:18+00:00"
+}

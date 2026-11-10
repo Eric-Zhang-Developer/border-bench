@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-haiku-4-5-20251001",
+  "model_display_name": "Claude Haiku 4.5",
+  "model_created_at": "2025-10-15T00:00:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "I'll draw Poland's borders as of January 1, 1938 from memory.\n\nLet me recall the key facts:\n- Poland in 1938 was in its interwar borders (post-1921 peace treaties, pre-WWII)\n- Western border: roughly the Oder-Neisse line area, with Silesia to the east\n- Eastern border: with the Soviet Union (roughly the Curzon Line)\n- Northern border: Baltic Sea coast and border with East Prussia\n- Southern border: Carpathian Mountains region, border with Czechoslovakia\n- Poland is mostly mainland with some Baltic islands\n\nKey geographic points I recall:\n- Baltic coastline in the north\n- Gdańsk/Danzig area in the north\n- Extends into Silesia in the southwest\n- Eastern border roughly follows the Bug River and extends into present-day Ukraine/Belarus\n- Southern border with Czechoslovakia\n- Western border roughly follows Oder River\n\nLet me construct this polygon, starting from the northwest and going clockwise:\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [14.12, 54.85],\n        [14.37, 54.68],\n        [14.75, 54.63],\n        [15.15, 54.55],\n        [15.75, 54.72],\n        [16.15, 54.65],\n        [17.52, 54.55],\n        [18.45, 54.58],\n        [19.65, 54.38],\n        [20.85, 54.42],\n        [21.78, 54.28],\n        [22.78, 54.35],\n        [23.98, 54.42],\n        [24.15, 54.12],\n        [23.75, 53.75],\n        [24.05, 53.35],\n        [24.38, 52.98],\n        [24.68, 52.45],\n        [24.92, 51.98],\n        [25.58, 51.52],\n        [26.15, 51.18],\n        [27.42, 50.95],\n        [28.15, 50.65],\n        [28.78, 50.25],\n        [29.25, 49.85],\n        [29.68, 49.45],\n        [30.05, 49.08],\n        [29.95, 48.78],\n        [29.55, 48.58],\n        [28.85, 48.72],\n        [28.35, 48.52],\n        [27.75, 48.65],\n        [27.18, 48.42],\n        [26.45, 48.35],\n        [25.75, 48.55],\n        [25.15, 48.75],\n        [24.65, 48.92],\n        [24.05, 49.12],\n        [23.45, 49.35],\n        [22.85, 49.52],\n        [22.25, 49.68],\n        [21.75, 49.82],\n        [21.18, 49.95],\n        [20.65, 50.08],\n        [19.95, 50.25],\n        [19.35, 50.42],\n        [18.75, 50.55],\n        [18.15, 50.68],\n        [17.45, 50.88],\n        [16.78, 51.08],\n        [16.15, 51.28],\n        [15.48, 51.52],\n        [14.85, 51.78],\n        [14.25, 52.05],\n        [13.65, 52.35],\n        [13.15, 52.68],\n        [12.85, 53.08],\n        [13.25, 53.45],\n        [13.75, 53.75],\n        [14.12, 54.85]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 993,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-haiku-4-5-20251001",
+  "message_id": "msg_011Cgtfya3crNz3MMvpB3X4H",
+  "started_at": "2026-11-10T05:11:17.454+00:00",
+  "first_token_ms": 446,
+  "first_text_ms": 446,
+  "duration_ms": 8810,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    1.0,
+    5.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.005207,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:11:26+00:00"
+}

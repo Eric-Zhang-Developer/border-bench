@@ -1,0 +1,48 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the contiguous United States (the lower 48 states) as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-4-7",
+  "model_display_name": "Claude Opus 4.7",
+  "model_created_at": "2026-04-14T00:00:00+00:00",
+  "target_id": "usa",
+  "target": "the contiguous United States (the lower 48 states) as of 1 January 2024",
+  "raw": "```geojson\n{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-124.73,48.38],[-123.12,48.17],[-122.76,48.99],[-95.16,48.99],[-95.16,49.38],[-94.82,49.38],[-88.37,48.30],[-84.87,46.90],[-84.12,46.52],[-82.69,45.35],[-82.14,43.00],[-82.42,42.97],[-83.12,41.95],[-83.45,41.73],[-78.92,42.86],[-78.87,43.27],[-76.46,43.52],[-74.70,45.00],[-71.50,45.01],[-71.08,45.31],[-69.24,47.46],[-68.00,47.24],[-67.79,45.70],[-67.14,45.14],[-67.00,44.70],[-69.06,43.98],[-70.65,43.10],[-70.82,42.87],[-70.02,41.80],[-70.94,41.54],[-71.86,41.32],[-72.90,41.25],[-73.65,40.98],[-74.25,40.47],[-74.00,39.46],[-75.05,38.78],[-75.19,38.03],[-76.00,37.22],[-75.94,36.90],[-76.42,34.58],[-77.95,33.90],[-78.92,33.66],[-80.03,32.52],[-81.13,31.39],[-81.50,30.72],[-80.03,26.80],[-80.12,25.80],[-80.87,25.17],[-81.80,25.80],[-82.87,27.90],[-82.68,29.15],[-84.00,30.10],[-85.00,29.70],[-87.50,30.25],[-88.90,30.40],[-89.25,30.35],[-89.80,29.90],[-89.20,29.00],[-90.90,29.15],[-92.04,29.58],[-93.80,29.70],[-95.60,28.80],[-97.14,27.83],[-97.37,26.20],[-97.14,25.87],[-99.10,26.42],[-99.52,27.54],[-100.40,28.68],[-102.30,29.88],[-103.16,28.97],[-104.38,29.57],[-104.72,30.25],[-106.50,31.75],[-108.21,31.78],[-108.21,31.33],[-111.05,31.33],[-114.82,32.49],[-117.13,32.53],[-120.00,34.00],[-121.00,35.50],[-122.42,37.20],[-122.95,38.30],[-123.72,39.00],[-124.40,40.44],[-124.14,41.72],[-123.78,45.00],[-124.07,46.86],[-124.73,48.38]]],[[[-122.74,48.13],[-122.26,48.28],[-122.49,48.72],[-123.00,48.50],[-122.74,48.13]]],[[[-90.50,46.60],[-89.50,47.30],[-88.00,47.40],[-87.70,47.95],[-88.65,48.20],[-89.95,47.95],[-90.50,46.60]]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 361,
+    "output_tokens": 1045,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-4-7",
+  "message_id": "msg_011CgtdL6192fGFuhPLjC9QR",
+  "started_at": "2026-11-10T04:36:35.342+00:00",
+  "first_token_ms": 783,
+  "first_text_ms": 783,
+  "duration_ms": 18968,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    5.0,
+    25.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.02793,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:36:54+00:00"
+}

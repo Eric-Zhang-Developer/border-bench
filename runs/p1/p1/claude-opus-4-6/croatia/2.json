@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Croatia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-4-6",
+  "model_display_name": "Claude Opus 4.6",
+  "model_created_at": "2026-02-04T00:00:00+00:00",
+  "target_id": "croatia",
+  "target": "Croatia as of 1 January 2024",
+  "raw": "\n\nI'll draw Croatia's territory from memory. Croatia has a distinctive crescent/boomerang shape with:\n\n1. The mainland including the Istrian peninsula in the northwest\n2. A long coastline along the Adriatic Sea running southeast\n3. The eastern Slavonia/Pannonian region extending east\n4. The narrow Neum corridor where Bosnia-Herzegovina reaches the sea, splitting Croatia's coast\n5. The Dubrovnik exclave south of Neum\n6. Several major islands (Krk, Cres, Brač, Hvar, Korčula, etc.)\n\nLet me trace these carefully:\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [\n[[[15.97, 45.78], [16.32, 46.38], [16.52, 46.50], [16.43, 46.65], [16.60, 46.71], [16.72, 46.62], [16.86, 46.34], [17.28, 46.08], [17.65, 45.85], [18.00, 45.78], [18.42, 45.77], [18.56, 45.82], [18.90, 45.93], [19.01, 45.86], [19.05, 45.52], [19.15, 45.42], [19.40, 45.22], [19.08, 45.08], [18.93, 45.08], [18.65, 45.08], [18.52, 45.10], [18.24, 45.13], [17.95, 45.15], [17.62, 45.12], [17.28, 45.18], [16.93, 45.23], [16.52, 45.22], [16.30, 45.00], [16.03, 45.01], [15.79, 44.97], [15.76, 45.17], [15.67, 45.20], [15.45, 44.97], [15.30, 44.95], [15.26, 44.70], [15.42, 44.53], [15.35, 44.32], [15.16, 44.20], [14.98, 44.10], [14.86, 44.18], [14.83, 44.30], [14.78, 44.47], [14.90, 44.62], [14.82, 44.77], [14.70, 44.95], [14.58, 45.08], [14.52, 45.22], [14.42, 45.28], [14.32, 45.34], [14.20, 45.15], [14.12, 45.07], [13.97, 44.82], [13.86, 44.85], [13.72, 44.97], [13.63, 45.08], [13.50, 45.15], [13.60, 45.47], [13.72, 45.60], [14.08, 45.47], [14.25, 45.50], [14.57, 45.63], [14.92, 45.52], [15.28, 45.45], [15.40, 45.58], [15.65, 45.60], [15.70, 45.72], [15.97, 45.78]]],\n[[[17.05, 43.55], [17.25, 43.00], [17.58, 42.95], [17.62, 42.75], [17.95, 42.70], [18.05, 42.65], [18.44, 42.56], [18.53, 42.42], [18.46, 42.48], [18.09, 42.58], [17.62, 42.88], [17.25, 42.98], [16.90, 43.15], [16.70, 43.30], [16.50, 43.50], [16.35, 43.52], [16.20, 43.45], [16.00, 43.50], [15.90, 43.60], [15.65, 43.70], [15.58, 43.80], [15.30, 43.95], [15.20, 44.00], [15.58, 43.85], [15.95, 43.67], [16.10, 43.58], [16.32, 43.55], [16.52, 43.53], [17.05, 43.55]]],\n[[[14.77, 44.78], [14.88, 44.82], [14.98, 44.72], [14.90, 44.62], [14.77, 44.78]]],\n[[[14.40, 44.95], [14.52, 45.00], [14.62, 44.90], [14.48, 44.85], [14.40, 44.95]]],\n[[[16.22, 43.40], [16.55, 43.18], [16.72, 43.02], [16.42, 43.05], [16.18, 43.18], [16.22, 43.40]]],\n[[[16.38, 43.00], [16.65, 42.95], [16.78, 42.82], [16.45, 42.88], [16.38, 43.00]]]\n]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 242,
+    "output_tokens": 1354,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-4-6",
+  "message_id": "msg_011CgtczGcZ7H1md2t9tKe9V",
+  "started_at": "2026-11-10T04:32:06.526+00:00",
+  "first_token_ms": 1987,
+  "first_text_ms": 1988,
+  "duration_ms": 20907,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    5.0,
+    25.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.03506,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:32:27+00:00"
+}
