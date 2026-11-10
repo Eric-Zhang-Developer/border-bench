@@ -27,3 +27,13 @@
   three-line change before any real score exists.
 - **#1 and #5** decide visible things (a tile's filled area, the "drew the modern country" tag). Both are shown on
   the synthetic contact sheets in the scorer pull request.
+
+## What the first real answers showed (2026-11-10, Claude Sonnet 4.5's archive)
+- **#7:** no archived answer is cut off, but 8 of the 99 are broken by a bracket slip or by typographic minus signs,
+  and the rule as written scores each on its last complete piece only (one Australia drawing would be scored as
+  Tasmania alone). None of the 8 is on a target that can be scored yet. Open as issue #27.
+- **#1:** on the 36 drawings scored so far the even-odd rule and the non-zero rule agree to within a point on 32.
+  The largest gap is one USA drawing of 2,603 points that goes round the country several times: 36.6 as scored,
+  80.2 under non-zero (measured in a one-off experiment, not by code in the repo). Open as issue #28.
+- **#8:** on the three drawings that are valid shapes and were checked, the grid agrees with exact polygon geometry
+  to 0.01 of a point (93.73 against 93.74, 94.53 against 94.53, 37.14 against 37.15).
