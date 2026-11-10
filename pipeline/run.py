@@ -18,17 +18,22 @@ import json
 import os
 import re
 import sys
+import time
 import tomllib
 from datetime import datetime, timezone
 from pathlib import Path
+
+import anthropic
 
 ROOT = Path(__file__).resolve().parent.parent
 RUNS = ROOT / "runs"
 MAX_TOKENS = 64000
 CAP_USD = 60.0
+MAX_ATTEMPTS = 6  # one try and up to five retries, for transport errors and rate limits only
+PRICE_TABLE_DATE = "2026-11-09"  # the day PRICES below was read from the pricing page; saved in every run file
 
 # Dollars per million tokens (input, output). Source: https://platform.claude.com/docs/en/about-claude/pricing
-# read on 2026-11-09. Keys are model ids without a date suffix.
+# read on PRICE_TABLE_DATE. Keys are model ids without a date suffix.
 # ponytail: Haiku 5.5 costs 5x more for prompts over 100,000 tokens; ours are a few hundred, so one row is enough.
 PRICES = {
     "claude-fable-5-2": (8.0, 40.0),
@@ -105,27 +110,62 @@ def list_models(client) -> list[dict]:
     return sorted(models, key=lambda m: (m["created_at"] is None, m["created_at"] or "", m["id"]))
 
 
-def call(client, model: str, prompt: str) -> dict:
-    """One streamed request with no optional parameter. Returns what gets saved: answer, stop reason, usage."""
-    with client.messages.stream(
-        model=model, max_tokens=MAX_TOKENS, messages=[{"role": "user", "content": prompt}]
-    ) as stream:
-        msg = stream.get_final_message()
+def retryable(error: Exception) -> bool:
+    """Transport errors, timeouts, rate limits and server errors. A rejected request (400, 401, 404...) is not."""
+    if isinstance(error, anthropic.APIConnectionError):
+        return True
+    return isinstance(error, anthropic.APIStatusError) and (error.status_code in (408, 409, 429) or error.status_code >= 500)
+
+
+def call(client, model: str, prompt: str, sleep=time.sleep) -> dict:
+    """One streamed request with no optional parameter. Returns what gets saved: answer, stop reason, usage, timing.
+
+    Timings are milliseconds from sending the request, for the attempt that succeeded. `attempts` counts every try,
+    so a retried call is visible. The client is built with the SDK's own retries off, or they would be invisible.
+    """
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        started_at, t0 = datetime.now(timezone.utc), time.monotonic()
+        first_token_ms = first_text_ms = None
+        try:
+            with client.messages.stream(
+                model=model, max_tokens=MAX_TOKENS, messages=[{"role": "user", "content": prompt}]
+            ) as stream:
+                for event in stream:
+                    if event.type not in ("content_block_start", "content_block_delta"):
+                        continue
+                    now_ms = round((time.monotonic() - t0) * 1000)
+                    if first_token_ms is None:
+                        first_token_ms = now_ms  # the first content of any kind, thinking included
+                    if first_text_ms is None and event.type == "content_block_delta" and event.delta.type == "text_delta":
+                        first_text_ms = now_ms  # the first visible text
+                msg = stream.get_final_message()
+            duration_ms = round((time.monotonic() - t0) * 1000)
+            break
+        except Exception as error:
+            if not retryable(error) or attempt == MAX_ATTEMPTS:
+                raise
+            print(f"retrying {model} after {type(error).__name__} (attempt {attempt} of {MAX_ATTEMPTS})")
+            sleep(min(60, 2 ** attempt))
     details = msg.stop_details.model_dump(mode="json") if msg.stop_details else None
     return {
         "raw": "".join(b.text for b in msg.content if b.type == "text"),
         "content_types": [b.type for b in msg.content],  # shows whether the model thought before answering
         "stop_reason": msg.stop_reason,
         "stop_details": details,
-        "usage": msg.usage.model_dump(mode="json"),
+        "usage": msg.usage.model_dump(mode="json"),  # verbatim: every field the SDK returned
         "response_model": msg.model,
         "message_id": msg.id,
+        "started_at": started_at.isoformat(timespec="milliseconds"),
+        "first_token_ms": first_token_ms,
+        "first_text_ms": first_text_ms,
+        "duration_ms": duration_ms,
+        "attempts": attempt,
     }
 
 
 def run(client, *, prompt_file: Path, prompt_id: str, set_name: str, targets: list[dict], models: list[dict],
         samples: int, cap: float = CAP_USD, runs: Path = RUNS, dry_run: bool = False,
-        est_output_tokens: int = 8000) -> dict:
+        est_output_tokens: int = 8000, sleep=time.sleep) -> dict:
     """Make every missing call, in model release order. Returns counts and dollars for the summary line."""
     total = spent(runs)
     made = skipped = 0
@@ -148,7 +188,7 @@ def run(client, *, prompt_file: Path, prompt_id: str, set_name: str, targets: li
             stopped = (f"cap: ${total:.2f} spent, and one more {model['id']} call could cost "
                        f"${worst_case(model['id'], prompt):.2f}, which would pass ${cap:.2f}")
             break
-        answer = call(client, model["id"], prompt)
+        answer = call(client, model["id"], prompt, sleep=sleep)
         record = {
             "prompt_id": prompt_id,
             "prompt": prompt,
@@ -159,7 +199,9 @@ def run(client, *, prompt_file: Path, prompt_id: str, set_name: str, targets: li
             **answer,
             "price_usd_per_mtok": list(price(model["id"])),
             "price_known": re.sub(r"-\d{8}$", "", model["id"]) in PRICES,
+            "price_table_date": PRICE_TABLE_DATE,
             "cost_usd": round(cost(model["id"], answer["usage"]), 6),
+            "sdk_version": anthropic.__version__,
             "requested_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         }
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -168,7 +210,8 @@ def run(client, *, prompt_file: Path, prompt_id: str, set_name: str, targets: li
         total += record["cost_usd"]
         made += 1
         print(f"saved  {path.relative_to(runs.parent)}  stop={answer['stop_reason']}  "
-              f"out={answer['usage'].get('output_tokens')}  ${record['cost_usd']:.4f}  total ${total:.2f}")
+              f"out={answer['usage'].get('output_tokens')}  {answer['duration_ms'] / 1000:.0f}s  "
+              f"${record['cost_usd']:.4f}  total ${total:.2f}", flush=True)
     return {"made": made, "skipped": skipped, "total": total, "estimate": estimate, "ceiling": ceiling,
             "stopped": stopped}
 
@@ -198,9 +241,8 @@ def main(argv=None) -> int:
     args = ap.parse_args(argv)
 
     def client():
-        import anthropic
         load_env(ROOT / ".env")
-        return anthropic.Anthropic(max_retries=5)  # the SDK retries connection errors, 408, 409, 429 and 5xx only
+        return anthropic.Anthropic(max_retries=0)  # call() retries itself, so every attempt is counted
 
     if args.list_models:
         for m in list_models(client()):

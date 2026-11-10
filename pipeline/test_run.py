@@ -4,6 +4,9 @@ import json
 from datetime import datetime, timezone
 from types import SimpleNamespace
 
+import anthropic
+import httpx2
+import pytest
 from anthropic.types import Message
 
 from pipeline import run
@@ -38,8 +41,37 @@ class FakeClient:
     def __exit__(self, *exc):
         return False
 
+    def __iter__(self):
+        """The stream's events: a thinking block first, then visible text if the canned message has any."""
+        def delta(kind):
+            return SimpleNamespace(type="content_block_delta", delta=SimpleNamespace(type=kind))
+        yield SimpleNamespace(type="message_start")
+        yield SimpleNamespace(type="content_block_start")
+        yield delta("thinking_delta")
+        if self.msg.content:
+            yield delta("text_delta")
+        yield SimpleNamespace(type="message_stop")
+
     def get_final_message(self):
         return self.msg
+
+
+class FlakyClient(FakeClient):
+    """Fails with `error` on the first request, then answers."""
+
+    def __init__(self, error):
+        super().__init__()
+        self.error = error
+
+    def stream(self, **kwargs):
+        self.requests.append(kwargs)
+        if len(self.requests) == 1:
+            raise self.error
+        return self
+
+
+def saved_run(tmp_path):
+    return json.loads((tmp_path / "runs/pilot/pilot-c" / HAIKU["id"] / "usa/1.json").read_text())
 
 
 def go(tmp_path, client, **kw):
@@ -125,3 +157,35 @@ def test_targets_load_from_a_target_file_or_a_list_file(tmp_path):
     one.write_text('id = "usa"\nname = "A as of 1 January 2024"\ndate = "2024-01-01"\n')
     many.write_text('[[target]]\nid = "b"\nname = "B"\n\n[[target]]\nid = "c"\nname = "C"\n')
     assert [t["id"] for t in run.load_targets([one, many])] == ["usa", "b", "c"]
+
+
+def test_every_run_file_records_timing_full_usage_and_what_it_was_priced_with(tmp_path):
+    client = FakeClient()
+    go(tmp_path, client)
+    saved = saved_run(tmp_path)
+    assert datetime.fromisoformat(saved["started_at"]).tzinfo is not None
+    assert 0 <= saved["first_token_ms"] <= saved["first_text_ms"] <= saved["duration_ms"]
+    assert saved["attempts"] == 1
+    assert saved["usage"] == client.msg.usage.model_dump(mode="json")  # every field the SDK returned, not a subset
+    assert saved["sdk_version"] == anthropic.__version__ and saved["price_table_date"] == run.PRICE_TABLE_DATE
+
+
+def test_an_answer_with_no_visible_text_has_no_first_text_time(tmp_path):
+    go(tmp_path, FakeClient(message(text="", stop_reason="refusal", output_tokens=0)))
+    saved = saved_run(tmp_path)
+    assert saved["first_text_ms"] is None and 0 <= saved["first_token_ms"] <= saved["duration_ms"]
+
+
+def test_a_dropped_connection_is_retried_and_the_retry_is_visible(tmp_path):
+    request = httpx2.Request("POST", "https://api.anthropic.com/v1/messages")
+    client = FlakyClient(anthropic.APIConnectionError(request=request))
+    go(tmp_path, client, sleep=lambda seconds: None)
+    assert len(client.requests) == 2 and saved_run(tmp_path)["attempts"] == 2
+
+
+def test_a_rejected_request_is_not_retried(tmp_path):
+    response = httpx2.Response(400, request=httpx2.Request("POST", "https://api.anthropic.com/v1/messages"))
+    client = FlakyClient(anthropic.BadRequestError("bad request", response=response, body=None))
+    with pytest.raises(anthropic.BadRequestError):
+        go(tmp_path, client, sleep=lambda seconds: None)
+    assert len(client.requests) == 1 and not (tmp_path / "runs").exists()
