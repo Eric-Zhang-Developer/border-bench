@@ -1,0 +1,48 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Indonesia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-4-7",
+  "model_display_name": "Claude Opus 4.7",
+  "model_created_at": "2026-04-14T00:00:00+00:00",
+  "target_id": "indonesia",
+  "target": "Indonesia as of 1 January 2024",
+  "raw": "```geojson\n{\"type\":\"MultiPolygon\",\"coordinates\":[\n[[[95.3,5.6],[97.7,5.2],[98.6,4.1],[99.7,3.2],[100.6,2.1],[102.5,0.8],[103.5,0.1],[104.5,-1.0],[105.8,-2.3],[105.9,-4.0],[104.5,-5.5],[102.3,-5.3],[100.3,-3.0],[99.0,-1.7],[97.5,-0.4],[96.5,1.2],[95.3,5.6]]],\n[[[105.2,-6.1],[108.0,-6.9],[110.5,-7.0],[112.7,-6.9],[114.4,-7.8],[114.6,-8.6],[113.5,-8.4],[111.0,-8.2],[108.7,-7.7],[106.5,-7.4],[105.2,-7.7],[105.2,-6.1]]],\n[[[114.6,-8.2],[115.7,-8.4],[115.7,-8.8],[114.5,-8.9],[114.6,-8.2]]],\n[[[116.0,-8.4],[117.0,-8.7],[118.7,-8.3],[119.0,-8.8],[118.0,-9.0],[116.8,-9.1],[116.0,-8.9],[116.0,-8.4]]],\n[[[119.4,-8.8],[120.8,-8.7],[122.0,-8.5],[122.9,-8.8],[121.5,-9.0],[119.9,-9.2],[119.4,-8.8]]],\n[[[123.0,-8.3],[125.1,-8.2],[125.1,-9.0],[124.0,-9.1],[123.6,-10.1],[123.0,-9.3],[123.0,-8.3]]],\n[[[109.0,2.0],[110.0,1.0],[111.0,0.9],[113.0,1.2],[114.8,1.5],[115.5,2.5],[117.0,3.6],[117.6,4.2],[117.9,3.5],[118.9,4.1],[119.3,3.4],[118.0,2.0],[117.5,0.0],[118.9,-1.0],[117.5,-2.0],[116.5,-3.5],[116.0,-4.1],[114.5,-4.1],[113.0,-3.5],[112.0,-3.5],[110.5,-3.0],[110.0,-2.0],[109.0,-1.0],[108.8,0.5],[109.0,2.0]]],\n[[[120.0,1.5],[121.5,1.4],[123.0,1.0],[125.2,1.6],[125.2,0.4],[123.5,0.0],[122.0,0.0],[121.5,-0.8],[123.0,-0.8],[124.0,-1.8],[124.3,-3.2],[123.2,-4.3],[122.0,-5.5],[120.5,-5.6],[120.4,-4.2],[121.0,-3.0],[120.0,-2.6],[119.0,-3.5],[119.5,-5.4],[118.9,-5.6],[118.8,-4.0],[119.5,-2.0],[119.0,-0.5],[120.0,1.5]]],\n[[[127.3,1.0],[128.5,1.0],[128.7,0.3],[128.3,-0.5],[127.5,-0.3],[127.7,0.5],[127.3,1.0]]],\n[[[131.0,-0.8],[132.5,-0.3],[134.0,-0.8],[135.5,-1.5],[137.0,-1.7],[138.7,-1.8],[140.0,-2.6],[141.0,-2.6],[141.0,-9.1],[140.0,-8.3],[139.0,-8.1],[137.8,-8.4],[135.5,-4.5],[134.0,-3.8],[133.5,-4.5],[132.5,-4.1],[131.5,-3.2],[130.0,-3.8],[131.2,-2.2],[131.0,-0.8]]]\n]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 350,
+    "output_tokens": 1367,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-4-7",
+  "message_id": "msg_011CgtdHoY8XicbHcdTPeZax",
+  "started_at": "2026-11-10T04:36:04.311+00:00",
+  "first_token_ms": 734,
+  "first_text_ms": 735,
+  "duration_ms": 21080,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    5.0,
+    25.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.035925,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:36:25+00:00"
+}

@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Croatia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-6",
+  "model_display_name": "Claude Sonnet 4.6",
+  "model_created_at": "2026-02-17T00:00:00+00:00",
+  "target_id": "croatia",
+  "target": "Croatia as of 1 January 2024",
+  "raw": "I'll draw Croatia's borders from memory. Croatia has a distinctive crescent shape along the Adriatic coast, with Bosnia and Herzegovina creating a corridor to the sea at Neum. Croatia also has many islands along its coast.\n\nKey geographical features:\n- Northeast border with Slovenia, Hungary\n- East border with Serbia\n- Southeast border with Bosnia and Herzegovina and Montenegro\n- The famous \"hook\" shape\n- Istrian peninsula in the northwest\n- Dalmatian coast with many islands\n- Bosnia has the Neum corridor cutting Croatia's coastal access\n\nLet me think about coordinates:\n- Zagreb is around 15.98°E, 45.81°N\n- Dubrovnik is around 18.09°E, 42.65°N\n- The Neum corridor cuts through around 17.6°E\n- Istrian peninsula is around 13.7-14.0°E\n- Northern border with Hungary around 46.3-46.5°N\n- Eastern border with Serbia around 19°E\n\nI'll approximate the mainland and major islands.\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [13.72, 45.46],\n        [13.80, 45.52],\n        [14.00, 45.49],\n        [14.07, 45.47],\n        [14.20, 45.46],\n        [14.30, 45.46],\n        [14.50, 45.52],\n        [14.60, 45.67],\n        [14.80, 45.73],\n        [14.90, 45.78],\n        [15.10, 45.79],\n        [15.30, 45.73],\n        [15.50, 45.72],\n        [15.70, 45.83],\n        [15.80, 45.90],\n        [16.00, 45.95],\n        [16.30, 46.00],\n        [16.50, 46.08],\n        [16.60, 46.17],\n        [16.70, 46.17],\n        [16.90, 46.24],\n        [17.10, 46.17],\n        [17.30, 46.17],\n        [17.60, 46.17],\n        [17.80, 46.03],\n        [18.00, 45.93],\n        [18.10, 45.93],\n        [18.25, 45.90],\n        [18.45, 45.75],\n        [18.55, 45.80],\n        [18.65, 45.75],\n        [18.90, 45.95],\n        [19.00, 45.85],\n        [19.00, 45.65],\n        [18.85, 45.60],\n        [18.70, 45.55],\n        [18.50, 45.47],\n        [18.00, 45.15],\n        [17.80, 45.07],\n        [17.60, 44.97],\n        [17.40, 44.87],\n        [17.20, 44.80],\n        [17.00, 44.72],\n        [16.80, 44.68],\n        [16.60, 44.60],\n        [16.50, 44.50],\n        [16.30, 44.37],\n        [16.20, 44.22],\n        [16.00, 43.93],\n        [15.90, 43.70],\n        [15.80, 43.55],\n        [15.80, 43.42],\n        [15.90, 43.37],\n        [16.10, 43.17],\n        [16.30, 43.07],\n        [16.50, 43.00],\n        [16.70, 43.02],\n        [16.90, 43.07],\n        [17.10, 43.17],\n        [17.30, 43.13],\n        [17.47, 43.00],\n        [17.60, 42.90],\n        [17.65, 42.78],\n        [17.55, 42.60],\n        [17.60, 42.60],\n        [17.70, 42.50],\n        [17.60, 42.45],\n        [17.55, 42.52],\n        [17.45, 42.60],\n        [17.30, 42.60],\n        [17.15, 42.60],\n        [17.00, 42.65],\n        [16.80, 42.90],\n        [16.70, 42.97],\n        [16.50, 43.00],\n        [16.30, 43.03],\n        [16.20, 43.05],\n        [16.00, 43.10],\n        [15.75, 43.37],\n        [15.60, 43.50],\n        [15.50, 43.60],\n        [15.30, 43.72],\n        [15.10, 43.90],\n        [15.00, 44.07],\n        [14.90, 44.17],\n        [14.75, 44.30],\n        [14.60, 44.40],\n        [14.40, 44.50],\n        [14.30, 44.70],\n        [14.20, 44.80],\n        [14.10, 44.95],\n        [13.90, 45.07],\n        [13.80, 45.17],\n        [13.70, 45.27],\n        [13.62, 45.34],\n        [13.60, 45.40],\n        [13.72, 45.46]\n      ]\n    ],\n    [\n      [\n        [14.40, 44.63],\n        [14.50, 44.57],\n        [14.65, 44.55],\n        [14.80, 44.57],\n        [14.90, 44.63],\n        [14.90, 44.72],\n        [14.75, 44.80],\n        [14.60, 44.80],\n        [14.45, 44.75],\n        [14.40, 44.63]\n      ]\n    ],\n    [\n      [\n        [16.15, 43.52],\n        [16.25, 43.47],\n        [16.45, 43.47],\n        [16.55, 43.52],\n        [16.50, 43.60],\n        [16.35, 43.65],\n        [16.20, 43.60],\n        [16.15, 43.52]\n      ]\n    ],\n    [\n      [\n        [15.55, 43.70],\n        [15.65, 43.65],\n        [15.80, 43.65],\n        [15.90, 43.72],\n        [15.85, 43.80],\n        [15.70, 43.83],\n        [15.57, 43.78],\n        [15.55, 43.70]\n      ]\n    ],\n    [\n      [\n        [14.85, 44.90],\n        [14.95, 44.85],\n        [15.10, 44.87],\n        [15.17, 44.95],\n        [15.07, 45.03],\n        [14.90, 45.00],\n        [14.85, 44.90]\n      ]\n    ],\n    [\n      [\n        [17.05, 42.73],\n        [17.15, 42.68],\n        [17.30, 42.70],\n        [17.35, 42.78],\n        [17.25, 42.85],\n        [17.10, 42.83],\n        [17.05, 42.73]\n      ]\n    ],\n    [\n      [\n        [16.80, 43.07],\n        [16.95, 43.02],\n        [17.07, 43.05],\n        [17.10, 43.17],\n        [16.97, 43.22],\n        [16.82, 43.17],\n        [16.80, 43.07]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 242,
+    "output_tokens": 2081,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-6",
+  "message_id": "msg_011CgtcXyCqKbTYf2N6Vh1AD",
+  "started_at": "2026-11-10T04:26:09.746+00:00",
+  "first_token_ms": 839,
+  "first_text_ms": 839,
+  "duration_ms": 24005,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.031941,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:26:33+00:00"
+}

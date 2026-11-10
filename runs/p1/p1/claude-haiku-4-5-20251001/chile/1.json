@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Chile as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-haiku-4-5-20251001",
+  "model_display_name": "Claude Haiku 4.5",
+  "model_created_at": "2025-10-15T00:00:00+00:00",
+  "target_id": "chile",
+  "target": "Chile as of 1 January 2024",
+  "raw": "I'll draw Chile's land borders and coastline from memory. Let me think through the key features:\n\n1. **Mainland Chile**: Very long and narrow country running north-south along the western edge of South America\n   - Northern border with Peru (around -17° latitude)\n   - Eastern border with Bolivia and Argentina (mostly along the Andes)\n   - Western coast along the Pacific Ocean\n   - Southern reaches to around -56° latitude\n\n2. **Key geographic features**:\n   - Northern region: Atacama Desert area, border with Peru\n   - Central region: Fertile valley, wider section\n   - Southern region: Increasingly narrow, archipelagic with many islands\n   - Far south: Tierra del Fuego region, Magallanic channels\n\n3. **Major islands** (excluding Antarctic territories):\n   - Easter Island (very far out, but often considered Chilean - I'll include it)\n   - Chiloé (large island off southern mainland)\n   - Various islands in the southern archipelago\n   - Juan Fernández Islands (off central coast)\n\nLet me draw the main features:\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [-69.00, -17.50],\n        [-68.50, -17.50],\n        [-68.00, -18.50],\n        [-68.50, -19.50],\n        [-69.50, -20.50],\n        [-69.50, -21.50],\n        [-69.00, -22.50],\n        [-69.50, -23.50],\n        [-71.00, -25.00],\n        [-71.50, -26.50],\n        [-71.20, -28.00],\n        [-71.50, -29.50],\n        [-71.20, -30.50],\n        [-71.50, -32.00],\n        [-71.80, -33.00],\n        [-71.50, -34.00],\n        [-71.80, -35.50],\n        [-72.00, -36.50],\n        [-71.80, -37.50],\n        [-72.30, -39.00],\n        [-72.50, -40.00],\n        [-72.30, -41.00],\n        [-72.80, -42.00],\n        [-72.50, -43.00],\n        [-72.80, -44.00],\n        [-73.00, -45.00],\n        [-73.20, -46.00],\n        [-73.50, -47.00],\n        [-73.80, -48.00],\n        [-74.00, -49.00],\n        [-74.30, -50.00],\n        [-74.50, -51.00],\n        [-74.20, -51.50],\n        [-73.50, -51.00],\n        [-72.80, -50.50],\n        [-72.00, -51.00],\n        [-71.50, -50.50],\n        [-71.00, -51.00],\n        [-70.80, -51.50],\n        [-70.50, -51.00],\n        [-69.80, -51.50],\n        [-69.50, -51.00],\n        [-69.00, -51.50],\n        [-68.50, -51.00],\n        [-68.00, -51.50],\n        [-67.50, -51.00],\n        [-67.00, -50.50],\n        [-66.50, -51.00],\n        [-66.00, -50.50],\n        [-65.50, -50.00],\n        [-65.00, -50.50],\n        [-64.50, -50.00],\n        [-64.00, -50.50],\n        [-69.50, -55.50],\n        [-70.00, -55.00],\n        [-71.00, -55.50],\n        [-72.00, -55.00],\n        [-73.00, -55.50],\n        [-74.00, -55.00],\n        [-75.00, -55.50],\n        [-76.00, -55.00],\n        [-76.50, -54.50],\n        [-75.50, -54.00],\n        [-74.50, -54.50],\n        [-73.50, -54.00],\n        [-72.50, -54.50],\n        [-71.50, -54.00],\n        [-70.50, -54.50],\n        [-69.50, -54.00],\n        [-69.00, -17.50]\n      ]\n    ],\n    [\n      [\n        [-75.50, -27.00],\n        [-75.20, -27.50],\n        [-75.80, -27.50],\n        [-75.50, -27.00]\n      ]\n    ],\n    [\n      [\n        [-73.50, -42.50],\n        [-73.00, -42.80],\n        [-72.80, -42.50],\n        [-73.20, -42.20],\n        [-73.50, -42.50]\n      ]\n    ],\n    [\n      [\n        [-110.50, -27.00],\n        [-109.50, -27.50],\n        [-109.00, -27.00],\n        [-110.50, -27.00]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 1322,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-haiku-4-5-20251001",
+  "message_id": "msg_011CgtcCmLfU4j7EmDtf6kn6",
+  "started_at": "2026-11-10T04:21:49.211+00:00",
+  "first_token_ms": 432,
+  "first_text_ms": 432,
+  "duration_ms": 11223,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    1.0,
+    5.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.006852,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:22:00+00:00"
+}

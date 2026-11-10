@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Chile as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-4-5-20251101",
+  "model_display_name": "Claude Opus 4.5",
+  "model_created_at": "2025-11-24T00:00:00+00:00",
+  "target_id": "chile",
+  "target": "Chile as of 1 January 2024",
+  "raw": "I need to draw Chile's borders and coastline from memory. Chile is a long, narrow country along the western coast of South America, stretching from about 17°S to 56°S latitude.\n\nKey features to remember:\n- Chile is extremely long (about 4,300 km) and narrow (average 177 km wide)\n- Western border is the Pacific Ocean coastline\n- Eastern border largely follows the Andes Mountains, bordering Argentina\n- Northern border with Peru and Bolivia\n- The country narrows significantly in the south\n- Southern Chile has many islands and fjords\n- Tierra del Fuego is shared with Argentina at the southern tip\n\nLet me trace the approximate borders:\n- Northern tip: around 17.5°S at the Peru border\n- The northern border goes east then south along Bolivia\n- Eastern border follows the Andes with Argentina\n- Western coastline along the Pacific\n- Southern region becomes fragmented with islands\n- Tierra del Fuego (Chilean portion) is the western part\n\nI'll create the mainland as one polygon and include major southern islands like Chiloé and the western portion of Tierra del Fuego.\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [\n  [[[\n    [-69.5, -17.5], [-70.0, -18.0], [-70.3, -18.5], [-70.3, -19.0], [-70.1, -19.5],\n    [-70.0, -20.0], [-70.1, -20.5], [-70.1, -21.0], [-70.0, -21.5], [-69.9, -22.0],\n    [-70.0, -22.5], [-70.1, -23.0], [-70.4, -23.5], [-70.5, -24.0], [-70.4, -24.5],\n    [-70.5, -25.0], [-70.6, -25.5], [-70.5, -26.0], [-70.6, -26.5], [-70.7, -27.0],\n    [-70.9, -27.5], [-71.0, -28.0], [-71.3, -28.5], [-71.5, -29.0], [-71.5, -29.5],\n    [-71.6, -30.0], [-71.6, -30.5], [-71.5, -31.0], [-71.5, -31.5], [-71.6, -32.0],\n    [-71.6, -32.5], [-71.5, -33.0], [-71.6, -33.5], [-71.8, -34.0], [-72.0, -34.5],\n    [-72.2, -35.0], [-72.4, -35.5], [-72.8, -36.0], [-73.2, -36.5], [-73.4, -37.0],\n    [-73.5, -37.5], [-73.4, -38.0], [-73.5, -38.5], [-73.4, -39.0], [-73.2, -39.5],\n    [-73.5, -40.0], [-73.7, -40.5], [-73.8, -41.0], [-73.5, -41.5], [-72.8, -42.0],\n    [-72.5, -42.5], [-72.8, -43.0], [-73.0, -43.5], [-73.5, -44.0], [-74.0, -44.5],\n    [-74.3, -45.0], [-74.5, -45.5], [-75.0, -46.0], [-75.2, -46.5], [-75.0, -47.0],\n    [-74.8, -47.5], [-74.5, -48.0], [-74.0, -48.5], [-73.5, -49.0], [-73.8, -49.5],\n    [-74.0, -50.0], [-74.5, -50.5], [-74.8, -51.0], [-75.0, -51.5], [-74.5, -52.0],\n    [-73.5, -52.5], [-72.0, -52.0], [-71.5, -51.5], [-71.0, -51.0], [-70.5, -50.5],\n    [-70.0, -50.0], [-69.5, -49.5], [-69.0, -49.0], [-68.8, -48.5], [-68.5, -48.0],\n    [-68.0, -47.5], [-67.5, -46.5], [-67.3, -46.0], [-67.0, -45.5], [-67.2, -45.0],\n    [-67.5, -44.5], [-68.0, -44.0], [-69.0, -43.5], [-70.0, -43.0], [-71.0, -42.0],\n    [-71.5, -41.0], [-71.8, -40.0], [-71.5, -39.0], [-71.2, -38.0], [-70.8, -37.0],\n    [-70.5, -36.0], [-70.3, -35.0], [-70.2, -34.0], [-70.0, -33.0], [-70.0, -32.0],\n    [-70.1, -31.0], [-70.0, -30.0], [-69.8, -29.0], [-69.5, -28.0], [-69.0, -27.0],\n    [-68.5, -26.0], [-68.3, -25.0], [-68.0, -24.0], [-67.5, -23.0], [-67.2, -22.5],\n    [-67.0, -22.0], [-67.5, -21.5], [-68.0, -21.0], [-68.5, -20.5], [-69.0, -20.0],\n    [-69.0, -19.0], [-69.0, -18.0], [-69.5, -17.5]\n  ]]],\n  [[[\n    [-74.0, -41.8], [-73.5, -42.0], [-73.2, -42.5], [-73.5, -43.0], [-74.0, -43.3],\n    [-74.5, -43.0], [-74.3, -42.5], [-74.0, -41.8]\n  ]]],\n  [[[\n    [-70.0, -53.5], [-69.5, -54.0], [-69.0, -54.5], [-69.5, -55.0], [-70.0, -55.5],\n    [-71.0, -55.0], [-71.5, -54.5], [-71.0, -54.0], [-70.5, -53.5], [-70.0, -53.5]\n  ]]]\n]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 1721,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-4-5-20251101",
+  "message_id": "msg_011CgtckncwsUJkNjyjAu85T",
+  "started_at": "2026-11-10T04:29:03.449+00:00",
+  "first_token_ms": 1186,
+  "first_text_ms": 1186,
+  "duration_ms": 20089,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    5.0,
+    25.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.044235,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:29:23+00:00"
+}

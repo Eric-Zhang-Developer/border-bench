@@ -1,0 +1,48 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Chile as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-4-8",
+  "model_display_name": "Claude Opus 4.8",
+  "model_created_at": "2026-05-28T00:00:00+00:00",
+  "target_id": "chile",
+  "target": "Chile as of 1 January 2024",
+  "raw": "I'll draw Chile from memory. Chile is a long, narrow country along the western coast of South America, stretching from around 17.5°S to 56°S (Cape Horn). The eastern border follows the Andes with Argentina, and the northern border is with Peru and Bolivia.\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[-70.40, -17.50], [-69.80, -17.65], [-69.50, -17.50], [-69.30, -17.90], [-68.95, -18.95], [-68.45, -19.45], [-68.55, -20.10], [-68.35, -20.90], [-68.20, -21.50], [-67.90, -22.30], [-67.20, -22.85], [-66.98, -23.00], [-67.00, -24.00], [-67.35, -24.50], [-68.30, -24.50], [-68.55, -25.00], [-68.40, -26.00], [-68.60, -27.00], [-69.00, -27.50], [-69.65, -28.40], [-70.00, -29.20], [-69.80, -30.00], [-70.20, -30.40], [-70.40, -31.50], [-70.00, -32.80], [-69.80, -33.30], [-70.00, -34.00], [-70.40, -35.00], [-70.70, -36.00], [-71.00, -36.40], [-71.20, -37.00], [-71.00, -38.00], [-71.30, -38.80], [-71.40, -39.60], [-71.70, -40.30], [-71.80, -41.00], [-72.00, -41.80], [-72.10, -42.50], [-72.50, -43.00], [-72.30, -43.80], [-71.80, -44.50], [-71.50, -45.00], [-71.70, -45.80], [-71.80, -46.50], [-72.00, -47.20], [-72.30, -48.00], [-72.50, -48.80], [-73.00, -49.40], [-73.20, -50.20], [-73.50, -50.80], [-73.30, -51.50], [-72.50, -51.80], [-72.00, -52.00], [-71.00, -52.00], [-70.00, -52.30], [-69.50, -52.50], [-68.40, -52.30], [-68.40, -53.00], [-69.50, -53.20], [-70.50, -53.30], [-71.50, -53.60], [-72.50, -53.50], [-73.50, -53.80], [-74.00, -53.30], [-74.50, -52.80], [-74.20, -52.00], [-74.80, -51.50], [-75.20, -51.00], [-75.00, -50.00], [-74.50, -49.00], [-74.80, -48.00], [-75.30, -47.50], [-75.00, -46.80], [-74.40, -46.00], [-74.60, -45.40], [-74.20, -44.50], [-73.90, -44.00], [-74.00, -43.50], [-73.80, -43.00], [-74.30, -42.40], [-74.00, -41.80], [-73.50, -41.50], [-73.20, -40.50], [-73.70, -39.80], [-73.50, -39.00], [-73.30, -38.30], [-73.60, -37.70], [-73.20, -37.20], [-73.10, -36.60], [-72.80, -35.90], [-72.40, -35.30], [-72.00, -34.50], [-71.80, -33.90], [-71.70, -33.00], [-71.50, -32.20], [-71.60, -31.50], [-71.30, -30.60], [-71.40, -30.00], [-71.20, -29.40], [-70.90, -28.50], [-70.80, -27.60], [-70.60, -26.80], [-70.70, -25.80], [-70.50, -25.00], [-70.60, -24.00], [-70.40, -23.50], [-70.20, -22.50], [-70.10, -21.50], [-70.20, -20.50], [-70.00, -19.80], [-70.10, -19.00], [-70.30, -18.30], [-70.40, -17.50]]], [[[-74.00, -42.40], [-73.50, -42.50], [-73.40, -43.00], [-73.80, -43.30], [-74.10, -42.80], [-74.00, -42.40]]], [[[-67.30, -55.30], [-66.50, -55.20], [-67.00, -54.90], [-68.00, -54.80], [-69.00, -54.90], [-70.00, -54.90], [-71.00, -54.70], [-70.50, -55.20], [-69.50, -55.40], [-68.50, -55.30], [-67.30, -55.30]]], [[[-68.00, -55.80], [-67.30, -55.90], [-67.20, -55.50], [-68.00, -55.50], [-68.00, -55.80]]], [[[-68.60, -52.70], [-70.00, -52.80], [-70.40, -53.20], [-71.00, -53.60], [-72.00, -53.80], [-73.00, -53.60], [-73.80, -54.00], [-73.50, -54.50], [-72.50, -54.70], [-71.50, -54.50], [-70.50, -54.40], [-69.50, -54.30], [-68.60, -54.20], [-68.60, -53.40], [-68.60, -52.70]]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 343,
+    "output_tokens": 1792,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-4-8",
+  "message_id": "msg_011CgtdWuUSSxBsMmbiRpgYd",
+  "started_at": "2026-11-10T04:39:02.136+00:00",
+  "first_token_ms": 523,
+  "first_text_ms": 523,
+  "duration_ms": 21857,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    5.0,
+    25.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.046515,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:39:23+00:00"
+}

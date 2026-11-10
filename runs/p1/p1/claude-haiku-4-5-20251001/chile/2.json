@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Chile as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-haiku-4-5-20251001",
+  "model_display_name": "Claude Haiku 4.5",
+  "model_created_at": "2025-10-15T00:00:00+00:00",
+  "target_id": "chile",
+  "target": "Chile as of 1 January 2024",
+  "raw": "I'll draw Chile's land borders and coastline from memory. Let me think through the key features:\n\n1. **Mainland Chile**: Runs along South America's western coast, extremely long and narrow\n   - Northern border with Peru (around -17° to -23° latitude)\n   - Eastern border with Bolivia and Argentina (runs roughly along the Andes)\n   - Western coastline is very irregular with many fjords in the south\n   - Southern tip near Cape Horn\n\n2. **Major features to include**:\n   - The Atacama Desert region in the north (narrow strip)\n   - Central Chile around Santiago\n   - Long southern fjords and archipelago region\n   - Chiloé Island (large island off southern coast)\n   - Easter Island (but this is overseas, so exclude)\n   - Magallanes region\n\n3. **Approximate coordinates**:\n   - Northern point: ~-17.2° lat, -69° lon (Peru border)\n   - Southern point: ~-56° lat (Cape Horn area)\n   - Longitude ranges from ~-63° to -75°\n\nLet me draw the main features:\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [-69.21, -17.28],\n        [-68.90, -17.50],\n        [-68.45, -18.21],\n        [-68.15, -19.40],\n        [-67.80, -20.25],\n        [-67.70, -21.20],\n        [-67.95, -22.10],\n        [-68.60, -22.91],\n        [-69.20, -23.64],\n        [-69.47, -24.38],\n        [-70.12, -25.10],\n        [-70.45, -25.95],\n        [-70.68, -26.52],\n        [-70.82, -27.18],\n        [-71.12, -27.85],\n        [-71.48, -28.45],\n        [-71.92, -29.21],\n        [-72.10, -30.15],\n        [-72.55, -31.20],\n        [-72.88, -32.48],\n        [-73.10, -33.50],\n        [-73.40, -34.20],\n        [-73.65, -35.12],\n        [-73.88, -36.15],\n        [-74.10, -37.10],\n        [-74.50, -38.25],\n        [-74.85, -39.20],\n        [-75.20, -40.15],\n        [-75.58, -41.50],\n        [-75.82, -42.35],\n        [-76.05, -43.20],\n        [-76.48, -44.15],\n        [-77.20, -45.40],\n        [-77.85, -46.50],\n        [-78.50, -47.45],\n        [-79.05, -48.30],\n        [-79.62, -49.20],\n        [-80.10, -50.10],\n        [-80.48, -51.20],\n        [-80.85, -52.10],\n        [-81.12, -52.85],\n        [-81.20, -53.50],\n        [-80.95, -54.10],\n        [-80.42, -54.80],\n        [-79.98, -55.20],\n        [-79.50, -55.50],\n        [-78.95, -55.70],\n        [-68.25, -55.95],\n        [-67.50, -55.80],\n        [-66.95, -55.20],\n        [-67.20, -54.50],\n        [-67.80, -53.85],\n        [-68.20, -52.95],\n        [-68.50, -51.80],\n        [-68.65, -50.40],\n        [-68.48, -49.50],\n        [-68.15, -48.60],\n        [-67.85, -47.50],\n        [-67.75, -46.30],\n        [-67.95, -45.20],\n        [-68.35, -44.10],\n        [-68.75, -42.95],\n        [-69.05, -41.80],\n        [-69.25, -40.60],\n        [-69.35, -39.30],\n        [-69.40, -38.10],\n        [-69.48, -36.95],\n        [-69.65, -35.50],\n        [-69.85, -34.20],\n        [-70.05, -32.95],\n        [-70.35, -31.50],\n        [-70.68, -30.10],\n        [-70.95, -28.50],\n        [-71.20, -26.95],\n        [-71.42, -25.30],\n        [-71.58, -23.65],\n        [-71.68, -21.95],\n        [-71.70, -20.10],\n        [-71.55, -19.25],\n        [-71.15, -18.45],\n        [-70.42, -17.95],\n        [-69.21, -17.28]\n      ]\n    ],\n    [\n      [\n        [-74.45, -42.60],\n        [-74.25, -43.10],\n        [-74.00, -43.65],\n        [-73.75, -43.95],\n        [-73.55, -43.75],\n        [-73.65, -43.25],\n        [-73.85, -42.85],\n        [-74.05, -42.55],\n        [-74.45, -42.60]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 1403,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-haiku-4-5-20251001",
+  "message_id": "msg_011CgtcDbFDz12inS9Svr1Ts",
+  "started_at": "2026-11-10T04:22:00.437+00:00",
+  "first_token_ms": 444,
+  "first_text_ms": 444,
+  "duration_ms": 12271,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    1.0,
+    5.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.007257,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:22:12+00:00"
+}

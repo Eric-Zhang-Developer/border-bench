@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Chile as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-4-5-20251101",
+  "model_display_name": "Claude Opus 4.5",
+  "model_created_at": "2025-11-24T00:00:00+00:00",
+  "target_id": "chile",
+  "target": "Chile as of 1 January 2024",
+  "raw": "I need to draw Chile from memory. Chile is a long, narrow country along the western coast of South America, stretching from about 17°S to 56°S latitude. It's bordered by Peru to the north, Bolivia to the northeast, and Argentina to the east. The Pacific Ocean is to the west.\n\nKey features to remember:\n- Chile is extremely long (about 4,300 km) and very narrow (average 177 km wide)\n- The northern border with Peru is around 17-18°S\n- The country runs along the Andes mountains on the eastern border\n- The southern region becomes very fragmented with fjords and islands\n- Major islands include Chiloé and parts of Tierra del Fuego\n- Easter Island and Juan Fernández are overseas dependencies (excluded per rules)\n\nLet me trace the mainland first, then add major islands:\n\nMainland Chile:\n- Starts at the Peru border around 18°S, 70°W\n- Runs south along the coast, with the Andes forming the eastern border with Argentina\n- The width varies but is generally narrow\n- Southern tip reaches Cape Horn area around 55-56°S\n\nI'll create a simplified polygon for the mainland and a few key islands (Chiloé, western Tierra del Fuego).\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [\n  [[[-69.5, -17.5], [-70.4, -18.35], [-70.6, -20.0], [-70.4, -21.5], [-70.1, -22.5], [-70.5, -23.5], [-70.6, -25.0], [-70.4, -26.5], [-70.6, -27.5], [-71.3, -29.0], [-71.7, -30.0], [-71.6, -31.5], [-71.5, -33.0], [-71.6, -34.0], [-72.0, -35.5], [-72.5, -37.0], [-73.2, -38.5], [-73.5, -39.5], [-73.7, -40.5], [-73.8, -41.5], [-73.5, -42.0], [-72.8, -42.5], [-72.5, -43.5], [-73.0, -44.5], [-73.8, -45.5], [-74.5, -47.0], [-75.0, -48.5], [-75.5, -50.0], [-74.8, -51.5], [-73.5, -52.0], [-71.5, -52.0], [-69.5, -52.5], [-68.7, -52.8], [-68.5, -54.0], [-69.0, -54.8], [-68.5, -54.9], [-67.5, -54.5], [-68.0, -53.5], [-68.5, -53.0], [-69.0, -52.5], [-70.0, -52.0], [-71.0, -51.5], [-72.0, -50.5], [-72.5, -49.0], [-73.0, -47.5], [-72.5, -46.0], [-72.0, -44.5], [-71.5, -43.0], [-71.8, -42.0], [-71.5, -40.5], [-71.0, -39.0], [-70.5, -37.5], [-70.0, -36.0], [-69.8, -34.5], [-70.0, -33.0], [-70.2, -31.5], [-69.8, -30.0], [-69.5, -28.5], [-68.5, -27.0], [-68.0, -25.5], [-67.5, -24.0], [-67.0, -22.5], [-67.5, -21.0], [-68.0, -20.0], [-68.5, -19.0], [-69.0, -18.0], [-69.5, -17.5]]],\n  [[[-74.0, -41.8], [-73.5, -42.0], [-73.0, -42.5], [-73.2, -43.0], [-73.8, -43.5], [-74.5, -43.2], [-74.3, -42.5], [-74.0, -41.8]]],\n  [[[-70.5, -53.5], [-69.5, -54.0], [-68.8, -54.8], [-69.5, -55.2], [-70.0, -55.0], [-70.5, -54.5], [-71.0, -54.0], [-70.5, -53.5]]]\n]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 1154,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-4-5-20251101",
+  "message_id": "msg_011CgtcjVpdgcEnQcXSSzR1f",
+  "started_at": "2026-11-10T04:28:46.150+00:00",
+  "first_token_ms": 946,
+  "first_text_ms": 946,
+  "duration_ms": 17296,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    5.0,
+    25.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.03006,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:29:03+00:00"
+}

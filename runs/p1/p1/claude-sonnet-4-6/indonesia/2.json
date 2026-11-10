@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Indonesia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-6",
+  "model_display_name": "Claude Sonnet 4.6",
+  "model_created_at": "2026-02-17T00:00:00+00:00",
+  "target_id": "indonesia",
+  "target": "Indonesia as of 1 January 2024",
+  "raw": "I'll draw Indonesia's main islands from memory. Indonesia consists of several major island groups: Sumatra, Java, Kalimantan (Borneo - shared with Malaysia/Brunei), Sulawesi, Papua (western half, shared with PNG), and many smaller islands including Bali, Lombok, Sumbawa, Flores, Timor (western part), Maluku islands, etc.\n\nLet me plan the main polygons:\n1. Sumatra\n2. Java\n3. Kalimantan (Indonesian portion)\n4. Sulawesi\n5. Papua (western half - Irian Jaya)\n6. Bali\n7. Lombok + Sumbawa + Flores + Timor (Lesser Sundas chain)\n8. Maluku (approximation)\n\nI'll keep point counts manageable across all these islands.\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [[[\n      [95.3, 5.6], [96.5, 5.3], [97.5, 5.2], [98.7, 4.2], [99.5, 3.6],\n      [100.3, 2.9], [101.0, 2.1], [101.8, 1.5], [102.5, 1.2], [103.5, 1.0],\n      [104.2, 1.0], [104.6, 0.5], [104.5, 0.0], [104.0, -0.5], [103.5, -1.0],\n      [103.0, -1.5], [102.5, -2.0], [102.0, -2.5], [101.5, -2.8], [101.0, -3.2],\n      [100.5, -3.8], [100.0, -4.2], [99.5, -4.8], [99.0, -5.0], [98.5, -4.5],\n      [98.0, -4.0], [97.5, -3.5], [97.0, -3.0], [96.5, -2.5], [96.0, -2.0],\n      [95.5, -1.5], [95.0, -1.0], [94.5, -0.5], [94.0, 0.5], [94.5, 1.5],\n      [95.0, 2.5], [95.3, 3.5], [95.0, 4.5], [95.3, 5.6]\n    ]]],\n    [[[\n      [105.0, -5.9], [106.0, -5.9], [107.0, -6.0], [108.0, -6.5], [109.0, -6.8],\n      [110.0, -6.9], [111.0, -7.0], [112.0, -7.2], [113.0, -7.5], [113.8, -7.7],\n      [114.5, -8.2], [114.8, -8.4], [114.5, -8.5], [113.5, -8.3], [112.5, -8.4],\n      [111.5, -8.2], [110.5, -8.0], [109.5, -7.8], [108.5, -7.6], [107.5, -7.4],\n      [106.5, -7.0], [105.5, -6.5], [105.0, -5.9]\n    ]]],\n    [[[\n      [108.0, 1.0], [109.0, 1.5], [110.0, 1.8], [111.0, 2.5], [112.0, 3.0],\n      [113.0, 3.5], [114.0, 4.0], [115.0, 4.2], [115.5, 4.0], [116.0, 3.5],\n      [116.5, 3.0], [117.0, 2.5], [117.5, 2.0], [118.0, 2.0], [118.5, 1.5],\n      [118.0, 1.0], [117.5, 0.5], [117.6, 0.0], [117.5, -0.5], [117.0, -1.0],\n      [116.5, -1.5], [116.0, -2.0], [115.5, -2.5], [115.0, -3.0], [114.5, -3.5],\n      [114.0, -4.0], [114.0, -4.5], [113.5, -4.5], [113.0, -4.0], [112.5, -3.5],\n      [111.5, -3.0], [110.5, -2.5], [109.5, -2.0], [108.5, -1.5], [108.0, -1.0],\n      [107.5, -0.5], [107.5, 0.0], [107.5, 0.5], [108.0, 1.0]\n    ]]],\n    [[[\n      [120.0, 0.5], [120.5, 1.0], [121.0, 1.5], [121.5, 1.0], [122.0, 0.5],\n      [122.5, 0.0], [122.5, -0.5], [122.0, -1.0], [121.5, -1.5], [121.0, -2.0],\n      [120.5, -2.5], [120.0, -3.0], [120.0, -3.5], [120.5, -3.5], [121.0, -3.0],\n      [121.5, -3.5], [122.0, -4.0], [122.5, -4.5], [122.0, -5.0], [121.5, -5.0],\n      [121.0, -4.5], [120.5, -4.0], [120.0, -3.5], [119.5, -3.0], [119.0, -3.5],\n      [119.5, -4.0], [120.0, -4.5], [119.5, -5.0], [119.0, -4.5], [118.5, -4.0],\n      [118.0, -3.5], [118.5, -3.0], [119.0, -2.5], [119.5, -2.0], [119.5, -1.5],\n      [119.0, -1.0], [118.5, -0.5], [119.0, 0.0], [119.5, 0.5], [120.0, 0.5]\n    ]]],\n    [[[\n      [131.0, -0.5], [131.5, 0.0], [132.5, -0.5], [133.5, -0.5], [134.0, -1.0],\n      [134.5, -1.5], [135.5, -2.0], [136.5, -2.5], [137.5, -2.5], [138.5, -3.0],\n      [139.0, -3.5], [139.5, -4.0], [140.0, -4.5], [140.0, -5.0], [139.5, -5.5],\n      [138.5, -6.0], [137.5, -6.5], [136.5, -7.0], [135.5, -7.5], [134.5, -7.5],\n      [134.0, -7.0], [133.5, -6.5], [133.5, -6.0], [134.0, -5.5], [134.5, -5.0],\n      [134.0, -4.5], [133.5, -4.0], [133.0, -3.5], [132.5, -3.0], [132.0, -3.0],\n      [131.5, -2.5], [131.0, -2.0], [130.5, -1.5], [130.0, -1.0], [130.5, -0.5],\n      [131.0, -0.5]\n    ]]],\n    [[[\n      [115.0, -8.2], [115.5, -8.0], [115.7, -8.5], [115.3, -8.8], [115.0, -8.8],\n      [114.8, -8.5], [115.0, -8.2]\n    ]]],\n    [[[\n      [116.0, -8.5], [116.5, -8.5], [116.7, -8.8], [116.5, -9.0], [116.0, -9.0],\n      [115.8, -8.8], [116.0, -8.5]\n    ]]],\n    [[[\n      [117.5, -8.5], [118.0, -8.5], [119.0, -8.8], [120.0, -9.0], [120.5, -9.5],\n      [121.0, -9.5], [121.5, -9.0], [122.0, -9.0], [122.5, -9.5], [123.0, -10.0],\n      [123.5, -10.5], [124.0, -10.5], [124.5, -10.0], [125.0, -9.5], [125.5, -9.5],\n      [124.5, -9.0], [124.0, -9.5], [123.5, -9.5], [123.0, -9.0], [122.5, -8.8],\n      [121.5, -8.5], [120.5, -8.5], [119.5, -8.5], [118.5, -8.5], [117.5, -8.8],\n      [117.5, -8.5]\n    ]]],\n    [[[\n      [127.5, -3.5], [128.0, -3.0], [128.5, -3.5], [129.0, -3.5], [128.5, -4.0],\n      [128.0, -4.0], [127.5, -3.5]\n    ]]],\n    [[[\n      [130.0, -3.5], [130.5, -3.0], [131.0, -3.5], [130.5, -4.0], [130.0, -3.5]\n    ]]]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 242,
+    "output_tokens": 2709,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-6",
+  "message_id": "msg_011CgtcJ3FGsdvxVwMeGzz1F",
+  "started_at": "2026-11-10T04:23:00.766+00:00",
+  "first_token_ms": 776,
+  "first_text_ms": 776,
+  "duration_ms": 30632,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.041361,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:23:31+00:00"
+}

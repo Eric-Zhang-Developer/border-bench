@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the contiguous United States (the lower 48 states) as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-haiku-4-5-20251001",
+  "model_display_name": "Claude Haiku 4.5",
+  "model_created_at": "2025-10-15T00:00:00+00:00",
+  "target_id": "usa",
+  "target": "the contiguous United States (the lower 48 states) as of 1 January 2024",
+  "raw": "I'll draw the contiguous United States from memory, focusing on accuracy for the major landmass and key features.\n\nLet me think through the key points:\n- Western coast: Pacific coastline from WA down to CA\n- Southern coast: CA/Mexico border, Gulf coast from CA to FL\n- Eastern coast: Atlantic coast from FL up to Maine\n- Northern border: Canada border from WA to Maine\n- Key features: Florida peninsula, Great Lakes region, major irregularities\n\nI'll trace the outline with key waypoints:\n\nStarting from the Pacific Northwest and going clockwise:\n- Washington/Oregon coast down to California\n- California coast and Mexican border\n- Southern border (TX, NM, AZ)\n- Gulf coast (TX, LA, MS, AL, FL)\n- Florida peninsula\n- Atlantic coast up the east\n- Great Lakes area\n- Canadian border back to start\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [-124.73, 49.00],\n        [-124.73, 46.30],\n        [-124.55, 46.27],\n        [-124.41, 45.60],\n        [-124.18, 44.57],\n        [-124.10, 43.68],\n        [-124.34, 42.85],\n        [-124.48, 42.10],\n        [-124.40, 41.30],\n        [-124.18, 40.30],\n        [-123.83, 39.10],\n        [-123.50, 38.70],\n        [-123.00, 38.00],\n        [-122.90, 37.50],\n        [-122.40, 37.30],\n        [-122.00, 37.30],\n        [-121.80, 36.60],\n        [-121.20, 36.40],\n        [-120.60, 35.70],\n        [-120.30, 34.80],\n        [-119.70, 34.40],\n        [-119.00, 33.80],\n        [-118.30, 33.70],\n        [-117.50, 32.70],\n        [-116.70, 32.50],\n        [-115.80, 32.60],\n        [-114.70, 32.70],\n        [-114.60, 32.88],\n        [-114.40, 33.40],\n        [-114.10, 34.10],\n        [-114.00, 35.00],\n        [-114.60, 36.50],\n        [-114.80, 37.00],\n        [-114.70, 41.00],\n        [-111.00, 41.98],\n        [-104.05, 41.00],\n        [-102.05, 36.50],\n        [-103.00, 28.80],\n        [-97.15, 26.00],\n        [-97.00, 27.00],\n        [-96.80, 27.80],\n        [-93.80, 29.70],\n        [-90.20, 29.30],\n        [-88.80, 29.70],\n        [-88.00, 30.30],\n        [-87.35, 30.27],\n        [-86.50, 30.35],\n        [-85.60, 29.90],\n        [-85.30, 29.40],\n        [-84.80, 28.30],\n        [-82.80, 27.10],\n        [-81.80, 25.20],\n        [-80.90, 24.55],\n        [-80.05, 25.27],\n        [-80.25, 26.50],\n        [-80.95, 28.00],\n        [-81.75, 30.40],\n        [-83.50, 32.50],\n        [-84.30, 34.70],\n        [-85.00, 35.00],\n        [-87.35, 35.40],\n        [-88.00, 36.50],\n        [-89.60, 37.00],\n        [-91.00, 38.50],\n        [-93.50, 40.00],\n        [-94.80, 41.60],\n        [-96.50, 43.50],\n        [-99.00, 45.00],\n        [-104.05, 48.40],\n        [-105.00, 49.00],\n        [-110.00, 49.00],\n        [-115.00, 49.00],\n        [-123.00, 49.00],\n        [-124.73, 49.00]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 254,
+    "output_tokens": 1126,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-haiku-4-5-20251001",
+  "message_id": "msg_011CgtcC187ngfbaT3pG51rX",
+  "started_at": "2026-11-10T04:21:38.876+00:00",
+  "first_token_ms": 511,
+  "first_text_ms": 511,
+  "duration_ms": 10332,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    1.0,
+    5.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.005884,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:21:49+00:00"
+}

@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Indonesia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-5",
+  "model_display_name": "Claude Sonnet 5",
+  "model_created_at": "2026-06-29T00:00:00+00:00",
+  "target_id": "indonesia",
+  "target": "Indonesia as of 1 January 2024",
+  "raw": "Looking at Indonesia's geography, I'll draw the major islands: Sumatra, Java, Kalimantan (Indonesian Borneo), Sulawesi, Papua (Indonesian New Guinea), Bali, the Nusa Tenggara chain, and the Maluku islands.\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [\n[[[95.3,5.5],[97.0,5.0],[98.5,3.5],[99.5,1.5],[100.5,-0.5],[101.5,-2.5],[103.0,-3.8],[104.5,-5.0],[105.8,-5.9],[105.5,-5.2],[104.0,-4.0],[103.0,-2.8],[102.0,-1.0],[101.0,0.5],[99.5,2.0],[98.0,3.5],[96.5,4.5],[95.3,5.5]]],\n[[[105.9,-5.9],[106.5,-6.0],[108.0,-6.4],[109.5,-6.6],[111.0,-6.9],[112.5,-7.2],[114.0,-7.7],[114.4,-8.3],[113.5,-8.4],[112.0,-8.2],[110.5,-8.0],[109.0,-7.7],[107.5,-7.0],[106.3,-6.3],[105.9,-5.9]]],\n[[[109.1,1.4],[109.5,2.0],[110.0,3.0],[109.7,4.0],[110.5,4.3],[111.5,4.2],[113.0,4.3],[114.5,4.1],[115.5,4.0],[117.0,4.0],[117.8,3.5],[117.9,2.0],[118.0,0.5],[117.5,-1.0],[116.5,-2.0],[116.0,-3.0],[115.5,-3.5],[114.5,-3.8],[113.5,-3.5],[112.5,-3.0],[111.5,-2.5],[110.8,-1.5],[109.8,-0.5],[109.0,0.5],[109.1,1.4]]],\n[[[119.4,0.4],[120.0,1.0],[120.8,1.3],[121.5,0.9],[122.0,0.5],[122.8,0.8],[123.5,0.9],[124.5,1.0],[125.0,1.5],[124.8,1.0],[124.2,0.4],[123.2,-0.2],[122.5,-0.8],[121.8,-1.5],[121.0,-2.0],[120.8,-2.8],[120.3,-3.3],[120.4,-4.0],[120.9,-4.8],[121.5,-4.6],[122.0,-4.0],[122.5,-3.5],[123.0,-3.9],[123.3,-4.5],[123.0,-5.0],[122.3,-5.3],[121.5,-5.5],[120.8,-5.3],[120.3,-5.6],[119.8,-5.4],[119.4,-4.5],[119.2,-3.5],[119.0,-2.5],[118.9,-1.5],[119.0,-0.5],[119.4,0.4]]],\n[[[141.0,-2.5],[140.5,-2.0],[139.0,-2.3],[138.0,-3.0],[137.0,-1.5],[136.0,-2.0],[135.0,-1.5],[134.0,-1.0],[133.0,-0.5],[132.5,-1.0],[132.0,-2.0],[131.5,-2.5],[132.0,-3.3],[133.0,-3.5],[134.0,-3.8],[135.0,-4.5],[136.0,-5.0],[137.5,-5.5],[138.5,-6.5],[139.0,-7.5],[140.0,-8.0],[141.0,-9.0],[141.0,-2.5]]],\n[[[114.4,-8.1],[115.2,-8.1],[115.7,-8.4],[115.5,-8.8],[114.9,-8.8],[114.4,-8.5],[114.4,-8.1]]],\n[[[115.8,-8.3],[116.4,-8.4],[116.7,-8.8],[116.3,-9.0],[115.9,-8.8],[115.8,-8.3]]],\n[[[116.7,-8.4],[117.5,-8.3],[118.5,-8.5],[119.0,-8.7],[118.8,-9.0],[117.8,-8.9],[117.0,-8.8],[116.7,-8.4]]],\n[[[119.9,-8.4],[120.5,-8.5],[121.5,-8.6],[122.5,-8.6],[122.8,-8.9],[122.0,-8.9],[121.0,-8.8],[120.0,-8.7],[119.9,-8.4]]],\n[[[119.0,-9.4],[119.8,-9.5],[120.3,-9.8],[119.9,-10.1],[119.2,-9.9],[119.0,-9.4]]],\n[[[123.5,-9.4],[124.0,-9.3],[124.5,-9.5],[124.9,-9.7],[125.0,-9.9],[124.5,-10.2],[123.9,-10.3],[123.5,-9.9],[123.5,-9.4]]],\n[[[127.5,0.5],[128.0,1.0],[128.3,1.8],[128.0,2.0],[127.6,1.7],[127.4,1.0],[127.5,0.5]]],\n[[[128.0,-2.8],[129.0,-2.9],[130.0,-3.0],[130.8,-3.2],[130.5,-3.5],[129.5,-3.4],[128.5,-3.3],[128.0,-3.0],[128.0,-2.8]]],\n[[[126.3,-3.2],[126.9,-3.1],[127.1,-3.5],[126.7,-3.8],[126.2,-3.6],[126.3,-3.2]]],\n[[[105.8,-1.7],[106.3,-1.8],[106.5,-2.3],[106.1,-2.8],[105.6,-2.5],[105.5,-2.0],[105.8,-1.7]]],\n[[[107.6,-2.6],[108.0,-2.7],[108.2,-3.1],[107.8,-3.3],[107.5,-3.0],[107.6,-2.6]]]\n]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 345,
+    "output_tokens": 5469,
+    "output_tokens_details": {
+      "thinking_tokens": 3332
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-5",
+  "message_id": "msg_011CgtdaWeMoSiuSYosXFKiy",
+  "started_at": "2026-11-10T04:39:51.048+00:00",
+  "first_token_ms": 480,
+  "first_text_ms": 34753,
+  "duration_ms": 48352,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    2.0,
+    10.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.05538,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:40:39+00:00"
+}
