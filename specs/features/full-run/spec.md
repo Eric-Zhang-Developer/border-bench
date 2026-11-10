@@ -17,14 +17,20 @@ Haiku 5.5, Sonnet 5.5, and probably Sonnet 4.5. Then I can see a shape of what's
    - **Stage 1a, the four modern targets** (usa, chile, indonesia, croatia): 40 calls. Run on 2026-11-10, because the
      maintainer asked for real strips before the history borders were ready (Maintainer, 2026-11-09: "let's do that",
      approving this plan as the planning session put it to them).
-   - **Stage 1b, Prussia and Poland**, when their true borders are on `main`: the same four models, 20 calls, as a
-     `fix(full-run)` PR. Stage 1a answers are not asked for again.
+   - **Stage 1b, Prussia and Poland**, when their true borders are on `main`: the same four models, 20 calls.
+     Stage 1a answers are not asked for again. Run on 2026-11-10 in the same pass as stage 2: the two borders landed
+     while stage 2 was running, after the maintainer's go, so a separate PR would only have split one night's answers.
 2. Score, write `results/results.json`, make one contact sheet per target in `sheets/p1/`, and open the stage 1 PR
    (`feat(full-run): ...`, no done note yet). It merges on green like any other.
 3. **Stop and ask.** File a `needs-human` issue titled "Preview strips are in: run the other models?" with what
    Requirements lists. Make no stage 2 call until the maintainer says go, in that issue or in chat.
 4. **Stage 2.** Every other listed model: three samples, one for the Fable models. Rescore, remake the sheets, write
-   the done note, open the stage 2 PR.
+   the done note, open the stage 2 PR. Maintainer, 2026-11-09, on issue 36's option A: "Run all eleven".
+   - Cheapest models first. Claude Opus 5 and Claude Opus 5.5 had never been measured, so each starts with one call.
+   - **Claude Opus 5 is held after its one call** (United States: 29,230 output tokens, 369 seconds, $0.73, more than
+     Claude Fable 5.2 on the same target). Issue 36 said the run would stop and ask in that case. Its answer is on
+     the branch `full-run-opus-5`; its other 17 calls, the done note and the last 18 run files wait for the
+     maintainer's answer (three samples, or one like the Fable models).
 
 ## Requirements
 - Sonnet 4.5 runs first, in stage 1.
@@ -58,6 +64,8 @@ Haiku 5.5, Sonnet 5.5, and probably Sonnet 4.5. Then I can see a shape of what's
 - After stage 1b: 60 run files, six contact sheets.
 - After stage 2: run files total 6 targets × (12 models × 3 + 3 models × 1) = 234, or the count the live model list
   implies, stated in the PR; six contact sheets with every model. (Fable 5.2's six are already among them.)
+  While Claude Opus 5 is held the count is 216 (14 models); it reaches 234 if the maintainer gives it three samples,
+  222 if one.
 - Each PR states dollars spent, refusals, failed drawings, and every model whose answers hit `max_tokens`.
 
 ## Defaults
