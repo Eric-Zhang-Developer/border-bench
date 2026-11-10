@@ -5,7 +5,7 @@ A model's answer is read into the shape it drew with nothing repaired (`parse.py
 `pipeline/parse.py`, `pipeline/score.py`, `pipeline/sheet.py`, `pipeline/test_parse.py`, `pipeline/test_score.py`, `specs/decisions/scorer-judgment-calls.md` (eleven calls the grading rules left open), `specs/features/scorer/synthetic-sheet-modern.png` and `-history.png`.
 
 ## How to check it
-verify: `python3 pipeline/verify.py` pass at 9634762
+verify: `python3 pipeline/verify.py` pass at c100aa3
 `uv run pytest pipeline/test_parse.py pipeline/test_score.py` -> 44 passed, including the rectangle baseline of each modern target pinned to one decimal (USA 56.5, Chile 4.6, Indonesia 19.8, Croatia 25.6). The first real contact sheets, Claude Sonnet 4.5 under all three candidate prompts: `specs/features/scorer/archive-usa.png`, `-chile.png`, `-indonesia.png`, `-croatia.png`, each made with `uv run python -m pipeline.sheet runs/archive pilot-a,pilot-b,pilot-c <target>`.
 
 ## Gaps
