@@ -5,7 +5,7 @@
 `runs/archive/targets.toml` (the eleven target names), `runs/archive/pilot-{a,b,c}/claude-sonnet-4-5-20250929/<target>/<n>.json`, `runs/archive/overview.png` (an unscored picture of all 99).
 
 ## How to check it
-verify: `python3 pipeline/verify.py` pass at VERIFY_SHA
+verify: `python3 pipeline/verify.py` pass at f8a791f
 `find runs/archive -name '*.json' | wc -l` -> 99.
 
 ## Gaps
