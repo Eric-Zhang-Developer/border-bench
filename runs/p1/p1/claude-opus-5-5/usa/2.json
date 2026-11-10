@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the contiguous United States (the lower 48 states) as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-5-5",
+  "model_display_name": "Claude Opus 5.5",
+  "model_created_at": "2026-09-21T16:24:00+00:00",
+  "target_id": "usa",
+  "target": "the contiguous United States (the lower 48 states) as of 1 January 2024",
+  "raw": "Outline traced from memory, about 225 points in total:\n\n- **Polygons:** two pieces, the mainland and Long Island.\n- **Great Lakes:** the northern border runs through the middle of the lakes rather than along their shores. This assumes the reference territory includes the US share of the lakes; if it uses land only, this choice adds extra area.\n- **Simplifications:** Puget Sound is closed off roughly. Small islands and fine coastal detail are left out.\n\n```geojson\n{\"type\":\"MultiPolygon\",\"coordinates\":[[[[-124.7,48.38],[-123.5,48.15],[-122.8,48.1],[-122.75,48.5],[-122.75,49.0],[-110.0,49.0],[-100.0,49.0],[-95.15,49.0],[-95.15,49.38],[-94.83,49.32],[-94.6,48.7],[-93.8,48.52],[-93.0,48.62],[-92.0,48.35],[-90.8,48.1],[-89.6,48.0],[-89.0,48.25],[-88.4,48.3],[-87.0,47.6],[-85.5,47.0],[-84.5,46.5],[-84.1,46.2],[-83.6,46.1],[-83.0,45.7],[-82.5,45.3],[-82.15,43.6],[-82.4,43.0],[-82.5,42.6],[-83.1,42.3],[-83.15,41.95],[-82.5,41.7],[-81.0,42.2],[-79.8,42.5],[-78.9,42.9],[-79.05,43.3],[-77.5,43.6],[-76.4,43.6],[-76.3,44.2],[-75.5,44.7],[-74.7,45.0],[-71.5,45.01],[-71.1,45.3],[-70.8,45.4],[-70.3,45.9],[-70.0,46.7],[-69.2,47.45],[-68.3,47.35],[-67.8,47.07],[-67.78,45.95],[-67.4,45.6],[-67.0,44.9],[-67.2,44.6],[-68.2,44.4],[-68.8,44.3],[-69.8,43.8],[-70.2,43.6],[-70.7,43.1],[-70.8,42.7],[-70.6,42.6],[-71.0,42.3],[-70.6,41.95],[-70.0,41.8],[-70.0,42.05],[-69.95,41.65],[-70.6,41.55],[-71.1,41.5],[-71.5,41.38],[-72.5,41.27],[-73.6,41.0],[-74.0,40.7],[-74.0,40.45],[-74.05,40.1],[-74.4,39.4],[-74.95,38.93],[-75.5,39.5],[-75.08,38.8],[-75.05,38.4],[-75.4,37.9],[-75.95,37.15],[-76.0,37.3],[-76.2,38.3],[-76.4,39.2],[-76.5,38.4],[-76.3,37.5],[-76.3,37.0],[-76.0,36.93],[-75.95,36.55],[-75.5,35.6],[-75.53,35.25],[-76.5,34.6],[-77.4,34.5],[-77.95,33.85],[-78.9,33.6],[-79.3,33.1],[-79.9,32.7],[-80.7,32.2],[-81.1,31.9],[-81.4,31.0],[-81.4,30.3],[-81.2,29.6],[-80.6,28.4],[-80.1,26.9],[-80.15,25.8],[-80.4,25.2],[-81.1,25.1],[-81.3,25.8],[-81.8,26.1],[-82.2,26.9],[-82.7,27.7],[-82.65,28.7],[-83.0,29.1],[-83.6,29.9],[-84.1,30.1],[-84.4,29.9],[-85.0,29.6],[-85.4,29.7],[-85.7,30.1],[-86.5,30.4],[-87.3,30.3],[-88.0,30.25],[-88.4,30.35],[-89.3,30.3],[-89.7,30.2],[-89.4,30.0],[-89.4,29.6],[-89.2,29.3],[-89.25,29.0],[-89.6,29.3],[-90.2,29.1],[-90.9,29.1],[-91.3,29.3],[-92.0,29.6],[-92.7,29.6],[-93.8,29.7],[-94.7,29.35],[-95.3,28.9],[-96.4,28.4],[-97.0,28.0],[-97.3,27.5],[-97.4,26.8],[-97.15,25.95],[-97.5,25.9],[-98.3,26.1],[-99.1,26.4],[-99.5,27.4],[-100.3,28.2],[-100.7,29.1],[-101.4,29.77],[-102.4,29.8],[-102.7,29.6],[-103.1,29.0],[-103.4,29.0],[-104.0,29.3],[-104.6,29.8],[-105.0,30.6],[-106.0,31.4],[-106.5,31.78],[-108.2,31.78],[-108.2,31.33],[-111.07,31.33],[-114.8,32.49],[-114.72,32.72],[-117.12,32.53],[-117.25,32.9],[-117.4,33.2],[-117.9,33.6],[-118.4,33.75],[-118.5,34.03],[-119.2,34.15],[-119.6,34.4],[-120.45,34.45],[-120.6,34.9],[-120.65,35.3],[-121.3,35.7],[-121.9,36.3],[-121.85,36.65],[-122.0,36.95],[-122.4,37.2],[-122.5,37.8],[-123.0,38.0],[-123.0,38.3],[-123.7,38.9],[-123.8,39.6],[-124.3,40.3],[-124.1,40.9],[-124.2,41.8],[-124.5,42.8],[-124.2,43.6],[-124.0,44.6],[-123.95,45.5],[-124.0,46.25],[-124.1,46.9],[-124.2,47.3],[-124.65,48.0],[-124.7,48.38]]],[[[-74.0,40.6],[-73.8,40.8],[-72.6,40.95],[-71.9,41.07],[-72.4,40.85],[-73.6,40.6],[-74.0,40.6]]]]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 358,
+    "output_tokens": 5234,
+    "output_tokens_details": {
+      "thinking_tokens": 3024
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-5-5",
+  "message_id": "msg_011CgteUdbGooqnUknRa8pBt",
+  "started_at": "2026-11-10T04:51:37.941+00:00",
+  "first_token_ms": 734,
+  "first_text_ms": 31869,
+  "duration_ms": 46667,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    4.0,
+    20.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.106112,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T04:52:24+00:00"
+}
