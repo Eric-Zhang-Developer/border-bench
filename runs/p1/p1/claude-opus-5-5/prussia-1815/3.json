@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the Kingdom of Prussia as of 1 January 1816 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-5-5",
+  "model_display_name": "Claude Opus 5.5",
+  "model_created_at": "2026-09-21T16:24:00+00:00",
+  "target_id": "prussia-1815",
+  "target": "the Kingdom of Prussia as of 1 January 1816",
+  "raw": "Prussia in 1816 was split into an eastern block and a western block, separated by Hanover and Hesse. I traced both main blocks plus the island of Rügen, which came with Swedish Pomerania in 1815. I left out small exclaves. All coordinates are approximate.\n\n**Eastern block** (East and West Prussia, Posen, Pomerania including former Swedish Pomerania, Brandenburg, Silesia and the Province of Saxony):\n- **Coast:** from Damgarten east past Stralsund, Usedom, Kolberg and Danzig, along the Vistula and Curonian spits up to Memel and Nimmersatt.\n- **East and south:** the border then runs south-east along the Neman and down the East Prussian frontier, then west along the border with Congress Poland, keeping Thorn on the Prussian side. From there it follows the edge of Posen and Silesia south to the Myslowitz corner.\n- **Southwest:** it turns west past Ratibor and around the County of Glatz to Görlitz. It then follows the border with the Kingdom of Saxony, keeping Torgau, Naumburg and Erfurt Prussian, and passes the Eichsfeld and the Harz.\n- **North:** it goes up along the Altmark and the Mecklenburg border back to the coast.\n\n**Western block** (Rhine Province and Westphalia):\n- **East:** from Gronau east to Minden, then south past Höxter, Siegen and Koblenz.\n- **South:** down to Kreuznach and Saarbrücken.\n- **West and back:** north along the Luxembourg and Netherlands borders, taking in Eupen-Malmedy, Aachen and Kleve, back to Gronau.\n\n**Rügen:** a small polygon off Stralsund.\n\n```geojson\n{\"type\":\"MultiPolygon\",\"coordinates\":[\n[[[12.45,54.25],[13.1,54.3],[13.4,54.1],[14.0,54.0],[14.25,53.92],[15.58,54.18],[16.85,54.58],[17.55,54.75],[18.33,54.83],[18.55,54.5],[18.65,54.4],[19.5,54.45],[19.9,54.63],[20.0,54.95],[20.5,54.95],[21.1,55.72],[21.07,55.87],[21.3,55.85],[21.6,55.6],[22.1,55.1],[22.8,55.05],[22.9,54.8],[22.75,54.4],[22.8,54.0],[22.5,53.9],[22.1,53.5],[21.6,53.48],[20.7,53.3],[20.2,53.2],[19.7,53.05],[19.4,53.25],[19.0,53.05],[18.6,53.0],[18.7,52.9],[18.5,52.5],[18.1,52.3],[18.0,51.9],[18.15,51.6],[17.9,51.3],[18.2,51.2],[18.6,51.0],[19.0,50.6],[19.1,50.3],[19.2,50.2],[18.8,49.95],[18.4,50.0],[18.0,50.05],[17.7,50.3],[17.2,50.4],[16.9,50.2],[16.6,50.15],[16.3,50.5],[16.0,50.6],[15.4,50.8],[15.0,51.0],[14.8,50.85],[14.9,51.3],[14.3,51.45],[13.9,51.4],[13.5,51.45],[13.1,51.5],[12.6,51.6],[12.2,51.35],[12.0,51.1],[12.3,50.95],[11.9,50.85],[11.5,51.0],[11.0,51.1],[10.8,51.0],[10.3,51.2],[10.1,51.35],[10.3,51.6],[10.7,51.7],[10.6,51.9],[11.0,52.0],[10.95,52.3],[11.0,52.6],[11.2,52.9],[11.5,53.05],[11.8,53.1],[12.3,53.2],[12.8,53.2],[13.3,53.3],[13.6,53.45],[13.4,53.6],[13.0,53.75],[12.7,53.9],[12.45,54.25]]],\n[[[7.0,52.25],[7.6,52.45],[8.0,52.45],[8.4,52.45],[8.9,52.5],[9.1,52.25],[9.0,52.05],[9.4,51.85],[9.6,51.6],[9.1,51.4],[8.6,51.2],[8.5,51.0],[8.1,50.8],[7.8,50.6],[7.7,50.4],[7.6,50.2],[7.9,49.95],[7.7,49.8],[7.3,49.65],[7.0,49.6],[6.85,49.2],[6.55,49.4],[6.4,49.5],[6.5,49.8],[6.1,50.15],[6.3,50.5],[6.0,50.4],[6.0,50.75],[6.1,51.0],[6.2,51.4],[5.95,51.75],[6.0,51.85],[6.4,51.85],[6.8,52.0],[7.0,52.25]]],\n[[[13.1,54.3],[13.5,54.3],[13.7,54.45],[13.4,54.68],[13.15,54.6],[13.25,54.45],[13.1,54.3]]]\n]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 353,
+    "output_tokens": 4166,
+    "output_tokens_details": {
+      "thinking_tokens": 2363
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-5-5",
+  "message_id": "msg_011CgtiCsGZ5ZWRKpWsKUtdU",
+  "started_at": "2026-11-10T05:40:31.439+00:00",
+  "first_token_ms": 958,
+  "first_text_ms": 25199,
+  "duration_ms": 38495,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    4.0,
+    20.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.084732,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:41:09+00:00"
+}

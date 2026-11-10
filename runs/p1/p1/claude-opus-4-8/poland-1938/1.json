@@ -1,0 +1,48 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-4-8",
+  "model_display_name": "Claude Opus 4.8",
+  "model_created_at": "2026-05-28T00:00:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "Poland in 1938 (Second Polish Republic) was significantly different from modern Poland - it extended further east (including Lwów, Wilno) and its western border was further east (no Silesia, Pomerania to Oder). Let me recall the general shape.\n\nKey features:\n- Western border roughly at longitude 16-17°E\n- Eastern border extending to ~26-27°E (including Wilno near Lithuania, and Galicia near Romania)\n- Narrow \"corridor\" to the Baltic Sea near Gdynia (Free City of Danzig was separate)\n- Northern border with East Prussia (German)\n- Baltic coast very short\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[\n[18.80, 54.60],\n[18.50, 54.50],\n[18.30, 54.40],\n[18.20, 54.00],\n[17.50, 53.50],\n[16.80, 53.00],\n[16.20, 52.80],\n[15.80, 52.40],\n[14.80, 52.10],\n[14.60, 51.80],\n[15.00, 51.30],\n[15.50, 50.90],\n[16.20, 50.70],\n[16.80, 50.40],\n[17.70, 50.20],\n[18.60, 49.90],\n[19.20, 49.40],\n[19.80, 49.20],\n[20.50, 49.40],\n[21.50, 49.40],\n[22.20, 49.00],\n[22.80, 49.10],\n[23.50, 49.00],\n[24.50, 48.60],\n[25.20, 48.40],\n[25.70, 48.40],\n[26.00, 48.20],\n[26.40, 48.30],\n[26.20, 48.80],\n[25.80, 49.40],\n[26.50, 50.00],\n[27.00, 50.30],\n[26.80, 51.00],\n[25.80, 51.60],\n[24.50, 51.90],\n[23.90, 52.10],\n[23.50, 52.50],\n[23.70, 53.00],\n[23.90, 53.90],\n[23.50, 54.10],\n[22.80, 54.30],\n[22.00, 54.40],\n[21.00, 54.40],\n[20.20, 54.40],\n[19.60, 54.40],\n[19.30, 54.40],\n[19.20, 54.00],\n[19.40, 53.60],\n[19.80, 53.40],\n[20.00, 53.20],\n[19.60, 53.20],\n[19.20, 53.40],\n[18.80, 53.60],\n[18.60, 54.00],\n[18.70, 54.40],\n[18.80, 54.60]\n]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 343,
+    "output_tokens": 861,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-4-8",
+  "message_id": "msg_011CgtgG6xBQk9TaQrZ8oGkf",
+  "started_at": "2026-11-10T05:15:01.709+00:00",
+  "first_token_ms": 950,
+  "first_text_ms": 950,
+  "duration_ms": 11701,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    5.0,
+    25.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.02324,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:15:13+00:00"
+}

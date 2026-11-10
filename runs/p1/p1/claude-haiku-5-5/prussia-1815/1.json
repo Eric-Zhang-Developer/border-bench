@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the Kingdom of Prussia as of 1 January 1816 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-haiku-5-5",
+  "model_display_name": "Claude Haiku 5.5",
+  "model_created_at": "2026-10-07T18:00:00+00:00",
+  "target_id": "prussia-1815",
+  "target": "the Kingdom of Prussia as of 1 January 1816",
+  "raw": "I drew this from memory, so the outline is approximate. The main polygon covers East and West Prussia, Pomerania, Brandenburg, Posen, Silesia and Prussian Saxony. The Rhineland-Westphalia block and Rügen are separate polygons. I left out Neuchâtel and some small enclaves.\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [\n[[[21.1,55.7],[20.9,55.1],[20.3,54.9],[20.15,54.65],[19.6,54.4],[19.0,54.4],[18.7,54.4],[18.4,54.8],[17.5,54.8],[16.2,54.6],[15.6,54.2],[14.6,53.9],[14.2,53.9],[13.8,54.1],[13.3,54.0],[13.0,53.4],[12.4,53.1],[11.5,53.1],[11.0,52.9],[10.9,52.5],[11.2,52.1],[10.6,51.8],[10.2,51.5],[11.5,51.3],[11.8,51.1],[12.4,51.3],[13.0,51.5],[14.2,51.7],[14.7,51.0],[15.0,50.8],[16.0,50.4],[17.0,50.5],[18.5,50.0],[19.0,49.9],[19.5,50.3],[20.0,50.9],[19.0,51.8],[18.6,52.2],[18.8,52.8],[19.4,53.1],[19.6,53.3],[20.8,53.1],[21.9,53.9],[22.7,54.4],[22.8,54.9],[21.6,55.2],[21.1,55.7]]],\n[[[6.0,50.8],[6.0,51.6],[6.2,51.9],[7.0,52.0],[8.0,52.3],[8.7,52.1],[8.6,51.6],[8.2,51.3],[7.8,51.0],[7.6,50.5],[7.6,49.9],[7.4,49.2],[6.8,49.2],[6.4,49.5],[6.1,50.1],[6.0,50.8]]],\n[[[13.3,54.5],[13.6,54.5],[13.5,54.3],[13.1,54.4],[13.3,54.5]]]\n]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 353,
+    "output_tokens": 5011,
+    "output_tokens_details": {
+      "thinking_tokens": 4245
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-haiku-5-5",
+  "message_id": "msg_011Cgtg1hqjJdyaowruhYq2T",
+  "started_at": "2026-11-10T05:11:46.411+00:00",
+  "first_token_ms": 440,
+  "first_text_ms": 21409,
+  "duration_ms": 23526,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    0.1,
+    0.5
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.002541,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:12:09+00:00"
+}

@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-4-6",
+  "model_display_name": "Claude Opus 4.6",
+  "model_created_at": "2026-02-04T00:00:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "\n\nI need to draw Poland's borders as of January 1, 1938 - this is interwar Poland (the Second Polish Republic), before any territorial changes of WWII.\n\nKey features of interwar Poland's borders:\n- **East**: Much further east than modern Poland, including parts of modern Ukraine, Belarus, and Lithuania (Wilno/Vilnius region)\n- **West**: Did not include Silesia west of the Oder, or Pomerania. Had the \"Polish Corridor\" to the Baltic Sea between Germany proper and East Prussia\n- **North**: Short Baltic coastline around Gdynia (Danzig/Gdańsk was a Free City, not part of Poland)\n- **South**: Bordered Czechoslovakia (including Zaolzie region) and Romania\n- **No East Prussia**: That was German territory\n- The border with the USSR ran roughly along the Riga Treaty line (1921)\n\nLet me trace the approximate borders:\n\nStarting from the Baltic coast and going clockwise:\n- Baltic coast: small stretch around Gdynia/Hel, roughly 54.5°N, between about 18.0°E and 18.8°E\n- West: Polish Corridor going south, then border with Germany through Poznań region\n- Southwest: Border with Germany (Silesia), then Czechoslovakia\n- South: Along the Carpathians, border with Czechoslovakia and Romania\n- East: Border with Romania, then USSR (roughly through Tarnopol, Lwów was Polish)\n- Northeast: Border running north through Pinsk marshes, past Wilno (Vilnius), then to Latvia/Lithuania border\n- North: Short border with Latvia, then Lithuania (though Poland and Lithuania had no diplomatic relations, the Vilnius region was Polish)\n\nLet me construct the polygon with approximate coordinates:\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[18.33, 54.83], [18.5, 54.75], [18.8, 54.58], [18.95, 54.38], [19.0, 54.25], [18.8, 54.05], [18.55, 53.9], [18.25, 53.7], [17.95, 53.5], [17.6, 53.3], [17.3, 53.15], [16.9, 53.0], [16.7, 52.85], [16.5, 52.7], [16.3, 52.55], [16.1, 52.35], [15.9, 52.2], [15.85, 52.0], [15.95, 51.8], [16.1, 51.6], [16.3, 51.45], [16.55, 51.3], [16.8, 51.15], [17.0, 51.0], [17.3, 50.85], [17.5, 50.7], [17.7, 50.55], [17.85, 50.4], [18.0, 50.3], [18.3, 50.15], [18.55, 50.05], [18.8, 49.95], [18.95, 49.85], [19.15, 49.7], [19.4, 49.55], [19.6, 49.45], [19.85, 49.35], [20.1, 49.25], [20.4, 49.2], [20.7, 49.15], [21.0, 49.1], [21.4, 49.05], [21.8, 49.0], [22.15, 49.05], [22.5, 49.1], [22.85, 49.15], [23.2, 49.2], [23.5, 49.15], [23.8, 49.0], [24.0, 48.85], [24.15, 48.65], [24.3, 48.5], [24.5, 48.45], [24.8, 48.4], [25.1, 48.55], [25.3, 48.7], [25.5, 48.85], [25.7, 49.0], [25.9, 49.2], [26.1, 49.4], [26.3, 49.55], [26.6, 49.7], [26.8, 49.85], [27.0, 50.0], [27.1, 50.2], [27.2, 50.4], [27.3, 50.6], [27.35, 50.8], [27.3, 51.0], [27.2, 51.2], [27.1, 51.4], [26.95, 51.6], [26.8, 51.8], [26.6, 52.0], [26.4, 52.15], [26.2, 52.3], [26.0, 52.5], [25.8, 52.7], [25.6, 52.85], [25.4, 53.0], [25.5, 53.15], [25.7, 53.3], [25.9, 53.45], [26.1, 53.6], [26.3, 53.8], [26.5, 53.95], [26.7, 54.1], [26.8, 54.25], [26.7, 54.35], [26.5, 54.45], [26.2, 54.5], [25.9, 54.55], [25.6, 54.6], [25.3, 54.55], [25.0, 54.45], [24.7, 54.35], [24.4, 54.3], [24.1, 54.35], [23.8, 54.4], [23.5, 54.35], [23.2, 54.25], [22.9, 54.15], [22.6, 54.1], [22.3, 54.1], [22.0, 54.15], [21.7, 54.2], [21.4, 54.25], [21.1, 54.3], [20.8, 54.35], [20.5, 54.38], [20.2, 54.42], [19.9, 54.45], [19.65, 54.5], [19.4, 54.55], [19.2, 54.6], [19.0, 54.65], [18.7, 54.7], [18.5, 54.75], [18.33, 54.83]]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 242,
+    "output_tokens": 1626,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-4-6",
+  "message_id": "msg_011CgthxbpjV3aB6NDdKpuTS",
+  "started_at": "2026-11-10T05:37:17.884+00:00",
+  "first_token_ms": 1787,
+  "first_text_ms": 1787,
+  "duration_ms": 26193,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    5.0,
+    25.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.04186,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:37:44+00:00"
+}

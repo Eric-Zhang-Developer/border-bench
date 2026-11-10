@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-6",
+  "model_display_name": "Claude Sonnet 4.6",
+  "model_created_at": "2026-02-17T00:00:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "I'll reason through Poland's borders as of January 1, 1938.\n\nIn 1938, Poland had:\n- Western border with Germany (including the Polish Corridor separating East Prussia)\n- Northern coast on the Baltic Sea (including Gdańsk corridor coastline)\n- Eastern borders with Soviet Union, Lithuania\n- Southern borders with Romania, Czechoslovakia\n- The Free City of Danzig was separate\n\nKey geographic features:\n- Poland had access to the Baltic Sea through the Polish Corridor\n- Eastern Poland extended much further east than today (including cities like Lwów/Lviv, Wilno/Vilnius area)\n- Western border roughly along the current border with Germany but slightly different\n\nLet me think about the approximate coordinates:\n\n- Western border: roughly along 14-18°E longitude\n- Eastern border: extended to about 24-26°E longitude\n- Northern coast: Baltic Sea around 54-55°N\n- Southern border: Carpathians around 49-50°N\n- Lithuania border in northeast around 54°N\n\nThe Polish Corridor ran to the Baltic giving coastline. Gdynia was Poland's main port.\n\nKey points:\n- NW corner (Baltic coast west): ~14.1°E, 54.0°N (near Swinoujście area - but that was German)\n- Actually the corridor coast was around 17-18°E\n\nLet me trace the border more carefully:\n- The Polish Corridor coast: approximately 17.6°E to 18.8°E along Baltic at ~54.6°N\n- Southwest: Silesia border around 17-18°E, 50°N\n- Eastern extent: ~26.5°E around Sarny area\n- Northeast (near Wilno): ~25.3°E, 54.5°N\n- Lithuania border ran westward\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[18.55, 54.83], [18.8, 54.6], [19.0, 54.2], [19.5, 54.15], [20.0, 54.1], [20.5, 54.1], [21.0, 54.1], [21.5, 54.2], [22.0, 54.15], [22.5, 54.1], [22.8, 54.3], [23.2, 54.3], [23.5, 54.4], [23.8, 54.3], [24.0, 54.1], [24.5, 53.95], [25.0, 54.0], [25.3, 54.15], [25.6, 54.1], [25.8, 53.9], [26.0, 53.6], [26.3, 53.3], [26.5, 53.1], [26.6, 52.7], [26.3, 52.5], [26.0, 52.1], [25.8, 51.9], [25.5, 51.6], [24.5, 51.6], [24.1, 51.9], [23.7, 51.6], [23.5, 51.3], [23.2, 50.9], [23.0, 50.4], [22.7, 49.7], [22.5, 49.5], [22.0, 49.0], [21.5, 49.4], [21.0, 49.4], [20.5, 49.3], [20.0, 49.2], [19.5, 49.4], [19.0, 49.4], [18.8, 49.5], [18.5, 49.9], [18.0, 50.0], [17.5, 50.2], [17.0, 50.4], [16.6, 50.2], [16.2, 50.4], [15.9, 50.8], [15.5, 50.8], [15.2, 51.0], [14.8, 51.0], [14.5, 51.2], [14.3, 51.5], [14.1, 51.8], [14.3, 52.3], [14.1, 52.6], [14.1, 53.0], [14.3, 53.3], [14.5, 53.5], [15.0, 54.0], [16.0, 54.2], [17.0, 54.4], [17.6, 54.5], [17.9, 54.65], [18.2, 54.75], [18.55, 54.83]]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 242,
+    "output_tokens": 1134,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-6",
+  "message_id": "msg_011CgtgbKyHWTAQAVBQYw8LX",
+  "started_at": "2026-11-10T05:19:22.423+00:00",
+  "first_token_ms": 960,
+  "first_text_ms": 960,
+  "duration_ms": 19180,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.017736,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:19:41+00:00"
+}

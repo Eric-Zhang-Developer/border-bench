@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-fable-5-2",
+  "model_display_name": "Claude Fable 5.2",
+  "model_created_at": "2026-11-09T18:30:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "This is an approximate outline of Poland's pre-war (Second Republic) borders, drawn from memory, so individual border points are estimates rather than surveyed positions.\n\n- **Coast:** only the short corridor coast from the German border near Lake Żarnowiec to the Free City of Danzig boundary south of Gdynia, including the Hel peninsula as a thin spit.\n- **Danzig and East Prussia:** the Free City of Danzig and East Prussia are excluded.\n- **East:** the line runs along the Lithuanian demarcation line (Wilno inside Poland), then the Daugava, the Riga-treaty line and the Zbruch down to the Dniester.\n- **South:** the border follows the Dniester and Cheremosh against Romania, then the Carpathian ridge. Zaolzie is left outside, since it was still Czechoslovak on 1 January 1938.\n- **West:** the line follows the interwar German border, with eastern Upper Silesia, Poznań province and the Pomeranian corridor inside Poland.\n\n```geojson\n{\"type\":\"MultiPolygon\",\"coordinates\":[[[[18.07,54.83],[18.33,54.84],[18.41,54.8],[18.55,54.75],[18.7,54.68],[18.82,54.6],[18.78,54.62],[18.66,54.68],[18.5,54.74],[18.42,54.77],[18.41,54.72],[18.47,54.66],[18.56,54.55],[18.56,54.46],[18.48,54.42],[18.42,54.35],[18.3,54.28],[18.2,54.2],[18.25,54.12],[18.45,54.1],[18.6,54.13],[18.8,54.12],[18.82,54.05],[18.87,53.97],[18.88,53.92],[18.86,53.84],[18.85,53.73],[18.88,53.6],[19.0,53.55],[19.2,53.6],[19.27,53.54],[19.35,53.47],[19.5,53.5],[19.7,53.58],[19.88,53.55],[19.92,53.45],[19.95,53.35],[20.05,53.33],[20.25,53.33],[20.35,53.28],[20.42,53.2],[20.6,53.3],[20.85,53.33],[21.1,53.37],[21.35,53.43],[21.6,53.48],[21.9,53.48],[22.15,53.58],[22.35,53.63],[22.45,53.69],[22.6,53.73],[22.78,53.87],[22.75,53.95],[22.63,54.02],[22.6,54.15],[22.68,54.28],[22.79,54.36],[22.9,54.42],[23.0,54.38],[23.1,54.3],[23.33,54.25],[23.47,54.15],[23.5,54.0],[23.65,53.95],[23.8,53.95],[23.95,54.03],[24.0,54.08],[24.25,54.1],[24.5,54.2],[24.6,54.3],[24.65,54.42],[24.7,54.55],[24.8,54.68],[24.88,54.78],[24.9,54.87],[25.0,54.96],[25.2,55.02],[25.5,55.1],[25.75,55.2],[26.0,55.3],[26.0,55.45],[26.15,55.6],[26.35,55.7],[26.6,55.7],[26.8,55.7],[26.95,55.8],[27.3,55.8],[27.6,55.79],[27.92,55.76],[28.1,55.65],[28.22,55.59],[28.36,55.6],[28.3,55.45],[28.15,55.3],[28.2,55.1],[28.0,54.95],[27.85,54.88],[27.7,54.7],[27.6,54.55],[27.5,54.4],[27.35,54.2],[27.2,54.05],[27.15,53.95],[27.0,53.8],[26.98,53.6],[26.9,53.4],[26.85,53.2],[26.9,53.05],[27.1,52.9],[27.2,52.75],[27.35,52.6],[27.5,52.4],[27.55,52.2],[27.6,52.0],[27.7,51.8],[27.75,51.6],[27.6,51.45],[27.45,51.3],[27.3,51.1],[27.2,50.9],[27.25,50.65],[27.0,50.5],[26.65,50.33],[26.4,50.2],[26.2,50.05],[26.25,49.85],[26.2,49.65],[26.15,49.5],[26.22,49.3],[26.2,49.07],[26.25,48.85],[26.42,48.54],[26.2,48.58],[26.0,48.55],[25.85,48.62],[25.73,48.64],[25.62,48.67],[25.65,48.55],[25.63,48.43],[25.45,48.38],[25.18,48.26],[25.08,48.12],[25.0,48.0],[24.97,47.75],[24.85,47.8],[24.7,47.85],[24.57,47.95],[24.5,48.1],[24.42,48.3],[24.2,48.42],[24.08,48.5],[23.9,48.6],[23.67,48.7],[23.4,48.76],[23.15,48.83],[22.88,49.0],[22.7,49.05],[22.56,49.09],[22.42,49.1],[22.2,49.15],[22.03,49.2],[21.95,49.35],[21.7,49.42],[21.5,49.42],[21.28,49.45],[21.1,49.43],[21.05,49.36],[20.93,49.3],[20.8,49.33],[20.69,49.41],[20.57,49.38],[20.4,49.39],[20.32,49.4],[20.3,49.34],[20.2,49.33],[20.12,49.28],[20.08,49.18],[19.95,49.23],[19.82,49.2],[19.76,49.21],[19.8,49.3],[19.8,49.37],[19.65,49.4],[19.55,49.48],[19.5,49.58],[19.4,49.57],[19.27,49.53],[19.18,49.41],[19.05,49.4],[18.97,49.4],[18.96,49.5],[18.85,49.52],[18.8,49.57],[18.8,49.68],[18.7,49.72],[18.63,49.75],[18.58,49.83],[18.6,49.88],[18.57,49.92],[18.5,49.9],[18.43,49.93],[18.33,49.93],[18.29,50.02],[18.35,50.1],[18.45,50.15],[18.55,50.2],[18.65,50.24],[18.75,50.25],[18.83,50.29],[18.9,50.31],[18.97,50.35],[18.93,50.39],[18.85,50.4],[18.75,50.42],[18.7,50.5],[18.6,50.6],[18.55,50.7],[18.6,50.85],[18.6,50.93],[18.47,51.03],[18.3,51.1],[18.17,51.17],[18.0,51.15],[17.85,51.1],[17.76,51.17],[17.8,51.27],[17.75,51.35],[17.6,51.43],[17.5,51.5],[17.4,51.6],[17.2,51.63],[17.0,51.62],[16.85,51.57],[16.7,51.6],[16.6,51.68],[16.5,51.75],[16.45,51.83],[16.38,51.9],[16.2,51.97],[16.0,52.02],[15.9,52.1],[15.87,52.2],[15.88,52.3],[15.93,52.4],[15.85,52.5],[15.8,52.6],[15.82,52.7],[16.0,52.75],[16.1,52.83],[16.15,52.9],[16.4,52.92],[16.57,52.93],[16.7,53.03],[16.8,53.1],[17.0,53.15],[17.15,53.25],[17.25,53.35],[17.35,53.45],[17.4,53.55],[17.45,53.68],[17.42,53.78],[17.3,53.85],[17.25,53.95],[17.35,54.05],[17.55,54.1],[17.65,54.2],[17.72,54.32],[17.85,54.42],[17.92,54.55],[18.0,54.68],[18.05,54.77],[18.07,54.83]]]]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 345,
+    "output_tokens": 18570,
+    "output_tokens_details": {
+      "thinking_tokens": 15746
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-fable-5-2",
+  "message_id": "msg_011Cgtik8zidz9AQwVRWAoV5",
+  "started_at": "2026-11-10T05:47:35.581+00:00",
+  "first_token_ms": 2530,
+  "first_text_ms": 178726,
+  "duration_ms": 199862,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    8.0,
+    40.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.74556,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:50:55+00:00"
+}

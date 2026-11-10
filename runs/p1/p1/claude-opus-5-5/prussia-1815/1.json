@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the Kingdom of Prussia as of 1 January 1816 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-5-5",
+  "model_display_name": "Claude Opus 5.5",
+  "model_created_at": "2026-09-21T16:24:00+00:00",
+  "target_id": "prussia-1815",
+  "target": "the Kingdom of Prussia as of 1 January 1816",
+  "raw": "The Kingdom of Prussia in 1816 had two main separate blocks, plus Rügen as an island. I've left out Neuchâtel and small enclaves.\n\n1. **Eastern block:**\n   - **Provinces:** Pomerania (including the former Swedish Pomerania), East and West Prussia, Posen, Silesia, Brandenburg and the Province of Saxony.\n   - **Northern edge:** I traced the Baltic coast from the Mecklenburg border (about 12.45°E) east to Memel and Nimmersatt.\n   - **Eastern and southern edges:** I ran the border with Russia and Congress Poland south to Upper Silesia, then the borders with Austria and Bohemia along the Sudetes.\n   - **Western edge:** I followed the borders with Saxony and Thuringia to the Eichsfeld, then north past Hanover and Brunswick to the Elbe, and back along the Mecklenburg border.\n2. **Western block:** Westphalia and the Rhine Province, which were cut off from the east by Hanover and Hesse. The outline runs from Gronau to Minden, down the Hesse and Nassau borders to Koblenz, across the Hunsrück and Nahe to the Saar. It then follows the borders with France, Luxembourg and the Netherlands (including Eupen, Malmedy, Aachen and Kleve).\n3. **Rügen** as a simple island polygon.\n\nCoordinates are approximate, from memory.\n\n```geojson\n{\"type\":\"MultiPolygon\",\"coordinates\":[\n[[[12.45,54.25],[12.9,54.42],[13.1,54.3],[13.4,54.12],[13.8,54.1],[14.2,53.92],[14.6,53.95],[15.2,54.1],[15.6,54.2],[16.2,54.35],[16.6,54.55],[17.0,54.65],[17.6,54.77],[18.35,54.83],[18.8,54.62],[18.55,54.55],[18.65,54.4],[19.2,54.35],[19.65,54.45],[19.9,54.6],[19.95,54.95],[20.5,54.95],[21.0,55.2],[21.1,55.7],[21.07,56.05],[21.5,55.9],[22.1,55.1],[22.6,55.05],[22.9,54.8],[22.75,54.35],[22.8,54.05],[22.5,53.9],[22.6,53.6],[22.0,53.45],[21.0,53.25],[20.0,53.15],[19.4,53.15],[18.85,52.95],[18.5,52.65],[18.3,52.4],[18.0,52.3],[17.9,51.9],[17.7,51.6],[18.1,51.35],[18.6,51.1],[18.8,50.8],[19.1,50.5],[19.2,50.2],[18.85,49.95],[18.4,50.0],[17.9,50.15],[17.6,50.3],[17.2,50.4],[16.9,50.25],[16.8,50.15],[16.5,50.15],[16.3,50.4],[16.0,50.6],[15.3,50.8],[14.9,50.95],[14.7,51.2],[14.2,51.3],[13.8,51.35],[13.4,51.4],[13.0,51.45],[12.6,51.4],[12.3,51.35],[12.2,51.2],[12.1,51.0],[11.6,51.05],[11.3,51.15],[11.0,51.0],[10.8,51.0],[10.6,51.2],[10.2,51.3],[9.95,51.4],[10.3,51.6],[10.6,51.8],[10.6,52.0],[10.9,52.15],[10.8,52.4],[10.9,52.85],[11.5,53.05],[11.9,53.2],[12.5,53.25],[13.3,53.3],[13.8,53.5],[13.3,53.6],[12.9,53.7],[12.6,54.0],[12.45,54.25]]],\n[[[13.25,54.25],[13.7,54.3],[13.65,54.45],[13.55,54.7],[13.35,54.65],[13.1,54.5],[13.25,54.25]]],\n[[[7.05,52.25],[7.6,52.45],[8.3,52.45],[8.7,52.52],[9.1,52.4],[9.4,52.15],[9.2,51.85],[9.45,51.7],[9.4,51.4],[8.9,51.2],[8.7,51.1],[8.4,50.85],[8.15,50.8],[7.8,50.6],[7.6,50.35],[7.8,50.15],[7.8,49.85],[7.4,49.7],[7.0,49.55],[7.1,49.15],[6.75,49.2],[6.55,49.4],[6.37,49.47],[6.5,49.7],[6.2,49.95],[6.15,50.15],[6.0,50.3],[6.0,50.75],[6.1,50.9],[5.9,51.05],[6.1,51.2],[6.2,51.4],[5.95,51.75],[6.2,51.9],[6.8,52.0],[7.05,52.25]]]\n]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 353,
+    "output_tokens": 4488,
+    "output_tokens_details": {
+      "thinking_tokens": 2747
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-5-5",
+  "message_id": "msg_011Cgti6BnM1U1VyVeMqfmec",
+  "started_at": "2026-11-10T05:39:00.800+00:00",
+  "first_token_ms": 953,
+  "first_text_ms": 31331,
+  "duration_ms": 45504,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    4.0,
+    20.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.091172,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:39:46+00:00"
+}

@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-4-6",
+  "model_display_name": "Claude Opus 4.6",
+  "model_created_at": "2026-02-04T00:00:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "\n\nI need to draw Poland's borders as of January 1, 1938 - this is interwar Poland (the Second Polish Republic), before any territorial changes of WWII.\n\nKey features of interwar Poland's borders:\n- **East**: Much further east than modern Poland, including parts of modern Ukraine, Belarus, and Lithuania (Wilno/Vilnius region)\n- **West**: Did not include Silesia west of the Oder, nor Pomerania/Stettin area\n- **North**: Had access to the Baltic Sea via the \"Polish Corridor\" (around Gdynia), but Danzig/Gdańsk was a Free City (not Polish territory)\n- **South**: Bordered Czechoslovakia (including Zaolzie which Poland hadn't yet annexed - that happened in Oct 1938)\n- The corridor separated East Prussia from the rest of Germany\n\nLet me trace the border roughly:\n\nStarting from the Baltic coast and going clockwise:\n- Baltic coast: roughly from near Łeba (17.5°E) east to near the Vistula lagoon area, but Danzig Free City creates a gap\n- Actually, Poland had coast from roughly Łeba area to just west of Gdynia, then Danzig Free City was separate, then Poland had a small coast east of Danzig near the Vistula\n- East border with Lithuania, then Soviet Union (Belarus, Ukraine) - going through Wilno, down to roughly the Zbruch river\n- South border with Romania (small section), Czechoslovakia\n- West border with Germany\n\nLet me approximate the key coordinates:\n\nThe Free City of Danzig complicates things - I should probably exclude it. But for simplicity and point conservation, I might include the small coastal sections and approximate.\n\nLet me trace the main polygon carefully, using my knowledge of the cities and geographic features.\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[16.70, 54.55], [17.00, 54.75], [17.50, 54.83], [18.30, 54.83], [18.50, 54.78], [18.60, 54.70], [18.60, 54.58], [18.40, 54.45], [18.30, 54.35], [18.60, 54.35], [18.80, 54.38], [19.00, 54.42], [19.20, 54.45], [19.40, 54.45], [19.60, 54.42], [19.80, 54.38], [19.80, 54.25], [19.90, 54.15], [20.00, 54.10], [20.50, 54.15], [21.00, 54.20], [21.50, 54.25], [22.00, 54.30], [22.50, 54.35], [22.80, 54.40], [23.20, 54.35], [23.50, 54.25], [23.70, 54.10], [23.90, 53.95], [24.10, 53.85], [24.30, 53.75], [24.50, 53.65], [24.70, 53.50], [24.80, 53.40], [24.90, 53.20], [25.00, 53.00], [25.10, 52.80], [25.20, 52.60], [25.30, 52.40], [25.40, 52.20], [25.50, 52.10], [25.60, 52.00], [25.80, 51.90], [26.00, 51.80], [26.20, 51.70], [26.50, 51.60], [26.80, 51.50], [27.00, 51.45], [27.10, 51.35], [27.00, 51.25], [26.80, 51.15], [26.60, 51.05], [26.40, 50.90], [26.20, 50.80], [26.00, 50.70], [25.80, 50.55], [25.60, 50.40], [25.50, 50.25], [25.40, 50.15], [25.20, 50.05], [24.80, 49.95], [24.50, 49.85], [24.20, 49.80], [24.00, 49.75], [23.80, 49.60], [23.60, 49.50], [23.40, 49.45], [23.20, 49.40], [23.00, 49.35], [22.80, 49.30], [22.60, 49.25], [22.40, 49.20], [22.20, 49.15], [22.00, 49.10], [21.80, 49.18], [21.60, 49.25], [21.40, 49.30], [21.20, 49.35], [21.00, 49.38], [20.80, 49.32], [20.60, 49.28], [20.40, 49.25], [20.20, 49.30], [20.00, 49.35], [19.80, 49.40], [19.60, 49.42], [19.40, 49.50], [19.20, 49.48], [19.00, 49.45], [18.80, 49.50], [18.60, 49.55], [18.40, 49.60], [18.20, 49.65], [18.00, 49.70], [17.80, 49.75], [17.60, 49.80], [17.40, 49.85], [17.20, 49.95], [17.00, 50.10], [16.80, 50.20], [16.60, 50.30], [16.40, 50.40], [16.20, 50.50], [16.00, 50.60], [15.90, 50.75], [16.00, 50.85], [16.10, 50.95], [16.20, 51.05], [16.30, 51.15], [16.20, 51.25], [16.10, 51.35], [16.00, 51.50], [15.90, 51.60], [15.80, 51.70], [15.70, 51.80], [15.60, 51.90], [15.60, 52.00], [15.70, 52.10], [15.80, 52.20], [15.90, 52.30], [16.00, 52.40], [16.10, 52.50], [16.20, 52.60], [16.30, 52.70], [16.40, 52.80], [16.40, 52.90], [16.50, 53.00], [16.60, 53.10], [16.70, 53.20], [16.80, 53.30], [16.70, 53.40], [16.60, 53.50], [16.50, 53.60], [16.40, 53.70], [16.50, 53.80], [16.50, 53.90], [16.50, 54.00], [16.50, 54.10], [16.50, 54.20], [16.60, 54.35], [16.70, 54.55]]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 242,
+    "output_tokens": 1851,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-4-6",
+  "message_id": "msg_011CgthzXqg56f6FyEfPEXVq",
+  "started_at": "2026-11-10T05:37:44.080+00:00",
+  "first_token_ms": 1702,
+  "first_text_ms": 1702,
+  "duration_ms": 28631,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    5.0,
+    25.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.047485,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:38:12+00:00"
+}

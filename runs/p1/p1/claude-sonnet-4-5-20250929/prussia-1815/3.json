@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the Kingdom of Prussia as of 1 January 1816 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_display_name": "Claude Sonnet 4.5",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "prussia-1815",
+  "target": "the Kingdom of Prussia as of 1 January 1816",
+  "raw": "I need to recall the borders of the Kingdom of Prussia as of January 1, 1816. This is shortly after the Congress of Vienna (1815), which significantly reorganized European territories.\n\nKey territories of Prussia in 1816:\n1. **Eastern Prussia** - The core territory including East Prussia (around Königsberg) and West Prussia (around Danzig/Gdańsk)\n2. **Brandenburg** - The central region around Berlin\n3. **Pomerania** - The Baltic coast region\n4. **Silesia** - Acquired from Austria in earlier wars\n5. **Rhineland and Westphalia** - Newly acquired in the west at the Congress of Vienna\n6. **Poznań (Posen)** - Part of the partitioned Poland\n\nThe Kingdom had two main chunks:\n- **Eastern territories**: A large connected area in the east including East Prussia, West Prussia, Posen, Brandenburg, Pomerania, and Silesia\n- **Western territories**: The Rhineland and Westphalia regions, separated from the east\n\nLet me sketch these territories:\n\n**Eastern Block:**\n- Northern border: Baltic Sea coastline from roughly Memel to west of Stettin\n- Eastern border: Russian Empire (roughly along the Niemen/Memel river in the north, then south through Congress Poland)\n- Southern border: Congress Poland, then Austrian Silesia, Bohemia\n- Western border: Various German states\n\n**Western Block:**\n- Rhineland and Westphalia, bordered by the Netherlands, various German states, and France\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [21.00, 55.08],\n        [20.50, 54.70],\n        [19.70, 54.40],\n        [19.00, 54.35],\n        [18.50, 54.50],\n        [17.50, 54.30],\n        [16.20, 54.20],\n        [14.50, 54.00],\n        [14.00, 53.80],\n        [13.70, 53.90],\n        [13.40, 54.10],\n        [12.90, 54.00],\n        [12.20, 53.80],\n        [11.70, 53.60],\n        [11.50, 53.30],\n        [11.80, 53.00],\n        [12.00, 52.70],\n        [11.70, 52.40],\n        [11.50, 52.20],\n        [11.70, 52.00],\n        [12.00, 51.70],\n        [12.40, 51.50],\n        [13.00, 51.30],\n        [13.50, 51.20],\n        [14.00, 51.10],\n        [14.50, 51.00],\n        [15.00, 51.10],\n        [15.50, 51.00],\n        [16.00, 50.80],\n        [16.50, 50.70],\n        [17.00, 50.60],\n        [17.50, 50.50],\n        [18.00, 50.40],\n        [18.20, 50.20],\n        [18.00, 50.00],\n        [17.70, 49.80],\n        [17.50, 49.90],\n        [17.00, 50.20],\n        [16.50, 50.40],\n        [16.00, 50.50],\n        [15.50, 50.60],\n        [15.00, 50.80],\n        [14.70, 51.00],\n        [14.80, 51.30],\n        [14.50, 51.50],\n        [14.30, 51.80],\n        [14.50, 52.10],\n        [14.70, 52.40],\n        [14.60, 52.70],\n        [14.50, 53.00],\n        [14.70, 53.20],\n        [15.00, 53.40],\n        [15.50, 53.30],\n        [16.00, 53.20],\n        [16.50, 53.10],\n        [17.00, 53.00],\n        [17.50, 52.90],\n        [18.00, 52.80],\n        [18.50, 52.70],\n        [19.00, 52.50],\n        [19.50, 52.30],\n        [20.00, 52.10],\n        [20.40, 52.00],\n        [20.80, 52.20],\n        [21.20, 52.50],\n        [21.50, 52.80],\n        [21.80, 53.10],\n        [22.00, 53.40],\n        [22.30, 53.70],\n        [22.50, 54.00],\n        [22.60, 54.30],\n        [22.50, 54.50],\n        [22.20, 54.70],\n        [21.80, 54.90],\n        [21.00, 55.08]\n      ]\n    ],\n    [\n      [\n        [6.20, 51.80],\n        [6.00, 51.60],\n        [6.20, 51.40],\n        [6.50, 51.20],\n        [6.80, 51.00],\n        [7.00, 50.80],\n        [7.30, 50.60],\n        [7.60, 50.50],\n        [8.00, 50.40],\n        [8.40, 50.50],\n        [8.70, 50.70],\n        [8.90, 51.00],\n        [9.00, 51.30],\n        [9.20, 51.50],\n        [9.40, 51.70],\n        [9.50, 51.90],\n        [9.40, 52.10],\n        [9.20, 52.30],\n        [9.00, 52.40],\n        [8.70, 52.50],\n        [8.40, 52.40],\n        [8.10, 52.30],\n        [7.80, 52.20],\n        [7.50, 52.30],\n        [7.20, 52.40],\n        [7.00, 52.50],\n        [6.80, 52.40],\n        [6.60, 52.20],\n        [6.40, 52.00],\n        [6.20, 51.80]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 245,
+    "output_tokens": 1667,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtfwKELGhrzTZ5Q4bbNR",
+  "started_at": "2026-11-10T05:10:46.843+00:00",
+  "first_token_ms": 669,
+  "first_text_ms": 669,
+  "duration_ms": 22815,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.02574,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:11:09+00:00"
+}

@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-5-5",
+  "model_display_name": "Claude Opus 5.5",
+  "model_created_at": "2026-09-21T16:24:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "```geojson\n{\"type\":\"MultiPolygon\",\"coordinates\":[[[[17.75,54.79],[18.33,54.84],[18.6,54.77],[18.82,54.61],[18.6,54.72],[18.42,54.73],[18.4,54.66],[18.55,54.52],[18.56,54.44],[18.43,54.36],[18.45,54.25],[18.6,54.2],[18.8,54.13],[18.82,53.95],[18.85,53.75],[18.9,53.55],[19.3,53.42],[19.75,53.3],[20.2,53.2],[20.7,53.15],[21.2,53.15],[21.6,53.2],[22.0,53.4],[22.5,53.55],[22.75,53.85],[22.8,54.36],[23.1,54.3],[23.4,54.2],[23.8,54.05],[24.1,54.2],[24.5,54.4],[24.65,54.75],[24.9,54.95],[25.5,55.2],[26.0,55.4],[26.6,55.7],[27.1,55.85],[27.6,55.85],[28.15,55.85],[28.05,55.5],[27.75,55.15],[27.55,54.75],[27.3,54.3],[27.05,54.0],[26.85,53.65],[27.0,53.35],[27.35,53.05],[27.6,52.7],[27.75,52.3],[27.9,51.8],[27.7,51.5],[27.2,51.3],[27.1,51.0],[27.25,50.65],[26.75,50.4],[26.45,50.2],[26.3,49.95],[26.2,49.6],[26.1,49.2],[26.25,48.9],[26.4,48.6],[25.9,48.6],[25.5,48.6],[25.2,48.4],[25.0,48.15],[24.65,47.95],[24.2,48.3],[23.6,48.6],[23.0,48.95],[22.6,49.08],[22.2,49.2],[21.8,49.4],[21.2,49.42],[20.7,49.38],[20.2,49.25],[19.85,49.2],[19.5,49.4],[19.15,49.4],[18.85,49.52],[18.6,49.8],[18.35,49.95],[18.45,50.15],[18.65,50.25],[18.8,50.4],[18.65,50.6],[18.5,50.8],[18.2,51.1],[17.8,51.2],[17.4,51.3],[17.2,51.45],[16.85,51.6],[16.5,51.75],[16.15,52.0],[15.9,52.25],[15.95,52.6],[16.4,52.85],[16.8,53.0],[17.2,53.1],[17.4,53.3],[17.3,53.6],[17.15,53.95],[17.35,54.2],[17.5,54.4],[17.6,54.6],[17.75,54.79]]]]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 345,
+    "output_tokens": 3007,
+    "output_tokens_details": {
+      "thinking_tokens": 2028
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-5-5",
+  "message_id": "msg_011CgtiBq6ZD7N3fyH1MszZu",
+  "started_at": "2026-11-10T05:40:17.358+00:00",
+  "first_token_ms": 1275,
+  "first_text_ms": 26342,
+  "duration_ms": 34501,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    4.0,
+    20.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.06152,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:40:51+00:00"
+}

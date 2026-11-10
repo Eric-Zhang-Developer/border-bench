@@ -1,0 +1,48 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the Kingdom of Prussia as of 1 January 1816 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-opus-4-8",
+  "model_display_name": "Claude Opus 4.8",
+  "model_created_at": "2026-05-28T00:00:00+00:00",
+  "target_id": "prussia-1815",
+  "target": "the Kingdom of Prussia as of 1 January 1816",
+  "raw": "<think>\nThe Kingdom of Prussia in 1816, after the Congress of Vienna. It had two main parts: the eastern core (Brandenburg, Pomerania, Silesia, East Prussia, West Prussia, Posen) and the western provinces (Rhineland, Westphalia).\n\nLet me recall the geography. The main eastern block stretched from around the Rhine... no, the eastern block was separate from the western Rhineland/Westphalia provinces.\n\nEastern Prussia proper: East Prussia (Königsberg), West Prussia, Posen, Silesia, Brandenburg, Pomerania, Saxony (Prussian Saxony).\n\nWestern: Rhine Province and Westphalia.\n\nThere was a gap between them (Hanover, Hesse, etc.).\n\nLet me draw two main polygons.\n\nEastern block: roughly from longitude 9°E (around Elbe/Saxony) to about 23°E (Memel/East Prussia), latitude from about 49.5°N (Silesia) to 55.9°N (northern East Prussia on Baltic).\n\nEast Prussia northern border around Memel (~55.7N, 21.2E), down to the Russian/Polish border. East Prussia eastern edge around 22.8E.\n\nWestern block (Rhine + Westphalia): roughly longitude 6°E to 9°E, latitude 49.5°N to 52.5°N.\n\nLet me create approximate polygons.\n\nEastern block coordinates (rough outline):\n- Start northern Baltic coast. The Baltic coastline from around Memel westward to Lübeck area. Pomerania coast.\n- West Prussia and East Prussia around the coast with a bit of Danzig.\n\nLet me just make a reasonable blob.\n\nEastern main polygon vertices (clockwise from NE):\n- Memel (21.2, 55.7)\n- down eastern East Prussia border (22.8, 54.4)\n- (22.8, 53.9)\n- Masuria south (21.5, 53.3)\n- Polish Congress border southward: Prussia bordered Congress Poland. The border ran... Posen eastern edge around (18.5, 52.5)\n- down to (18.3, 51.5) \n- Silesia eastern point near Kraków area (19, 50.2)\n- Silesia southern border with Austria (18, 49.7), (17, 50), (16.5, 50.3) near Glatz (16.4, 50.2)\n- southwest Silesia (15, 50.8)\n- then Saxony/Lusatia (14.5, 51.3)\n- Prussian Saxony province around (11.5, 51.5), (10.5, 51.8)\n- western edge near Hanover (10.5, 52.5)\n- up toward Altmark (11, 52.8)\n- Mecklenburg border (11.5, 53.2)\n- Baltic coast west Pomerania near Stralsund (13, 54.3)\n- Rügen island area coast (13.5, 54.4)\n- coast eastward (14.5, 54.1), Kolberg (15.5, 54.2), (17, 54.5), Danzig (18.7, 54.4)\n- Frisches Haff (19.5, 54.4), Königsberg (20.5, 54.7)\n- back to Memel (21.2, 55.7)\n\nWestern block (Rhineland + Westphalia):\n- Northern around (7.5, 52.4) near Osnabrück/Minden\n- east (9, 51.8) Westphalia east\n- south (8.5, 50.3) \n- Rhine south near Saarland/Bingen (7.5, 49.7)\n- Saar (6.8, 49.4)\n- west border (Netherlands/Belgium/Luxembourg) (6.1, 50.0)\n- Aachen (6.0, 50.8)\n- north (6.1, 51.8)\n- (6.7, 52.2)\n- back to (7.5, 52.4)\n\nI'll output these.\n</think>\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [\n[[[21.2,55.7],[22.8,54.4],[22.8,53.9],[21.5,53.3],[20.0,53.0],[18.5,52.9],[18.4,52.3],[18.3,51.5],[18.8,51.0],[19.2,50.4],[18.3,49.9],[17.3,50.0],[16.5,50.3],[16.3,50.2],[15.4,50.8],[14.7,51.0],[14.6,51.4],[13.0,51.3],[11.8,51.4],[10.6,51.8],[10.5,52.5],[11.0,52.8],[11.4,53.2],[12.2,53.6],[13.1,54.3],[13.7,54.4],[14.5,54.0],[15.5,54.2],[17.0,54.5],[18.7,54.4],[19.6,54.4],[20.5,54.7],[21.0,55.2],[21.2,55.7]]],\n[[[7.5,52.4],[9.0,51.8],[8.8,51.0],[8.5,50.3],[7.8,49.7],[6.9,49.4],[6.1,50.0],[6.0,50.8],[6.1,51.5],[6.3,52.0],[6.8,52.3],[7.5,52.4]]]\n]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 351,
+    "output_tokens": 1755,
+    "output_tokens_details": {
+      "thinking_tokens": 0
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-opus-4-8",
+  "message_id": "msg_011CgtgG6xBfQhei1WVrrqqA",
+  "started_at": "2026-11-10T05:15:01.709+00:00",
+  "first_token_ms": 942,
+  "first_text_ms": 942,
+  "duration_ms": 26064,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    5.0,
+    25.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.04563,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:15:27+00:00"
+}

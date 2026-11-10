@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the Kingdom of Prussia as of 1 January 1816 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-haiku-4-5-20251001",
+  "model_display_name": "Claude Haiku 4.5",
+  "model_created_at": "2025-10-15T00:00:00+00:00",
+  "target_id": "prussia-1815",
+  "target": "the Kingdom of Prussia as of 1 January 1816",
+  "raw": "I'll reason through the borders and coastline of Prussia as of January 1, 1816.\n\nAfter the Napoleonic Wars and the Congress of Vienna (which was in progress but essentially concluded by early 1816), Prussia had:\n\n1. **Main Prussian territory in the east**: The core territories around Berlin, extending to the Vistula River in the east\n2. **Western Prussia**: Territories west of the Vistula that were reacquired\n3. **The Rhineland and Westphalia**: Significant new western territories acquired in 1815\n4. **Pomerania**: Along the Baltic coast\n5. **East Prussia**: The easternmost territory, separated from the main body\n\nKey geographic features to remember:\n- Eastern border: Generally along/near the Vistula River and then the Russian border\n- Southern border: Along the Austrian border (Silesia and other areas)\n- Western border: Extended far west into the Rhineland\n- Northern border: Baltic Sea coastline\n- The territory was NOT contiguous - there were gaps between East Prussia and the main body, and between main Prussia and the western territories\n\nMajor cities to orient: Berlin (center), Königsberg (East Prussia), Danzig area, Warsaw area to the east, and western cities like Cologne, Aachen.\n\nLet me approximate the borders:\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [[[13.08, 53.50], [14.00, 53.75], [14.00, 54.50], [13.00, 54.80], [12.00, 54.50], [12.00, 53.50], [13.08, 53.50]]],\n    [[[8.00, 50.50], [6.00, 50.50], [5.50, 50.80], [5.00, 51.50], [5.00, 52.50], [6.00, 53.00], [7.00, 52.80], [8.00, 52.00], [8.00, 50.50]]],\n    [[[8.00, 52.00], [9.00, 52.50], [11.00, 52.80], [12.50, 52.50], [13.00, 52.00], [12.00, 51.50], [11.00, 51.00], [9.50, 51.00], [8.00, 51.50], [8.00, 52.00]]],\n    [[[13.00, 52.00], [14.50, 51.50], [16.00, 51.00], [18.00, 50.50], [19.00, 50.00], [19.50, 51.00], [18.50, 52.00], [17.00, 52.50], [15.00, 52.80], [13.00, 52.50], [13.00, 52.00]]],\n    [[[19.50, 51.00], [21.00, 50.50], [22.00, 50.80], [22.00, 52.00], [21.00, 52.80], [19.50, 52.50], [19.50, 51.00]]],\n    [[[20.00, 53.50], [22.00, 53.00], [24.00, 53.50], [24.00, 54.80], [22.00, 55.00], [20.00, 54.50], [20.00, 53.50]]]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 245,
+    "output_tokens": 864,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-haiku-4-5-20251001",
+  "message_id": "msg_011CgtfzLFS6hxeXBRXe5nML",
+  "started_at": "2026-11-10T05:11:27.787+00:00",
+  "first_token_ms": 415,
+  "first_text_ms": 415,
+  "duration_ms": 8246,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    1.0,
+    5.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.004565,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T05:11:36+00:00"
+}
