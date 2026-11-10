@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-b",
+  "prompt": "Draw the land borders and coastline of Australia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- Output only the GeoJSON MultiPolygon, with no other text.\n- It is a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "australia",
+  "target": "Australia as of 1 January 2024",
+  "raw": "{\"type\": \"MultiPolygon\", \"coordinates\": [[[[143.0, -10.0], [143.5, -11.5], [144.0, -12.0], [144.5, -13.0], [145.0, -14.0], [145.5, -15.0], [146.0, -16.5], [146.5, -18.0], [147.0, -19.0], [148.0, -20.0], [149.0, -21.0], [150.0, -22.0], [151.0, -23.0], [152.0, -24.0], [153.0, -25.0], [153.5, -26.5], [153.5, -28.0], [153.0, -29.0], [152.0, -30.0], [151.5, -31.5], [151.0, -33.0], [150.5, -34.0], [150.0, -35.0], [149.5, -36.0], [149.0, -37.0], [148.0, -38.0], [147.0, -38.5], [146.0, -39.0], [145.0, -38.5], [144.0, -38.0], [142.0, -38.5], [141.0, -38.0], [140.0, -37.5], [139.0, -36.0], [138.0, -35.5], [137.5, -35.5], [137.0, -35.0], [136.5, -35.5], [136.0, -35.5], [135.5, -35.0], [135.0, -34.5], [134.5, -34.0], [134.0, -33.0], [133.5, -32.5], [133.0, -32.0], [132.0, -31.5], [131.0, -31.5], [130.0, -31.0], [129.0, -31.5], [128.0, -32.0], [127.0, -32.5], [126.0, -32.0], [125.0, -32.5], [124.0, -33.0], [123.0, -33.5], [122.0, -34.0], [121.0, -34.5], [120.0, -34.0], [119.0, -34.0], [118.0, -34.5], [117.0, -34.5], [116.0, -34.0], [115.5, -33.5], [115.0, -33.0], [115.0, -32.0], [114.5, -30.0], [114.0, -28.0], [114.0, -26.0], [114.0, -24.0], [113.5, -22.0], [113.5, -20.0], [114.0, -18.0], [114.5, -17.0], [115.0, -16.0], [116.0, -15.0], [117.0, -14.5], [118.0, -14.0], [119.0, -13.5], [120.0, -13.5], [121.0, -13.0], [122.0, -12.5], [123.0, -12.0], [124.0, -12.5], [125.0, -13.0], [126.0, -13.5], [127.0, -14.0], [127.5, -14.5], [128.0, -15.0], [129.0, -15.0], [129.5, -14.5], [130.0, -14.0], [131.0, -13.0], [132.0, -12.5], [133.0, -12.0], [134.0, -12.0], [135.0, -12.0], [136.0, -12.5], [136.5, -13.0], [137.0, -13.5], [138.0, -14.0], [139.0, -14.5], [140.0, -15.0], [140.5, -15.5], [141.0, -16.0], [141.5, -15.0], [141.5, -13.0], [141.5, -11.0], [142.0, -10.5], [143.0, -10.0]]], [[[145.5, -40.5], [146.0, -41.0], [146.5, -41.5], [147.0, -42.0], [147.5, -42.5], [148.0, -43.0], [148.0, -42.5], [147.5, -41.5], [147.0, -40.5], [146.5, -40.0], [146.0, -40.0], [145.5, -40.0], [145.5, -40.5]]]]}",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 237,
+    "output_tokens": 1240,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtJFyQSfuY9td3NSRAZJ",
+  "started_at": "2026-11-10T00:26:29.858+00:00",
+  "first_token_ms": 639,
+  "first_text_ms": 639,
+  "duration_ms": 13963,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.019311,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:26:43+00:00"
+}

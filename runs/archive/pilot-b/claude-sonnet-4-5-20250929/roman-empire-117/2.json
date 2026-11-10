@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-b",
+  "prompt": "Draw the land borders and coastline of the Roman Empire as of 1 July 117 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- Output only the GeoJSON MultiPolygon, with no other text.\n- It is a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "roman-empire-117",
+  "target": "the Roman Empire as of 1 July 117",
+  "raw": "{\"type\": \"MultiPolygon\", \"coordinates\": [[[[- 9, 43], [-8, 41], [-6, 39], [-4, 37], [-2, 36], [1, 37], [3, 39], [5, 40], [7, 41], [9, 42], [12, 43], [15, 44], [18, 45], [21, 45], [24, 45], [27, 45], [29, 44], [31, 43], [33, 42], [35, 41], [37, 40], [39, 39], [41, 38], [43, 37], [45, 36], [46, 35], [46, 34], [45, 33], [44, 32], [42, 31], [40, 30], [38, 29], [36, 30], [35, 31], [34, 32], [33, 33], [32, 34], [31, 35], [30, 36], [29, 36], [28, 35], [27, 34], [26, 33], [25, 32], [24, 31], [23, 30], [22, 29], [21, 29], [20, 29], [19, 30], [18, 30], [17, 30], [16, 30], [15, 30], [14, 30], [13, 31], [12, 31], [11, 32], [10, 32], [9, 33], [9, 34], [10, 35], [11, 36], [12, 37], [12, 38], [11, 39], [10, 40], [9, 40], [8, 40], [7, 39], [6, 38], [5, 37], [4, 36], [3, 35], [2, 34], [1, 33], [0, 32], [-1, 32], [-2, 31], [-3, 30], [-4, 30], [-5, 30], [-6, 31], [-6, 32], [-5, 33], [-4, 34], [-3, 35], [-2, 36], [-1, 37], [0, 38], [0, 39], [-1, 40], [-2, 41], [-3, 42], [-5, 43], [-7, 44], [-9, 43]]], [[[26, 32], [27, 31], [28, 30], [29, 29], [30, 28], [31, 28], [32, 29], [33, 30], [34, 31], [35, 32], [36, 32], [35, 33], [34, 33], [33, 32], [32, 32], [31, 31], [30, 31], [29, 31], [28, 32], [27, 32], [26, 32]]], [[[23, 35], [24, 35], [25, 36], [26, 37], [27, 38], [28, 39], [28, 40], [27, 40], [26, 40], [25, 39], [24, 38], [23, 37], [23, 36], [23, 35]]], [[[12, 46], [13, 46], [14, 46], [15, 46], [16, 46], [17, 46], [18, 46], [18, 47], [17, 47], [16, 47], [15, 47], [14, 47], [13, 47], [12, 47], [12, 46]]], [[[8, 39], [9, 38], [10, 38], [11, 38], [12, 39], [13, 40], [14, 41], [15, 42], [16, 43], [17, 44], [16, 44], [15, 44], [14, 43], [13, 42], [12, 41], [11, 40], [10, 39], [9, 39], [8, 39]]], [[[23, 38], [24, 38], [25, 38], [26, 39], [27, 40], [28, 41], [28, 42], [27, 42], [26, 41], [25, 40], [24, 39], [23, 38]]], [[[33, 35], [34, 35], [35, 36], [36, 37], [37, 38], [38, 39], [39, 40], [40, 41], [41, 42], [40, 42], [39, 41], [38, 40], [37, 39], [36, 38], [35, 37], [34, 36], [33, 35]]]]}",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 238,
+    "output_tokens": 1202,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtJSRDVMbu31YwMTp7vd",
+  "started_at": "2026-11-10T00:28:51.554+00:00",
+  "first_token_ms": 721,
+  "first_text_ms": 721,
+  "duration_ms": 13297,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.018744,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:29:04+00:00"
+}

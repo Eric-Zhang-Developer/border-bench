@@ -1,0 +1,38 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of Chile as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "chile",
+  "target": "Chile as of 1 January 2024",
+  "raw": "I need to draw Chile's land borders and coastline as of January 1, 2024.\n\nKey features of Chile:\n- Very long, narrow country along South America's western coast\n- Extends roughly from 17°S to 56°S latitude\n- Bordered by Peru to the north, Bolivia to the northeast, Argentina to the east\n- Pacific Ocean to the west\n- Includes Easter Island (but that's an overseas dependency, so I'll exclude it)\n- Main territory plus some islands in the south (Tierra del Fuego, etc.)\n\nThe mainland is the primary feature - a narrow strip running north-south. I'll focus on capturing:\n1. Northern border with Peru (around 17-18°S)\n2. Eastern border with Bolivia and Argentina (Andes mountains)\n3. Southern tip including parts of Tierra del Fuego\n4. Western coastline along Pacific\n\nI'll trace from north to south along the coast, then return north along the Andes border.\n\nKey coordinates to remember:\n- Northern tip: around (-70, -17.5)\n- Santiago area: around (-70.5, -33.5)\n- Southern mainland: around (-73, -54)\n- Eastern border follows Andes, roughly -68 to -67 longitude in north, varying in south\n\nLet me create a simplified polygon for mainland Chile:\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [-70.0, -17.5],\n        [-69.5, -17.5],\n        [-69.0, -18.0],\n        [-68.5, -19.0],\n        [-68.3, -20.0],\n        [-68.2, -21.0],\n        [-68.5, -22.0],\n        [-68.2, -23.0],\n        [-67.8, -24.0],\n        [-68.2, -25.0],\n        [-68.5, -26.0],\n        [-69.0, -27.0],\n        [-69.5, -28.0],\n        [-70.0, -29.0],\n        [-70.5, -30.0],\n        [-70.5, -31.0],\n        [-70.0, -32.0],\n        [-70.5, -33.0],\n        [-70.0, -34.0],\n        [-70.5, -35.0],\n        [-71.0, -36.0],\n        [-71.5, -37.0],\n        [-71.8, -38.0],\n        [-71.5, -39.0],\n        [-72.0, -40.0],\n        [-72.5, -41.0],\n        [-73.0, -42.0],\n        [-73.5, -43.0],\n        [-73.0, -44.0],\n        [-73.5, -45.0],\n        [-73.8, -46.0],\n        [-74.0, -47.0],\n        [-73.5, -48.0],\n        [-73.0, -49.0],\n        [-72.5, -50.0],\n        [-72.0, -51.0],\n        [-71.5, -52.0],\n        [-71.0, -52.5],\n        [-70.5, -53.0],\n        [-70.0, -53.5],\n        [-69.5, -54.0],\n        [-69.0, -54.5],\n        [-68.5, -54.8],\n        [-68.6, -54.7],\n        [-69.0, -54.3],\n        [-69.5, -53.8],\n        [-70.0, -53.3],\n        [-70.5, -52.5],\n        [-71.0, -52.0],\n        [-71.5, -51.3],\n        [-71.8, -50.5],\n        [-72.0, -50.0],\n        [-72.2, -49.0],\n        [-72.5, -48.0],\n        [-72.8, -47.0],\n        [-72.5, -46.0],\n        [-72.2, -45.0],\n        [-72.0, -44.0],\n        [-71.8, -43.0],\n        [-71.5, -42.0],\n        [-71.2, -41.0],\n        [-71.0, -40.0],\n        [-71.2, -39.0],\n        [-71.5, -38.0],\n        [-71.2, -37.0],\n        [-71.0, -36.0],\n        [-70.8, -35.0],\n        [-70.5, -34.0],\n        [-70.2, -33.0],\n        [-70.0, -32.0],\n        [-69.8, -31.0],\n        [-69.5, -30.0],\n        [-69.8, -29.0],\n        [-70.0, -28.0],\n        [-69.5, -27.0],\n        [-69.2, -26.0],\n        [-68.8, -25.0],\n        [-68.5, -24.0],\n        [-68.8, -23.0],\n        [-69.0, -22.0],\n        [-69.2, -21.0],\n        [-69.5, -20.0],\n        [-69.8, -19.0],\n        [-70.0, -18.0],\n        [-70.0, -17.5]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 1368,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtGP6bWBNR8zsQ5CXRA7",
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "cost_usd": 0.021246,
+  "requested_at": "2026-11-10T00:02:10+00:00"
+}

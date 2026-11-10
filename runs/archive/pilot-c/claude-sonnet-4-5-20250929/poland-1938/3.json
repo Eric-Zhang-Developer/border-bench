@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "I need to draw Poland's borders as they existed on January 1, 1938.\n\nKey historical context:\n- This is interwar Poland (Second Polish Republic), which existed between WWI and WWII\n- Poland regained independence in 1918 after partitions\n- By 1938, Poland had not yet been invaded (that happened in September 1939)\n- Poland had access to the Baltic Sea through the \"Polish Corridor\"\n- Major cities: Warsaw (capital, central), Gdańsk/Danzig corridor area (north), Kraków (south), Lwów/Lviv (southeast), Wilno/Vilnius (northeast)\n- Borders were with: Germany (west), Czechoslovakia (south), Romania (small section in southeast), USSR (east), Lithuania (north), and Baltic Sea coastline\n\nGeography:\n- Northern border: Baltic Sea coastline around Gdynia/Gdańsk area\n- Western border: With Germany, including the Polish Corridor cutting through to the sea\n- Southern border: Carpathian mountains with Czechoslovakia\n- Eastern border: Extended much further east than modern Poland, including areas that are now in Ukraine, Belarus, and Lithuania\n- The country was roughly rectangular but with the northern \"corridor\" extension\n\nLet me sketch the approximate coordinates:\n\nBaltic coastline (roughly 54.5°N to 55°N):\n- Western part around 18.5°E\n- Eastern part around 19.5°E\n\nWestern border with Germany ran roughly north-south around 15-18°E\n\nEastern border extended to roughly 26-27°E at its furthest\n\nSouthern border around 49-50°N\n\nNorthern border (excluding coast) around 54-56°N\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[18.5, 54.8], [18.6, 54.85], [18.75, 54.9], [19, 54.92], [19.25, 54.9], [19.5, 54.85], [19.6, 54.8], [19.7, 54.7], [19.8, 54.6], [20, 54.5], [20.3, 54.4], [20.7, 54.35], [21.2, 54.3], [21.8, 54.3], [22.3, 54.35], [22.8, 54.4], [23.2, 54.45], [23.5, 54.5], [23.8, 54.55], [24.1, 54.6], [24.5, 54.7], [24.9, 54.8], [25.3, 54.9], [25.6, 55], [25.9, 55.1], [26.1, 55.2], [26.2, 55.25], [26.3, 55.3], [26.35, 55.35], [26.4, 55.4], [26.4, 55.5], [26.35, 55.6], [26.3, 55.7], [26.2, 55.8], [26.1, 55.85], [26, 55.9], [25.9, 55.95], [25.8, 56], [25.7, 56.05], [25.6, 56.1], [25.5, 56.12], [25.3, 56.15], [25.1, 56.15], [24.9, 56.15], [24.7, 56.1], [24.5, 56.05], [24.3, 56], [24.1, 55.95], [23.9, 55.9], [23.7, 55.85], [23.5, 55.8], [23.4, 55.7], [23.35, 55.6], [23.3, 55.5], [23.3, 55.4], [23.35, 55.3], [23.45, 55.2], [23.6, 55.1], [23.8, 55], [24.1, 54.9], [24.5, 54.8], [25, 54.7], [25.5, 54.6], [26, 54.5], [26.5, 54.4], [26.8, 54.3], [27, 54.2], [27.1, 54.1], [27.15, 54], [27.15, 53.9], [27.1, 53.8], [27, 53.7], [26.9, 53.6], [26.8, 53.5], [26.75, 53.4], [26.75, 53.3], [26.8, 53.2], [26.9, 53.1], [27, 53], [27.1, 52.9], [27.15, 52.8], [27.2, 52.7], [27.2, 52.6], [27.15, 52.5], [27.1, 52.4], [27, 52.3], [26.9, 52.2], [26.8, 52.1], [26.75, 52], [26.75, 51.9], [26.8, 51.8], [26.9, 51.7], [27, 51.6], [27.1, 51.5], [27.15, 51.4], [27.15, 51.3], [27.1, 51.2], [27, 51.1], [26.9, 51], [26.75, 50.9], [26.6, 50.8], [26.4, 50.7], [26.2, 50.6], [26, 50.5], [25.8, 50.4], [25.6, 50.35], [25.4, 50.3], [25.2, 50.25], [25, 50.2], [24.8, 50.15], [24.6, 50.1], [24.4, 50.05], [24.2, 50], [24, 49.95], [23.8, 49.9], [23.6, 49.85], [23.4, 49.8], [23.2, 49.75], [23, 49.7], [22.8, 49.65], [22.6, 49.6], [22.4, 49.55], [22.2, 49.5], [22, 49.48], [21.8, 49.46], [21.6, 49.45], [21.4, 49.44], [21.2, 49.43], [21, 49.42], [20.8, 49.41], [20.6, 49.4], [20.4, 49.39], [20.2, 49.38], [20, 49.37], [19.8, 49.36], [19.6, 49.35], [19.4, 49.35], [19.2, 49.35], [19, 49.36], [18.8, 49.37], [18.6, 49.39], [18.4, 49.42], [18.2, 49.46], [18, 49.5], [17.8, 49.55], [17.6, 49.6], [17.4, 49.65], [17.2, 49.7], [17, 49.75], [16.8, 49.8], [16.6, 49.85], [16.4, 49.88], [16.2, 49.9], [16, 49.92], [15.8, 49.93], [15.6, 49.93], [15.4, 49.92], [15.2, 49.9], [15, 49.87], [14.8, 49.83], [14.7, 49.8], [14.65, 49.77], [14.62, 49.75], [14.6, 49.73], [14.6, 49.7], [14.62, 49.67], [14.65, 49.65], [14.7, 49.63], [14.75, 49.62], [14.8, 49.61], [14.82, 49.6], [14.8, 49.58], [14.75, 49.57], [14.7, 49.57], [14.65, 49.58], [14.6, 49.6], [14.55, 49.63], [14.5, 49.67], [14.45, 49.72], [14.4, 49.78], [14.35, 49.85], [14.35, 49.92], [14.37, 50], [14.4, 50.08], [14.43, 50.15], [14.45, 50.22], [14.47, 50.3], [14.48, 50.38], [14.48, 50.46], [14.47, 50.54], [14.45, 50.62], [14.42, 50.7], [14.38, 50.78], [14.35, 50.85], [14.33, 50.92], [14.32, 51], [14.32, 51.08], [14.33, 51.16], [14.35, 51.24], [14.38, 51.32], [14.42, 51.4], [14.47, 51.48], [14.53, 51.56], [14.6, 51.63], [14.68, 51.7], [14.77, 51.76], [14.87, 51.82], [14.98, 51.87], [15.1, 51.92], [15.23, 51.96], [15.37, 52], [15.52, 52.03], [15.68, 52.05], [15.85, 52.06], [16.02, 52.06], [16.2, 52.05], [16.38, 52.03], [16.55, 52], [16.72, 51.96], [16.88, 51.91], [17.03, 51.85], [17.17, 51.78], [17.3, 51.7], [17.42, 51.61], [17.52, 51.51], [17.61, 51.4], [17.68, 51.28], [17.73, 51.15], [17.76, 51.02], [17.77, 50.88], [17.76, 50.74], [17.73, 50.6], [17.68, 50.46], [17.61, 50.33], [17.52, 50.2], [17.41, 50.08], [17.28, 49.97], [17.13, 49.87], [16.96, 49.78], [16.78, 49.71], [16.58, 49.65], [16.37, 49.6], [16.15, 49.57], [15.92, 49.55], [15.68, 49.54], [15.43, 49.55], [15.18, 49.57], [14.93, 49.61], [14.7, 49.66], [14.7, 49.8], [14.72, 49.95], [14.77, 50.1], [14.84, 50.25], [14.93, 50.4], [15.05, 50.55], [15.2, 50.7], [15.38, 50.85], [15.59, 51], [15.83, 51.15], [16.1, 51.3], [16.4, 51.45], [16.73, 51.6], [17.09, 51.75], [17.48, 51.9], [17.9, 52.05], [18.35, 52.2], [18.5, 52.25], [18.65, 52.3], [18.8, 52.35], [18.95, 52.4], [19.1, 52.45], [19.25, 52.5], [19.4, 52.55], [19.55, 52.6], [19.7, 52.65], [19.85, 52.7], [20, 52.75], [20.15, 52.8], [20.3, 52.85], [20.45, 52.9], [20.6, 52.95], [20.75, 53], [20.9, 53.05], [21.05, 53.1], [21.2, 53.15], [21.35, 53.2], [21.5, 53.25], [21.65, 53.3], [21.8, 53.35], [21.95, 53.4], [22.1, 53.45], [22.25, 53.5], [22.4, 53.55], [22.55, 53.6], [22.7, 53.65], [22.85, 53.7], [23, 53.75], [23.15, 53.8], [23.3, 53.85], [23.45, 53.9], [23.6, 53.95], [23.75, 54], [23.9, 54.05], [24.05, 54.1], [24.2, 54.15], [24.35, 54.2], [24.5, 54.25], [23.5, 54.3], [22.5, 54.35], [21.5, 54.4], [20.5, 54.45], [19.5, 54.5], [19, 54.55], [18.7, 54.6], [18.5, 54.65], [18.4, 54.7], [18.35, 54.75], [18.5, 54.8]]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 3506,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtH9NZfNPRBWvqe72DQq",
+  "started_at": "2026-11-10T00:11:53.447+00:00",
+  "first_token_ms": 781,
+  "first_text_ms": 781,
+  "duration_ms": 46028,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.053316,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:12:39+00:00"
+}

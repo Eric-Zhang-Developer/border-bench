@@ -1,0 +1,38 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of Chile as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "chile",
+  "target": "Chile as of 1 January 2024",
+  "raw": "I need to draw Chile's borders as of January 1, 2024. Let me recall what I know about Chile's geography:\n\nChile is a long, narrow country on the western coast of South America, stretching from approximately 17°S to 56°S latitude. Key features:\n\n1. **Northern border**: Borders Peru (around 17-18°S) and Bolivia (continuing south)\n2. **Eastern border**: The Andes Mountains form the border with Argentina along the entire length\n3. **Western border**: Pacific Ocean coastline\n4. **Southern border**: Extends to Tierra del Fuego, with the Strait of Magellan separating the mainland from Chilean Patagonia islands\n\nKey geographical points:\n- Northern tip: Around Arica (18°S, 70°W)\n- The country is typically 100-200km wide\n- Santiago is around 33°S, 71°W\n- Southern mainland extends to around 54°S\n- Includes islands in the south like part of Tierra del Fuego\n- Easter Island and Juan Fernández Islands are overseas territories (excluded per rules)\n\nMajor regions to include:\n1. Mainland Chile - one long polygon\n2. Southern islands including part of Tierra del Fuego and other Patagonian islands\n\nI'll focus on the mainland as the primary polygon and add major southern islands. The shape is essentially a very long strip along the coast.\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [-70.08, -17.58],\n        [-69.93, -17.58],\n        [-69.58, -17.98],\n        [-69.23, -18.28],\n        [-69.08, -18.48],\n        [-68.73, -19.38],\n        [-68.63, -20.18],\n        [-68.98, -20.78],\n        [-68.93, -21.48],\n        [-68.53, -22.08],\n        [-68.23, -22.58],\n        [-67.93, -23.08],\n        [-67.83, -23.88],\n        [-68.18, -24.48],\n        [-68.58, -24.98],\n        [-68.93, -25.58],\n        [-68.98, -26.38],\n        [-69.13, -26.98],\n        [-69.38, -27.58],\n        [-69.83, -28.28],\n        [-70.03, -28.98],\n        [-70.18, -29.68],\n        [-70.38, -30.38],\n        [-70.58, -31.08],\n        [-70.63, -31.78],\n        [-70.48, -32.48],\n        [-70.73, -33.08],\n        [-71.08, -33.38],\n        [-71.43, -33.58],\n        [-71.63, -33.98],\n        [-71.73, -34.38],\n        [-71.88, -34.88],\n        [-72.03, -35.38],\n        [-72.13, -35.88],\n        [-72.28, -36.38],\n        [-72.53, -36.88],\n        [-72.78, -37.38],\n        [-73.13, -37.68],\n        [-73.48, -38.08],\n        [-73.58, -38.58],\n        [-73.43, -39.08],\n        [-73.48, -39.58],\n        [-73.68, -40.08],\n        [-73.83, -40.58],\n        [-73.88, -41.08],\n        [-73.93, -41.58],\n        [-73.98, -42.08],\n        [-73.88, -42.58],\n        [-73.58, -43.08],\n        [-73.58, -43.58],\n        [-73.83, -43.98],\n        [-74.08, -44.38],\n        [-74.38, -44.78],\n        [-74.58, -45.18],\n        [-74.73, -45.58],\n        [-74.88, -45.98],\n        [-75.03, -46.38],\n        [-75.23, -46.78],\n        [-75.03, -47.18],\n        [-74.83, -47.58],\n        [-74.68, -47.98],\n        [-74.48, -48.38],\n        [-74.28, -48.78],\n        [-74.08, -49.18],\n        [-73.88, -49.58],\n        [-73.68, -49.98],\n        [-73.48, -50.38],\n        [-73.28, -50.78],\n        [-72.98, -51.18],\n        [-72.68, -51.58],\n        [-72.38, -51.98],\n        [-72.08, -52.38],\n        [-71.88, -52.78],\n        [-71.18, -52.98],\n        [-70.48, -53.08],\n        [-69.98, -53.08],\n        [-69.48, -52.98],\n        [-69.23, -52.78],\n        [-69.13, -52.58],\n        [-68.93, -52.38],\n        [-68.73, -52.18],\n        [-68.63, -51.58],\n        [-68.78, -51.08],\n        [-69.08, -50.58],\n        [-69.28, -50.08],\n        [-69.48, -49.58],\n        [-69.78, -49.08],\n        [-70.08, -48.58],\n        [-70.48, -48.08],\n        [-70.78, -47.58],\n        [-71.08, -47.08],\n        [-71.38, -46.58],\n        [-71.58, -46.08],\n        [-71.78, -45.58],\n        [-71.88, -45.08],\n        [-71.98, -44.58],\n        [-71.98, -44.08],\n        [-71.88, -43.58],\n        [-71.68, -43.08],\n        [-71.48, -42.58],\n        [-71.38, -42.08],\n        [-71.28, -41.58],\n        [-71.18, -41.08],\n        [-71.18, -40.58],\n        [-71.28, -40.08],\n        [-71.38, -39.58],\n        [-71.48, -39.08],\n        [-71.58, -38.58],\n        [-71.68, -38.08],\n        [-71.78, -37.58],\n        [-71.78, -37.08],\n        [-71.68, -36.58],\n        [-71.48, -36.08],\n        [-71.28, -35.58],\n        [-71.08, -35.08],\n        [-70.88, -34.58],\n        [-70.68, -34.08],\n        [-70.48, -33.58],\n        [-70.38, -33.08],\n        [-70.28, -32.58],\n        [-70.18, -32.08],\n        [-70.08, -31.58],\n        [-69.98, -31.08],\n        [-69.88, -30.58],\n        [-69.78, -30.08],\n        [-69.78, -29.58],\n        [-69.88, -29.08],\n        [-69.98, -28.58],\n        [-70.08, -28.08],\n        [-70.08, -27.58],\n        [-70.08, -27.08],\n        [-70.08, -26.58],\n        [-70.08, -26.08],\n        [-70.08, -25.58],\n        [-70.08, -25.08],\n        [-70.08, -24.58],\n        [-70.08, -24.08],\n        [-70.08, -23.58],\n        [-70.08, -23.08],\n        [-70.08, -22.58],\n        [-70.08, -22.08],\n        [-70.08, -21.58],\n        [-70.08, -21.08],\n        [-70.08, -20.58],\n        [-70.08, -20.08],\n        [-70.08, -19.58],\n        [-70.08, -19.08],\n        [-70.08, -18.58],\n        [-70.08, -18.08],\n        [-70.08, -17.58]\n      ]\n    ],\n    [\n      [\n        [-69.23, -54.88],\n        [-68.63, -54.88],\n        [-68.63, -54.38],\n        [-69.23, -54.38],\n        [-69.23, -54.88]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 2236,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtGRj43KBfX6PieczeLp",
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "cost_usd": 0.034266,
+  "requested_at": "2026-11-10T00:02:56+00:00"
+}

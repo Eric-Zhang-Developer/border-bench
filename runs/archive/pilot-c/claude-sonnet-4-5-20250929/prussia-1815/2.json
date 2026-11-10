@@ -1,0 +1,38 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of the Kingdom of Prussia as of 1 January 1816 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "prussia-1815",
+  "target": "the Kingdom of Prussia as of 1 January 1816",
+  "raw": "I need to draw the Kingdom of Prussia as it existed on January 1, 1816. This is after the Congress of Vienna (1814-1815), which significantly reorganized European territories.\n\nKey facts about Prussia in 1816:\n1. **Main territories in the east**: East Prussia (around Königsberg), West Prussia, Posen, Pomerania, Brandenburg (including Berlin), and Silesia\n2. **Western territories**: Prussia gained significant Rhineland territories (Rhine Province) and Westphalia after the Congress of Vienna\n3. These formed two main disconnected parts: the eastern provinces and the western Rhineland-Westphalia region\n\nLet me sketch the approximate borders:\n\n**Eastern Prussia** (the larger connected mass):\n- East Prussia: roughly 19°E to 23°E, around 54-55°N\n- West Prussia: roughly 18-20°E, around 54°N\n- Pomerania: along the Baltic coast, roughly 14-18°E, around 53-54°N\n- Brandenburg: centered on Berlin, roughly 12-15°E, around 52-53°N\n- Silesia: in the south, roughly 15-18°E, around 50-51°N\n- Posen: roughly 16-18°E, around 52-53°N\n\n**Western Prussia** (separate territory):\n- Rhine Province and Westphalia: roughly 6-9°E, around 50-52°N\n\nLet me draw these territories:\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [11.5, 53.5],\n        [11.8, 54.0],\n        [13.0, 54.5],\n        [14.2, 54.3],\n        [15.5, 54.5],\n        [17.0, 54.7],\n        [18.5, 54.8],\n        [19.5, 54.7],\n        [20.5, 54.5],\n        [21.5, 54.3],\n        [22.5, 54.5],\n        [22.8, 54.8],\n        [22.5, 55.0],\n        [21.0, 55.2],\n        [20.0, 54.8],\n        [19.3, 54.5],\n        [18.8, 54.2],\n        [18.5, 53.8],\n        [18.8, 53.3],\n        [18.5, 52.8],\n        [18.3, 52.3],\n        [18.5, 51.8],\n        [18.3, 51.3],\n        [17.8, 50.8],\n        [17.3, 50.5],\n        [16.8, 50.3],\n        [16.2, 50.2],\n        [15.5, 50.3],\n        [15.0, 50.5],\n        [14.5, 50.8],\n        [14.2, 51.0],\n        [14.5, 51.5],\n        [14.8, 52.0],\n        [14.5, 52.5],\n        [14.2, 52.8],\n        [13.5, 53.0],\n        [12.8, 53.2],\n        [12.0, 53.3],\n        [11.5, 53.5]\n      ]\n    ],\n    [\n      [\n        [6.2, 51.8],\n        [6.5, 52.2],\n        [7.0, 52.5],\n        [7.5, 52.4],\n        [8.0, 52.3],\n        [8.5, 52.0],\n        [9.0, 51.8],\n        [9.2, 51.5],\n        [9.0, 51.2],\n        [8.8, 50.8],\n        [8.5, 50.5],\n        [8.2, 50.3],\n        [7.8, 50.2],\n        [7.3, 50.3],\n        [6.8, 50.5],\n        [6.5, 50.8],\n        [6.2, 51.2],\n        [6.0, 51.5],\n        [6.2, 51.8]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 245,
+    "output_tokens": 1095,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtGixZMe7Awj9dTKGh2h",
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "cost_usd": 0.01716,
+  "requested_at": "2026-11-10T00:06:39+00:00"
+}

@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-b",
+  "prompt": "Draw the land borders and coastline of Australia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- Output only the GeoJSON MultiPolygon, with no other text.\n- It is a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "australia",
+  "target": "Australia as of 1 January 2024",
+  "raw": "{\"type\": \"MultiPolygon\", \"coordinates\": [[[[143.0, -10.0], [143.5, -11.5], [143.0, -13.0], [142.0, -14.0], [141.5, -16.0], [141.0, -17.0], [140.5, -17.5], [139.0, -17.0], [138.5, -16.5], [138.0, -16.0], [137.5, -15.5], [136.5, -14.0], [136.0, -13.5], [135.5, -13.0], [135.0, -12.5], [134.0, -12.0], [133.0, -12.0], [132.5, -12.0], [132.0, -11.5], [131.0, -12.0], [130.0, -12.5], [129.0, -13.0], [128.0, -14.5], [127.0, -15.0], [126.0, -16.0], [125.0, -16.5], [124.0, -17.0], [123.0, -17.5], [122.0, -18.0], [121.5, -18.5], [121.0, -19.0], [120.0, -19.5], [119.0, -20.0], [118.5, -20.5], [118.0, -21.0], [117.0, -21.5], [116.0, -22.0], [115.0, -22.5], [114.5, -23.5], [114.0, -24.5], [113.5, -26.0], [113.5, -27.0], [113.5, -28.5], [113.5, -30.0], [114.0, -31.5], [114.5, -32.5], [115.0, -33.5], [115.5, -34.0], [116.0, -34.5], [117.0, -35.0], [118.0, -35.0], [119.0, -34.5], [120.0, -34.0], [121.0, -33.5], [122.0, -33.5], [123.0, -33.5], [124.0, -33.5], [125.0, -33.5], [126.0, -33.5], [127.0, -33.5], [128.0, -33.5], [129.0, -33.5], [130.0, -33.5], [131.0, -33.5], [132.0, -33.5], [133.0, -33.5], [134.0, -33.5], [135.0, -34.0], [136.0, -34.5], [137.0, -35.0], [138.0, -35.5], [139.0, -36.0], [140.0, -36.5], [140.5, -37.0], [141.0, -37.5], [141.5, -38.0], [142.0, -38.5], [143.0, -38.5], [144.0, -38.5], [145.0, -38.5], [146.0, -38.5], [147.0, -38.0], [148.0, -37.5], [149.0, -37.5], [150.0, -37.5], [151.0, -37.0], [152.0, -36.0], [153.0, -35.0], [153.5, -34.0], [153.5, -33.0], [153.0, -31.5], [153.0, -30.0], [153.5, -29.0], [153.5, -28.0], [153.5, -27.0], [153.5, -26.0], [153.0, -25.0], [152.5, -24.5], [152.0, -24.0], [151.5, -23.5], [151.0, -23.0], [150.5, -22.5], [150.0, -22.0], [149.5, -21.5], [149.5, -21.0], [150.0, -20.5], [150.5, -20.0], [151.0, -19.5], [151.5, -19.0], [152.0, -18.5], [152.5, -18.0], [153.0, -17.5], [153.0, -17.0], [153.0, -16.5], [153.0, -16.0], [152.5, -15.5], [152.0, -15.0], [151.5, -14.5], [151.0, -14.0], [150.5, -13.5], [150.0, -13.0], [149.5, -12.5], [149.0, -12.0], [148.5, -11.5], [148.0, -11.0], [147.0, -10.5], [146.0, -10.5], [145.0, -10.5], [144.0, -10.5], [143.0, -10.0]]]], [[[145.5, -40.5], [146.0, -41.0], [146.5, -41.5], [147.0, -42.0], [147.5, -42.5], [148.0, -43.0], [148.0, -43.5], [147.5, -43.5], [147.0, -43.5], [146.5, -43.5], [146.0, -43.5], [145.5, -43.5], [145.0, -43.5], [144.5, -43.0], [144.5, -42.5], [144.5, -42.0], [144.5, -41.5], [145.0, -41.0], [145.5, -40.5]]]]}",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 237,
+    "output_tokens": 1510,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtJJvBJw7Ev6C1CVb3AR",
+  "started_at": "2026-11-10T00:27:09.788+00:00",
+  "first_token_ms": 768,
+  "first_text_ms": 769,
+  "duration_ms": 15976,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.023361,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:27:25+00:00"
+}

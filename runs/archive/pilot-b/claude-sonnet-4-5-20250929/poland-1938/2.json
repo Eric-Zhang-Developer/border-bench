@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-b",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- Output only the GeoJSON MultiPolygon, with no other text.\n- It is a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "{\"type\": \"MultiPolygon\", \"coordinates\": [[[[24.15, 54.42], [23.95, 54.35], [23.55, 54.28], [23.15, 54.20], [22.85, 54.35], [22.55, 54.38], [22.25, 54.35], [21.95, 54.28], [21.65, 54.22], [21.25, 54.15], [20.95, 54.18], [20.65, 54.28], [20.35, 54.35], [20.15, 54.42], [19.95, 54.48], [19.75, 54.52], [19.55, 54.55], [19.35, 54.58], [19.15, 54.60], [18.95, 54.62], [18.75, 54.65], [18.55, 54.68], [18.35, 54.70], [18.15, 54.72], [17.95, 54.73], [17.75, 54.74], [17.55, 54.75], [17.35, 54.75], [17.15, 54.74], [16.95, 54.73], [16.75, 54.72], [16.55, 54.70], [16.35, 54.68], [16.15, 54.65], [15.95, 54.62], [15.75, 54.58], [15.55, 54.55], [15.35, 54.52], [15.15, 54.48], [14.95, 54.45], [14.75, 54.42], [14.55, 54.38], [14.35, 54.35], [14.25, 54.25], [14.22, 54.05], [14.20, 53.85], [14.18, 53.65], [14.15, 53.45], [14.12, 53.25], [14.15, 53.05], [14.22, 52.85], [14.28, 52.65], [14.35, 52.45], [14.42, 52.25], [14.48, 52.05], [14.52, 51.85], [14.55, 51.65], [14.58, 51.45], [14.62, 51.25], [14.65, 51.05], [14.68, 50.85], [14.72, 50.65], [14.78, 50.48], [14.88, 50.32], [15.02, 50.22], [15.22, 50.15], [15.42, 50.08], [15.62, 50.02], [15.82, 49.98], [16.02, 49.95], [16.22, 49.92], [16.42, 49.88], [16.62, 49.85], [16.82, 49.82], [17.02, 49.78], [17.22, 49.75], [17.42, 49.72], [17.62, 49.68], [17.82, 49.65], [18.02, 49.62], [18.22, 49.58], [18.42, 49.55], [18.62, 49.52], [18.82, 49.48], [19.02, 49.45], [19.22, 49.42], [19.42, 49.38], [19.62, 49.35], [19.82, 49.32], [20.02, 49.28], [20.22, 49.25], [20.42, 49.22], [20.62, 49.18], [20.82, 49.15], [21.02, 49.12], [21.22, 49.08], [21.42, 49.05], [21.62, 49.02], [21.82, 48.98], [22.02, 48.95], [22.22, 48.92], [22.42, 48.92], [22.62, 48.95], [22.82, 49.02], [22.95, 49.12], [23.05, 49.25], [23.15, 49.42], [23.25, 49.58], [23.35, 49.75], [23.45, 49.92], [23.55, 50.08], [23.65, 50.25], [23.75, 50.42], [23.85, 50.58], [23.95, 50.75], [24.05, 50.92], [24.15, 51.08], [24.25, 51.25], [24.35, 51.42], [24.45, 51.58], [24.55, 51.75], [24.65, 51.92], [24.75, 52.08], [24.85, 52.25], [24.95, 52.42], [25.05, 52.58], [25.15, 52.75], [25.25, 52.92], [25.35, 53.08], [25.45, 53.25], [25.55, 53.42], [25.65, 53.58], [25.75, 53.75], [25.85, 53.92], [25.95, 54.08], [25.98, 54.25], [25.92, 54.42], [25.82, 54.55], [25.65, 54.62], [25.45, 54.65], [25.25, 54.65], [25.05, 54.62], [24.85, 54.58], [24.65, 54.52], [24.45, 54.48], [24.15, 54.42]]]]}}",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 237,
+    "output_tokens": 1478,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtJED5ukMqAEgMAiuPQ8",
+  "started_at": "2026-11-10T00:26:05.907+00:00",
+  "first_token_ms": 695,
+  "first_text_ms": 695,
+  "duration_ms": 14946,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.022881,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:26:20+00:00"
+}

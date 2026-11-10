@@ -1,0 +1,38 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of Indonesia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "indonesia",
+  "target": "Indonesia as of 1 January 2024",
+  "raw": "I'll draw Indonesia's land borders and coastline from memory. Indonesia is an archipelagic nation consisting of thousands of islands stretching from Sumatra in the west to Papua in the east.\n\nKey features to include:\n- Major islands: Sumatra, Java, Kalimantan (Borneo - Indonesian portion), Sulawesi, Papua (western half of New Guinea)\n- Smaller island groups: Bali, Nusa Tenggara (Lombok, Sumbawa, Flores, Timor - western half), Maluku islands\n- Land borders: With Malaysia (on Kalimantan), Papua New Guinea (on Papua), and Timor-Leste (on Timor)\n\nI'll allocate my 400 points approximately:\n- Sumatra: ~40 points\n- Java: ~30 points\n- Kalimantan: ~50 points\n- Sulawesi: ~40 points\n- Papua: ~50 points\n- Smaller islands: remaining points\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [[[95.2, 5.9], [95.5, 5.5], [96, 5.3], [96.5, 5], [97, 4.8], [97.5, 4.5], [98, 4], [98.5, 3.5], [99, 3], [99.5, 2.5], [100, 2.1], [100.5, 1.8], [101, 1.5], [101.5, 1.3], [102, 1], [102.5, 0.8], [103, 0.5], [103.5, 0.3], [104, 0.1], [104.5, 0], [105, -0.2], [105.5, -0.5], [106, -1], [106.2, -1.5], [106.1, -2], [105.8, -2.5], [105.5, -3], [105.2, -3.5], [104.8, -4], [104.5, -4.5], [104.2, -5], [104, -5.5], [103.5, -5.8], [103, -5.5], [102.5, -5.2], [102, -4.8], [101.5, -4.5], [101, -4.2], [100.5, -3.8], [100, -3.5], [99.5, -3.2], [99, -2.8], [98.5, -2.5], [98.2, -2], [98, -1.5], [97.8, -1], [97.5, -0.5], [97.2, 0], [97, 0.5], [96.8, 1], [96.5, 1.5], [96.2, 2], [96, 2.5], [95.8, 3], [95.5, 3.5], [95.3, 4], [95.2, 4.5], [95.1, 5], [95.2, 5.9]]], \n    [[[105.2, -5.5], [105.8, -5.8], [106.5, -6], [107, -6.2], [107.5, -6.4], [108, -6.6], [108.5, -6.8], [109, -7], [109.5, -7.2], [110, -7.4], [110.5, -7.6], [111, -7.8], [111.5, -8], [112, -8.2], [112.5, -8.3], [113, -8.4], [113.5, -8.3], [114, -8.2], [114.5, -8.1], [114.8, -7.8], [114.6, -7.5], [114.4, -7.2], [114, -7], [113.5, -6.8], [113, -6.6], [112.5, -6.5], [112, -6.4], [111.5, -6.3], [111, -6.2], [110.5, -6.1], [110, -6], [109.5, -5.9], [109, -5.8], [108.5, -5.7], [108, -5.6], [107.5, -5.5], [107, -5.4], [106.5, -5.4], [106, -5.4], [105.5, -5.4], [105.2, -5.5]]], \n    [[[108.8, 3], [109.5, 2.8], [110, 2.5], [110.5, 2.2], [111, 2], [111.5, 1.8], [112, 1.5], [112.5, 1.3], [113, 1.1], [113.5, 1], [114, 0.9], [114.5, 1], [115, 1.2], [115.5, 1.4], [116, 1.6], [116.5, 1.8], [117, 2], [117.5, 2.2], [118, 2.4], [118.5, 2.6], [119, 2.7], [119.2, 2.5], [119.3, 2], [119.2, 1.5], [119, 1], [118.8, 0.5], [118.5, 0], [118.2, -0.5], [118, -1], [117.8, -1.5], [117.5, -2], [117.2, -2.5], [117, -3], [116.8, -3.5], [116.5, -4], [116, -4.2], [115.5, -4.3], [115, -4.2], [114.5, -4], [114, -3.8], [113.5, -3.6], [113, -3.4], [112.5, -3.2], [112, -3], [111.5, -2.8], [111, -2.6], [110.5, -2.4], [110, -2.2], [109.5, -2], [109.2, -1.5], [109.1, -1], [109, -0.5], [109, 0], [109, 0.5], [109, 1], [109, 1.5], [109, 2], [109, 2.5], [108.8, 3]]], \n    [[[119, -8.3], [119.5, -8.5], [120, -8.6], [120.5, -8.7], [121, -8.8], [121.5, -8.9], [122, -9], [122.5, -9.1], [123, -9.2], [123.5, -9.3], [124, -9.4], [124.5, -9.5], [125, -9.6], [125, -9.2], [124.8, -8.8], [124.5, -8.5], [124, -8.3], [123.5, -8.2], [123, -8.1], [122.5, -8.1], [122, -8.1], [121.5, -8.1], [121, -8.1], [120.5, -8.2], [120, -8.2], [119.5, -8.2], [119, -8.3]]], \n    [[[119.5, -0.5], [120, -0.8], [120.5, -1], [121, -1.2], [121.5, -1.4], [122, -1.5], [122.5, -1.6], [123, -1.5], [123.5, -1.3], [124, -1], [124.5, -0.8], [125, -0.5], [125.2, 0], [125.3, 0.5], [125.3, 1], [125.2, 1.5], [125, 2], [124.8, 2.5], [124.5, 2.8], [124.2, 2.5], [124, 2.2], [123.8, 1.8], [123.5, 1.5], [123.2, 1.2], [123, 1], [122.5, 0.8], [122, 0.6], [121.5, 0.5], [121, 0.3], [120.5, 0.2], [120, 0], [119.5, -0.2], [119.5, -0.5]]], \n    [[[130, -2.5], [130.5, -2.8], [131, -3], [131.5, -3.2], [132, -3.4], [132.5, -3.6], [133, -3.8], [133.5, -4], [134, -4.2], [134.5, -4.3], [135, -4.5], [135.5, -4.7], [136, -4.9], [136.5, -5.1], [137, -5.3], [137.5, -5.5], [138, -5.7], [138.5, -5.9], [139, -6.1], [139.5, -6.3], [140, -6.5], [140.5, -6.7], [140.9, -6.9], [141, -7.2], [141, -7.8], [141, -8.5], [141, -9], [140.5, -8.8], [140, -8.5], [139.5, -8.2], [139, -8], [138.5, -7.8], [138, -7.5], [137.5, -7.2], [137, -7], [136.5, -6.8], [136, -6.5], [135.5, -6.2], [135, -6], [134.5, -5.7], [134, -5.4], [133.5, -5.1], [133, -4.8], [132.5, -4.5], [132, -4.2], [131.5, -3.9], [131, -3.6], [130.5, -3.3], [130, -3], [129.8, -2.7], [130, -2.5]]], \n    [[[114.5, -8.5], [115, -8.6], [115.5, -8.5], [116, -8.4], [116.2, -8.2], [116, -8], [115.5, -8.1], [115, -8.2], [114.5, -8.3], [114.5, -8.5]]], \n    [[[122.5, -10], [123, -10.2], [123.5, -10.3], [124, -10.2], [124.2, -9.8], [124, -9.5], [123.5, -9.6], [123, -9.7], [122.5, -9.8], [122.5, -10]]]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 2830,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtGWBYMUdaHBdUKPb1VY",
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "cost_usd": 0.043176,
+  "requested_at": "2026-11-10T00:04:04+00:00"
+}
