@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON lib/geo.check.mjs && next build",
+    "stress": "node fixtures/make-stress.mjs && BB_FIXTURE=stress.json next dev",
     "start": "next start"
   },
   "dependencies": {
