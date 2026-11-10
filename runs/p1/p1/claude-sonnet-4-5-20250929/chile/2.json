@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Chile as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_display_name": "Claude Sonnet 4.5",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "chile",
+  "target": "Chile as of 1 January 2024",
+  "raw": "I need to draw Chile's land borders and coastline as of January 1, 2024.\n\nKey features of Chile:\n- Very long, narrow country along South America's western coast\n- Extends roughly from 17°S to 56°S latitude\n- Bordered by Peru to the north, Bolivia to the northeast, and Argentina to the east\n- Pacific Ocean coastline on the west\n- Includes several islands, most notably:\n  - Isla de Chiloé (large island in southern Chile)\n  - Juan Fernández Islands (too small/far to include effectively)\n  - Easter Island (explicitly excluded as overseas dependency)\n- The mainland is extremely narrow, typically 100-200km wide\n- Northern border with Peru around 17-18°S\n- Border with Bolivia roughly 17-22°S\n- Long border with Argentina running the entire length\n- Southern tip includes Tierra del Fuego (eastern part is Argentina's)\n- Strait of Magellan separates mainland from Tierra del Fuego\n\nI'll focus on:\n1. Mainland Chile - the long narrow strip\n2. Isla de Chiloé - significant island off southern coast\n3. Tierra del Fuego - Chilean portion\n\nApproximate coordinates:\n- North: around -17.5° latitude, -69° longitude (tri-border Peru-Bolivia-Chile)\n- Northern coast starts around -18°, -70°\n- Central Chile: Santiago area around -33°, -71°\n- Southern mainland tip: around -46°\n- Tierra del Fuego: around -54°, -69°\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[-69.5, -17.5], [-70, -17.58], [-70.4, -18.35], [-70.35, -20.2], [-70.15, -21.5], [-69.5, -22.9], [-68.8, -24.5], [-69.2, -26.5], [-70.4, -29.1], [-71.3, -30.25], [-71.6, -31.85], [-71.5, -33.0], [-71.7, -34.4], [-71.9, -36.5], [-73.1, -37.2], [-73.6, -39.8], [-73.5, -41.8], [-73.8, -43.4], [-74.7, -44.8], [-75.1, -46.6], [-74.9, -47.8], [-75.6, -48.6], [-74.8, -50.4], [-75.3, -51.6], [-74.9, -52.3], [-73.8, -52.8], [-71.8, -52.7], [-70.8, -52.9], [-69.5, -52.5], [-69, -52.0], [-68.6, -52.3], [-68.7, -53.1], [-69.9, -54.9], [-71.0, -55.0], [-72.3, -53.8], [-72.5, -53.2], [-72.3, -52.7], [-72.5, -52.0], [-72.9, -51.4], [-73.8, -51.0], [-74.0, -50.5], [-73.6, -50.0], [-73.3, -49.5], [-73.5, -49.0], [-73.2, -48.5], [-72.8, -48.2], [-72.6, -47.8], [-73.0, -47.4], [-73.5, -47.0], [-73.2, -46.6], [-72.8, -46.5], [-72.5, -46.0], [-72.2, -45.5], [-72.5, -45.0], [-72.8, -44.5], [-73.0, -44.0], [-72.7, -43.5], [-72.9, -43.0], [-73.3, -42.5], [-73.6, -42.0], [-73.4, -41.5], [-73.1, -41.0], [-73.2, -40.5], [-73.4, -40.0], [-73.2, -39.5], [-73.5, -39.0], [-73.7, -38.5], [-73.4, -38.0], [-73.2, -37.5], [-73.0, -37.0], [-72.8, -36.5], [-72.6, -36.0], [-72.3, -35.5], [-72.0, -35.0], [-71.7, -34.5], [-71.5, -34.0], [-71.3, -33.5], [-71.4, -33.0], [-71.5, -32.5], [-71.3, -32.0], [-71.4, -31.5], [-71.2, -31.0], [-71.0, -30.5], [-70.8, -30.0], [-70.6, -29.5], [-70.4, -29.0], [-70.2, -28.5], [-70.1, -28.0], [-70.2, -27.5], [-70.4, -27.0], [-70.3, -26.5], [-70.5, -26.0], [-70.4, -25.5], [-70.2, -25.0], [-70.3, -24.5], [-70.4, -24.0], [-70.3, -23.5], [-70.2, -23.0], [-70.1, -22.5], [-70.0, -22.0], [-70.1, -21.5], [-70.2, -21.0], [-70.1, -20.5], [-70.0, -20.0], [-70.2, -19.5], [-70.3, -19.0], [-70.2, -18.5], [-69.9, -18.3], [-69.6, -18.0], [-69.3, -18.2], [-69.0, -18.8], [-68.9, -19.5], [-68.7, -20.0], [-68.5, -20.5], [-68.4, -21.0], [-68.2, -21.5], [-67.9, -22.0], [-67.5, -22.5], [-67.2, -22.8], [-67.1, -23.0], [-67.3, -23.5], [-67.8, -24.0], [-68.2, -24.5], [-68.5, -25.0], [-68.7, -25.5], [-68.8, -26.0], [-68.9, -26.5], [-69.0, -27.0], [-69.1, -27.5], [-69.2, -28.0], [-69.3, -28.5], [-69.5, -29.0], [-69.6, -29.5], [-69.8, -30.0], [-69.9, -30.5], [-70.0, -31.0], [-70.1, -31.5], [-70.2, -32.0], [-70.3, -32.5], [-70.4, -33.0], [-70.5, -33.5], [-70.6, -34.0], [-70.7, -34.5], [-70.9, -35.0], [-71.0, -35.5], [-71.1, -36.0], [-71.2, -36.5], [-71.3, -37.0], [-71.4, -37.5], [-71.5, -38.0], [-71.6, -38.5], [-71.7, -39.0], [-71.6, -39.5], [-71.5, -40.0], [-71.6, -40.5], [-71.7, -41.0], [-71.8, -41.5], [-72.0, -42.0], [-72.2, -42.5], [-72.4, -43.0], [-72.3, -43.5], [-72.1, -44.0], [-71.9, -44.5], [-71.7, -45.0], [-71.6, -45.5], [-71.7, -46.0], [-72.0, -46.5], [-72.2, -47.0], [-72.4, -47.5], [-72.5, -48.0], [-72.3, -48.5], [-72.4, -49.0], [-72.5, -49.5], [-72.3, -50.0], [-72.2, -50.5], [-72.4, -51.0], [-72.3, -51.5], [-72.1, -52.0], [-71.8, -52.3], [-71.3, -52.2], [-70.8, -52.4], [-70.3, -52.3], [-70.0, -52.0], [-69.8, -51.5], [-69.7, -51.0], [-69.8, -50.5], [-69.9, -50.0], [-70.0, -49.5], [-70.2, -49.0], [-70.5, -48.5], [-70.7, -48.0], [-70.8, -47.5], [-70.6, -47.0], [-70.5, -46.5], [-70.4, -46.0], [-70.3, -45.5], [-70.2, -45.0], [-70.0, -44.5], [-70.1, -44.0], [-70.2, -43.5], [-70.4, -43.0], [-70.6, -42.5], [-70.8, -42.0], [-71.0, -41.5], [-71.1, -41.0], [-71.2, -40.5], [-71.0, -40.0], [-70.9, -39.5], [-71.0, -39.0], [-71.2, -38.5], [-71.3, -38.0], [-71.2, -37.5], [-71.0, -37.0], [-70.8, -36.5], [-70.6, -36.0], [-70.5, -35.5], [-70.4, -35.0], [-70.3, -34.5], [-70.2, -34.0], [-70.0, -33.5], [-69.9, -33.0], [-69.8, -32.5], [-69.7, -32.0], [-69.6, -31.5], [-69.5, -31.0], [-69.4, -30.5], [-69.3, -30.0], [-69.2, -29.5], [-69.1, -29.0], [-69.0, -28.5], [-68.9, -28.0], [-68.8, -27.5], [-68.9, -27.0], [-69.0, -26.5], [-69.1, -26.0], [-69.2, -25.5], [-69.3, -25.0], [-69.2, -24.5], [-69.0, -24.0], [-68.8, -23.5], [-68.7, -23.0], [-68.8, -22.5], [-69.0, -22.0], [-69.2, -21.5], [-69.3, -21.0], [-69.4, -20.5], [-69.5, -20.0], [-69.4, -19.5], [-69.3, -19.0], [-69.5, -18.5], [-69.5, -17.5]]], [[[-73.7, -42.3], [-74.1, -42.5], [-74.3, -43.0], [-74.1, -43.5], [-73.7, -43.7], [-73.3, -43.5], [-73.2, -43.0], [-73.4, -42.5], [-73.7, -42.3]]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 2984,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtUHq3818K97AQwKhx47",
+  "started_at": "2026-11-10T02:38:03.287+00:00",
+  "first_token_ms": 734,
+  "first_text_ms": 735,
+  "duration_ms": 37166,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.045486,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T02:38:40+00:00"
+}

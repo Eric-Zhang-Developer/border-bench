@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Croatia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-5-5",
+  "model_display_name": "Claude Sonnet 5.5",
+  "model_created_at": "2026-09-28T00:00:00+00:00",
+  "target_id": "croatia",
+  "target": "Croatia as of 1 January 2024",
+  "raw": "I drew this from memory, so the borders are approximate. The mainland is one polygon with Pelješac attached, and it includes the short Neum corridor, which is really Bosnian. The major Adriatic islands are drawn as separate polygons, and I left out the smaller ones.\n\n```geojson\n{\"type\":\"MultiPolygon\",\"coordinates\":[\n[[[13.60,45.48],[13.72,45.47],[13.90,45.50],[14.05,45.48],[14.28,45.50],[14.45,45.58],[14.65,45.60],[14.85,45.50],[15.10,45.45],[15.30,45.55],[15.30,45.68],[15.38,45.80],[15.65,45.85],[15.70,46.00],[15.72,46.20],[16.00,46.38],[16.30,46.52],[16.50,46.50],[16.62,46.45],[16.85,46.37],[17.10,46.17],[17.45,45.97],[17.80,45.88],[18.15,45.78],[18.40,45.78],[18.65,45.80],[18.90,45.93],[19.03,45.75],[18.97,45.55],[19.00,45.40],[19.20,45.30],[19.42,45.20],[19.10,45.15],[19.15,45.00],[19.00,44.87],[18.70,45.05],[18.40,45.10],[18.00,45.15],[17.60,45.12],[17.25,45.15],[16.90,45.27],[16.55,45.22],[16.38,45.05],[16.00,45.05],[15.75,45.20],[15.72,44.98],[15.85,44.78],[16.00,44.55],[16.20,44.40],[16.38,44.19],[16.30,44.00],[16.45,43.90],[16.75,43.72],[17.00,43.55],[17.25,43.42],[17.40,43.20],[17.52,43.10],[17.65,43.05],[17.80,42.92],[18.00,42.75],[18.25,42.58],[18.45,42.50],[18.45,42.40],[18.35,42.45],[18.20,42.58],[18.08,42.65],[17.90,42.72],[17.70,42.84],[17.40,42.92],[17.20,42.96],[17.05,42.98],[17.20,43.03],[17.40,43.01],[17.55,43.00],[17.43,43.05],[17.25,43.15],[17.03,43.30],[16.69,43.44],[16.44,43.51],[16.25,43.52],[16.05,43.58],[15.90,43.73],[15.60,43.95],[15.22,44.12],[15.50,44.25],[15.40,44.35],[15.15,44.30],[15.08,44.53],[14.90,44.99],[14.80,45.13],[14.60,45.25],[14.45,45.33],[14.30,45.34],[14.25,45.20],[14.17,45.13],[14.15,45.00],[14.05,44.90],[13.92,44.77],[13.85,44.87],[13.75,44.98],[13.63,45.08],[13.60,45.23],[13.56,45.32],[13.52,45.43],[13.60,45.48]]],\n[[[14.56,45.24],[14.68,45.15],[14.64,45.00],[14.55,44.95],[14.40,45.05],[14.45,45.15],[14.56,45.24]]],\n[[[14.40,45.17],[14.50,45.00],[14.45,44.80],[14.52,44.60],[14.48,44.45],[14.38,44.52],[14.33,44.70],[14.32,44.95],[14.40,45.17]]],\n[[[14.72,44.82],[14.80,44.80],[14.78,44.72],[14.70,44.75],[14.72,44.82]]],\n[[[14.98,44.60],[15.10,44.58],[15.25,44.40],[15.20,44.33],[15.10,44.50],[14.98,44.60]]],\n[[[14.82,44.18],[14.90,44.18],[15.20,44.00],[15.12,43.97],[14.82,44.18]]],\n[[[16.45,43.30],[16.65,43.40],[16.90,43.33],[16.65,43.27],[16.45,43.30]]],\n[[[16.45,43.17],[16.70,43.18],[17.20,43.17],[16.70,43.12],[16.45,43.17]]],\n[[[16.05,43.06],[16.25,43.07],[16.15,43.03],[16.05,43.06]]],\n[[[16.72,42.94],[17.00,42.97],[17.20,42.94],[16.95,42.91],[16.72,42.94]]],\n[[[17.35,42.80],[17.55,42.78],[17.55,42.74],[17.35,42.74],[17.35,42.80]]]\n]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 346,
+    "output_tokens": 9167,
+    "output_tokens_details": {
+      "thinking_tokens": 7543
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-5-5",
+  "message_id": "msg_011CgtV717Ab1z4rxAv6UiCZ",
+  "started_at": "2026-11-10T02:48:43.239+00:00",
+  "first_token_ms": 1059,
+  "first_text_ms": 67112,
+  "duration_ms": 75488,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    2.0,
+    10.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.092362,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T02:49:58+00:00"
+}
