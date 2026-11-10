@@ -20,7 +20,8 @@
   `002-grading.md` describes: add points along each straight edge, project each point, fill the flat result.
 - **Choice:** B, so the picture is built the same way the score is. Within one polygon, rings are filled even-odd
   (a self-crossing outline shows its crossing); separate polygons are added together. An edge from 179° to -179° goes
-  the long way round, as written. If the scorer settles these differently, the page should follow the scorer.
+  the long way round, as written. The scorer, merged while this was being built, made the same calls (rows 1, 2, 9
+  and 10 of `scorer-judgment-calls.md`), so the picture and the score agree on these drawings.
 - **How to undo:** `plate()` in `site/lib/geo.ts`; `fillRule` in `site/app/strips.tsx`.
 
 ## 3. A failed drawing shows "no drawing" and a greyed 0.0%

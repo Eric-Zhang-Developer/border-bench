@@ -34,6 +34,7 @@ const ARROWS = { n: "↑", e: "→", s: "↓", w: "←" } as const;
 
 const pct = (score: number) => score.toFixed(1);
 const month = (iso: string, long = false) => {
+  if (!iso) return "date not recorded"; // the scorer writes "" for a model with no release date
   const date = new Date(iso);
   return Number.isNaN(date.getTime())
     ? iso
@@ -182,7 +183,7 @@ export default function Strips({ targets, sample }: { targets: StripTarget[]; sa
                 <use href={`#bb-t${i}`} />
               </svg>
               <span className="min-w-0">
-                <span className="block leading-tight">{x.polity}</span>
+                <span className="block leading-tight first-letter:uppercase">{x.polity}</span>
                 <span className="label">{x.year}</span>
               </span>
             </label>

@@ -91,7 +91,9 @@ export default function Home() {
             <ul className="space-y-2">
               {[...sources.values()].map((s) => (
                 <li key={s.name + s.licence + s.url}>
-                  {/^https?:\/\//.test(s.url) ? <a href={s.url}>{s.name}</a> : s.name}, {s.licence}.{" "}
+                  {/* The scorer writes empty strings when a target names no source. Empty stays visible, never guessed. */}
+                  {!s.name ? "Source not recorded" : /^https?:\/\//.test(s.url) ? <a href={s.url}>{s.name}</a> : s.name},{" "}
+                  {s.licence || "licence not recorded"}.{" "}
                   <span className="text-muted">Used for {s.used.join(", ")}.</span>
                 </li>
               ))}
