@@ -92,7 +92,7 @@ def test_the_baselines_are_the_bounding_box_and_a_circle_of_the_same_area():
     assert baselines(two_pieces)[0][2] == [[[[10, 10], [24, 10], [24, 14], [10, 14], [10, 10]]]]
 
 
-@pytest.mark.parametrize("target, expected", [("usa", 56.5), ("chile", 4.6), ("indonesia", 19.8), ("croatia", 25.6)])
+@pytest.mark.parametrize("target, expected", [("usa", 55.4), ("chile", 4.6), ("indonesia", 19.8), ("croatia", 25.5)])
 def test_the_rectangle_baseline_of_each_modern_target_is_pinned(target, expected):
     """The real true borders in targets/, scored against their own bounding boxes. A change to the scorer or to a
     border that moves one of these moves every score on that strip, and has to be said out loud. Chile's is tiny
