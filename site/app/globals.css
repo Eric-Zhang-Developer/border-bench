@@ -1,24 +1,496 @@
 @import "tailwindcss";
 
+/* The look: a plate from a printed atlas. Paper, ink, hairlines, and two colours that mean something.
+   Light is day paper, dark is a night chart. Colour is spent only on the maps: warm for land a model missed,
+   cool (Prussian blue) for land it invented. Everything else stays ink and paper so the drawings lead. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  color-scheme: light dark;
+  --paper: #f3eee3;
+  --sheet: #faf7ef;
+  --ink: #1b1a17;
+  --muted: #6b665a;
+  --rule: #d8d0bd;
+  --land: #cdc5b1;
+  --missed: #d5532a;
+  --invented: #2a5f8f;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --paper: #0f1216;
+    --sheet: #151920;
+    --ink: #ece6d8;
+    --muted: #979182;
+    --rule: #2b3038;
+    --land: #404854;
+    --missed: #f2733f;
+    --invented: #62abe6;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: system-ui, sans-serif;
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-land: var(--land);
+  --color-missed: var(--missed);
+  --color-invented: var(--invented);
+  --font-serif: var(--font-newsreader), "Iowan Old Style", Georgia, serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, Menlo, monospace;
 }
+
+@layer base {
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  font-variant-numeric: lining-nums;
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--muted);
+  transition: text-decoration-color 0.15s;
+}
+a:hover {
+  text-decoration-color: var(--ink);
+}
+} /* base */
+
+/* Components sit under Tailwind's utilities, so a utility on an element can still override them. */
+@layer components {
+
+/* Small capitals in the mono face: every label, caption and unit on the page. */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.swatch {
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0.4em;
+  vertical-align: -0.05em;
+  background: var(--c);
+}
+.swatch-line,
+.swatch-dots {
+  height: 0;
+  width: 1.1em;
+  vertical-align: 0.28em;
+  border-top: 1.5px solid var(--ink);
+  background: none;
+}
+.swatch-dots {
+  border-top-style: dotted;
+}
+
+/* ---- sample banner ------------------------------------------------------------------------------------ */
+.banner {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.45;
+  text-align: center;
+}
+.banner strong {
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--missed) 55%, var(--paper));
+}
+
+/* ---- the prompt, one click away ----------------------------------------------------------------------- */
+.prompt summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: pointer;
+  list-style: none;
+  border-bottom: 1px solid var(--muted);
+  padding-bottom: 1px;
+}
+.prompt summary::-webkit-details-marker {
+  display: none;
+}
+.prompt summary::after {
+  content: "+";
+  font-family: var(--font-mono);
+}
+.prompt[open] summary::after {
+  content: "\2212";
+}
+.prompt summary:hover {
+  border-bottom-color: var(--ink);
+}
+.prompt pre {
+  margin-top: 1rem;
+  padding: 1rem 1.125rem;
+  border: 1px solid var(--rule);
+  background: var(--sheet);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ---- target picker ------------------------------------------------------------------------------------ */
+.picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--rule);
+}
+.pick {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.75rem 1fr;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+.pick svg {
+  width: 2.75rem;
+  height: 2.75rem;
+  fill: var(--land);
+  stroke: var(--land);
+  stroke-width: 1px;
+  transition: fill 0.15s, stroke 0.15s;
+}
+.pick:hover {
+  background: var(--sheet);
+}
+.pick:hover svg {
+  fill: var(--muted);
+  stroke: var(--muted);
+}
+.pick:has(input:checked) {
+  background: var(--ink);
+  color: var(--paper);
+}
+.pick:has(input:checked) svg {
+  fill: var(--paper);
+  stroke: var(--paper);
+}
+.pick:has(input:checked) .label {
+  color: color-mix(in oklab, var(--paper) 70%, var(--ink));
+}
+.pick:has(input:focus-visible) {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  z-index: 1;
+}
+.pick input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- the maps ----------------------------------------------------------------------------------------- */
+.map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.map .land {
+  fill: var(--land);
+  stroke: var(--land);
+  stroke-width: 1px;
+  stroke-linejoin: round;
+}
+.map .missed {
+  fill: var(--missed);
+  stroke: var(--missed);
+  stroke-width: 1px;
+  stroke-linejoin: round;
+}
+.map .invented {
+  fill: var(--invented);
+}
+.map .line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.25px;
+  stroke-linejoin: round;
+}
+.map .foil {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.25px;
+  stroke-dasharray: 1 4;
+  stroke-linecap: round;
+}
+
+.frame {
+  position: relative;
+  display: block;
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  transition: border-color 0.15s, transform 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.frame-empty {
+  border-style: dashed;
+  background: none;
+}
+.frame-empty em {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+/* Arrows on the edges a drawing runs past. */
+.off {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1;
+  color: var(--invented);
+}
+.off-n { top: 3px; left: 50%; translate: -50% 0; }
+.off-s { bottom: 3px; left: 50%; translate: -50% 0; }
+.off-e { right: 3px; top: 50%; translate: 0 -50%; }
+.off-w { left: 3px; top: 50%; translate: 0 -50%; }
+
+/* ---- the strip ---------------------------------------------------------------------------------------- */
+.strip {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, auto-fill), minmax(104px, 1fr));
+  gap: 1.75rem 0.75rem;
+  max-width: calc(var(--cols, 99) * 208px);
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+.tile:hover .frame,
+.tile[aria-current="true"] .frame {
+  border-color: var(--ink);
+}
+.tile[aria-current="true"] .frame {
+  box-shadow: 0 0 0 1px var(--ink);
+}
+.tile-score {
+  margin-top: 0.5rem;
+  font-size: 1.625rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.tile-score small {
+  font-size: 0.55em;
+  margin-left: 0.08em;
+  color: var(--muted);
+}
+.tile-name {
+  margin-top: 0.375rem;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.tile[data-baseline] .tile-name {
+  font-style: italic;
+}
+.tag {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 0.375rem;
+  padding: 0.125rem 0.375rem;
+  border: 1px solid currentColor;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---- the big view ------------------------------------------------------------------------------------- */
+.big {
+  width: min(72rem, 100vw - 2rem);
+  max-width: none;
+  max-height: calc(100dvh - 2rem);
+  margin: auto;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  box-shadow: 0 2rem 5rem -1.5rem rgb(0 0 0 / 0.45);
+}
+.big::backdrop {
+  background: color-mix(in oklab, var(--paper) 82%, transparent);
+  backdrop-filter: blur(6px);
+}
+/* Header and scrubber stay put; only the middle scrolls, so the slider is always under the thumb. */
+.big[open] {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.big-frame {
+  width: 100%;
+  max-height: min(62dvh, 40rem);
+}
+.big-score {
+  font-size: clamp(3.5rem, 9vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.big-score small {
+  font-size: 0.4em;
+  margin-left: 0.06em;
+  color: var(--muted);
+}
+.step {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: none;
+  border: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+.step:hover:not(:disabled) {
+  border-color: var(--ink);
+  background: var(--sheet);
+}
+.step:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* The scrubber: a hairline with a round ink handle, and one tick per tile under it. */
+.scrub {
+  appearance: none;
+  width: 100%;
+  height: 2.75rem;
+  background: none;
+  cursor: grab;
+}
+.scrub:active {
+  cursor: grabbing;
+}
+.scrub::-webkit-slider-runnable-track {
+  height: 1px;
+  background: var(--ink);
+}
+.scrub::-moz-range-track {
+  height: 1px;
+  background: var(--ink);
+}
+.scrub::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: calc(-0.625rem + 0.5px);
+  border-radius: 50%;
+  background: var(--ink);
+  border: 3px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--ink);
+  transition: scale 0.15s;
+}
+.scrub::-moz-range-thumb {
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 3px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--ink);
+}
+.scrub:hover::-webkit-slider-thumb {
+  scale: 1.15;
+}
+.ticks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 calc(0.625rem - 0.5px);
+  margin-top: -0.75rem;
+  pointer-events: none;
+}
+.ticks i {
+  width: 1px;
+  height: 0.375rem;
+  background: var(--muted);
+}
+.ticks i[data-on] {
+  height: 0.625rem;
+  background: var(--ink);
+  box-shadow: 0 0 0 0.5px var(--ink);
+}
+
+/* ---- motion: tiles ink in from the oldest model to the newest; the big view rises. ---------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .tile:hover .frame {
+    transform: translateY(-2px);
+  }
+  .strip > li {
+    animation: ink-in 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--i) * 32ms);
+  }
+  .big[open] {
+    animation: rise 0.22s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .big[open]::backdrop {
+    animation: fade 0.22s ease-out;
+  }
+}
+@keyframes ink-in {
+  from { opacity: 0; transform: translateY(6px); }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+}
+@keyframes fade {
+  from { opacity: 0; }
+}
+
+@media (max-width: 640px) {
+  .big {
+    width: 100vw;
+    height: 100dvh;
+    max-height: none;
+    border: 0;
+  }
+  .big-frame {
+    max-height: min(44dvh, 26rem);
+  }
+}
+} /* components */
