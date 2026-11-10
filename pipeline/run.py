@@ -253,7 +253,7 @@ def main(argv=None) -> int:
     if not (args.prompt and args.prompt_id and args.set_name):
         ap.error("--prompt, --prompt-id and --set are required")
     if args.cap > CAP_USD:
-        ap.error(f"--cap cannot be above the project's ${CAP_USD:.0f} cap (raising it is Eric's decision)")
+        ap.error(f"--cap cannot be above the project's ${CAP_USD:.0f} cap (raising it is the maintainer's decision)")
     if "{target}" not in args.prompt.read_text():
         ap.error(f"{args.prompt} has no {{target}} slot")
     targets = load_targets(args.targets or sorted((ROOT / "targets").glob("*/target.toml")))
