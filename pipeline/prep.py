@@ -2,9 +2,11 @@
 
   uv run python -m pipeline.prep
 
-Reads Natural Earth's 50m countries file, cuts each target out, and rewrites targets/<id>/ with target.toml,
-truth.geojson, SOURCE.md and preview.png. Running it twice changes nothing. The source file is not in the repo: it is
-fetched once to ~/.cache/borderbench/ and must match the checksum below, so a changed upstream file fails loudly.
+Reads Natural Earth's 1:10m countries file and its 1:10m lakes file, cuts each target out, cuts out the lakes that
+reach its edge (a true border is the outline of the land: specs/decisions/004-truth-is-land.md), and rewrites
+targets/<id>/ with target.toml, truth.geojson, SOURCE.md and preview.png. Running it twice changes nothing. The source
+files are not in the repo: each is fetched once to ~/.cache/borderbench/ and must match its checksum below, so a
+changed upstream file fails loudly.
 """
 
 import hashlib
@@ -26,17 +28,27 @@ from shapely.geometry.polygon import orient
 ROOT = Path(__file__).resolve().parent.parent
 CACHE = Path.home() / ".cache" / "borderbench"
 
+# The 1:50m countries file the four targets were first built from. Nothing in this file reads it any more; the
+# modern foils of the history targets (pipeline/prep_history.py, feature truth-history) are cut from it.
 NE_URL = "https://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_countries.zip"
 NE_SHA256 = "5fed433373581fa648920435f937d95f2d3c0200e067409c6478dcdf1b853139"
 NE_FETCHED = "2026-11-09"  # the day the file with this checksum was downloaded
 NE_STEM = "ne_50m_admin_0_countries"
 
+# What the four targets are built from now: (what it is, URL, SHA-256). Both were downloaded on FETCHED.
+COUNTRIES = ("Admin 0 – Countries, 1:10m", "https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries.zip",
+             "ce1ac7036499a0edd641fbc093cd209a98f96a49d2eca8480aaacad35138a7f6")
+LAKES = ("Lakes + Reservoirs, 1:10m", "https://naciscdn.org/naturalearth/10m/physical/ne_10m_lakes.zip",
+         "0803a06f9c3cb4671d89b68c48b142aad9366ba40f665245e12a913fbc61722a")
+FETCHED = "2026-11-09"
+
 # The lower 48 states: keep the pieces of Natural Earth's United States whose centre lies inside this box.
 # It drops Alaska (north of 50°N) and Hawaii (west of 125°W). Territories are separate records and never loaded.
 LOWER_48_BOX = (-125.0, 24.0, -66.0, 50.0)  # west, south, east, north
 
-# Published areas the truth is checked against (the spec asks for 2% of the published land area). All four were read
-# from Wikipedia on 2026-11-09; `published_from` says which article and what it cites. None is a primary source.
+# Published areas the truth is checked against (the spec asks for 2% of the published land area). Three were read
+# from Wikipedia on 2026-11-09 and are not primary sources; Croatia's land figure was read from the World Bank's data
+# service the same day. `published_from` says where each came from and what that cites.
 TARGETS = [
     {"id": "usa", "adm0_a3": "USA", "date": "2024-01-01",
      "name": "the contiguous United States (the lower 48 states) as of 1 January 2024",
@@ -45,8 +57,8 @@ TARGETS = [
                "(Puerto Rico, Guam and others) are separate records in the source and were never part of the shape."],
      "land_km2": 7_663_942, "total_km2": 8_080_464,
      "published_from": 'Wikipedia, "Contiguous United States", which cites the CIA World Factbook\'s area listing',
-     "area_note": "The border with Canada runs through the Great Lakes, and the shape counts the United States' side "
-                  "of the lakes as territory. That water is in the published total but not in the land figure."},
+     "area_note": "The published land figure also leaves out the lakes and rivers that lie wholly inside the country, "
+                  "which the shape keeps. So the shape should sit a little above the land figure, and it does."},
     {"id": "chile", "adm0_a3": "CHL", "date": "2024-01-01", "name": "Chile as of 1 January 2024", "edits": [],
      "land_km2": 743_812, "total_km2": 756_102,
      "published_from": 'Wikipedia, "Geography of Chile"; the total is cited there to the CIA World Factbook, the land '
@@ -57,15 +69,19 @@ TARGETS = [
      "land_km2": 1_811_569, "total_km2": 1_904_569,
      "published_from": 'Wikipedia, "Geography of Indonesia"; the total is cited there to the CIA World Factbook, the '
                        "land figure is uncited",
-     "area_note": "The measured area falls between the published land and total figures. Which of the two a map at "
-                  "this scale should match is not clear: small islands are missing, inland water is not cut out."},
+     "area_note": "The measured area falls between the published land and total figures. The two differ by 93,000 km² "
+                  "of inland water, but the lakes file holds only three lakes inside Indonesia and none reaches the "
+                  "edge, so cutting lakes cannot bring the shape to the land figure. The World Bank publishes a land "
+                  "area of 1,892,410 km² for 2023 (indicator AG.LND.TOTL.K2, from the FAO; read 2026-11-09), and "
+                  "the shape is within 2% of that one. Which published figure is the right yardstick is not settled."},
     {"id": "croatia", "adm0_a3": "HRV", "date": "2024-01-01", "name": "Croatia as of 1 January 2024", "edits": [],
-     "land_km2": None, "total_km2": 56_594,
-     "published_from": 'Wikipedia, "Geography of Croatia", which cites Croatia\'s Statistical Yearbook 2011. No '
-                       "separate land figure was found",
-     "area_note": "At 1:50 million the coast is drawn with few points and only 12 islands are kept (Wikipedia "
-                  "counts 1,246 islands and islets). The strip of Bosnian coast at Neum, which cuts Croatia's "
-                  "mainland in two, is not shown: the mainland is one piece."},
+     "land_km2": 55_960, "total_km2": 56_594,
+     "published_from": 'land: the World Bank, "Land area (sq. km)" for Croatia, 2023 (indicator AG.LND.TOTL.K2, which '
+                       "takes it from the FAO), https://api.worldbank.org/v2/country/HRV/indicator/AG.LND.TOTL.K2. "
+                       'Total: Wikipedia, "Geography of Croatia", which cites Croatia\'s Statistical Yearbook 2011',
+     "area_note": "At 1:10 million the mainland is two pieces, cut by the strip of Bosnian coast at Neum, and 23 "
+                  "islands are kept (Wikipedia counts 1,246 islands and islets). No lake in the lakes file lies in "
+                  "Croatia, so nothing was cut."},
 ]
 
 
@@ -143,6 +159,29 @@ def lower_48(shape: MultiPolygon) -> MultiPolygon:
     return MultiPolygon([p for p in shape.geoms if inside(p)])
 
 
+def cut_edge_lakes(country: MultiPolygon, lakes: list[tuple[str, MultiPolygon]]) -> tuple[MultiPolygon, list[str]]:
+    """The country with every lake that reaches its edge cut out, and the names of the lakes cut.
+
+    A true border is the outline of the land (specs/decisions/004-truth-is-land.md). A lake reaches the edge when the
+    border or the coast runs through it or touches it. A lake joined to such a lake is cut as well: Lake Michigan
+    lies wholly inside the United States but is one body of water with Lake Huron. A lake that lies wholly inside
+    the country and touches no cut lake stays in: an outline cannot leave it out without drawing a hole, and the
+    prompt does not ask for holes. No coordinate is edited: the lake outlines come from the lakes file as they are.
+    """
+    near = [(name, lake) for name, lake in lakes if lake.intersects(country)]
+    cut = {i for i, (_, lake) in enumerate(near) if not country.contains_properly(lake)}
+    grew = bool(cut)
+    while grew:   # lakes joined to a cut lake, and lakes joined to those
+        joined = {i for i, (_, lake) in enumerate(near) if i not in cut and any(lake.intersects(near[j][1]) for j in cut)}
+        cut |= joined
+        grew = bool(joined)
+    if not cut:
+        return country, []
+    land = country.difference(shapely.union_all([near[i][1] for i in sorted(cut)]))
+    pieces = [g for g in getattr(land, "geoms", [land]) if g.geom_type == "Polygon" and not g.is_empty]
+    return MultiPolygon(pieces), sorted(near[i][0] for i in cut)
+
+
 def area_km2(shape) -> float:
     """Area on the WGS84 ellipsoid, in square kilometres."""
     return abs(Geod(ellps="WGS84").geometry_area_perimeter(shape)[0]) / 1e6
@@ -208,23 +247,47 @@ def write_target(folder: Path, *, id: str, name: str, date: str, shape: MultiPol
 
 
 def main() -> int:
-    records = {attrs["ADM0_A3"]: (attrs, shape) for attrs, shape in read_shapefile(fetch(NE_URL, NE_SHA256), NE_STEM)}
-    with zipfile.ZipFile(CACHE / f"{NE_STEM}.zip") as z:
-        version = z.read(f"{NE_STEM}.VERSION.txt").decode().strip()
+    def read(source):
+        """Every record of one source file, and what SOURCE.md says about that file."""
+        what, url, sha256 = source
+        path, stem = fetch(url, sha256), url.rsplit("/", 1)[1].removesuffix(".zip")
+        with zipfile.ZipFile(path) as z:
+            version = z.read(f"{stem}.VERSION.txt").decode().strip()
+        return read_shapefile(path, stem), (f"Natural Earth, {what}, version {version}",
+                                            f"  - File: `{stem}.zip` from {url}\n  - Checksum (SHA-256): `{sha256}`")
+
+    countries, (countries_name, countries_file) = read(COUNTRIES)
+    lake_records, (lakes_name, lakes_file) = read(LAKES)
+    records = {attrs["ADM0_A3"]: (attrs, shape) for attrs, shape in countries}
+    # Two of the file's 1,355 lake outlines cross themselves (one in northern Canada, one in Siberia). They are left
+    # out, and the build stops if one ever lies near a target.
+    lakes = [(a["name"] or f"an unnamed lake (ne_id {a['ne_id']})", lake) for a, lake in lake_records if lake.is_valid]
+    broken = [shapely.box(*lake.bounds) for _, lake in lake_records if not lake.is_valid]
     for t in TARGETS:
-        attrs, shape = records[t["adm0_a3"]]
+        attrs, whole = records[t["adm0_a3"]]
         if t["id"] == "usa":
-            shape = lower_48(shape)
-        assert shape.is_valid and not shape.is_empty, t["id"]
+            whole = lower_48(whole)
+        assert not any(b.intersects(shapely.box(*whole.bounds)) for b in broken), f"{t['id']}: a broken lake is near"
+        shape, cut = cut_edge_lakes(whole, lakes)
+        assert shape.is_valid and not shape.is_empty and not any(p.interiors for p in shape.geoms), t["id"]
+        kept = [lake for _, lake in lakes if shape.contains(lake)]
         check, ok = area_check(t, area_km2(shape))
         edits = [*t["edits"],
+                 (f"Cut out the {len(cut)} lakes that reach the edge of the shape, as the lakes file draws them: "
+                  f"{', '.join(cut)}. A lake reaches the edge when the border or the coast runs through it or touches "
+                  f"it, or when it is joined to a lake that does. This removed {area_km2(whole) - area_km2(shape):,.0f} "
+                  "km². Where a lake's outline crosses the border, the crossing point is computed; no other "
+                  "coordinate is new." if cut else
+                  "Looked for lakes that reach the edge of the shape (the border or the coast runs through or touches "
+                  "them). The lakes file has none here, so nothing was cut."),
                  "Ring order was changed to the GeoJSON convention (outlines counter-clockwise). No coordinate changed."]
         source_md = f"""# Source: {t['name']}
 
-- **Source:** Natural Earth, Admin 0 – Countries, 1:50m, version {version}. Record `{attrs['ADMIN']}` (`ADM0_A3` = `{t['adm0_a3']}`).
-- **File:** `{NE_URL.rsplit('/', 1)[1]}` from {NE_URL}
-- **Checksum (SHA-256):** `{NE_SHA256}`
-- **Fetched:** {NE_FETCHED}
+- **Source:** {countries_name}. Record `{attrs['ADMIN']}` (`ADM0_A3` = `{t['adm0_a3']}`).
+{countries_file}
+- **Lakes from:** {lakes_name}.
+{lakes_file}
+- **Fetched:** {FETCHED} (both files)
 - **Licence:** public domain. Natural Earth: "All versions of Natural Earth raster + vector map data found on this website are in the public domain." https://www.naturalearthdata.com/about/terms-of-use/
 - **Built by:** `uv run python -m pipeline.prep`. Nothing here is edited by hand.
 
@@ -232,8 +295,8 @@ def main() -> int:
 {chr(10).join(f'{i}. {e}' for i, e in enumerate(edits, 1))}
 
 ## What the shape includes
-- {len(shape.geoms)} separate piece(s), {sum(len(p.exterior.coords) + sum(len(h.coords) for h in p.interiors) for p in shape.geoms)} points.
-- Lakes and rivers inside the border are not cut out: the shape is the territory inside the border and coastline.
+- {len(shape.geoms)} separate piece(s), {sum(len(p.exterior.coords) for p in shape.geoms)} points, no holes.
+- The shape is the outline of the land (`specs/decisions/004-truth-is-land.md`). Lakes that reach the edge are cut out. Lakes that lie wholly inside stay in, because an outline cannot leave them out without a hole: {len(kept)} in the lakes file, {sum(map(area_km2, kept)):,.0f} km² in all. Rivers are not cut out.
 - Disputed areas follow Natural Earth's default (de facto) view. Nothing was added or removed for a dispute.
 - {t['area_note']}
 
@@ -245,7 +308,7 @@ def main() -> int:
         folder = ROOT / "targets" / t["id"]
         write_target(folder, id=t["id"], name=t["name"], date=t["date"], shape=shape, source_md=source_md)
         draw_preview(shape, t["name"], folder / "preview.png")
-        print(f"prep: {t['id']:<10} {len(shape.geoms):>3} piece(s)  {'ok  ' if ok else 'MISS'}  {check}")
+        print(f"prep: {t['id']:<10} {len(shape.geoms):>3} piece(s)  {len(cut):>2} lake(s) cut  {'ok  ' if ok else 'MISS'}  {check}")
     return 0
 
 
