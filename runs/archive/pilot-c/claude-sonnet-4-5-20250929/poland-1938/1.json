@@ -1,0 +1,38 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "I need to draw Poland's borders as they existed on January 1, 1938.\n\nKey historical context:\n- This is interwar Poland (Second Polish Republic), which existed between WWI and WWII\n- Poland regained independence in 1918 after the partitions\n- By 1938, Poland had NOT yet been invaded by Germany (that happened in September 1939)\n- Poland bordered: Germany to the west, Czechoslovakia to the south, USSR to the east, Lithuania and Latvia to the northeast, and had Baltic Sea access\n- The borders were significantly different from modern Poland - Poland extended much further east into what is now Belarus and Ukraine\n- Major cities: Warsaw (capital), Kraków, Lwów (now Lviv, Ukraine), Wilno (now Vilnius, Lithuania), Poznań\n\nGeographic features I need to recall:\n- Baltic coastline in the north (including the \"Polish Corridor\" to Gdańsk/Danzig area)\n- Western border with Germany roughly along Oder River region\n- Southern border with Czechoslovakia along Carpathian mountains\n- Eastern border extended to include areas around Lwów and Wilno\n- The eastern border (established by Treaty of Riga 1921) was much further east than today\n\nLet me sketch the approximate coordinates:\n\nNorthern coastline (Baltic Sea):\n- Roughly from 14.5°E to 19°E longitude\n- Around 54.5°N latitude\n\nWestern border with Germany:\n- North to south, roughly 14-15°E longitude in north\n- Curving to include areas like Poznań\n- Around 15-17°E in the central part\n\nSouthern border with Czechoslovakia:\n- Following Carpathian ridge\n- Roughly 49-50°N latitude\n- Including cities like Kraków\n\nEastern border:\n- Extended to about 26-27°E longitude in the north (including Wilno)\n- Extended to about 25-26°E in the south (including Lwów)\n- Much further east than modern Poland\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[14.5, 53.9], [15.0, 54.4], [16.0, 54.5], [17.5, 54.8], [18.5, 54.7], [19.0, 54.5], [19.5, 54.3], [20.5, 54.2], [21.0, 54.1], [22.0, 54.3], [22.8, 54.4], [23.5, 54.3], [24.0, 54.0], [24.5, 53.9], [25.0, 53.7], [25.5, 53.5], [26.0, 53.2], [26.5, 53.0], [26.8, 52.7], [27.0, 52.4], [27.2, 52.0], [27.3, 51.6], [27.2, 51.2], [27.0, 50.8], [26.7, 50.5], [26.3, 50.3], [25.8, 50.1], [25.3, 50.0], [24.8, 49.8], [24.3, 49.7], [23.8, 49.6], [23.3, 49.5], [22.8, 49.5], [22.3, 49.6], [21.8, 49.5], [21.3, 49.4], [20.8, 49.4], [20.3, 49.5], [19.8, 49.6], [19.3, 49.5], [18.8, 49.6], [18.3, 49.7], [17.8, 49.8], [17.3, 49.9], [16.8, 50.2], [16.3, 50.3], [15.8, 50.5], [15.3, 50.6], [15.0, 50.8], [14.7, 51.0], [14.6, 51.3], [14.6, 51.6], [14.7, 51.9], [14.8, 52.2], [14.7, 52.5], [14.6, 52.8], [14.5, 53.1], [14.4, 53.4], [14.5, 53.7], [14.5, 53.9]]]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 1083,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtGmjKxqR5Gf8U9FqnuW",
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "cost_usd": 0.016971,
+  "requested_at": "2026-11-10T00:07:17+00:00"
+}

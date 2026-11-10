@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-b",
+  "prompt": "Draw the land borders and coastline of Egypt as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- Output only the GeoJSON MultiPolygon, with no other text.\n- It is a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "egypt",
+  "target": "Egypt as of 1 January 2024",
+  "raw": "{\"type\": \"MultiPolygon\", \"coordinates\": [[[[25.0, 31.5], [25.0, 22.0], [25.0, 20.0], [23.5, 20.0], [23.5, 21.95], [24.7, 21.95], [24.7, 19.5], [23.5, 19.5], [23.5, 21.95], [22.0, 21.95], [22.0, 20.0], [25.0, 20.0], [29.0, 20.0], [31.2, 20.0], [31.5, 20.0], [31.5, 21.5], [33.0, 22.0], [34.0, 23.0], [35.0, 24.0], [35.5, 24.5], [35.8, 25.5], [36.0, 26.5], [36.5, 27.5], [36.8, 28.5], [36.86, 29.0], [36.9, 29.5], [35.5, 29.5], [34.9, 29.3], [34.5, 29.5], [34.25, 29.75], [34.2, 30.2], [34.3, 30.5], [34.4, 30.8], [34.5, 31.0], [34.6, 31.3], [34.6, 31.5], [34.2, 31.5], [33.5, 31.3], [33.0, 31.4], [32.5, 31.5], [32.2, 31.6], [31.8, 31.7], [31.5, 31.9], [31.3, 32.0], [31.1, 32.1], [30.8, 32.2], [30.5, 32.3], [30.0, 32.5], [29.5, 32.7], [29.0, 32.9], [28.5, 32.9], [28.0, 32.8], [27.5, 32.7], [27.0, 32.5], [26.5, 32.4], [26.0, 32.3], [25.5, 32.2], [25.2, 32.0], [25.1, 31.8], [25.0, 31.5]]]]]}",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 237,
+    "output_tokens": 618,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtJPmNrsnD3YbyGy6JEy",
+  "started_at": "2026-11-10T00:28:15.576+00:00",
+  "first_token_ms": 662,
+  "first_text_ms": 662,
+  "duration_ms": 8048,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.009981,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:28:23+00:00"
+}

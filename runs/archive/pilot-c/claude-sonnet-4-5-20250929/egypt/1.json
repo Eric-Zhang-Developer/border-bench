@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of Egypt as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "egypt",
+  "target": "Egypt as of 1 January 2024",
+  "raw": "I'll draw Egypt's borders and coastline from memory as of January 1, 2024.\n\nLet me think about Egypt's key features:\n- Northern Mediterranean coastline\n- Eastern Red Sea coastline including the Sinai Peninsula\n- Western border with Libya (roughly straight line)\n- Southern border with Sudan (22nd parallel)\n- Eastern borders with Israel and Gaza Strip\n- The Sinai Peninsula extends east of the Gulf of Suez\n- The Nile Delta forms the northern coast\n- Major gulfs: Gulf of Suez and Gulf of Aqaba\n\nKey coordinates to remember:\n- Northwestern corner: around (25°E, 31.5°N)\n- Northeastern corner (Mediterranean): around (34°E, 31.5°N)\n- Southern border is roughly at 22°N latitude\n- Eastern extent in Sinai: around 35°E\n- Western extent: around 25°E\n\nLet me trace the borders:\n1. Start at NW corner on Mediterranean\n2. Follow Mediterranean coast eastward through Nile Delta\n3. Continue along Sinai's north coast\n4. Turn south along Israel/Gaza border\n5. Follow Gulf of Aqaba coastline\n6. Follow Red Sea coast southward\n7. Turn west along Sudan border (22°N)\n8. Go north along Libya border\n9. Return to starting point\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[25.0, 31.67], [26.0, 31.58], [27.0, 31.52], [28.0, 31.48], [29.0, 31.45], [30.0, 31.43], [31.0, 31.38], [31.5, 31.35], [32.0, 31.32], [32.5, 31.28], [33.0, 31.25], [33.5, 31.22], [34.0, 31.2], [34.2, 31.18], [34.25, 31.15], [34.27, 31.1], [34.28, 31.0], [34.3, 30.8], [34.35, 30.5], [34.4, 30.2], [34.45, 30.0], [34.5, 29.8], [34.55, 29.6], [34.58, 29.5], [34.6, 29.4], [34.65, 29.3], [34.7, 29.25], [34.75, 29.22], [34.8, 29.2], [34.85, 29.18], [34.9, 29.15], [34.92, 29.12], [34.93, 29.08], [34.93, 29.05], [34.92, 29.0], [34.9, 28.9], [34.88, 28.8], [34.85, 28.7], [34.82, 28.6], [34.8, 28.52], [34.78, 28.45], [34.75, 28.4], [34.72, 28.35], [34.68, 28.3], [34.65, 28.25], [34.62, 28.2], [34.6, 28.15], [34.58, 28.1], [34.55, 28.05], [34.52, 28.0], [34.5, 27.95], [34.47, 27.9], [34.45, 27.85], [34.42, 27.8], [34.4, 27.75], [34.38, 27.7], [34.35, 27.65], [34.32, 27.6], [34.3, 27.55], [34.28, 27.5], [34.25, 27.45], [34.22, 27.4], [34.2, 27.35], [34.18, 27.3], [34.15, 27.25], [34.12, 27.2], [34.1, 27.15], [34.08, 27.1], [34.05, 27.05], [34.02, 27.0], [34.0, 26.95], [33.98, 26.9], [33.95, 26.85], [33.92, 26.8], [33.9, 26.75], [33.88, 26.7], [33.85, 26.65], [33.82, 26.6], [33.8, 26.55], [33.78, 26.5], [33.75, 26.45], [33.72, 26.4], [33.7, 26.35], [33.68, 26.3], [33.65, 26.25], [33.62, 26.2], [33.6, 26.15], [33.58, 26.1], [33.55, 26.05], [33.52, 26.0], [33.5, 25.95], [33.48, 25.9], [33.45, 25.85], [33.42, 25.8], [33.4, 25.75], [33.38, 25.7], [33.35, 25.65], [33.32, 25.6], [33.3, 25.55], [33.28, 25.5], [33.25, 25.45], [33.22, 25.4], [33.2, 25.35], [33.18, 25.3], [33.15, 25.25], [33.12, 25.2], [33.1, 25.15], [33.08, 25.1], [33.05, 25.05], [33.02, 25.0], [33.0, 24.95], [32.98, 24.9], [32.95, 24.85], [32.92, 24.8], [32.9, 24.75], [32.88, 24.7], [32.85, 24.65], [32.82, 24.6], [32.8, 24.55], [32.78, 24.5], [32.75, 24.45], [32.72, 24.4], [32.7, 24.35], [32.68, 24.3], [32.65, 24.25], [32.62, 24.2], [32.6, 24.15], [32.58, 24.1], [32.55, 24.05], [32.52, 24.0], [32.5, 23.95], [32.48, 23.9], [32.45, 23.85], [32.42, 23.8], [32.4, 23.75], [32.38, 23.7], [32.35, 23.65], [32.32, 23.6], [32.3, 23.55], [32.28, 23.5], [32.25, 23.45], [32.22, 23.4], [32.2, 23.35], [32.18, 23.3], [32.15, 23.25], [32.12, 23.2], [32.1, 23.15], [32.08, 23.1], [32.05, 23.05], [32.02, 23.0], [32.0, 22.95], [31.98, 22.9], [31.95, 22.85], [31.92, 22.8], [31.9, 22.75], [31.88, 22.7], [31.85, 22.65], [31.82, 22.6], [31.8, 22.55], [31.78, 22.5], [31.75, 22.45], [31.72, 22.4], [31.7, 22.35], [31.68, 22.3], [31.65, 22.25], [31.62, 22.2], [31.6, 22.15], [31.58, 22.1], [31.55, 22.05], [31.52, 22.0], [31.0, 22.0], [30.0, 22.0], [29.0, 22.0], [28.0, 22.0], [27.0, 22.0], [26.0, 22.0], [25.0, 22.0], [25.0, 23.0], [25.0, 24.0], [25.0, 25.0], [25.0, 26.0], [25.0, 27.0], [25.0, 28.0], [25.0, 29.0], [25.0, 30.0], [25.0, 31.0], [25.0, 31.67]]]]}}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 2203,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtHZVrsFUPrLWTh9Koyt",
+  "started_at": "2026-11-10T00:17:20.820+00:00",
+  "first_token_ms": 885,
+  "first_text_ms": 886,
+  "duration_ms": 24539,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.033771,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:17:45+00:00"
+}

@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of Australia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "australia",
+  "target": "Australia as of 1 January 2024",
+  "raw": "I'll draw Australia's land borders and coastline as of January 1, 2024. Australia consists of:\n1. The mainland (the largest piece)\n2. Tasmania (the major island to the south)\n3. Several smaller islands, though I'll focus on the most significant ones within my point budget\n\nLet me trace the key features:\n- Northern coast: from Western Australia across the top, including the Gulf of Carpentaria\n- Eastern coast: Queensland down through New South Wales\n- Southern coast: Victoria and South Australia\n- Western coast: relatively straight compared to the east\n- Tasmania: separate island south of Victoria\n\nI'll allocate most points to the mainland, with enough for Tasmania and perhaps one or two other significant islands like Kangaroo Island.\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [113.16, -26.04],\n        [113.16, -22.00],\n        [113.50, -19.00],\n        [114.00, -17.00],\n        [115.00, -15.50],\n        [116.50, -14.50],\n        [118.00, -14.00],\n        [120.00, -13.50],\n        [121.50, -13.00],\n        [123.00, -12.50],\n        [124.50, -12.00],\n        [126.00, -11.80],\n        [127.50, -11.70],\n        [128.50, -11.90],\n        [129.50, -12.00],\n        [130.50, -11.90],\n        [131.50, -12.10],\n        [132.50, -12.00],\n        [133.00, -11.80],\n        [133.50, -11.70],\n        [134.50, -11.90],\n        [135.50, -12.10],\n        [136.00, -12.50],\n        [136.50, -13.00],\n        [136.80, -13.80],\n        [136.90, -14.50],\n        [136.50, -15.50],\n        [136.00, -16.00],\n        [135.50, -16.50],\n        [135.80, -17.00],\n        [136.50, -17.50],\n        [137.50, -17.80],\n        [138.00, -17.50],\n        [138.50, -17.00],\n        [139.00, -16.80],\n        [139.50, -17.00],\n        [140.00, -17.30],\n        [140.50, -17.50],\n        [141.00, -16.50],\n        [141.00, -15.00],\n        [141.00, -13.00],\n        [141.00, -11.50],\n        [141.50, -10.80],\n        [142.00, -10.70],\n        [142.50, -10.90],\n        [143.00, -11.50],\n        [143.50, -12.00],\n        [144.00, -12.50],\n        [144.50, -13.00],\n        [145.00, -13.50],\n        [145.50, -14.00],\n        [145.80, -14.50],\n        [146.00, -15.00],\n        [146.20, -15.50],\n        [146.50, -16.00],\n        [147.00, -16.50],\n        [147.50, -17.00],\n        [148.00, -17.50],\n        [148.50, -18.00],\n        [149.00, -18.50],\n        [149.50, -19.00],\n        [150.00, -19.50],\n        [150.50, -20.00],\n        [151.00, -20.50],\n        [151.50, -21.00],\n        [152.00, -21.50],\n        [152.50, -22.00],\n        [153.00, -23.00],\n        [153.30, -24.00],\n        [153.50, -25.00],\n        [153.60, -26.00],\n        [153.50, -27.00],\n        [153.40, -28.00],\n        [153.60, -28.50],\n        [153.50, -29.00],\n        [153.40, -29.50],\n        [153.30, -30.00],\n        [153.20, -31.00],\n        [153.00, -32.00],\n        [152.50, -33.00],\n        [151.50, -33.50],\n        [150.50, -34.00],\n        [150.00, -34.50],\n        [149.50, -35.00],\n        [149.00, -35.50],\n        [148.50, -36.00],\n        [148.00, -36.50],\n        [147.50, -37.00],\n        [147.80, -37.50],\n        [148.50, -37.80],\n        [149.50, -38.00],\n        [150.00, -38.50],\n        [149.50, -39.00],\n        [148.00, -39.50],\n        [147.00, -39.20],\n        [146.00, -39.00],\n        [145.00, -38.80],\n        [144.50, -38.60],\n        [144.00, -38.50],\n        [143.00, -38.80],\n        [142.00, -38.60],\n        [141.00, -38.50],\n        [140.50, -38.30],\n        [140.00, -38.00],\n        [139.50, -37.50],\n        [139.00, -37.00],\n        [138.50, -36.50],\n        [138.00, -36.00],\n        [137.80, -35.50],\n        [137.50, -35.00],\n        [137.00, -34.50],\n        [136.50, -34.00],\n        [136.00, -33.80],\n        [135.50, -33.50],\n        [135.00, -33.20],\n        [134.50, -33.00],\n        [134.00, -32.80],\n        [133.50, -32.50],\n        [133.00, -32.30],\n        [132.00, -32.00],\n        [131.00, -31.70],\n        [130.00, -31.50],\n        [129.00, -31.80],\n        [128.00, -32.00],\n        [127.00, -32.20],\n        [126.00, -32.30],\n        [125.00, -32.50],\n        [124.00, -32.80],\n        [123.00, -33.20],\n        [122.50, -33.50],\n        [122.00, -34.00],\n        [121.50, -34.20],\n        [121.00, -34.00],\n        [120.00, -33.80],\n        [119.00, -34.00],\n        [118.50, -34.50],\n        [118.00, -35.00],\n        [117.50, -35.20],\n        [117.00, -35.00],\n        [116.50, -34.80],\n        [116.00, -34.50],\n        [115.50, -34.30],\n        [115.00, -34.00],\n        [114.80, -33.50],\n        [114.50, -33.00],\n        [114.00, -32.00],\n        [113.80, -31.00],\n        [113.50, -30.00],\n        [113.30, -29.00],\n        [113.20, -28.00],\n        [113.16, -26.04]\n      ]\n    ],\n    [\n      [\n        [144.60, -39.80],\n        [145.00, -39.50],\n        [145.50, -39.80],\n        [146.00, -40.00],\n        [146.50, -40.30],\n        [147.00, -40.50],\n        [147.50, -40.80],\n        [148.00, -41.20],\n        [148.30, -41.50],\n        [148.50, -42.00],\n        [148.40, -42.50],\n        [148.00, -43.00],\n        [147.50, -43.20],\n        [147.00, -43.30],\n        [146.50, -43.50],\n        [146.00, -43.60],\n        [145.50, -43.40],\n        [145.00, -43.20],\n        [144.70, -43.00],\n        [144.60, -42.50],\n        [144.70, -42.00],\n        [145.00, -41.50],\n        [145.20, -41.00],\n        [145.00, -40.50],\n        [144.70, -40.20],\n        [144.60, -39.80]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 2346,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtHCksRajknnyPjqKrxa",
+  "started_at": "2026-11-10T00:12:39.477+00:00",
+  "first_token_ms": 633,
+  "first_text_ms": 634,
+  "duration_ms": 27404,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.035916,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:13:06+00:00"
+}

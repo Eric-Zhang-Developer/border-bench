@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of Egypt as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "egypt",
+  "target": "Egypt as of 1 January 2024",
+  "raw": "I need to draw Egypt's borders as of January 1, 2024. Let me recall the key features:\n\n**Borders:**\n- North: Mediterranean Sea coastline\n- East: Red Sea coastline, border with Israel and Gaza Strip\n- South: Border with Sudan (roughly along 22°N)\n- West: Border with Libya (roughly along 25°E)\n- Northeast: Sinai Peninsula bordered by Israel and Gaza\n- East of Sinai: Gulf of Aqaba\n\n**Key geographic features:**\n- The Nile River runs north-south\n- Sinai Peninsula extends northeast\n- Mediterranean coastline runs roughly west-east\n- Red Sea coastline runs northwest-southeast\n- Western border with Libya is relatively straight\n- Southern border with Sudan is mostly straight (22nd parallel)\n\n**Approximate coordinates:**\n- Northwestern corner: around 25°E, 31.5°N\n- Northeastern corner (Mediterranean): around 34°E, 31.5°N\n- Sinai tip (Taba): around 34.9°E, 29.5°N\n- Southern tip of Sinai: around 34.3°E, 28°N\n- Southwest corner: around 25°E, 22°N\n- Southeast corner: around 37°E, 22°N\n\nLet me draw this as a single polygon for mainland Egypt including Sinai:\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [25.00, 31.67],\n        [26.50, 31.50],\n        [27.50, 31.50],\n        [28.50, 31.50],\n        [29.50, 31.50],\n        [30.50, 31.50],\n        [31.50, 31.40],\n        [32.50, 31.30],\n        [33.00, 31.30],\n        [34.25, 31.33],\n        [34.25, 31.20],\n        [34.20, 30.80],\n        [34.50, 30.50],\n        [34.70, 30.20],\n        [34.90, 29.90],\n        [34.93, 29.50],\n        [34.88, 29.48],\n        [34.80, 29.30],\n        [34.70, 29.10],\n        [34.60, 28.90],\n        [34.50, 28.70],\n        [34.45, 28.50],\n        [34.30, 28.20],\n        [34.20, 28.00],\n        [34.15, 27.80],\n        [34.10, 27.60],\n        [34.05, 27.40],\n        [34.00, 27.20],\n        [33.95, 27.00],\n        [33.90, 26.80],\n        [33.85, 26.60],\n        [33.80, 26.40],\n        [33.75, 26.20],\n        [33.70, 26.00],\n        [33.65, 25.80],\n        [33.60, 25.60],\n        [33.55, 25.40],\n        [33.50, 25.20],\n        [33.45, 25.00],\n        [33.40, 24.80],\n        [33.35, 24.60],\n        [33.30, 24.40],\n        [33.25, 24.20],\n        [33.20, 24.00],\n        [33.15, 23.80],\n        [33.10, 23.60],\n        [33.05, 23.40],\n        [33.00, 23.20],\n        [33.50, 23.00],\n        [34.00, 22.80],\n        [34.50, 22.50],\n        [35.00, 22.30],\n        [35.50, 22.20],\n        [36.00, 22.10],\n        [36.50, 22.00],\n        [36.87, 22.00],\n        [36.00, 22.00],\n        [35.00, 22.00],\n        [34.00, 22.00],\n        [33.00, 22.00],\n        [32.00, 22.00],\n        [31.00, 22.00],\n        [30.00, 22.00],\n        [29.00, 22.00],\n        [28.00, 22.00],\n        [27.00, 22.00],\n        [26.00, 22.00],\n        [25.00, 22.00],\n        [25.00, 23.00],\n        [25.00, 24.00],\n        [25.00, 25.00],\n        [25.00, 26.00],\n        [25.00, 27.00],\n        [25.00, 28.00],\n        [25.00, 29.00],\n        [25.00, 30.00],\n        [25.00, 31.00],\n        [25.00, 31.67]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 1295,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtHbKBjHf1JrbLihHqZF",
+  "started_at": "2026-11-10T00:17:45.362+00:00",
+  "first_token_ms": 805,
+  "first_text_ms": 806,
+  "duration_ms": 16585,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.020151,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:18:01+00:00"
+}

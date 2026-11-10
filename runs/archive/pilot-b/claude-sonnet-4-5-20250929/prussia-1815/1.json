@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-b",
+  "prompt": "Draw the land borders and coastline of the Kingdom of Prussia as of 1 January 1816 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- Output only the GeoJSON MultiPolygon, with no other text.\n- It is a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "prussia-1815",
+  "target": "the Kingdom of Prussia as of 1 January 1816",
+  "raw": "{\"type\": \"MultiPolygon\", \"coordinates\": [[[[10.5, 53.9], [10.8, 54.0], [11.2, 54.1], [11.5, 54.2], [11.8, 54.3], [12.2, 54.4], [12.6, 54.5], [13.0, 54.6], [13.5, 54.5], [14.0, 54.4], [14.4, 54.3], [14.7, 54.2], [14.9, 54.0], [15.2, 53.9], [15.5, 53.8], [16.0, 53.9], [16.5, 54.0], [17.0, 54.2], [17.5, 54.3], [18.0, 54.4], [18.5, 54.5], [19.0, 54.6], [19.5, 54.5], [20.0, 54.4], [20.5, 54.5], [21.0, 54.6], [21.5, 54.5], [22.0, 54.4], [22.5, 54.3], [22.8, 54.1], [22.9, 53.9], [22.8, 53.7], [22.6, 53.5], [22.4, 53.3], [22.2, 53.1], [22.3, 52.9], [22.5, 52.7], [22.7, 52.5], [22.9, 52.3], [23.0, 52.1], [23.1, 51.9], [23.2, 51.7], [23.3, 51.5], [23.2, 51.3], [23.0, 51.2], [22.8, 51.1], [22.5, 51.0], [22.2, 50.9], [21.9, 50.8], [21.6, 50.8], [21.3, 50.9], [21.0, 51.0], [20.7, 51.0], [20.4, 51.0], [20.1, 51.0], [19.8, 51.0], [19.5, 51.1], [19.2, 51.2], [18.9, 51.3], [18.6, 51.4], [18.3, 51.5], [18.0, 51.5], [17.7, 51.4], [17.4, 51.3], [17.1, 51.2], [16.8, 51.1], [16.5, 51.0], [16.2, 50.9], [15.9, 50.8], [15.6, 50.7], [15.3, 50.6], [15.0, 50.6], [14.7, 50.7], [14.5, 50.8], [14.3, 50.9], [14.1, 51.0], [13.9, 51.1], [13.7, 51.2], [13.5, 51.3], [13.3, 51.4], [13.1, 51.5], [12.9, 51.5], [12.7, 51.5], [12.5, 51.4], [12.3, 51.3], [12.1, 51.2], [11.9, 51.3], [11.7, 51.4], [11.5, 51.5], [11.3, 51.6], [11.1, 51.6], [10.9, 51.5], [10.7, 51.4], [10.5, 51.3], [10.3, 51.2], [10.1, 51.1], [9.9, 51.2], [9.7, 51.3], [9.5, 51.4], [9.3, 51.5], [9.1, 51.6], [8.9, 51.7], [8.7, 51.8], [8.5, 51.9], [8.3, 52.0], [8.2, 52.2], [8.1, 52.4], [8.0, 52.6], [7.9, 52.8], [7.8, 53.0], [7.9, 53.2], [8.0, 53.4], [8.2, 53.6], [8.4, 53.7], [8.6, 53.8], [8.8, 53.9], [9.0, 54.0], [9.3, 54.0], [9.6, 53.9], [9.9, 53.9], [10.2, 53.9], [10.5, 53.9]]]], [[[6.2, 51.4], [6.4, 51.5], [6.6, 51.6], [6.8, 51.7], [7.0, 51.8], [7.2, 51.8], [7.4, 51.7], [7.5, 51.5], [7.6, 51.3], [7.5, 51.1], [7.4, 50.9], [7.2, 50.8], [7.0, 50.7], [6.8, 50.6], [6.6, 50.6], [6.4, 50.7], [6.3, 50.9], [6.2, 51.1], [6.2, 51.4]]]], [[[7.8, 50.3], [8.0, 50.4], [8.2, 50.5], [8.5, 50.5], [8.8, 50.4], [9.0, 50.3], [9.2, 50.1], [9.1, 49.9], [8.9, 49.8], [8.7, 49.7], [8.5, 49.7], [8.3, 49.8], [8.1, 49.9], [7.9, 50.1], [7.8, 50.3]]]]}",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 240,
+    "output_tokens": 1582,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtJ6vDhjTvmTpxQzmgGQ",
+  "started_at": "2026-11-10T00:24:27.009+00:00",
+  "first_token_ms": 703,
+  "first_text_ms": 703,
+  "duration_ms": 16496,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.02445,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:24:43+00:00"
+}

@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-b",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- Output only the GeoJSON MultiPolygon, with no other text.\n- It is a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "{\"type\": \"MultiPolygon\", \"coordinates\": [[[[24.15, 54.38], [23.95, 54.31], [23.55, 54.08], [23.18, 53.93], [22.73, 53.68], [22.51, 53.47], [22.85, 53.25], [23.48, 53.13], [23.92, 52.78], [23.98, 52.55], [23.68, 52.33], [23.55, 52.08], [23.18, 52.02], [23.65, 51.58], [23.95, 51.38], [24.15, 51.25], [24.35, 51.18], [24.13, 50.85], [23.88, 50.48], [23.43, 50.38], [22.88, 49.58], [22.58, 49.58], [22.18, 49.48], [21.48, 49.38], [20.43, 49.33], [19.83, 49.23], [19.43, 49.58], [18.88, 49.48], [18.58, 49.33], [18.38, 49.63], [17.68, 50.18], [17.05, 50.38], [16.88, 50.43], [16.43, 50.18], [16.18, 50.43], [15.03, 51.08], [14.83, 51.28], [14.73, 51.88], [14.73, 52.38], [14.48, 52.93], [14.23, 53.28], [14.38, 53.43], [14.58, 53.58], [14.73, 53.78], [14.58, 53.88], [14.73, 54.13], [16.58, 54.48], [17.53, 54.78], [18.43, 54.73], [18.93, 54.43], [19.63, 54.43], [20.48, 54.43], [21.28, 54.68], [22.78, 54.38], [23.13, 54.33], [24.15, 54.38]]]]]}",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 237,
+    "output_tokens": 578,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtJFKKiscdukHSMet19n",
+  "started_at": "2026-11-10T00:26:20.856+00:00",
+  "first_token_ms": 720,
+  "first_text_ms": 720,
+  "duration_ms": 9001,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.009381,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:26:29+00:00"
+}

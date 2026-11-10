@@ -1,0 +1,47 @@
+# The eleven targets Claude Sonnet 4.5 is asked to draw before it retires on 2026-11-30.
+# `name` is the exact text that replaces {target} in the prompt (specs/features/sonnet-45-archive/spec.md).
+# `id` is the folder name: the first six match targets/<id>/; the last five have no true border yet.
+
+[[target]]
+id = "usa"
+name = "the contiguous United States (the lower 48 states) as of 1 January 2024"
+
+[[target]]
+id = "chile"
+name = "Chile as of 1 January 2024"
+
+[[target]]
+id = "indonesia"
+name = "Indonesia as of 1 January 2024"
+
+[[target]]
+id = "croatia"
+name = "Croatia as of 1 January 2024"
+
+[[target]]
+id = "prussia-1815"
+name = "the Kingdom of Prussia as of 1 January 1816"
+
+[[target]]
+id = "poland-1938"
+name = "Poland as of 1 January 1938"
+
+[[target]]
+id = "australia"
+name = "Australia as of 1 January 2024"
+
+[[target]]
+id = "china"
+name = "China as of 1 January 2024"
+
+[[target]]
+id = "egypt"
+name = "Egypt as of 1 January 2024"
+
+[[target]]
+id = "roman-empire-117"
+name = "the Roman Empire as of 1 July 117"
+
+[[target]]
+id = "mexico-1830"
+name = "Mexico as of 1 January 1830"

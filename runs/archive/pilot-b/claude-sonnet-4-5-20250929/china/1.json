@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-b",
+  "prompt": "Draw the land borders and coastline of China as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- Output only the GeoJSON MultiPolygon, with no other text.\n- It is a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "china",
+  "target": "China as of 1 January 2024",
+  "raw": "{\"type\": \"MultiPolygon\", \"coordinates\": [[[[73.5, 39.5], [78, 41], [80, 42], [82, 43], [85, 45], [87, 46], [90, 47], [92, 48], [94, 49], [97, 49], [100, 50], [103, 50], [106, 50], [109, 50], [111, 50], [113, 50], [115, 50], [117, 50], [119, 50], [121, 51], [123, 52], [125, 53], [127, 53], [129, 53], [131, 53], [133, 53], [134, 52], [135, 50], [135, 48], [134, 47], [133, 46], [132, 45], [130, 44], [128, 43], [127, 42], [125, 41], [123, 40], [122, 39], [121, 38], [120, 37], [119, 36], [119, 35], [119, 34], [119, 33], [119, 32], [119, 31], [120, 30], [121, 29], [121, 28], [122, 27], [122, 26], [121, 25], [120, 24], [119, 23], [118, 22], [117, 22], [116, 21], [115, 21], [113, 21], [111, 21], [110, 21], [109, 21], [108, 22], [107, 22], [106, 22], [105, 23], [104, 23], [103, 23], [102, 23], [101, 23], [100, 23], [99, 24], [98, 24], [97, 25], [97, 26], [97, 27], [98, 28], [99, 28], [100, 29], [101, 29], [102, 30], [103, 30], [104, 30], [105, 31], [106, 31], [107, 32], [108, 33], [109, 33], [110, 34], [110, 35], [109, 36], [108, 37], [107, 38], [106, 38], [105, 39], [104, 39], [103, 39], [102, 40], [101, 40], [100, 40], [99, 40], [98, 41], [97, 41], [96, 42], [95, 42], [94, 42], [93, 42], [92, 42], [91, 42], [90, 43], [89, 43], [88, 43], [87, 43], [86, 43], [85, 43], [84, 43], [83, 42], [82, 42], [81, 42], [80, 41], [79, 41], [78, 40], [77, 40], [76, 40], [75, 40], [74, 40], [73.5, 39.5]]], [[[110, 18], [110, 19], [110, 20], [111, 20], [109, 18], [109, 17], [109, 16], [109, 15], [109, 14], [109, 13], [109, 12], [109, 11], [109, 10], [110, 10], [111, 10], [111, 11], [111, 12], [111, 13], [111, 14], [111, 15], [111, 16], [111, 17], [111, 18], [110, 18]]]]}",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 237,
+    "output_tokens": 934,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtJL6pYBY9RxLgsARDCm",
+  "started_at": "2026-11-10T00:27:25.767+00:00",
+  "first_token_ms": 1047,
+  "first_text_ms": 1048,
+  "duration_ms": 10841,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.014721,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:27:36+00:00"
+}

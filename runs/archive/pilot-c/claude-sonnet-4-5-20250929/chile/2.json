@@ -1,0 +1,38 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of Chile as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "chile",
+  "target": "Chile as of 1 January 2024",
+  "raw": "I need to draw Chile's land borders and coastline as of January 1, 2024.\n\nKey features of Chile:\n- Very long, narrow country along South America's western coast\n- Extends from roughly 17°S to 56°S latitude\n- Bordered by Peru to the north, Bolivia to the northeast, and Argentina to the east\n- Pacific Ocean to the west\n- Includes several islands, most notably Easter Island (but that's an overseas dependency, so excluded)\n- Main territory includes some islands near the southern tip (Tierra del Fuego, other Patagonian islands)\n- Width varies but generally 100-200 km wide\n\nI'll focus on the mainland and nearby islands that are part of the main territory:\n1. The main continental strip\n2. The Chilean portion of Tierra del Fuego\n3. Some of the southern Patagonian archipelago islands\n\nFor the mainland, I'll trace:\n- Northern border with Peru (around 17-18°S)\n- Eastern border with Bolivia and Argentina (roughly 67-71°W depending on latitude)\n- Southern tip around 56°S\n- Western Pacific coastline\n\nLet me create a simplified but recognizable shape:\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [-70.5, -17.5],\n        [-69.5, -17.5],\n        [-69, -18],\n        [-68.5, -19],\n        [-68.5, -20],\n        [-69, -21],\n        [-68.5, -22],\n        [-68.2, -23],\n        [-68.5, -24],\n        [-68.3, -25],\n        [-68.5, -26],\n        [-68.8, -27],\n        [-69, -28],\n        [-69.5, -29],\n        [-70, -30],\n        [-70.5, -31],\n        [-70.3, -32],\n        [-70.5, -33],\n        [-71, -34],\n        [-71, -35],\n        [-71.2, -36],\n        [-71.5, -37],\n        [-71.8, -38],\n        [-71.5, -39],\n        [-72, -40],\n        [-72.5, -41],\n        [-73, -42],\n        [-73.5, -43],\n        [-73.8, -44],\n        [-74, -45],\n        [-74.5, -46],\n        [-75, -47],\n        [-74.5, -48],\n        [-74, -49],\n        [-73.5, -50],\n        [-73, -51],\n        [-72.5, -52],\n        [-72, -53],\n        [-71.5, -54],\n        [-71, -54.5],\n        [-70.5, -55],\n        [-70, -55.5],\n        [-69.5, -55.8],\n        [-69, -55.9],\n        [-68.5, -55.5],\n        [-68.8, -55],\n        [-69.2, -54.5],\n        [-69.5, -54],\n        [-70, -53.5],\n        [-70.5, -53],\n        [-70.8, -52],\n        [-71, -51.5],\n        [-71.2, -51],\n        [-71.5, -50.5],\n        [-72, -50],\n        [-71.8, -49],\n        [-71.5, -48],\n        [-71.2, -47],\n        [-71, -46],\n        [-70.8, -45],\n        [-70.5, -44],\n        [-70.3, -43],\n        [-70.5, -42],\n        [-71, -41.5],\n        [-71, -41],\n        [-70.8, -40],\n        [-71, -39],\n        [-71, -38],\n        [-70.8, -37],\n        [-70.5, -36],\n        [-70.3, -35],\n        [-70.5, -34],\n        [-70.2, -33.5],\n        [-70.5, -33],\n        [-70, -32],\n        [-70, -31],\n        [-69.8, -30],\n        [-69.5, -29],\n        [-69.3, -28],\n        [-69, -27],\n        [-69.2, -26],\n        [-69, -25],\n        [-69.3, -24],\n        [-69.5, -23],\n        [-70, -22],\n        [-69.5, -21],\n        [-70, -20.5],\n        [-70, -20],\n        [-70.2, -19],\n        [-70.3, -18.5],\n        [-70.5, -18],\n        [-70.5, -17.5]\n      ]\n    ],\n    [\n      [\n        [-69, -54.5],\n        [-68.5, -54.8],\n        [-68.2, -54.9],\n        [-68.6, -54.6],\n        [-69, -54.5]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 1270,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtGQQs8RaJbVq4gtDXFM",
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "cost_usd": 0.019776,
+  "requested_at": "2026-11-10T00:02:28+00:00"
+}

@@ -1,0 +1,38 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of Poland as of 1 January 1938 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "poland-1938",
+  "target": "Poland as of 1 January 1938",
+  "raw": "I need to draw Poland's borders as they existed on January 1, 1938.\n\nKey historical context:\n- This is interwar Poland (Second Polish Republic), which existed between WWI and WWII\n- Poland regained independence in 1918\n- By 1938, Poland had not yet been invaded (that happened in September 1939)\n- Poland had a corridor to the Baltic Sea (the \"Polish Corridor\")\n- Major cities: Warsaw (capital), Kraków, Poznań, Lwów (now Lviv, Ukraine), Wilno (now Vilnius, Lithuania)\n\nBorders in 1938:\n- North: Baltic Sea coastline (relatively short, around Gdynia and the corridor)\n- Northeast: Lithuania (Poland controlled Vilnius region)\n- East: Soviet Union (much further east than modern Poland, including areas now in Belarus and Ukraine)\n- South: Czechoslovakia and Romania\n- West: Germany (Free City of Danzig was separate)\n\nApproximate coordinates I recall:\n- Western border with Germany: roughly along 15-16°E in many places\n- Eastern border: extended to about 26-27°E\n- Northern coast: around 54.5-54.8°N\n- Southern border: around 49°N in the Carpathians\n- The Polish Corridor cut between East Prussia and the rest of Germany\n\nLet me sketch this out, going roughly clockwise from the northwest:\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [18.50, 54.70],\n        [18.70, 54.50],\n        [18.90, 54.40],\n        [19.20, 54.35],\n        [19.50, 54.35],\n        [19.80, 54.40],\n        [20.10, 54.45],\n        [20.50, 54.50],\n        [21.00, 54.40],\n        [21.50, 54.30],\n        [22.00, 54.25],\n        [22.50, 54.30],\n        [22.80, 54.35],\n        [23.00, 54.40],\n        [23.50, 54.30],\n        [24.00, 54.20],\n        [24.50, 54.10],\n        [25.00, 54.05],\n        [25.50, 54.10],\n        [26.00, 54.20],\n        [26.50, 54.30],\n        [26.80, 54.40],\n        [27.00, 54.50],\n        [27.20, 54.70],\n        [27.30, 55.00],\n        [27.40, 55.30],\n        [27.50, 55.60],\n        [27.40, 55.80],\n        [27.20, 56.00],\n        [26.80, 56.10],\n        [26.50, 56.05],\n        [26.20, 55.95],\n        [25.90, 55.80],\n        [25.70, 55.60],\n        [25.60, 55.40],\n        [25.70, 55.20],\n        [25.90, 55.00],\n        [26.10, 54.80],\n        [26.30, 54.60],\n        [26.50, 54.45],\n        [26.70, 54.35],\n        [27.00, 54.30],\n        [27.30, 54.20],\n        [27.60, 54.10],\n        [28.00, 54.00],\n        [28.30, 53.90],\n        [28.50, 53.75],\n        [28.60, 53.60],\n        [28.70, 53.40],\n        [28.75, 53.20],\n        [28.70, 53.00],\n        [28.60, 52.80],\n        [28.50, 52.60],\n        [28.40, 52.40],\n        [28.30, 52.20],\n        [28.20, 52.00],\n        [28.10, 51.80],\n        [28.00, 51.60],\n        [27.80, 51.40],\n        [27.60, 51.25],\n        [27.40, 51.15],\n        [27.20, 51.10],\n        [27.00, 51.05],\n        [26.70, 51.00],\n        [26.40, 50.95],\n        [26.20, 50.90],\n        [26.00, 50.80],\n        [25.80, 50.70],\n        [25.60, 50.60],\n        [25.40, 50.50],\n        [25.20, 50.40],\n        [25.00, 50.30],\n        [24.80, 50.25],\n        [24.60, 50.20],\n        [24.40, 50.15],\n        [24.20, 50.10],\n        [24.00, 50.05],\n        [23.80, 50.00],\n        [23.60, 49.95],\n        [23.40, 49.90],\n        [23.20, 49.85],\n        [23.00, 49.75],\n        [22.80, 49.65],\n        [22.60, 49.55],\n        [22.40, 49.50],\n        [22.20, 49.45],\n        [22.00, 49.40],\n        [21.80, 49.38],\n        [21.60, 49.37],\n        [21.40, 49.36],\n        [21.20, 49.35],\n        [21.00, 49.33],\n        [20.80, 49.32],\n        [20.60, 49.31],\n        [20.40, 49.30],\n        [20.20, 49.28],\n        [20.00, 49.27],\n        [19.80, 49.26],\n        [19.60, 49.25],\n        [19.40, 49.24],\n        [19.20, 49.23],\n        [19.00, 49.22],\n        [18.80, 49.22],\n        [18.60, 49.23],\n        [18.40, 49.25],\n        [18.20, 49.28],\n        [18.00, 49.32],\n        [17.80, 49.36],\n        [17.60, 49.40],\n        [17.40, 49.45],\n        [17.20, 49.50],\n        [17.00, 49.55],\n        [16.80, 49.60],\n        [16.60, 49.65],\n        [16.40, 49.70],\n        [16.20, 49.75],\n        [16.00, 49.80],\n        [15.80, 49.85],\n        [15.60, 49.90],\n        [15.40, 49.95],\n        [15.20, 50.00],\n        [15.05, 50.05],\n        [14.95, 50.15],\n        [14.90, 50.25],\n        [14.85, 50.35],\n        [14.80, 50.45],\n        [14.75, 50.55],\n        [14.70, 50.65],\n        [14.65, 50.75],\n        [14.60, 50.85],\n        [14.55, 50.95],\n        [14.50, 51.05],\n        [14.50, 51.15],\n        [14.55, 51.25],\n        [14.60, 51.35],\n        [14.65, 51.45],\n        [14.70, 51.55],\n        [14.75, 51.65],\n        [14.80, 51.75],\n        [14.85, 51.85],\n        [14.90, 51.95],\n        [14.95, 52.05],\n        [15.00, 52.15],\n        [15.05, 52.25],\n        [15.10, 52.35],\n        [15.15, 52.45],\n        [15.20, 52.55],\n        [15.25, 52.65],\n        [15.30, 52.75],\n        [15.35, 52.85],\n        [15.40, 52.95],\n        [15.45, 53.05],\n        [15.50, 53.15],\n        [15.55, 53.25],\n        [15.60, 53.35],\n        [15.70, 53.45],\n        [15.80, 53.50],\n        [16.00, 53.55],\n        [16.20, 53.58],\n        [16.40, 53.60],\n        [16.60, 53.62],\n        [16.80, 53.65],\n        [17.00, 53.68],\n        [17.20, 53.70],\n        [17.40, 53.72],\n        [17.60, 53.75],\n        [17.80, 53.80],\n        [18.00, 53.85],\n        [18.20, 53.90],\n        [18.40, 53.95],\n        [18.50, 54.00],\n        [18.55, 54.10],\n        [18.55, 54.20],\n        [18.55, 54.30],\n        [18.55, 54.40],\n        [18.55, 54.50],\n        [18.52, 54.60],\n        [18.50, 54.70]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 2504,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtGo47qrTyqiZgKgHMyN",
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "cost_usd": 0.038286,
+  "requested_at": "2026-11-10T00:07:46+00:00"
+}

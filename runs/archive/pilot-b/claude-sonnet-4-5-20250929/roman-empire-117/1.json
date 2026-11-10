@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-b",
+  "prompt": "Draw the land borders and coastline of the Roman Empire as of 1 July 117 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- Output only the GeoJSON MultiPolygon, with no other text.\n- It is a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "roman-empire-117",
+  "target": "the Roman Empire as of 1 July 117",
+  "raw": "{\"type\": \"MultiPolygon\", \"coordinates\": [[[[−6, 36.5], [−4, 37], [−1, 37.5], [3, 37], [7, 37], [9, 38], [9.5, 40], [9, 41], [8, 42], [7, 43], [5, 43.5], [3, 43], [1, 43.5], [−1, 43], [−2, 42], [−4, 41], [−6, 40], [−8, 39], [−9, 38], [−8, 37], [−6, 36.5]]], [[[9, 44], [7, 45], [5, 46], [4, 47], [3, 48], [2, 49], [0, 49], [−1, 49.5], [−2, 49], [−3, 48], [−4, 47.5], [−4, 46], [−3, 45], [−1, 44], [1, 43.5], [3, 43.5], [5, 44], [7, 44], [9, 44]]], [[[9, 40], [10, 41], [12, 42], [13, 43], [14, 44], [15, 45], [16, 46], [17, 47], [18, 48], [19, 47], [20, 46], [22, 45], [23, 44], [24, 43], [25, 42], [26, 41], [27, 40], [28, 39], [29, 38], [29, 37], [28, 36], [27, 35], [26, 34], [25, 33], [24, 32], [23, 31], [22, 30], [20, 29], [18, 30], [16, 31], [15, 32], [14, 33], [13, 34], [12, 35], [11, 36], [10, 37], [9.5, 38], [9, 39], [9, 40]]], [[[18, 40], [17, 39], [16, 38], [15, 37], [14, 36], [13, 35.5], [12, 36], [11, 37], [10, 38], [11, 39], [12, 40], [13, 41], [14, 42], [15, 42], [16, 41.5], [17, 41], [18, 40]]], [[[23, 39], [24, 40], [25, 40], [26, 39.5], [27, 39], [27, 38], [26, 37.5], [25, 37], [24, 37.5], [23, 38], [23, 39]]], [[[26, 35], [27, 36], [28, 37], [29, 38], [30, 39], [31, 40], [32, 41], [33, 42], [34, 42.5], [35, 43], [36, 43.5], [37, 44], [38, 44], [39, 44], [40, 44], [41, 44], [42, 43.5], [42, 42], [41, 41], [40, 40], [39, 39], [38, 38], [37, 37], [36, 36], [35, 35], [34, 34], [33, 33], [32, 32], [31, 31], [30, 30.5], [29, 31], [28, 32], [27, 33], [26, 34], [26, 35]]], [[[32, 31], [33, 31.5], [34, 32], [35, 32.5], [36, 32], [35, 31.5], [34, 31], [33, 30.5], [32, 31]]], [[[34, 35], [35, 35.5], [36, 35], [35.5, 34.5], [34, 35]]], [[[−5.5, 36], [−5, 36], [−4.5, 35.5], [−5, 35], [−5.5, 35.5], [−5.5, 36]]], [[[10, 46.5], [11, 47], [12, 46.5], [12, 46], [11, 46], [10, 46.5]]]]}",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 238,
+    "output_tokens": 1140,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtJRMKK58CdLnrcDSM3A",
+  "started_at": "2026-11-10T00:28:37.067+00:00",
+  "first_token_ms": 623,
+  "first_text_ms": 623,
+  "duration_ms": 14483,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.017814,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:28:51+00:00"
+}

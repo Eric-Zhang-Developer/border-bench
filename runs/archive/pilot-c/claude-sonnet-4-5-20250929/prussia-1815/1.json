@@ -1,0 +1,38 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of the Kingdom of Prussia as of 1 January 1816 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "prussia-1815",
+  "target": "the Kingdom of Prussia as of 1 January 1816",
+  "raw": "I need to draw the Kingdom of Prussia as of January 1, 1816. This is after the Congress of Vienna (1814-1815), which significantly reorganized Prussia's territories.\n\nKey territorial components of Prussia in 1816:\n1. **Eastern Prussia** - The core Baltic territories including East Prussia and Pomerania\n2. **Brandenburg** - The heartland around Berlin\n3. **Silesia** - Acquired from Austria in the 18th century\n4. **Rhineland/Westphalia** - Western territories gained at the Congress of Vienna\n5. **Poznań/Posen** - Parts of partitioned Poland\n\nMajor geographic features:\n- Eastern border: roughly along the Memel/Niemen River in East Prussia, borders with Russian Empire\n- Southern border: along the Sudetes mountains (Silesia border with Austria)\n- Western border: new Rhineland territories along the Rhine\n- Northern border: Baltic Sea coast from roughly Memel to Stralsund\n- The territories were NOT contiguous - there was a gap between the eastern provinces and the Rhineland\n\nLet me sketch the main pieces:\n\n1. **Eastern mass** (East Prussia, West Prussia, Pomerania, Brandenburg, Silesia, Posen)\n2. **Western mass** (Rhineland and Westphalia)\n\nI'll trace these roughly from memory:\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[11.5, 53.9], [11.8, 54.0], [12.2, 54.1], [12.8, 54.2], [13.4, 54.3], [13.9, 54.4], [14.3, 54.5], [14.8, 54.5], [15.5, 54.4], [16.2, 54.3], [17.0, 54.4], [17.8, 54.5], [18.5, 54.6], [19.2, 54.7], [19.8, 54.8], [20.4, 54.8], [21.0, 54.7], [21.5, 54.5], [22.0, 54.4], [22.5, 54.3], [22.8, 54.5], [22.7, 54.7], [22.5, 55.0], [22.2, 55.2], [21.8, 55.0], [21.4, 54.8], [21.0, 54.6], [20.8, 54.4], [20.9, 54.2], [21.2, 54.0], [21.5, 53.8], [21.8, 53.5], [22.2, 53.3], [22.5, 53.1], [22.8, 52.9], [23.0, 52.6], [23.2, 52.3], [23.3, 52.0], [23.2, 51.7], [23.0, 51.5], [22.7, 51.3], [22.3, 51.2], [21.9, 51.1], [21.4, 51.0], [20.9, 51.0], [20.4, 51.0], [19.9, 51.1], [19.4, 51.2], [18.9, 51.3], [18.4, 51.4], [17.9, 51.4], [17.4, 51.3], [17.0, 51.1], [16.6, 50.9], [16.2, 50.7], [15.8, 50.6], [15.5, 50.5], [15.2, 50.4], [14.9, 50.4], [14.7, 50.6], [14.6, 50.8], [14.8, 51.0], [15.0, 51.2], [15.0, 51.4], [14.8, 51.6], [14.5, 51.7], [14.2, 51.8], [13.8, 51.9], [13.4, 51.9], [13.0, 51.8], [12.6, 51.7], [12.2, 51.6], [11.8, 51.6], [11.5, 51.7], [11.2, 51.9], [11.0, 52.1], [10.9, 52.3], [11.0, 52.5], [11.2, 52.7], [11.5, 52.9], [11.9, 53.1], [12.3, 53.2], [12.7, 53.3], [13.1, 53.4], [13.5, 53.5], [13.9, 53.6], [14.3, 53.7], [14.2, 53.8], [13.8, 53.9], [13.3, 53.9], [12.8, 53.9], [12.3, 53.9], [11.9, 53.9], [11.5, 53.9]]], [[[6.2, 51.8], [6.4, 51.9], [6.7, 52.0], [7.0, 52.1], [7.4, 52.2], [7.8, 52.3], [8.2, 52.4], [8.6, 52.4], [9.0, 52.3], [9.3, 52.1], [9.5, 51.9], [9.6, 51.7], [9.6, 51.5], [9.5, 51.3], [9.3, 51.1], [9.1, 50.9], [8.8, 50.7], [8.5, 50.6], [8.2, 50.5], [7.9, 50.4], [7.6, 50.4], [7.3, 50.5], [7.0, 50.6], [6.7, 50.7], [6.5, 50.9], [6.3, 51.1], [6.2, 51.3], [6.1, 51.5], [6.1, 51.7], [6.2, 51.8]]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 245,
+    "output_tokens": 1574,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtGhJ64WigH9FeLTrboA",
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "cost_usd": 0.024345,
+  "requested_at": "2026-11-10T00:06:22+00:00"
+}

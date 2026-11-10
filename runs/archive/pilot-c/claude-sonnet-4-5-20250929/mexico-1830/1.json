@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of Mexico as of 1 January 1830 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "mexico-1830",
+  "target": "Mexico as of 1 January 1830",
+  "raw": "I need to draw Mexico's borders as they existed on January 1, 1830.\n\nKey historical context:\n- In 1830, Mexico was much larger than today, having gained independence from Spain in 1821\n- Mexico included what is now the southwestern United States (California, Nevada, Utah, most of Arizona, New Mexico, and parts of Colorado and Wyoming)\n- Texas was part of Mexico until 1836\n- The northern border extended to approximately 42°N latitude in some areas\n- Mexico also controlled parts of Central America initially, but by 1830, Central America had separated (1823)\n\nBorders in 1830:\n- North: The border with the United States followed the Adams-Onís Treaty line (roughly 42°N in the west, stepping down through the Arkansas River, Red River, and Sabine River areas)\n- East: Gulf of Mexico coast\n- South: Border with Guatemala (around the Chiapas region)\n- West: Pacific Ocean coast including Baja California peninsula\n\nLet me sketch the main features:\n1. Baja California peninsula extending south\n2. Pacific coast from Baja to Guatemala\n3. Gulf coast from Texas to Yucatan\n4. Yucatan Peninsula\n5. Northern border much further north than today\n6. Southern border with Guatemala\n\nI'll use my points to capture:\n- The distinctive Baja California peninsula\n- The Gulf of California\n- The broad northern territories\n- The Yucatan Peninsula\n- Both coasts\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[-117.12, 32.53], [-116.18, 31.85], [-115.25, 30.15], [-114.72, 29.75], [-114.45, 29.35], [-114.18, 28.85], [-113.85, 28.25], [-113.52, 27.55], [-113.25, 26.75], [-112.92, 25.85], [-112.65, 24.95], [-112.38, 24.05], [-112.12, 23.15], [-111.85, 22.45], [-111.22, 21.55], [-110.65, 20.75], [-110.42, 20.15], [-109.45, 23.25], [-109.05, 24.55], [-108.65, 25.55], [-108.25, 26.65], [-107.92, 27.45], [-107.55, 28.25], [-106.52, 31.75], [-105.65, 31.85], [-104.92, 30.65], [-104.18, 29.75], [-103.45, 29.15], [-102.85, 29.55], [-102.25, 29.85], [-101.42, 29.75], [-100.65, 29.35], [-100.12, 28.65], [-99.52, 27.55], [-99.18, 26.95], [-98.52, 26.15], [-97.85, 25.95], [-97.38, 25.85], [-97.15, 25.95], [-97.25, 26.85], [-97.35, 27.75], [-97.25, 28.65], [-97.05, 29.45], [-96.85, 30.15], [-96.55, 30.85], [-95.85, 31.85], [-94.95, 33.65], [-94.45, 35.45], [-94.62, 36.45], [-95.75, 36.45], [-100.15, 36.45], [-103.05, 36.45], [-106.95, 36.45], [-109.05, 37.05], [-111.05, 41.05], [-114.05, 42.05], [-117.05, 42.05], [-120.05, 42.05], [-120.05, 39.45], [-120.05, 36.95], [-120.45, 34.85], [-120.45, 34.05], [-119.85, 33.95], [-119.52, 34.15], [-119.15, 34.25], [-118.65, 33.75], [-118.25, 33.45], [-117.62, 32.75], [-117.12, 32.53]]], [[[-112.85, 23.55], [-112.52, 22.95], [-111.95, 22.15], [-111.45, 21.55], [-110.95, 21.15], [-110.45, 20.75], [-110.12, 20.25], [-109.75, 19.85], [-109.45, 19.45], [-109.25, 18.95], [-109.12, 18.35], [-109.05, 17.65], [-108.95, 17.15], [-108.62, 16.55], [-108.15, 16.15], [-107.85, 15.85], [-107.55, 15.85], [-107.05, 16.15], [-106.42, 16.25], [-105.68, 16.15], [-105.25, 15.95], [-104.85, 15.75], [-104.42, 15.65], [-103.95, 15.75], [-103.45, 15.85], [-102.95, 16.05], [-102.35, 16.25], [-101.65, 16.85], [-101.05, 17.25], [-100.55, 17.45], [-100.12, 17.65], [-99.72, 17.85], [-99.32, 18.15], [-99.12, 18.45], [-98.85, 18.65], [-98.42, 18.75], [-97.95, 18.75], [-97.52, 18.65], [-97.15, 18.45], [-96.75, 18.25], [-96.35, 18.15], [-95.95, 18.05], [-95.35, 18.15], [-94.85, 18.35], [-94.42, 18.45], [-93.95, 18.55], [-93.52, 18.45], [-93.15, 18.35], [-92.75, 18.45], [-92.35, 18.55], [-91.95, 18.65], [-91.45, 18.75], [-91.05, 18.85], [-90.75, 19.25], [-90.52, 19.75], [-90.35, 20.25], [-90.25, 20.75], [-90.35, 21.15], [-90.55, 21.45], [-90.85, 21.55], [-91.35, 21.45], [-91.75, 21.35], [-92.25, 21.25], [-92.85, 21.15], [-93.45, 21.05], [-94.05, 21.05], [-94.65, 21.15], [-95.25, 21.05], [-95.85, 21.05], [-96.35, 21.15], [-96.85, 21.25], [-97.25, 21.55], [-97.55, 21.85], [-97.75, 22.15], [-97.85, 22.65], [-97.75, 23.15], [-97.65, 23.65], [-97.52, 24.15], [-97.35, 24.55], [-97.52, 24.85], [-98.05, 25.15], [-98.42, 25.45], [-98.95, 25.65], [-99.42, 25.75], [-99.85, 25.85], [-100.32, 25.75], [-100.85, 25.45], [-101.35, 25.15], [-101.85, 24.85], [-102.35, 24.55], [-102.95, 24.35], [-103.55, 24.25], [-104.15, 24.25], [-104.75, 24.35], [-105.35, 24.45], [-105.85, 24.55], [-106.35, 24.65], [-106.85, 24.75], [-107.35, 24.75], [-107.85, 24.65], [-108.35, 24.55], [-108.85, 24.45], [-109.42, 24.15], [-110.05, 24.05], [-110.68, 23.95], [-111.32, 23.75], [-111.95, 23.65], [-112.52, 23.65], [-112.85, 23.55]]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 2140,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtHkHERDpmtHuTAm7NFC",
+  "started_at": "2026-11-10T00:19:47.049+00:00",
+  "first_token_ms": 708,
+  "first_text_ms": 709,
+  "duration_ms": 32553,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.032826,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:20:19+00:00"
+}

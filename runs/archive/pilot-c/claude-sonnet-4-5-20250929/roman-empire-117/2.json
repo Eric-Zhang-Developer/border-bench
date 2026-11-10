@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of the Roman Empire as of 1 July 117 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "roman-empire-117",
+  "target": "the Roman Empire as of 1 July 117",
+  "raw": "I need to draw the Roman Empire's borders as of July 1, 117 CE. This is during Trajan's reign, at the empire's maximum territorial extent, just before he died in August 117.\n\nKey territories to include:\n1. **Iberian Peninsula** - almost entirely Roman\n2. **Gaul** - up to the Rhine\n3. **Britain** - southern portion up to roughly Hadrian's Wall line\n4. **Italy and the Balkans**\n5. **Greece and Asia Minor**\n6. **North Africa** - coastal strip from Morocco to Egypt\n7. **Egypt** - Nile valley\n8. **Levant and Syria**\n9. **Mesopotamia** - Trajan had just conquered this, reaching the Persian Gulf\n10. **Arabia Petraea**\n11. **Dacia** (modern Romania)\n\nMajor boundaries:\n- Northern: Rhine-Danube line, Hadrian's Wall in Britain, Dacia\n- Eastern: Euphrates/Tigris, recently extended to Persian Gulf\n- Southern: Sahara desert edge\n- Western: Atlantic coast\n\nI'll trace these borders clockwise from Iberia:\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [-9, 43.5],\n        [-8, 42],\n        [-7, 41],\n        [-6.5, 39],\n        [-6, 37],\n        [-5.5, 36],\n        [-5, 36],\n        [-3, 36.5],\n        [-1, 37],\n        [1, 38],\n        [3, 40],\n        [3, 42],\n        [4.5, 43],\n        [6, 43],\n        [8, 44],\n        [9, 44],\n        [12, 44],\n        [13, 45],\n        [14, 45.5],\n        [15, 45],\n        [16, 44],\n        [17, 43],\n        [18, 42.5],\n        [19, 42],\n        [20, 41],\n        [21, 40],\n        [22, 39],\n        [23, 38.5],\n        [24, 38],\n        [25, 37.5],\n        [26, 37],\n        [27, 37],\n        [28, 37.5],\n        [29, 38],\n        [30, 38.5],\n        [31, 39],\n        [32, 39.5],\n        [33, 40],\n        [34, 40.5],\n        [35, 41],\n        [36, 41],\n        [37, 41],\n        [38, 41],\n        [39, 41],\n        [40, 41],\n        [41, 41],\n        [42, 41],\n        [43, 40.5],\n        [44, 40],\n        [45, 39],\n        [46, 38],\n        [46, 37],\n        [46, 36],\n        [45, 35],\n        [44, 34],\n        [43, 33],\n        [42, 32.5],\n        [41, 32],\n        [40, 31.5],\n        [39, 31],\n        [38, 30.5],\n        [37, 30],\n        [36, 29.5],\n        [35.5, 29],\n        [35, 28],\n        [34.5, 27],\n        [34, 26],\n        [33.5, 25],\n        [33, 24],\n        [32.5, 23],\n        [32, 22],\n        [31.5, 24],\n        [31, 26],\n        [31, 28],\n        [31, 30],\n        [30, 31],\n        [29, 31.5],\n        [27, 31.5],\n        [25, 32],\n        [23, 32.5],\n        [21, 33],\n        [19, 33],\n        [17, 33],\n        [15, 33],\n        [13, 33],\n        [11, 33],\n        [10, 32.5],\n        [9, 32],\n        [8, 32],\n        [7, 32],\n        [6, 32],\n        [5, 32],\n        [4, 32],\n        [3, 32],\n        [2, 32],\n        [1, 32],\n        [0, 32],\n        [-1, 32],\n        [-2, 32],\n        [-3, 32],\n        [-4, 32],\n        [-5, 32],\n        [-6, 32],\n        [-7, 32],\n        [-8, 32],\n        [-9, 31],\n        [-10, 30],\n        [-11, 29],\n        [-12, 28],\n        [-13, 28],\n        [-13, 29],\n        [-13, 30],\n        [-12, 31],\n        [-11, 32],\n        [-10, 33],\n        [-9, 34],\n        [-8, 35],\n        [-7, 36],\n        [-7, 37],\n        [-7, 38],\n        [-7.5, 39],\n        [-8, 40],\n        [-8.5, 41],\n        [-9, 42],\n        [-9, 43.5]\n      ]\n    ],\n    [\n      [\n        [-4.5, 51],\n        [-4, 50],\n        [-3, 50],\n        [-2, 50],\n        [-1, 50.5],\n        [0, 51],\n        [0.5, 51.5],\n        [1, 52],\n        [1, 53],\n        [0.5, 53.5],\n        [0, 54],\n        [-1, 54],\n        [-2, 54],\n        [-3, 54],\n        [-4, 53.5],\n        [-4.5, 53],\n        [-5, 52],\n        [-4.5, 51]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 243,
+    "output_tokens": 1545,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtHggpsxgqdvEPNxs1db",
+  "started_at": "2026-11-10T00:18:58.366+00:00",
+  "first_token_ms": 675,
+  "first_text_ms": 675,
+  "duration_ms": 19633,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.023904,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:19:17+00:00"
+}

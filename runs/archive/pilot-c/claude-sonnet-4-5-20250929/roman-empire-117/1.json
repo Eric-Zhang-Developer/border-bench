@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of the Roman Empire as of 1 July 117 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "roman-empire-117",
+  "target": "the Roman Empire as of 1 July 117",
+  "raw": "I need to draw the Roman Empire's borders as of July 1, 117 CE. This is during Trajan's reign, at the maximum extent of the empire, just before his death in August 117.\n\nKey features to include:\n- **Western extent**: Britannia (England and Wales), Atlantic coast of Iberia and Morocco\n- **Northern border**: Hadrian's Wall line in Britannia, Rhine-Danube frontier in continental Europe\n- **Eastern extent**: Mesopotamia (Trajan's conquests), Armenia, Syria\n- **Southern extent**: North Africa from Morocco to Egypt, including the Saharan frontier\n- **Major islands**: Corsica, Sardinia, Sicily, Crete, Cyprus, parts of the Aegean\n\nLet me trace the borders roughly clockwise from Britannia:\n\n1. **Britannia**: Southern Scotland to England/Wales\n2. **Atlantic coast**: Down through Gaul to Iberia, around to Gibraltar\n3. **North Africa**: Along Mediterranean coast from Morocco through Egypt\n4. **Egypt**: Up the Nile to roughly the first cataract\n5. **Eastern frontier**: Through Judea, Syria, Armenia, Mesopotamia (including recent Trajan conquests)\n6. **Northern frontier**: Along Euphrates, then Caucasus, Black Sea coast, Danube River, Rhine River\n7. **Islands**: Sicily, Sardinia, Corsica, Crete, Cyprus\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[−4.5, 55.5], [−5, 54], [−5.5, 53], [−4.5, 51.5], [−3, 50.5], [0, 51], [1.5, 51], [3, 51.5], [6, 51], [8, 50], [9, 49], [8.5, 47.5], [9, 47], [10, 46.5], [12, 46], [13, 46.5], [16, 46], [17, 45.5], [19, 45], [22, 44.5], [26, 45], [28, 45.5], [29.5, 45.5], [30, 45], [33, 45], [35, 45.5], [37, 45], [39, 44.5], [41, 44], [43, 42], [45, 41], [46, 40], [46, 39], [45, 38], [44, 37.5], [43, 37], [41, 36], [39, 35.5], [38, 36], [36, 36], [35, 36.5], [33, 36.5], [32, 36], [30, 36.5], [28, 36.5], [27, 37], [26, 38], [27, 39], [28, 40], [26.5, 40.5], [25, 40], [23, 39], [21, 39.5], [19, 40], [18, 40.5], [16, 40], [15, 40.5], [13, 41], [12, 42], [11, 43], [9, 43.5], [7, 43.5], [5, 43.5], [3, 43], [1, 43], [−1, 43.5], [−2, 43], [−4, 43.5], [−6, 43], [−8, 42], [−9, 41], [−9, 39], [−8.5, 38], [−7, 37.5], [−6, 37], [−5.5, 36], [−5.5, 35.5], [−3, 35.5], [−1, 35.5], [0, 35], [2, 36], [4, 36.5], [7, 37], [9, 36], [10, 35], [11, 34.5], [10, 33], [10, 32], [11, 31], [14, 31], [16, 31.5], [18, 31.5], [20, 31.5], [22, 31.5], [24, 31.5], [25, 31], [27, 31], [29, 31], [31, 31.5], [32, 31], [33, 30], [34, 29], [35, 28], [35.5, 27], [36, 26], [35.5, 25], [35, 24], [34, 23.5], [33, 24], [32, 24.5], [31.5, 25], [31, 26], [30, 27], [29, 28], [28, 29], [27, 29.5], [25, 30], [23, 30.5], [20, 31], [18, 32], [16, 32.5], [14, 33], [12, 33.5], [10, 34], [8, 34.5], [6, 35], [4, 35.5], [2, 35.5], [0, 36], [−1, 36.5], [−2, 36], [−3, 36], [−4, 35.5], [−5, 35], [−6, 34.5], [−7, 34], [−8, 33.5], [−8.5, 33], [−9, 32.5], [−9, 32], [−8, 31.5], [−7, 31], [−5, 30.5], [−3, 30], [−1, 29.5], [1, 29.5], [3, 30], [5, 30.5], [7, 31], [9, 31.5], [10, 32.5], [11, 33.5], [9.5, 34], [8, 35], [7, 36], [5.5, 36.5], [4.5, 37], [3, 37.5], [1.5, 38], [0.5, 39], [0, 40], [0, 41], [−1, 42], [−2, 43.5], [0, 44], [1, 45], [2, 46], [3, 47], [4, 48], [5, 49], [4, 50], [2, 50.5], [0, 51.5], [−1, 52], [−2, 53], [−3, 54], [−4, 55], [−4.5, 55.5]]], [[[8, 39], [9, 39.5], [9.5, 40], [10, 40.5], [9.5, 41], [8.5, 41], [8, 40.5], [7.5, 40], [7.5, 39.5], [8, 39]]], [[[9, 42], [9.5, 42.5], [9.5, 43], [9, 43.5], [8.5, 43], [8.5, 42.5], [9, 42]]], [[[12, 36.5], [13, 37], [14, 37.5], [15, 38], [14.5, 38.5], [13.5, 38], [12.5, 37.5], [12, 37], [12, 36.5]]], [[[23, 35], [24, 35.5], [25.5, 35.5], [26, 35], [25.5, 34.5], [24.5, 34.5], [23, 35]]], [[[33, 35], [34, 35.5], [34.5, 35], [34, 34.5], [33, 34.5], [33, 35]]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 243,
+    "output_tokens": 1950,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtHeVJX6P1WrJW3QNxVw",
+  "started_at": "2026-11-10T00:18:28.358+00:00",
+  "first_token_ms": 811,
+  "first_text_ms": 811,
+  "duration_ms": 30007,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.029979,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:18:58+00:00"
+}

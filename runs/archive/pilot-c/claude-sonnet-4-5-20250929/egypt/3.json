@@ -1,0 +1,45 @@
+{
+  "prompt_id": "pilot-c",
+  "prompt": "Draw the land borders and coastline of Egypt as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "egypt",
+  "target": "Egypt as of 1 January 2024",
+  "raw": "I need to draw Egypt's borders as of January 1, 2024. Let me recall the key features:\n\n1. **Northern coastline**: Mediterranean Sea coast from Libya border (around 25°E) to Gaza/Israel (around 34°E)\n2. **Eastern border**: \n   - Sinai Peninsula with Gulf of Aqaba coastline\n   - Border with Israel and Gaza Strip\n   - Red Sea coastline running south\n   - Border with Sudan (22nd parallel)\n3. **Southern border**: Straight line along 22°N with Sudan\n4. **Western border**: Mostly straight line with Libya (25th meridian)\n5. **Key geographic features**:\n   - Nile River valley and delta in the north\n   - Sinai Peninsula protruding to the east\n   - Gulf of Suez and Gulf of Aqaba\n   - Lake Nasser in the south\n\nLet me trace this counterclockwise starting from the northwest corner:\n\n- Northwest corner: Libya-Mediterranean border (~25°E, 32°N)\n- Mediterranean coast eastward to Nile Delta (~31°E)\n- Nile Delta bulges north slightly (~31.5°E, 31.5°N)\n- Continue east along coast to Port Said area\n- Along coast to El-Arish area\n- Gaza border area (~34.2°E, 31.3°N)\n- South along Israel border through Negev\n- Gulf of Aqaba at Taba (~34.9°E, 29.5°N)\n- South along Gulf of Aqaba coast\n- Eastern Sinai coast along Gulf of Aqaba to tip (~34.95°E, 28°N)\n- Southwest along Red Sea coast\n- Continue south along Red Sea to Sudan border (~37°E, 22°N)\n- West along 22nd parallel to Nile/Lake Nasser area (~32°E, 22°N)\n- Continue west along 22°N to Libya border (~25°E, 22°N)\n- North along 25th meridian back to Mediterranean\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[25.0, 31.65], [25.15, 31.55], [25.2, 31.5], [25.3, 31.45], [25.5, 31.4], [26.0, 31.5], [27.0, 31.45], [28.0, 31.4], [29.0, 31.35], [30.0, 31.3], [30.5, 31.4], [31.0, 31.5], [31.2, 31.55], [31.4, 31.6], [31.5, 31.65], [31.6, 31.6], [31.7, 31.55], [31.8, 31.5], [32.0, 31.45], [32.3, 31.4], [32.5, 31.35], [33.0, 31.3], [33.5, 31.25], [34.0, 31.2], [34.2, 31.15], [34.25, 31.1], [34.27, 31.0], [34.28, 30.9], [34.3, 30.8], [34.32, 30.7], [34.35, 30.5], [34.38, 30.3], [34.4, 30.1], [34.45, 29.9], [34.5, 29.7], [34.55, 29.55], [34.6, 29.5], [34.65, 29.45], [34.7, 29.4], [34.75, 29.3], [34.8, 29.15], [34.85, 29.0], [34.88, 28.85], [34.9, 28.7], [34.92, 28.55], [34.93, 28.4], [34.93, 28.2], [34.92, 28.0], [34.9, 27.8], [34.87, 27.6], [34.83, 27.4], [34.78, 27.2], [34.72, 27.0], [34.65, 26.8], [34.58, 26.6], [34.5, 26.4], [34.4, 26.2], [34.3, 26.0], [34.2, 25.8], [34.1, 25.6], [34.0, 25.4], [33.9, 25.2], [33.8, 25.0], [33.7, 24.8], [33.6, 24.6], [33.55, 24.5], [33.5, 24.4], [33.5, 24.3], [33.55, 24.2], [33.65, 24.15], [33.8, 24.1], [34.0, 24.05], [34.2, 24.02], [34.4, 24.0], [34.6, 23.98], [34.8, 23.95], [35.0, 23.9], [35.2, 23.85], [35.4, 23.8], [35.6, 23.75], [35.8, 23.7], [36.0, 23.65], [36.2, 23.6], [36.4, 23.5], [36.5, 23.4], [36.55, 23.3], [36.57, 23.2], [36.58, 23.1], [36.6, 23.0], [36.62, 22.9], [36.65, 22.8], [36.7, 22.7], [36.75, 22.6], [36.8, 22.5], [36.85, 22.4], [36.87, 22.3], [36.88, 22.2], [36.88, 22.1], [36.87, 22.0], [36.5, 22.0], [36.0, 22.0], [35.5, 22.0], [35.0, 22.0], [34.5, 22.0], [34.0, 22.0], [33.5, 22.0], [33.0, 22.0], [32.5, 22.0], [32.0, 22.0], [31.5, 22.0], [31.0, 22.0], [30.5, 22.0], [30.0, 22.0], [29.5, 22.0], [29.0, 22.0], [28.5, 22.0], [28.0, 22.0], [27.5, 22.0], [27.0, 22.0], [26.5, 22.0], [26.0, 22.0], [25.5, 22.0], [25.0, 22.0], [25.0, 22.5], [25.0, 23.0], [25.0, 23.5], [25.0, 24.0], [25.0, 24.5], [25.0, 25.0], [25.0, 25.5], [25.0, 26.0], [25.0, 26.5], [25.0, 27.0], [25.0, 27.5], [25.0, 28.0], [25.0, 28.5], [25.0, 29.0], [25.0, 29.5], [25.0, 30.0], [25.0, 30.5], [25.0, 31.0], [25.0, 31.5], [25.0, 31.65]]]]}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 242,
+    "output_tokens": 1939,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtHcXerovyZiWCX8Ku5A",
+  "started_at": "2026-11-10T00:18:01.951+00:00",
+  "first_token_ms": 608,
+  "first_text_ms": 608,
+  "duration_ms": 26401,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.029811,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T00:18:28+00:00"
+}
