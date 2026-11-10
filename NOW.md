@@ -16,7 +16,8 @@ Four lanes run in parallel (Eric, 2026-11-09: "Start all three"). Each worker ta
 - `eric-4`, page: `strip-page`, built against the sample results file.
 
 The lanes meet at `prompt-pilot`, which needs the runner, the scorer and the Prussia border, and ends with Eric
-choosing the prompt. The archive is still the urgent one: Claude Sonnet 4.5 retires on 2026-11-30.
+choosing the prompt. The full run then goes in two stages: three models first (Sonnet 4.5, Haiku 5.5,
+Sonnet 5.5), Eric looks at the strips, then the rest. The archive is still the urgent one: Claude Sonnet 4.5 retires on 2026-11-30.
 
 ## Open questions
 - Eric: approve three downloads when asked: Natural Earth 50m countries, HGIS Germany 1820 states (via HistoGIS),
