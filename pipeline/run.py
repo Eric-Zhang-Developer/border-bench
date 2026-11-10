@@ -104,7 +104,7 @@ def load_targets(paths: list[Path]) -> list[dict]:
 def list_models(client) -> list[dict]:
     """Every model the Models API returns except Mythos and preview ids, oldest first. No release date sorts last."""
     models = [
-        {"id": m.id, "created_at": m.created_at.isoformat() if m.created_at else None,
+        {"id": m.id, "display_name": m.display_name, "created_at": m.created_at.isoformat() if m.created_at else None,
          "retires_at": r.isoformat() if (r := getattr(m, "retires_at", None)) else None}
         for m in client.models.list()
         if "mythos" not in m.id and "preview" not in m.id
@@ -200,6 +200,7 @@ def run(client, *, prompt_file: Path, prompt_id: str, set_name: str, targets: li
             "prompt_id": prompt_id,
             "prompt": prompt,
             "model": model["id"],
+            "model_display_name": model.get("display_name"),  # as the Models API gives it; gone once a model retires
             "model_created_at": model["created_at"],
             "target_id": target["id"],
             "target": target["name"],
@@ -260,7 +261,7 @@ def main(argv=None) -> int:
     if args.list_models:
         for m in list_models(client()):
             flag = "" if m["created_at"] else "   <- no release date: ordered last"
-            print(f"{m['id']:<36} released {str(m['created_at'])[:10]:<10}  retires {str(m['retires_at'])[:10]}{flag}")
+            print(f"{m['id']:<36} {m['display_name']:<22} released {str(m['created_at'])[:10]:<10}  retires {str(m['retires_at'])[:10]}{flag}")
         return 0
 
     if not (args.prompt and args.prompt_id and args.set_name):
