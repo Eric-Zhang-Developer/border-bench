@@ -1,6 +1,6 @@
 # 001: The prompt
 
-- Date: 2026-11-09   Decided by: Eric and Claude   Feature: prompt-pilot
+- Date: 2026-11-09   Decided by: the maintainer and Claude   Feature: prompt-pilot
 - Status: **tentative**. Frozen only when the `prompt-pilot` feature merges `prompts/p1.txt`.
 
 ## Context
@@ -8,7 +8,7 @@ The prompt has one job: make the score reflect what the model knows about the bo
 ambiguity becomes points lost to guessing what we meant. Every hint becomes points gained without knowledge. The
 scorer repairs nothing, so the prompt has to leave nothing to guess.
 
-Eric, 2026-11-09: "our model prompts will be very important ... This deserves more reasoning."
+Maintainer, 2026-11-09: "our model prompts will be very important ... This deserves more reasoning."
 
 ## Options
 - **A, the pitch's one-liner.** Short, but it leaves open whether to draw sea, whether Chile includes its Antarctic

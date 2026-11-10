@@ -7,7 +7,7 @@ and the harder history. The boss fight (a whole patchwork of states) comes last.
 
 ## Milestones
 - **mvp**: six strips on one page, every served Claude model, one frozen prompt, overlap % under every drawing. True
-  when Eric looks at the strips and can say whether they show progress.
+  when the maintainer looks at the strips and can say whether they show progress.
 
 ## After the MVP (not scheduled)
 - More providers and older or smaller models, if the strips look flat.

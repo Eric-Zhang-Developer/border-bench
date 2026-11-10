@@ -114,6 +114,9 @@ Search open issues and PRs first: a likely duplicate gets a linking comment.
 - **Budget:** at 75% of any spend or usage limit you can see, start no new feature work.
 
 ## This project
+- **"The maintainer" is the person who owns this repo and makes its decisions.** In files, pull requests, issues
+  and commit messages, write "the maintainer", never a personal name. Quote a decision as
+  `Maintainer, <date>: "..."`. A GitHub handle appears only where a tool needs one (`CODEOWNERS`).
 - **Pull requests are the paper trail, written for people who do not program.** Follow
   `specs/context/pull-requests.md`: a plain-sentence title, then In plain words · Why · What changed · See it · Does
   any score change? · Sources · Cost · Checks · Not done, not sure. Why comes before what and names the alternative
@@ -121,18 +124,18 @@ Search open issues and PRs first: a likely duplicate gets a linking comment.
 - **No number without its picture.** A PR that changes a drawing, a score, a true border, a prompt or the page embeds
   the picture: a preview, a contact sheet or a screenshot.
 - **Every PR answers "Does any score change?"** A change to a score that is already public is a one-way door.
-- **Human-reviewed paths:** `prompts/` and `targets/`. Eric looks at every prompt and every true border before it
+- **Human-reviewed paths:** `prompts/` and `targets/`. The maintainer looks at every prompt and every true border before it
   merges (`specs/review-paths.toml`).
 - **One-way doors here:** freezing or changing a prompt, changing grading after the page is public, deploying,
   adding a data source with a licence not already in the repo, raising the spend cap.
 - **Model calls go through `pipeline/run.py` only**, after a `--dry-run`. State the dollars spent in the PR. The API
   key stays in `.env`; never print it, paste it or commit it.
-- **Ask Eric in chat before downloading a dataset.** Record the source, version, licence and fetch date in the
+- **Ask the maintainer in chat before downloading a dataset.** Record the source, version, licence and fetch date in the
   target's `SOURCE.md`. Never hand-edit a coordinate.
 - **Licences:** MIT covers the code. Files under `targets/` keep their source's licence.
 - **No co-author trailers and no "generated with" footers** on commits or PRs.
 - A decision that shapes the benchmark (prompt, grading, models, a target's definition) gets a file in
-  `specs/decisions/`, with Eric's words quoted and dated when the call was his.
+  `specs/decisions/`, with the maintainer's words quoted and dated when the call was theirs.
 
 ## Lite mode (one agent)
 No reporter and no claims: open the PR when the work is ready. Everything else above applies.

@@ -3,7 +3,7 @@
 ## Why
 Most AI benchmarks report a number that goes up, and almost nobody can say what the number means. BorderBench asks
 models to draw countries from memory and puts each drawing next to the real border, so progress is something a person
-can see. The long form of the idea, with tiers and a paper, is Eric's pitch (not in this repo yet); this file covers
+can see. The long form of the idea, with tiers and a paper, is the maintainer's pitch (not in this repo yet); this file covers
 the MVP.
 
 ## Who

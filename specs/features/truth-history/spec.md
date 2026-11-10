@@ -8,7 +8,7 @@ assignee: "eric-2"
 # History truth
 
 ## Plan
-1. Eric approves two downloads in chat: the HGIS Germany 1820 state boundaries (via HistoGIS) and CShapes 2.0.
+1. The maintainer approves two downloads in chat: the HGIS Germany 1820 state boundaries (via HistoGIS) and CShapes 2.0.
 2. `pipeline/prep_history.py` builds both targets and their foils.
 3. Render previews with the foil outlined over the truth.
 
@@ -28,7 +28,7 @@ assignee: "eric-2"
 - `uv run python -m pipeline.prep_history` -> rewrites both folders with no diff.
 - Prussia's truth has at least two separate pieces. Poland 1938's truth extends east of modern Poland's eastern
   border.
-- Both previews are embedded in the PR beside a public-domain reference map of the same date (link it). Eric looks at
+- Both previews are embedded in the PR beside a public-domain reference map of the same date (link it). The maintainer looks at
   them: this path is human-reviewed.
 
 ## Defaults

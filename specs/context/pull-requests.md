@@ -1,10 +1,10 @@
 # How we write pull requests
 
-A pull request here is the paper trail for a decision. Its readers are Eric, the next agent, and one day a professor
+A pull request here is the paper trail for a decision. Its readers are the maintainer, the next agent, and one day a professor
 or a reviewer of the paper. Most of them will not read the code. They need to know **why** something was done, what
 was turned down, and what is true now.
 
-Eric, 2026-11-09: "It shouldn't be too technical, and it should reason more about the why than the what, but also
+Maintainer, 2026-11-09: "It shouldn't be too technical, and it should reason more about the why than the what, but also
 the what."
 
 ## The title
@@ -27,7 +27,7 @@ The main section, and usually the longest.
 - **The question** that forced a choice.
 - **What we chose**, and the reason in a sentence or two.
 - **What we turned down**, and why. Name at least one real alternative.
-- **Who decided.** Quote Eric with the date when the call was his. Otherwise say it was the agent's call and link the
+- **Who decided.** Quote the maintainer with the date when the call was theirs. Otherwise say it was the agent's call and link the
   decision file.
 
 ### What changed
@@ -46,7 +46,7 @@ request's latest commit, because relative paths do not render in pull request te
 Answer on every pull request. This is a benchmark: a silent change to a score is the worst kind of bug.
 - "No." is a complete answer.
 - "Yes" comes with a before and after table and the reason. If the score is already public, the change is a one-way
-  door and waits for Eric.
+  door and waits for the maintainer.
 
 ### Sources
 Required whenever data or a historical fact enters the repo. For each source: the link, the licence, what was taken,
@@ -74,6 +74,7 @@ What was skipped, what was not verified, what is unknown. "Merged" is not "check
    one".
 7. **One decision per pull request** where possible.
 8. **Short sentences.** No abbreviations a newcomer would have to look up.
+9. **Say "the maintainer", never a personal name.** Quote a decision as `Maintainer, <date>: "..."`.
 
 Commit messages follow the same spirit: the subject says what is now true, the body says why and what the
 alternative was. No co-author trailers and no "generated with" footers.
