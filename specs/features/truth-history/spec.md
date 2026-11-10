@@ -2,7 +2,7 @@
 name: True borders for Prussia in 1816 and Poland in 1938, each with a modern foil
 depends_on: [truth-modern]
 owns: [pipeline/prep_history.py, targets/prussia-1815/, targets/poland-1938/]
-assignee: ""
+assignee: "eric-2"
 ---
 
 # History truth

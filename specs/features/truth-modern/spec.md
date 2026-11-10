@@ -2,7 +2,7 @@
 name: True borders for the USA, Chile, Indonesia and Croatia, each with its source
 depends_on: [scaffold]
 owns: [pipeline/prep.py, targets/usa/, targets/chile/, targets/indonesia/, targets/croatia/]
-assignee: ""
+assignee: "eric-2"
 ---
 
 # Modern truth

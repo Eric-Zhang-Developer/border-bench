@@ -2,7 +2,7 @@
 name: Claude Sonnet 4.5's drawings are saved before it retires
 depends_on: [runner]
 owns: [runs/archive/]
-assignee: ""
+assignee: "eric-1"
 ---
 
 # Sonnet 4.5 archive

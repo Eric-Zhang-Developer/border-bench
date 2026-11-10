@@ -1,0 +1,563 @@
+{
+ "_about": "SAMPLE DATA. Every shape, model and score here is made up to fix the file's shape. Nothing is a real result.",
+ "schema": 1,
+ "prompt": {
+  "id": "p1",
+  "text": "Draw the land borders and coastline of {target} from memory. ..."
+ },
+ "settings_note": "Each model ran with its default settings.",
+ "targets": [
+  {
+   "id": "example-modern",
+   "name": "Squareland as of 1 January 2024",
+   "date": "2024-01-01",
+   "kind": "modern",
+   "source": {
+    "name": "Sample source",
+    "licence": "Public domain",
+    "url": "https://example.org/"
+   },
+   "truth": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        10,
+        10
+       ],
+       [
+        20,
+        10
+       ],
+       [
+        20,
+        20
+       ],
+       [
+        10,
+        20
+       ],
+       [
+        10,
+        10
+       ]
+      ]
+     ]
+    ]
+   },
+   "foil": null,
+   "baselines": [
+    {
+     "id": "rectangle",
+     "label": "Rectangle",
+     "score": 100.0,
+     "outline": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [
+        [
+         [
+          10,
+          10
+         ],
+         [
+          20,
+          10
+         ],
+         [
+          20,
+          20
+         ],
+         [
+          10,
+          20
+         ],
+         [
+          10,
+          10
+         ]
+        ]
+       ]
+      ]
+     }
+    },
+    {
+     "id": "circle",
+     "label": "Circle",
+     "score": 78.5,
+     "outline": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [
+        [
+         [
+          11,
+          11
+         ],
+         [
+          19,
+          11
+         ],
+         [
+          19,
+          19
+         ],
+         [
+          11,
+          19
+         ],
+         [
+          11,
+          11
+         ]
+        ]
+       ]
+      ]
+     }
+    }
+   ],
+   "models": [
+    {
+     "id": "example-model-a",
+     "label": "Example Model A",
+     "released": "2025-09-01",
+     "scores": [
+      41.0,
+      47.5,
+      52.0
+     ],
+     "median_sample": 1,
+     "score": 47.5,
+     "points": 120,
+     "outline": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [
+        [
+         [
+          13,
+          9
+         ],
+         [
+          24,
+          9
+         ],
+         [
+          24,
+          19
+         ],
+         [
+          13,
+          19
+         ],
+         [
+          13,
+          9
+         ]
+        ]
+       ]
+      ]
+     },
+     "flags": {
+      "no_drawing": false,
+      "over_400_points": false,
+      "drew_modern": false
+     }
+    },
+    {
+     "id": "example-model-b",
+     "label": "Example Model B",
+     "released": "2026-06-01",
+     "scores": [
+      88.0
+     ],
+     "median_sample": 0,
+     "score": 88.0,
+     "points": 412,
+     "outline": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [
+        [
+         [
+          10.5,
+          10
+         ],
+         [
+          20,
+          10
+         ],
+         [
+          20,
+          20.5
+         ],
+         [
+          10.5,
+          20.5
+         ],
+         [
+          10.5,
+          10
+         ]
+        ]
+       ]
+      ]
+     },
+     "flags": {
+      "no_drawing": false,
+      "over_400_points": true,
+      "drew_modern": false
+     }
+    },
+    {
+     "id": "example-model-c",
+     "label": "Example Model C",
+     "released": "2026-10-01",
+     "scores": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "median_sample": 0,
+     "score": 0.0,
+     "points": 0,
+     "outline": null,
+     "flags": {
+      "no_drawing": true,
+      "over_400_points": false,
+      "drew_modern": false
+     }
+    }
+   ]
+  },
+  {
+   "id": "example-history",
+   "name": "Old Squareland as of 1 January 1900",
+   "date": "1900-01-01",
+   "kind": "history",
+   "source": {
+    "name": "Sample source",
+    "licence": "CC BY-NC-SA 4.0",
+    "url": "https://example.org/"
+   },
+   "truth": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        10,
+        10
+       ],
+       [
+        14,
+        10
+       ],
+       [
+        14,
+        20
+       ],
+       [
+        10,
+        20
+       ],
+       [
+        10,
+        10
+       ]
+      ]
+     ],
+     [
+      [
+       [
+        17,
+        10
+       ],
+       [
+        24,
+        10
+       ],
+       [
+        24,
+        20
+       ],
+       [
+        17,
+        20
+       ],
+       [
+        17,
+        10
+       ]
+      ]
+     ]
+    ]
+   },
+   "foil": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        10,
+        10
+       ],
+       [
+        20,
+        10
+       ],
+       [
+        20,
+        20
+       ],
+       [
+        10,
+        20
+       ],
+       [
+        10,
+        10
+       ]
+      ]
+     ]
+    ]
+   },
+   "baselines": [
+    {
+     "id": "rectangle",
+     "label": "Rectangle",
+     "score": 78.6,
+     "outline": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [
+        [
+         [
+          10,
+          10
+         ],
+         [
+          24,
+          10
+         ],
+         [
+          24,
+          20
+         ],
+         [
+          10,
+          20
+         ],
+         [
+          10,
+          10
+         ]
+        ]
+       ]
+      ]
+     }
+    },
+    {
+     "id": "circle",
+     "label": "Circle",
+     "score": 55.0,
+     "outline": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [
+        [
+         [
+          12,
+          10
+         ],
+         [
+          23,
+          10
+         ],
+         [
+          23,
+          20
+         ],
+         [
+          12,
+          20
+         ],
+         [
+          12,
+          10
+         ]
+        ]
+       ]
+      ]
+     }
+    }
+   ],
+   "models": [
+    {
+     "id": "example-model-a",
+     "label": "Example Model A",
+     "released": "2025-09-01",
+     "scores": [
+      38.0,
+      40.0,
+      44.0
+     ],
+     "median_sample": 1,
+     "score": 40.0,
+     "points": 90,
+     "outline": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [
+        [
+         [
+          10,
+          10
+         ],
+         [
+          20,
+          10
+         ],
+         [
+          20,
+          20
+         ],
+         [
+          10,
+          20
+         ],
+         [
+          10,
+          10
+         ]
+        ]
+       ]
+      ]
+     },
+     "flags": {
+      "no_drawing": false,
+      "over_400_points": false,
+      "drew_modern": true
+     }
+    },
+    {
+     "id": "example-model-b",
+     "label": "Example Model B",
+     "released": "2026-06-01",
+     "scores": [
+      81.0
+     ],
+     "median_sample": 0,
+     "score": 81.0,
+     "points": 240,
+     "outline": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [
+        [
+         [
+          10,
+          10
+         ],
+         [
+          14.5,
+          10
+         ],
+         [
+          14.5,
+          20
+         ],
+         [
+          10,
+          20
+         ],
+         [
+          10,
+          10
+         ]
+        ]
+       ],
+       [
+        [
+         [
+          17,
+          10.5
+         ],
+         [
+          24,
+          10.5
+         ],
+         [
+          24,
+          20
+         ],
+         [
+          17,
+          20
+         ],
+         [
+          17,
+          10.5
+         ]
+        ]
+       ]
+      ]
+     },
+     "flags": {
+      "no_drawing": false,
+      "over_400_points": false,
+      "drew_modern": false
+     }
+    },
+    {
+     "id": "example-model-c",
+     "label": "Example Model C",
+     "released": "2026-10-01",
+     "scores": [
+      70.0,
+      74.0,
+      90.0
+     ],
+     "median_sample": 1,
+     "score": 74.0,
+     "points": 300,
+     "outline": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [
+        [
+         [
+          10,
+          10
+         ],
+         [
+          24,
+          10
+         ],
+         [
+          24,
+          20
+         ],
+         [
+          10,
+          20
+         ],
+         [
+          10,
+          10
+         ]
+        ]
+       ]
+      ]
+     },
+     "flags": {
+      "no_drawing": false,
+      "over_400_points": false,
+      "drew_modern": false
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -2,7 +2,7 @@
 name: Three prompts are compared on real drawings and one is frozen
 depends_on: [runner, scorer, truth-history]
 owns: [runs/pilot/, prompts/, sheets/pilot/]
-assignee: ""
+assignee: "eric-1"
 ---
 
 # Prompt pilot
