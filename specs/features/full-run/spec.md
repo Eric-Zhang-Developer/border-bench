@@ -7,7 +7,7 @@ assignee: "eric-1"
 
 # Full run
 
-Run in two stages, so Eric sees real strips before most of the money is spent. Eric, 2026-11-09: "run maybe only
+Run in two stages, so the maintainer sees real strips before most of the money is spent. Maintainer, 2026-11-09: "run maybe only
 Haiku 5.5, Sonnet 5.5, and probably Sonnet 4.5. Then I can see a shape of what's going on instead of us doing a full
 ... run when I have no eyes on what's going on."
 
@@ -17,7 +17,7 @@ Haiku 5.5, Sonnet 5.5, and probably Sonnet 4.5. Then I can see a shape of what's
 2. Score, write `results/results.json`, make one contact sheet per target in `sheets/p1/`, and open the stage 1 PR
    (`feat(full-run): ...`, no done note yet). It merges on green like any other.
 3. **Stop and ask.** File a `needs-human` issue titled "Preview strips are in: run the other models?" with what
-   Requirements lists. Make no stage 2 call until Eric says go, in that issue or in chat.
+   Requirements lists. Make no stage 2 call until the maintainer says go, in that issue or in chat.
 4. **Stage 2.** Every other listed model: three samples, one for the Fable models. Rescore, remake the sheets, write
    the done note, open the stage 2 PR.
 
@@ -25,14 +25,14 @@ Haiku 5.5, Sonnet 5.5, and probably Sonnet 4.5. Then I can see a shape of what's
 - Sonnet 4.5 runs first, in stage 1.
 - The three preview models span the lineup: the oldest model served, the cheapest current one, and the same tier as
   the oldest one generation later. Stage 1 answers are final `p1` runs. Stage 2 never requests them again.
-- The stage 1 issue gives Eric what he needs to decide:
+- The stage 1 issue gives the maintainer what they need to decide:
   - the six contact sheets, with one plain sentence under each on what the strip shows;
   - failed drawings, refusals, and answers that hit `max_tokens`, per model;
   - **measured** dollars per call for each of the three models, and from those a projected cost for stage 2, set
     against what is left under the cap. This replaces the planning estimate, which was never measured;
   - anything that looks wrong with a score, a border or the prompt. A wrong-looking result is a reason to stop, not a
     detail to fix quietly.
-- If Eric asks for a change that alters scores (prompt, grading, a border), stage 1 is redone under the new setup
+- If the maintainer asks for a change that alters scores (prompt, grading, a border), stage 1 is redone under the new setup
   before stage 2 starts; say what that costs first.
 - If the projected stage 2 cost does not fit under the cap, say so in the issue and propose which models to run with
   one sample. Do not raise the cap.
