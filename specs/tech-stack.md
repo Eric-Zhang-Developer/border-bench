@@ -8,7 +8,7 @@ New dependencies only through a `contract:` PR.
 | Pipeline libraries | `anthropic`, `shapely`, `pyproj`, `numpy`, `Pillow`, `pytest` |
 | Site | Next.js 16.4.6 static export, TypeScript, Tailwind 4.3.3, d3-geo drawing to SVG (d3-geo is added by `strip-page`) |
 | Data / database | JSON and GeoJSON files in the repo. No database, no API routes, no auth |
-| Hosting | Vercel (a one-way door: Eric sets it up) |
+| Hosting | Vercel (a one-way door: the maintainer sets it up) |
 | Tests | pytest; the golden cases are in `specs/features/scorer/spec.md` |
 
 Model calls use the official `anthropic` SDK with streaming, `max_tokens` 64000, and no other parameters. The key is

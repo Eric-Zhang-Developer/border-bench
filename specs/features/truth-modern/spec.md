@@ -8,7 +8,7 @@ assignee: "eric-2"
 # Modern truth
 
 ## Plan
-1. Download Natural Earth 50m countries (public domain). Eric approves the download in chat first.
+1. Download Natural Earth 50m countries (public domain). The maintainer approves the download in chat first.
 2. `pipeline/prep.py` cuts each target out and writes its folder.
 3. Render `preview.png` for each target.
 
@@ -28,7 +28,7 @@ assignee: "eric-2"
 - `uv run python -m pipeline.prep` -> rewrites the four folders with no diff.
 - Each `truth.geojson` loads as a valid MultiPolygon; its area is within 2% of the country's published land area
   (cite the figure in the PR).
-- The four previews are embedded in the PR. Eric looks at them: this path is human-reviewed.
+- The four previews are embedded in the PR. The maintainer looks at them: this path is human-reviewed.
 
 ## Defaults
 Disputed slivers follow Natural Earth's default (de facto) view and are noted in `SOURCE.md`.

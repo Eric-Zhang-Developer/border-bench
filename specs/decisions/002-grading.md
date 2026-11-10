@@ -1,9 +1,9 @@
 # 002: Grading
 
-- Date: 2026-11-09   Decided by: Eric and Claude   Feature: scorer
+- Date: 2026-11-09   Decided by: the maintainer and Claude   Feature: scorer
 
 ## Context
-Eric, 2026-11-09: "I think it would just be a simple percentage." And: "the core thing I'm trying to get at, really
+Maintainer, 2026-11-09: "I think it would just be a simple percentage." And: "the core thing I'm trying to get at, really
 is legibility." A viewer must be able to check a score by looking.
 
 ## Options
@@ -39,4 +39,4 @@ overlap. The page will show this honestly; miss in km is the fix.
 
 ## How to undo
 Scores are rebuilt from committed raw answers, so any change to grading is a rerun of `score.py`, not of the models.
-A change to grading after the page is public is a one-way door: file it for Eric.
+A change to grading after the page is public is a one-way door: file it for the maintainer.

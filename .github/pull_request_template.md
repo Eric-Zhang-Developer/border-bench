@@ -9,7 +9,7 @@ Closes #<!-- the feature's issue -->
 
 ## Why
 <!-- The main section. The question that forced a choice · what we chose and the reason · what we turned down and
-why · who decided (quote Eric with the date, or link the decision file). -->
+why · who decided (quote the maintainer with the date, or link the decision file). -->
 
 ## What changed
 <!-- Short list. Plain words first, then the path in backticks. -->
@@ -19,7 +19,7 @@ why · who decided (quote Eric with the date, or link the decision file). -->
 screenshot, embedded by raw URL at the latest commit, with one sentence on what to look at. Otherwise: "Nothing to see." -->
 
 ## Does any score change?
-<!-- "No." or a before/after table and the reason. A change to a public score waits for Eric. -->
+<!-- "No." or a before/after table and the reason. A change to a public score waits for the maintainer. -->
 
 ## Sources
 <!-- If data or a historical fact enters the repo: link, licence, what was taken, every edit, each judgment call.

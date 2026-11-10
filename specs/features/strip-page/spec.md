@@ -37,7 +37,7 @@ assignee: "eric-4"
 - In a browser at 390, 1280 and 1920 wide, light and dark: pick each target, open a tile, step with the arrow keys,
   drag the scrubber. Screenshots in the PR.
 - Every model in `results.json` has a tile on every strip (the verify command checks this).
-- Deploying to Vercel is Eric's step; the PR ends at a local build and screenshots.
+- Deploying to Vercel is the maintainer's step; the PR ends at a local build and screenshots.
 
 ## Follow-up, once `full-run` is on main
 A `fix(strip-page)` PR by the same worker: screenshots of all six real strips, and any fix the real drawings call

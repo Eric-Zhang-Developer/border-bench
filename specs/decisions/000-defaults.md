@@ -9,7 +9,7 @@ undo it.
 | D2 | A source that turns out unusable | Stop and file `needs-human`; never patch a border from a second source | Close the issue |
 | D3 | A choice that is purely visual | Make it and show it in the PR | Revert the PR |
 | D4 | A model answer that is odd but parseable | Score it as drawn; flag it; never repair | n/a |
-| D5 | Spend near the cap | Stop, commit what exists, file `needs-human`; never raise the cap | Eric raises it |
+| D5 | Spend near the cap | Stop, commit what exists, file `needs-human`; never raise the cap | The maintainer raises it |
 
 ## When nothing covers it
 1. Keep every rule in `mission.md` exact.

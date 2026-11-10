@@ -9,7 +9,7 @@
 
 [[milestone]]
 name = "mvp"
-ship = ""                 # Eric has not picked a date. Sonnet 4.5 retires 2026-11-30: archive and freeze before it.
+ship = ""                 # The maintainer has not picked a date. Sonnet 4.5 retires 2026-11-30: archive and freeze before it.
 freeze = "2d"
 features = [
   "scaffold",
