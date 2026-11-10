@@ -1,0 +1,8 @@
+id = "poland-1938"
+name = "Poland as of 1 January 1938"
+date = "1938-01-01"
+
+[source]
+name = "CShapes 2.0 (Schvitz, Rüegger, Girardin, Cederman, Weidmann, Gleditsch 2022)"
+licence = "CC BY-NC-SA 4.0"
+url = "https://icr.ethz.ch/data/cshapes/"

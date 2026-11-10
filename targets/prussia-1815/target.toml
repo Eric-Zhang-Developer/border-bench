@@ -1,0 +1,8 @@
+id = "prussia-1815"
+name = "the Kingdom of Prussia as of 1 January 1816"
+date = "1816-01-01"
+
+[source]
+name = "Antonia Dückelmann / Peter Paul Marckhgott-Sanabria, \"German Confederation State Borders 1830\", HistoGIS"
+licence = "CC BY 4.0 as published by HistoGIS; built from Census Mosaic data, whose terms are non-commercial"
+url = "https://histogis.acdh.oeaw.ac.at/shapes/permalink/4052e0f206241cc152c6e867033a9db3/"
