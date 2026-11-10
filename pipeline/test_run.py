@@ -11,7 +11,7 @@ from anthropic.types import Message
 
 from pipeline import run
 
-HAIKU = {"id": "claude-haiku-4-5-20251001", "created_at": "2025-10-01T00:00:00+00:00"}
+HAIKU = {"id": "claude-haiku-4-5-20251001", "created_at": "2025-10-01T00:00:00+00:00", "display_name": "Claude Haiku 4.5"}
 TARGETS = [{"id": "usa", "name": "the contiguous United States as of 1 January 2024"}]
 
 
@@ -139,12 +139,19 @@ def test_a_dry_run_makes_no_call_and_writes_nothing(tmp_path, capsys):
 
 def test_the_lineup_drops_mythos_and_preview_and_is_ordered_by_release_date():
     def m(id, day):
-        return SimpleNamespace(id=id, created_at=day and datetime(2026, 1, day, tzinfo=timezone.utc), retires_at=None)
+        return SimpleNamespace(id=id, created_at=day and datetime(2026, 1, day, tzinfo=timezone.utc), retires_at=None,
+                               display_name=id.title())
 
     api = SimpleNamespace(models=SimpleNamespace(list=lambda: [
         m("claude-b", 2), m("claude-mythos-5-1", 3), m("claude-undated", None), m("claude-a", 1),
         m("claude-mythos-preview", 4)]))
     assert [x["id"] for x in run.list_models(api)] == ["claude-a", "claude-b", "claude-undated"]
+    assert run.list_models(api)[0]["display_name"] == "Claude-A"  # the name is taken from the Models API, as given
+
+
+def test_every_run_file_records_the_model_name_the_models_api_gave(tmp_path):
+    go(tmp_path, FakeClient())
+    assert saved_run(tmp_path)["model_display_name"] == "Claude Haiku 4.5"
 
 
 def test_prices_ignore_a_date_suffix_and_an_unknown_model_is_charged_at_the_dearest_rate():

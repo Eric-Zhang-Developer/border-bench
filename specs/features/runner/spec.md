@@ -24,6 +24,8 @@ assignee: "eric-1"
   `first_text_ms` (to the first visible text; null if none arrived), `duration_ms` (to the end of the stream),
   `attempts` (1 unless the call was retried; timings describe the attempt that succeeded), `usage` (the SDK's usage
   object verbatim, every field), `price_table_date` and `sdk_version`.
+- Every run file records `model_display_name`, the model's name as the Models API gives it (for example "Claude
+  Sonnet 4.5"). Like timing, it cannot be asked for once a model has retired.
 - The prompt text sent is the file's bytes with only `{target}` replaced.
 - A run file that already exists is never overwritten and never re-requested.
 - Spend: a running total in dollars across the whole `runs/` tree, from recorded usage and a price table in the
