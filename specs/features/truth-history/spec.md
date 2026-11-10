@@ -8,7 +8,9 @@ assignee: "eric-2"
 # History truth
 
 ## Plan
-1. The maintainer approves two downloads in chat: the HGIS Germany 1820 state boundaries (via HistoGIS) and CShapes 2.0.
+1. The maintainer approves two downloads in chat: HistoGIS's Kingdom of Prussia outline and CShapes 2.0. (This line
+   first said "the HGIS Germany 1820 state boundaries (via HistoGIS)". HistoGIS has no such file: see
+   `specs/decisions/truth-history-prussia-source.md`.)
 2. `pipeline/prep_history.py` builds both targets and their foils.
 3. Render previews with the foil outlined over the truth.
 
@@ -16,10 +18,11 @@ assignee: "eric-2"
 - Same folder contents as `truth-modern`, plus `foil.geojson`: modern Germany for Prussia, modern Poland for Poland
   1938, both from Natural Earth.
 - Names: "the Kingdom of Prussia as of 1 January 1816" and "Poland as of 1 January 1938".
-- **Prussia:** the truth is the Kingdom of Prussia in the 1820 file, including the provinces outside the German
-  Confederation (East Prussia, West Prussia, Posen). `SOURCE.md` lists any border change between 1816 and 1820 that
-  the file reflects, with a citation, or says none was found and what was checked.
-- **If the 1820 file does not include those eastern provinces, stop.** Do not patch it from another source. File a
+- **Prussia:** the truth is HistoGIS's outline of the Kingdom of Prussia valid on 1 January 1816 (shape 10039, which
+  HistoGIS dates 9 June 1815 to 31 May 1834), including the provinces outside the German Confederation (East Prussia,
+  West Prussia, Posen). `SOURCE.md` lists any border change between 1816 and 1820 that the outline reflects, with a
+  citation, or says none was found and what was checked.
+- **If that outline does not include those eastern provinces, stop.** Do not patch it from another source. File a
   `needs-human` issue proposing Germany 1914 from CShapes as the replacement.
 - **Poland:** the CShapes polygon valid on 1 January 1938.
 - `SOURCE.md` states each licence. CShapes is non-commercial and share-alike; say so in plain words.
