@@ -29,6 +29,9 @@
   the synthetic contact sheets in the scorer pull request.
 
 ## What the first real answers showed (2026-11-10, Claude Sonnet 4.5's archive)
+Every number in this section was measured on the first true borders, before `004-truth-is-land.md` cut the border
+lakes out. On the land-only borders the USA drawing in #1 scores 35.3 as scored; the other numbers were not measured
+again.
 - **#7:** no archived answer is cut off, but 8 of the 99 are broken by a bracket slip or by typographic minus signs,
   and the rule as written scores each on its last complete piece only (one Australia drawing would be scored as
   Tasmania alone). None of the 8 is on a target that can be scored yet. Open as issue #27.
