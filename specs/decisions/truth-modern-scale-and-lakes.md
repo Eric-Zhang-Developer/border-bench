@@ -1,5 +1,8 @@
 # truth-modern: the 1:50m map is kept although three shapes miss the area check
 
+> Replaced on 2026-11-09 by `004-truth-is-land.md`: the borders now come from the 1:10m map with border lakes cut
+> out (option C below). This file is kept as the record of the first choice.
+
 - Date: 2026-11-09   Decided by: agent (default taken; Eric reviews the pull request)   Feature: truth-modern
 - **Context:** the spec names Natural Earth 1:50m as the source and asks that each shape's area be within 2% of the
   published land area. Measured: USA +3.6%, Chile -0.8%, Indonesia +2.9%, Croatia -3.6% (against its total; no land
