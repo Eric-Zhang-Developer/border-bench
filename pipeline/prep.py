@@ -155,7 +155,9 @@ def equal_area(shape, centre=None):
     west, south, east, north = (shape if centre is None else centre).bounds
     to_m = Transformer.from_crs(
         "EPSG:4326", f"+proj=laea +lat_0={(south + north) / 2} +lon_0={(west + east) / 2} +datum=WGS84", always_xy=True)
-    return shapely.transform(shape.segmentize(0.1), lambda xy: np.column_stack(to_m.transform(xy[:, 0], xy[:, 1])))
+    flat = shapely.transform(shape.segmentize(0.1), lambda xy: np.column_stack(to_m.transform(xy[:, 0], xy[:, 1])))
+    # segmentize hands a one-piece MultiPolygon back as a bare Polygon; callers loop over .geoms
+    return MultiPolygon([flat]) if flat.geom_type == "Polygon" else flat
 
 
 def draw_preview(shape: MultiPolygon, title: str, path: Path, outlines=()) -> None:
