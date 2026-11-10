@@ -110,7 +110,7 @@ export default function Home() {
           <div>
             <h2 className="label mb-2">The code</h2>
             <p>
-              <a href={REPO}>github.com/Eric-Zhang-Developer/border-bench</a>. The code is under the MIT licence.
+              <a href={REPO}>The repository on GitHub</a>. The code is under the MIT licence.
               Each true border keeps the licence of its source.
             </p>
           </div>
