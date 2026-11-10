@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Indonesia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-haiku-5-5",
+  "model_display_name": "Claude Haiku 5.5",
+  "model_created_at": "2026-10-07T18:00:00+00:00",
+  "target_id": "indonesia",
+  "target": "Indonesia as of 1 January 2024",
+  "raw": "This is a coarse polygon approximation of the main islands (Sumatra, Java, the Lesser Sunda Islands, Sulawesi, Kalimantan, the Indonesian half of New Guinea, and several Maluku islands). It leaves out the many smaller islands and detailed coastlines, so expect some error at the edges.\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [\n[[[95.3,5.6],[95.9,5.5],[97.5,5.2],[98.5,4.0],[98.8,3.0],[100.0,2.0],[101.0,1.5],[103.0,0.8],[104.5,-1.0],[105.8,-2.8],[106.0,-3.7],[105.8,-5.9],[104.5,-5.8],[103.0,-4.8],[102.2,-4.0],[101.0,-2.5],[100.2,-1.0],[99.5,0.0],[98.7,1.5],[97.5,3.0],[96.0,4.5],[95.3,5.6]]],\n[[[105.2,-6.8],[106.1,-5.9],[106.8,-6.0],[108.0,-6.0],[109.2,-6.0],[110.5,-6.0],[111.5,-6.4],[112.6,-6.9],[114.4,-7.7],[114.4,-8.7],[113.5,-8.4],[112.0,-8.3],[110.5,-8.1],[109.5,-7.7],[108.5,-7.7],[107.0,-7.3],[106.0,-7.0],[105.2,-6.8]]],\n[[[109.1,1.6],[109.3,0.0],[110.0,-1.4],[110.5,-2.9],[111.0,-3.5],[112.0,-3.2],[113.0,-3.1],[114.5,-4.0],[116.0,-3.9],[116.5,-3.0],[117.5,-2.0],[117.6,-1.4],[117.5,0.0],[118.0,1.0],[118.0,1.9],[117.8,4.2],[116.5,4.5],[115.5,4.6],[114.5,4.6],[113.5,3.6],[112.5,3.0],[111.5,2.0],[110.5,1.7],[109.6,1.9],[109.1,1.6]]],\n[[[115.1,-8.3],[115.7,-8.2],[115.2,-8.8],[114.5,-8.6],[115.1,-8.3]]],\n[[[116.0,-8.4],[116.6,-8.3],[116.4,-8.9],[116.0,-8.7],[116.0,-8.4]]],\n[[[116.9,-8.4],[117.5,-8.3],[118.9,-8.5],[119.0,-8.9],[118.0,-9.0],[117.0,-8.9],[116.9,-8.4]]],\n[[[119.9,-8.4],[121.0,-8.3],[122.5,-8.2],[123.0,-8.4],[122.0,-8.8],[121.0,-8.7],[120.0,-8.9],[119.9,-8.4]]],\n[[[119.4,-9.4],[120.5,-9.0],[121.0,-9.4],[120.5,-10.2],[119.5,-9.8],[119.4,-9.4]]],\n[[[123.45,-10.2],[124.0,-9.95],[124.5,-9.3],[124.97,-9.1],[124.95,-9.6],[124.2,-10.3],[123.5,-10.4],[123.45,-10.2]]],\n[[[124.8,1.6],[125.2,1.6],[124.2,0.9],[123.2,0.4],[122.0,0.7],[121.0,1.0],[120.3,0.6],[120.0,-0.3],[119.3,-0.5],[119.0,-2.0],[118.9,-3.2],[119.4,-4.0],[119.4,-5.5],[120.4,-5.6],[121.0,-5.3],[122.0,-4.9],[122.9,-4.9],[122.3,-4.0],[121.6,-3.2],[121.0,-2.6],[121.5,-1.6],[122.5,-1.3],[123.0,-0.8],[123.6,0.2],[124.8,1.6]]],\n[[[109.1,1.6],[109.1,1.6]]],\n[[[141.0,-2.6],[138.0,-1.7],[136.5,-2.3],[135.0,-3.3],[133.5,-2.0],[132.0,-0.8],[131.2,-0.9],[131.3,-1.8],[133.0,-3.0],[133.5,-3.9],[135.0,-4.2],[136.5,-4.2],[138.0,-5.7],[139.0,-7.5],[140.0,-8.1],[141.0,-9.1],[141.0,-2.6]]],\n[[[128.0,-3.2],[129.5,-3.3],[130.8,-3.0],[130.8,-3.6],[129.5,-3.8],[128.2,-3.6],[128.0,-3.2]]],\n[[[126.3,-3.3],[127.0,-3.0],[127.2,-3.6],[126.5,-3.8],[126.3,-3.3]]],\n[[[127.4,1.6],[127.9,1.7],[128.2,0.8],[128.4,-0.5],[127.7,-0.9],[127.2,-0.2],[127.4,1.6]]]\n]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 347,
+    "output_tokens": 6540,
+    "output_tokens_details": {
+      "thinking_tokens": 4697
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-haiku-5-5",
+  "message_id": "msg_011CgtUNhyMvfw83XYoZPVdX",
+  "started_at": "2026-11-10T02:39:09.459+00:00",
+  "first_token_ms": 512,
+  "first_text_ms": 22784,
+  "duration_ms": 27850,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    0.1,
+    0.5
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.003305,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T02:39:37+00:00"
+}

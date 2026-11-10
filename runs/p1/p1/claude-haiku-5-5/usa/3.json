@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the contiguous United States (the lower 48 states) as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-haiku-5-5",
+  "model_display_name": "Claude Haiku 5.5",
+  "model_created_at": "2026-10-07T18:00:00+00:00",
+  "target_id": "usa",
+  "target": "the contiguous United States (the lower 48 states) as of 1 January 2024",
+  "raw": "This is a rough single-polygon outline, not a precise border. It traces the Pacific, Mexican, Gulf, and Atlantic coasts, the Maine and New York borders, the Great Lakes border approximated along the lake shores, and the 49th parallel. Lake Michigan is included as land, and Florida, Cape Cod, and Chesapeake Bay are simplified. The Great Lakes handling is crude.\n\n```geojson\n{\"type\": \"MultiPolygon\", \"coordinates\": [[[[-124.7,48.4],[-124.1,46.9],[-124.0,46.2],[-124.1,44.6],[-124.5,42.8],[-124.2,41.8],[-124.4,40.4],[-123.8,39.5],[-123.0,38.0],[-122.5,37.5],[-121.9,36.6],[-121.0,35.7],[-120.6,34.6],[-119.5,34.4],[-118.5,34.0],[-117.8,33.6],[-117.1,32.5],[-114.7,32.7],[-111.0,31.3],[-108.2,31.3],[-108.2,31.8],[-106.5,31.8],[-104.5,29.6],[-103.1,29.0],[-101.4,29.8],[-99.5,27.5],[-97.4,25.9],[-97.2,27.6],[-96.0,28.6],[-94.7,29.4],[-93.8,29.7],[-92.0,29.6],[-90.5,29.1],[-89.2,29.0],[-89.6,30.2],[-88.4,30.4],[-87.5,30.3],[-86.0,30.4],[-84.5,29.9],[-83.5,29.0],[-82.7,27.5],[-82.0,26.5],[-81.1,25.2],[-80.4,25.2],[-80.1,26.5],[-80.0,27.5],[-80.6,28.5],[-81.3,30.0],[-81.4,31.1],[-80.9,32.0],[-79.2,33.2],[-77.9,33.9],[-76.5,34.7],[-75.5,35.2],[-75.9,36.6],[-76.0,37.2],[-75.9,38.0],[-75.1,38.8],[-75.0,39.5],[-74.0,40.2],[-74.0,40.6],[-73.9,40.8],[-72.0,41.0],[-71.0,41.5],[-70.0,41.7],[-70.6,42.0],[-70.9,42.6],[-70.2,43.6],[-69.0,44.0],[-67.5,44.5],[-67.0,44.8],[-67.8,45.7],[-67.8,47.1],[-69.2,47.4],[-70.0,46.7],[-70.3,45.9],[-71.1,45.3],[-71.5,45.0],[-74.7,45.0],[-75.8,44.4],[-76.3,43.5],[-79.0,43.3],[-80.5,42.0],[-82.5,41.4],[-83.4,41.7],[-83.1,42.3],[-82.4,43.0],[-82.5,44.5],[-83.5,45.5],[-84.7,45.8],[-84.4,46.5],[-87.4,46.5],[-88.0,47.4],[-90.4,46.6],[-92.1,46.7],[-89.6,48.0],[-95.2,49.4],[-95.2,49.0],[-123.3,49.0],[-122.8,49.0],[-122.5,48.7],[-123.2,48.2],[-124.7,48.4]]]]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 358,
+    "output_tokens": 6651,
+    "output_tokens_details": {
+      "thinking_tokens": 5448
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-haiku-5-5",
+  "message_id": "msg_011CgtUTuQLpS7m9j5PcZsZ3",
+  "started_at": "2026-11-10T02:40:19.940+00:00",
+  "first_token_ms": 586,
+  "first_text_ms": 25450,
+  "duration_ms": 28873,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    0.1,
+    0.5
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.003361,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T02:40:48+00:00"
+}

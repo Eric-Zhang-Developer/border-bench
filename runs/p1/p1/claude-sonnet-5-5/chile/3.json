@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Chile as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-5-5",
+  "model_display_name": "Claude Sonnet 5.5",
+  "model_created_at": "2026-09-28T00:00:00+00:00",
+  "target_id": "chile",
+  "target": "Chile as of 1 January 2024",
+  "raw": "This is an approximate drawing from memory, with coordinates estimated by hand.\n\n- **Mainland:** the polygon runs down the Pacific coast and back up the borders with Argentina, Bolivia and Peru. The Patagonian fjord coast is simplified. The outer islands are merged into the mainland outline, and the channels between them are filled in as land.\n- **Southern Patagonia:** the island group around Santa Inés, Desolación and Clarence is a single polygon.\n- **Tierra del Fuego:** the Chilean western part has its own polygon, and Navarino and the Hoste/Cape Horn group are separate polygons.\n- **Other pieces:** Chiloé, Easter Island and Robinson Crusoe Island each have their own polygon.\n\n```geojson\n{\"type\":\"MultiPolygon\",\"coordinates\":[\n[[[-70.38,-18.35],[-70.15,-19.5],[-70.2,-21.5],[-70.4,-23.6],[-70.5,-25.0],[-70.9,-26.0],[-71.3,-27.5],[-71.5,-29.0],[-71.3,-30.5],[-71.5,-32.0],[-71.6,-33.0],[-71.9,-33.5],[-72.5,-35.0],[-73.2,-36.0],[-73.5,-37.5],[-73.7,-39.0],[-73.4,-40.0],[-73.7,-41.5],[-72.9,-42.0],[-73.8,-43.0],[-74.0,-44.5],[-74.5,-45.5],[-75.3,-46.8],[-75.6,-48.5],[-75.4,-50.0],[-75.2,-51.5],[-74.7,-52.7],[-73.5,-52.8],[-72.5,-53.2],[-71.8,-53.7],[-71.3,-54.0],[-70.9,-53.3],[-70.5,-52.8],[-69.5,-52.5],[-68.4,-52.4],[-69.0,-52.2],[-70.0,-52.0],[-71.0,-52.0],[-72.0,-51.3],[-72.3,-51.0],[-73.1,-50.8],[-73.4,-49.5],[-72.6,-48.8],[-72.3,-47.6],[-72.5,-46.5],[-71.8,-45.5],[-71.7,-44.3],[-71.9,-43.2],[-71.7,-42.0],[-71.8,-41.0],[-71.7,-40.0],[-71.5,-39.0],[-71.1,-38.2],[-71.0,-37.0],[-70.5,-36.2],[-70.4,-35.2],[-70.1,-34.3],[-70.0,-33.3],[-70.4,-32.5],[-70.5,-31.2],[-69.8,-30.1],[-69.0,-29.1],[-68.6,-27.9],[-68.3,-26.9],[-68.6,-26.3],[-68.5,-25.2],[-68.3,-24.4],[-67.3,-24.0],[-67.0,-23.0],[-67.2,-22.8],[-67.9,-22.9],[-68.2,-22.1],[-68.6,-21.3],[-68.3,-20.9],[-68.6,-20.0],[-68.5,-19.4],[-68.9,-18.9],[-69.1,-18.0],[-69.5,-17.5],[-70.38,-18.35]]],\n[[[-74.7,-52.9],[-73.8,-53.1],[-72.8,-53.8],[-72.0,-54.1],[-72.8,-54.4],[-74.0,-54.2],[-74.6,-53.6],[-74.7,-52.9]]],\n[[[-68.6,-52.65],[-69.4,-52.7],[-70.4,-53.3],[-70.9,-54.0],[-72.0,-54.3],[-71.0,-54.9],[-69.5,-55.0],[-68.6,-54.9],[-68.6,-52.65]]],\n[[[-68.6,-55.0],[-67.2,-54.95],[-67.0,-55.1],[-68.0,-55.25],[-69.0,-55.2],[-68.6,-55.0]]],\n[[[-70.5,-55.2],[-69.0,-55.35],[-67.5,-55.5],[-67.3,-55.95],[-68.5,-55.8],[-70.0,-55.6],[-70.9,-55.3],[-70.5,-55.2]]],\n[[[-74.1,-43.2],[-73.6,-43.0],[-73.5,-42.2],[-73.7,-41.8],[-74.0,-42.0],[-74.4,-42.8],[-74.1,-43.2]]],\n[[[-109.45,-27.1],[-109.25,-27.05],[-109.25,-27.18],[-109.4,-27.2],[-109.45,-27.1]]],\n[[[-78.98,-33.62],[-78.8,-33.62],[-78.8,-33.67],[-78.98,-33.66],[-78.98,-33.62]]]\n]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 345,
+    "output_tokens": 5871,
+    "output_tokens_details": {
+      "thinking_tokens": 4141
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-5-5",
+  "message_id": "msg_011CgtUz86AKFjF8c5eoWeVF",
+  "started_at": "2026-11-10T02:47:09.762+00:00",
+  "first_token_ms": 8100,
+  "first_text_ms": 40566,
+  "duration_ms": 49172,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    2.0,
+    10.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.0594,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T02:47:58+00:00"
+}

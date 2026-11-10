@@ -1,0 +1,46 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of the contiguous United States (the lower 48 states) as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-4-5-20250929",
+  "model_display_name": "Claude Sonnet 4.5",
+  "model_created_at": "2025-09-29T00:00:00+00:00",
+  "target_id": "usa",
+  "target": "the contiguous United States (the lower 48 states) as of 1 January 2024",
+  "raw": "I'll draw the contiguous United States from memory, focusing on the major geographic features and borders.\n\nThe contiguous US has:\n- Northern border with Canada (roughly along 49°N in the west, then following Great Lakes and St. Lawrence)\n- Southern border with Mexico (Rio Grande river in Texas, then westward to Pacific)\n- Eastern coastline along Atlantic Ocean\n- Western coastline along Pacific Ocean\n- Gulf of Mexico coastline in the south\n\nKey geographic points to remember:\n- Northwest corner: Washington state (~49°N, 125°W)\n- Northeast corner: Maine (~47°N, 67°W)\n- Southwest corner: California/Mexico border (~32°N, 117°W)\n- Southeast corner: Florida (~25°N, 80°W)\n- Great Lakes indent the northern border\n- Florida peninsula extends south\n- Texas coastline along Gulf of Mexico\n\nI'll trace counterclockwise starting from the Pacific Northwest:\n\n```geojson\n{\n  \"type\": \"MultiPolygon\",\n  \"coordinates\": [\n    [\n      [\n        [-124.75, 49.0], [-123.0, 49.0], [-122.5, 49.0], [-120.0, 49.0], [-117.0, 49.0], \n        [-116.05, 49.0], [-111.05, 49.0], [-104.05, 49.0], [-97.23, 49.0], [-95.15, 49.0],\n        [-95.15, 48.5], [-94.6, 48.75], [-93.5, 48.6], [-92.5, 48.4], [-91.5, 48.1],\n        [-90.5, 48.0], [-89.5, 48.0], [-88.5, 48.2], [-87.5, 47.5], [-86.5, 47.4],\n        [-85.5, 47.2], [-84.5, 46.8], [-83.8, 46.5], [-83.4, 46.1], [-82.9, 45.8],\n        [-82.5, 45.4], [-82.3, 45.0], [-82.1, 44.5], [-82.0, 43.8], [-82.2, 43.2],\n        [-82.7, 42.9], [-83.1, 42.5], [-82.8, 42.0], [-82.5, 41.7], [-81.5, 42.0],\n        [-80.5, 42.2], [-79.8, 42.5], [-79.0, 42.8], [-78.5, 42.9], [-77.5, 43.2],\n        [-76.5, 44.0], [-75.5, 44.8], [-74.5, 45.0], [-73.5, 45.0], [-72.5, 45.0],\n        [-71.5, 45.0], [-71.0, 45.2], [-70.7, 45.3], [-70.3, 45.5], [-70.0, 45.8],\n        [-69.5, 46.5], [-69.0, 47.3], [-68.5, 47.2], [-68.0, 47.1], [-67.8, 47.0],\n        [-67.5, 46.5], [-67.3, 45.8], [-67.1, 45.2], [-67.0, 44.9], [-67.1, 44.6],\n        [-67.3, 44.4], [-67.5, 44.2], [-67.8, 44.1], [-68.2, 44.0], [-68.8, 44.2],\n        [-69.2, 44.0], [-69.8, 43.8], [-70.2, 43.6], [-70.6, 43.3], [-70.7, 43.1],\n        [-70.5, 42.9], [-70.3, 42.7], [-70.0, 42.5], [-70.0, 42.0], [-70.2, 41.7],\n        [-70.5, 41.5], [-71.0, 41.4], [-71.5, 41.4], [-71.8, 41.3], [-72.0, 41.2],\n        [-72.5, 41.0], [-73.0, 41.0], [-73.5, 41.0], [-73.7, 40.8], [-73.95, 40.7],\n        [-74.0, 40.6], [-74.2, 40.5], [-74.0, 40.3], [-74.05, 40.0], [-74.2, 39.7],\n        [-74.8, 39.2], [-75.1, 39.5], [-75.4, 39.8], [-75.6, 39.6], [-75.5, 39.3],\n        [-75.3, 39.0], [-75.5, 38.5], [-75.7, 38.0], [-76.0, 37.5], [-76.2, 37.0],\n        [-76.0, 36.5], [-75.8, 36.3], [-75.5, 36.0], [-75.5, 35.7], [-75.6, 35.5],\n        [-75.8, 35.2], [-76.3, 35.0], [-76.7, 34.8], [-77.2, 34.6], [-77.8, 34.2],\n        [-78.5, 33.9], [-79.0, 33.5], [-79.4, 33.2], [-79.8, 33.0], [-80.3, 32.5],\n        [-80.8, 32.2], [-81.2, 31.8], [-81.4, 31.5], [-81.5, 31.0], [-81.3, 30.5],\n        [-81.2, 30.0], [-81.4, 29.5], [-81.5, 29.0], [-81.3, 28.5], [-80.9, 28.0],\n        [-80.5, 27.5], [-80.3, 27.0], [-80.2, 26.5], [-80.2, 26.0], [-80.3, 25.5],\n        [-80.5, 25.2], [-81.0, 25.0], [-81.5, 25.2], [-81.8, 25.5], [-82.0, 26.0],\n        [-82.3, 26.5], [-82.7, 27.0], [-82.9, 27.5], [-83.0, 27.8], [-83.2, 28.2],\n        [-83.5, 28.5], [-83.8, 29.0], [-84.2, 29.5], [-84.5, 29.8], [-85.0, 29.8],\n        [-85.5, 30.0], [-86.0, 30.2], [-87.0, 30.3], [-87.6, 30.3], [-88.0, 30.4],\n        [-88.5, 30.3], [-89.0, 30.2], [-89.5, 30.0], [-89.8, 29.5], [-90.0, 29.2],\n        [-90.5, 29.3], [-91.0, 29.5], [-91.5, 29.5], [-92.0, 29.6], [-93.0, 29.8],\n        [-93.8, 29.7], [-94.0, 29.5], [-94.5, 29.3], [-95.0, 29.0], [-95.5, 28.7],\n        [-96.0, 28.5], [-96.5, 28.3], [-97.0, 28.0], [-97.3, 27.5], [-97.4, 27.0],\n        [-97.4, 26.5], [-97.3, 26.0], [-97.2, 25.9],\n        [-97.5, 26.0], [-98.0, 26.2], [-98.5, 26.4], [-99.0, 26.5], [-99.5, 27.0],\n        [-100.0, 28.0], [-100.5, 29.0], [-101.0, 29.5], [-101.5, 29.8], [-102.0, 29.8],\n        [-102.8, 29.8], [-103.5, 29.0], [-104.0, 29.3], [-104.5, 29.6], [-105.0, 29.8],\n        [-105.5, 30.0], [-106.0, 31.0], [-106.5, 31.8], [-108.2, 31.8], [-108.2, 31.33],\n        [-111.0, 31.33], [-112.5, 31.33], [-114.7, 32.7], [-114.7, 33.5], [-114.6, 34.0],\n        [-114.5, 34.5], [-114.4, 35.0], [-114.6, 35.5], [-114.7, 36.0], [-114.7, 36.5],\n        [-114.0, 37.0], [-114.05, 37.5], [-114.05, 38.5], [-114.05, 39.5], [-114.05, 40.0],\n        [-114.05, 41.0], [-114.05, 42.0], [-117.0, 42.0], [-120.0, 42.0], [-121.5, 42.0],\n        [-124.0, 42.0], [-124.2, 42.5], [-124.3, 43.0], [-124.4, 43.5], [-124.5, 44.0],\n        [-124.2, 44.5], [-124.0, 45.0], [-124.0, 45.5], [-124.0, 46.0], [-123.8, 46.2],\n        [-124.0, 46.5], [-124.2, 47.0], [-124.3, 47.5], [-124.5, 48.0], [-124.7, 48.5],\n        [-124.75, 49.0]\n      ]\n    ]\n  ]\n}\n```",
+  "content_types": [
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "not_available",
+    "input_tokens": 254,
+    "output_tokens": 2641,
+    "output_tokens_details": null,
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-4-5-20250929",
+  "message_id": "msg_011CgtUBc5bC5szR4SFTrZFc",
+  "started_at": "2026-11-10T02:36:38.849+00:00",
+  "first_token_ms": 598,
+  "first_text_ms": 598,
+  "duration_ms": 33897,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    3.0,
+    15.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.040377,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T02:37:12+00:00"
+}

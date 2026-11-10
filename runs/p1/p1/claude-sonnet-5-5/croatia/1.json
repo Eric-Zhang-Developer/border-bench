@@ -1,0 +1,49 @@
+{
+  "prompt_id": "p1",
+  "prompt": "Draw the land borders and coastline of Croatia as of 1 January 2024 from memory.\n\nRules:\n- Draw land only. Each separate piece of territory (mainland, island, exclave) is its own polygon. Do not enclose sea.\n- Leave out overseas dependencies and Antarctic claims.\n- Use at most 400 points in total.\n- Your drawing is scored by overlap: the area it shares with the true territory, divided by the total area covered by either. Missing land and extra land both cost you.\n- Give your best attempt even if you are unsure. An approximate drawing is expected.\n\nFormat:\n- You may reason first. End with one ```geojson block; only that block is scored.\n- The block holds a single GeoJSON MultiPolygon:\n  {\"type\": \"MultiPolygon\", \"coordinates\": [[[[lon, lat], [lon, lat], ...]], [[[lon, lat], ...]]]}\n- Longitude first, then latitude, in decimal degrees with at most 2 decimal places. West and south are negative.\n",
+  "model": "claude-sonnet-5-5",
+  "model_display_name": "Claude Sonnet 5.5",
+  "model_created_at": "2026-09-28T00:00:00+00:00",
+  "target_id": "croatia",
+  "target": "Croatia as of 1 January 2024",
+  "raw": "I drew this from memory, so coordinates are approximate. It has three kinds of piece:\n\n- **Mainland:** the northern and central body, running from Istria down the Adriatic coast to Ploče, plus the Slavonia, Sava, Drava and Danube borders.\n- **Southern exclave:** the Pelješac peninsula and the Dubrovnik strip, which Bosnia's Neum corridor cuts off from the mainland.\n- **Islands:** the main islands as simple polygons (Krk, Cres, Lošinj, Rab, Pag, Dugi Otok, Ugljan/Pašman, Brač, Šolta, Hvar, Vis, Korčula, Lastovo and Mljet). Smaller islands such as the Kornati are left out.\n\n```geojson\n{\"type\":\"MultiPolygon\",\"coordinates\":[\n[[[13.58,45.48],[13.51,45.43],[13.56,45.32],[13.59,45.23],[13.64,45.08],[13.75,44.95],[13.92,44.80],[14.03,44.90],[14.10,44.99],[14.17,45.14],[14.25,45.25],[14.30,45.34],[14.44,45.33],[14.54,45.30],[14.57,45.27],[14.69,45.18],[14.80,45.10],[14.90,44.99],[14.90,44.80],[14.95,44.66],[15.07,44.54],[15.25,44.42],[15.44,44.30],[15.40,44.20],[15.22,44.12],[15.30,44.03],[15.44,43.94],[15.65,43.85],[15.89,43.73],[16.05,43.58],[16.25,43.52],[16.44,43.50],[16.69,43.44],[16.85,43.38],[17.02,43.29],[17.25,43.18],[17.43,43.05],[17.55,43.02],[17.65,43.03],[17.50,43.15],[17.30,43.25],[17.20,43.45],[16.95,43.55],[16.70,43.75],[16.45,43.95],[16.20,44.05],[16.10,44.25],[16.00,44.50],[15.80,44.70],[15.75,44.80],[15.85,45.00],[15.75,45.20],[16.10,45.20],[16.30,45.00],[16.55,45.22],[16.90,45.27],[17.30,45.17],[17.80,45.10],[18.00,45.15],[18.40,45.05],[18.70,45.07],[18.90,44.90],[19.00,45.15],[19.40,45.22],[19.05,45.50],[18.90,45.93],[18.40,45.77],[17.90,45.78],[17.46,45.95],[17.10,46.20],[16.90,46.37],[16.60,46.47],[16.38,46.55],[16.10,46.40],[15.98,46.35],[15.70,46.20],[15.68,46.00],[15.65,45.83],[15.30,45.70],[15.30,45.47],[14.90,45.50],[14.60,45.60],[14.30,45.50],[13.90,45.50],[13.58,45.48]]],\n[[[17.64,42.93],[17.72,42.95],[17.85,42.82],[18.00,42.72],[18.20,42.60],[18.45,42.45],[18.43,42.39],[18.21,42.55],[18.09,42.64],[17.80,42.78],[17.70,42.82],[17.45,42.90],[17.25,42.95],[17.08,43.03],[17.27,43.00],[17.40,43.00],[17.55,42.97]]],\n[[[14.53,45.20],[14.60,45.25],[14.68,45.15],[14.58,45.06],[14.55,44.97],[14.47,45.03],[14.50,45.12]]],\n[[[14.33,45.15],[14.42,45.05],[14.40,44.90],[14.47,44.80],[14.40,44.72],[14.33,44.85],[14.30,45.00]]],\n[[[14.47,44.70],[14.50,44.60],[14.45,44.45],[14.38,44.55],[14.40,44.68]]],\n[[[14.72,44.83],[14.80,44.80],[14.75,44.72],[14.68,44.75]]],\n[[[14.97,44.58],[15.10,44.45],[15.28,44.30],[15.18,44.30],[14.98,44.45],[14.92,44.52]]],\n[[[14.90,44.10],[15.20,43.92],[15.10,43.90],[14.88,44.05]]],\n[[[15.10,44.12],[15.20,44.05],[15.35,43.95],[15.25,43.93],[15.10,44.05]]],\n[[[16.45,43.37],[16.70,43.40],[16.88,43.33],[16.80,43.28],[16.55,43.30],[16.45,43.33]]],\n[[[16.45,43.17],[16.75,43.19],[17.20,43.15],[16.75,43.12],[16.55,43.14]]],\n[[[16.25,43.40],[16.35,43.40],[16.30,43.36],[16.20,43.37]]],\n[[[16.08,43.07],[16.25,43.07],[16.15,43.01]]],\n[[[16.83,42.95],[17.05,42.99],[17.19,42.94],[16.90,42.90]]],\n[[[17.35,42.80],[17.55,42.75],[17.35,42.73],[17.30,42.78]]],\n[[[16.80,42.77],[16.93,42.77],[16.85,42.74]]]\n]}\n```",
+  "content_types": [
+    "thinking",
+    "text"
+  ],
+  "stop_reason": "end_turn",
+  "stop_details": null,
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_creation_input_tokens": 0,
+    "cache_read_input_tokens": 0,
+    "inference_geo": "global",
+    "input_tokens": 346,
+    "output_tokens": 6325,
+    "output_tokens_details": {
+      "thinking_tokens": 4438
+    },
+    "server_tool_use": null,
+    "service_tier": "standard",
+    "speed": "standard"
+  },
+  "response_model": "claude-sonnet-5-5",
+  "message_id": "msg_011CgtV3Js9LQgMSm3EqefpX",
+  "started_at": "2026-11-10T02:47:53.109+00:00",
+  "first_token_ms": 902,
+  "first_text_ms": 40378,
+  "duration_ms": 50126,
+  "attempts": 1,
+  "price_usd_per_mtok": [
+    2.0,
+    10.0
+  ],
+  "price_known": true,
+  "price_table_date": "2026-11-09",
+  "cost_usd": 0.063942,
+  "sdk_version": "2.7.0",
+  "requested_at": "2026-11-10T02:48:43+00:00"
+}
