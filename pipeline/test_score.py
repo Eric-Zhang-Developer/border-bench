@@ -14,7 +14,8 @@ from pipeline import score, sheet
 from pipeline.score import baselines, median, overlap, projection, release_order, to_metres
 from pipeline.verify import missing_tiles
 
-EXAMPLE = Path(__file__).resolve().parent.parent / "specs" / "features" / "scorer" / "results.example.json"
+ROOT = Path(__file__).resolve().parent.parent
+EXAMPLE = ROOT / "specs" / "features" / "scorer" / "results.example.json"
 
 
 def square(lon, lat, side):
@@ -89,6 +90,15 @@ def test_the_baselines_are_the_bounding_box_and_a_circle_of_the_same_area():
     assert overlap(circle, truth) == pytest.approx(83.4, abs=0.15)
     two_pieces = square(10, 10, 4) + [[[[17, 10], [24, 10], [24, 14], [17, 14], [17, 10]]]]
     assert baselines(two_pieces)[0][2] == [[[[10, 10], [24, 10], [24, 14], [10, 14], [10, 10]]]]
+
+
+@pytest.mark.parametrize("target, expected", [("usa", 56.5), ("chile", 4.6), ("indonesia", 19.8), ("croatia", 25.6)])
+def test_the_rectangle_baseline_of_each_modern_target_is_pinned(target, expected):
+    """The real true borders in targets/, scored against their own bounding boxes. A change to the scorer or to a
+    border that moves one of these moves every score on that strip, and has to be said out loud. Chile's is tiny
+    because its box stretches 3,700 km west to Easter Island."""
+    truth = score.load_target(ROOT / "targets" / target)["truth"]
+    assert round(overlap(baselines(truth)[0][2], truth), 1) == expected
 
 
 def test_the_median_sample_is_shown_and_models_run_in_release_order():
@@ -283,6 +293,15 @@ def test_the_contact_sheet_shows_missed_and_invented_land(tree, tmp_path):
     assert sheet.main([str(tree[0]), "p1", "blobland", "--targets", str(tree[1]), "--out", str(out)]) == 0
     colours = {c for _, c in Image.open(out).convert("RGB").getcolors(maxcolors=1 << 24)}
     assert {sheet.rgb(sheet.MISSED), sheet.rgb(sheet.INVENTED), sheet.rgb(sheet.RIGHT)} <= colours
+
+
+def test_a_sheet_can_compare_several_prompts_one_row_per_model_and_prompt(tree):
+    target = score.load_target(tree[1] / "blobland")
+    runs = score.load_runs(tree[0], "p1")
+    names = [e["name"] for e in sheet.entries_for(target, {"p1": runs, "p1-again": runs})]
+    assert names[:2] == ["Baseline", "Baseline"]
+    assert names[2:8] == ["example-model-a · p1"] * 3 + ["example-model-a · p1-again"] * 3
+    assert len(names) == 2 + 2 * 10
 
 
 if __name__ == "__main__":

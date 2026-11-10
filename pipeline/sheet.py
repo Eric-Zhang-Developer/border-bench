@@ -2,6 +2,7 @@
 
   uv run python -m pipeline.sheet RUNS PROMPT_ID TARGET_ID [--targets DIR] [--out FILE]
   uv run python -m pipeline.sheet runs/archive pilot-c usa        -> sheets/archive/pilot-c-usa.png
+  uv run python -m pipeline.sheet runs/archive pilot-a,pilot-b,pilot-c usa       one row per model and prompt
 
 The first row is the two baselines (rectangle, circle). Then one row per model, in release order, one tile per answer. In
 each tile: grey is land the drawing got right, orange is land it missed, blue is land it invented, the dark line is
@@ -136,43 +137,50 @@ def sheet(target: dict, entries: list[dict], subtitle: str) -> Image.Image:
     return page
 
 
-def entries_for(target: dict, by_pair: dict) -> list[dict]:
-    """The baselines, then every sample of every model that drew this target, models in release order."""
+def entries_for(target: dict, by_prompt: dict[str, dict]) -> list[dict]:
+    """The baselines, then every sample of every model that drew this target: models in release order, and under
+    each model one row per prompt when several prompts are compared."""
     out = [{"name": "Baseline", "notes": [note], "score": round(overlap(shape, target["truth"]), 1), "shape": shape}
            for (_, _, shape), note in zip(baselines(target["truth"]), (
                "rectangle: the true border's bounding box", "circle: the true area around the true centre"))]
-    for model, _ in release_order(by_pair):
-        samples = [score_sample(run.get("raw"), target) for run in by_pair.get((model, target["id"]), [])]
+    everyone = {pair: runs for by_pair in by_prompt.values() for pair, runs in by_pair.items()}
+    rows = [(model, prompt_id) for model, _ in release_order(everyone) for prompt_id in by_prompt]
+    for model, prompt_id in rows:
+        runs = by_prompt[prompt_id].get((model, target["id"]), [])
+        samples = [score_sample(run.get("raw"), target) for run in runs]
+        name = model if len(by_prompt) == 1 else f"{model} · {prompt_id}"
         for i, sample in enumerate(samples):
             notes = [f"sample {i + 1} of {len(samples)}"]
             if len(samples) > 1 and i == median(samples):
-                notes.append("the one the page shows")
+                notes.append("the median sample")
             if sample["flags"]["over_400_points"]:
                 notes.append(f"{sample['points']} points, over 400")
             if sample["flags"]["drew_modern"]:
                 notes.append("drew the modern country")
-            out.append({"name": model, "notes": notes, "score": sample["score"], "shape": sample["shape"]})
+            out.append({"name": name, "notes": notes, "score": sample["score"], "shape": sample["shape"]})
     return out
 
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("runs", type=Path, help="a run set, e.g. runs/archive")
-    ap.add_argument("prompt_id", help="e.g. pilot-c")
+    ap.add_argument("prompt_id", help="e.g. pilot-c, or several to compare: pilot-a,pilot-b,pilot-c")
     ap.add_argument("target_id", help="a folder name under targets/, e.g. usa")
     ap.add_argument("--targets", type=Path, default=ROOT / "targets")
     ap.add_argument("--out", type=Path)
     args = ap.parse_args(argv)
 
     target = load_target(args.targets / args.target_id)
-    entries = entries_for(target, load_runs(args.runs, args.prompt_id))
+    prompt_ids = args.prompt_id.split(",")
+    entries = entries_for(target, {p: load_runs(args.runs, p) for p in prompt_ids})
     drawings = len(entries) - 2
     if not drawings:
-        print(f"sheet: no answers for {args.target_id} under {args.runs / args.prompt_id}; the sheet shows the "
-              f"baselines only")
-    out = args.out or ROOT / "sheets" / args.runs.name / f"{args.prompt_id}-{args.target_id}.png"
+        print(f"sheet: no answers for {args.target_id} under {args.runs} for {args.prompt_id}; the sheet shows "
+              f"the baselines only")
+    out = args.out or ROOT / "sheets" / args.runs.name / f"{'+'.join(prompt_ids)}-{args.target_id}.png"
     out.parent.mkdir(parents=True, exist_ok=True)
-    subtitle = f"{args.runs.name} / {args.prompt_id} · {drawings} drawing{'' if drawings == 1 else 's'} from memory"
+    subtitle = (f"{args.runs.name} / {', '.join(prompt_ids)} · {drawings} drawing{'' if drawings == 1 else 's'} "
+                f"from memory")
     sheet(target, entries, subtitle).save(out)
     print(f"sheet: wrote {out} ({drawings} drawings and 2 baselines)")
     return 0
