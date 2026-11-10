@@ -12,8 +12,13 @@ Haiku 5.5, Sonnet 5.5, and probably Sonnet 4.5. Then I can see a shape of what's
 ... run when I have no eyes on what's going on."
 
 ## Plan
-1. **Stage 1, the preview.** `--dry-run`, then run Claude Sonnet 4.5, Claude Haiku 5.5 and Claude Sonnet 5.5 on the
-   six targets with `prompts/p1.txt`, three samples each: 54 calls.
+1. **Stage 1, the preview.** `--dry-run`, then run Claude Sonnet 4.5, Claude Haiku 5.5 and Claude Sonnet 5.5 with
+   three samples each, and Claude Fable 5.2 with one, using `prompts/p1.txt`.
+   - **Stage 1a, the four modern targets** (usa, chile, indonesia, croatia): 40 calls. Run on 2026-11-10, because the
+     maintainer asked for real strips before the history borders were ready (Maintainer, 2026-11-09: "let's do that",
+     approving this plan as the planning session put it to them).
+   - **Stage 1b, Prussia and Poland**, when their true borders are on `main`: the same four models, 20 calls, as a
+     `fix(full-run)` PR. Stage 1a answers are not asked for again.
 2. Score, write `results/results.json`, make one contact sheet per target in `sheets/p1/`, and open the stage 1 PR
    (`feat(full-run): ...`, no done note yet). It merges on green like any other.
 3. **Stop and ask.** File a `needs-human` issue titled "Preview strips are in: run the other models?" with what
@@ -24,11 +29,17 @@ Haiku 5.5, Sonnet 5.5, and probably Sonnet 4.5. Then I can see a shape of what's
 ## Requirements
 - Sonnet 4.5 runs first, in stage 1.
 - The three preview models span the lineup: the oldest model served, the cheapest current one, and the same tier as
-  the oldest one generation later. Stage 1 answers are final `p1` runs. Stage 2 never requests them again.
+  the oldest one generation later. Claude Fable 5.2, the newest, was added with one sample at the maintainer's
+  request. Stage 1 answers are final `p1` runs. Stage 2 never requests them again.
+- Money (Maintainer, 2026-11-09: "so i don't go broke"): the dry run is priced from measured tokens per drawing, not
+  the planning guess, and nothing is called if it comes to more than $10 without asking first. Models that think for
+  minutes run at most two calls at a time. If a call is lost (paid for, no file saved: issue 31), the run stops and
+  the loss is reported; it is not retried.
 - The stage 1 issue gives the maintainer what they need to decide:
-  - the six contact sheets, with one plain sentence under each on what the strip shows;
+  - the contact sheets (four after stage 1a, six after 1b), with one plain sentence under each on what the strip
+    shows;
   - failed drawings, refusals, and answers that hit `max_tokens`, per model;
-  - **measured** dollars per call for each of the three models, and from those a projected cost for stage 2, set
+  - **measured** dollars per call for each stage 1 model, and from those a projected cost for stage 2, set
     against what is left under the cap. This replaces the planning estimate, which was never measured;
   - anything that looks wrong with a score, a border or the prompt. A wrong-looking result is a reason to stop, not a
     detail to fix quietly.
@@ -41,10 +52,12 @@ Haiku 5.5, Sonnet 5.5, and probably Sonnet 4.5. Then I can see a shape of what's
 - Pilot or archive answers are not reused as `p1` runs, even where the prompt text is identical.
 
 ## Validation
-- After stage 1: 54 run files under `runs/p1/`; `uv run python -m pipeline.score` writes `results/results.json` and a
-  second run produces no diff; six contact sheets embedded in the PR and in the issue.
+- After stage 1a: 40 run files under `runs/p1/` (4 targets × (3 models × 3 + 1 model × 1)); `uv run python -m
+  pipeline.score` writes `results/results.json` and a second run produces no diff; four contact sheets embedded in
+  the PR and in the issue.
+- After stage 1b: 60 run files, six contact sheets.
 - After stage 2: run files total 6 targets × (12 models × 3 + 3 models × 1) = 234, or the count the live model list
-  implies, stated in the PR; six contact sheets with every model.
+  implies, stated in the PR; six contact sheets with every model. (Fable 5.2's six are already among them.)
 - Each PR states dollars spent, refusals, failed drawings, and every model whose answers hit `max_tokens`.
 
 ## Defaults
