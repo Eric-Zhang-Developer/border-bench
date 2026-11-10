@@ -19,7 +19,7 @@ assignee: "eric-1"
   `targets/<id>/target.toml` or a TOML list), models (default: all listed), samples per model.
 - Output: `runs/<set>/<prompt-id>/<model>/<target>/<n>.json` with the fields listed in `specs/tech-stack.md`. The raw
   answer is saved exactly as returned.
-- Every run file also records, for later cost, token and time charts (Eric, 2026-11-09: "Let's do that"):
+- Every run file also records, for later cost, token and time charts (Maintainer, 2026-11-09: "Let's do that"):
   `started_at` (UTC, when the request was sent), `first_token_ms` (to the first streamed content of any kind),
   `first_text_ms` (to the first visible text; null if none arrived), `duration_ms` (to the end of the stream),
   `attempts` (1 unless the call was retried; timings describe the attempt that succeeded), `usage` (the SDK's usage
