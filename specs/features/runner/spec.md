@@ -32,6 +32,9 @@ assignee: "eric-1"
   million input tokens and $50 per million output tokens, the dearest row in the table.
 - A refusal, an empty answer or a `max_tokens` stop is saved as it is, with its stop reason. Transport errors and
   rate limits retry, up to five times, inside the runner (the SDK's own hidden retries are off); nothing else does.
+- A stream may stay silent for up to an hour before the call is given up (the SDK's default is ten minutes, which
+  is shorter than some models think). A call that dies after the model has started is not asked again: it was
+  billed, no file is saved, and the runner prints that the running total does not include it.
 - `--dry-run` prints the calls it would make and their estimated cost, and makes none. Because it makes no network
   call it cannot read the live lineup: it uses the ids passed with `--models`, or every id in the price table.
 - `--list-models` prints the live lineup with release and retirement dates. It is free and needs the key.

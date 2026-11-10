@@ -30,6 +30,8 @@ RUNS = ROOT / "runs"
 MAX_TOKENS = 64000
 CAP_USD = 60.0
 MAX_ATTEMPTS = 6  # one try and up to five retries, for transport errors and rate limits only
+SILENCE_S = 3600.0  # how long a stream may send nothing before the call is given up. The SDK's default, 600, cut off
+#                     four Claude Fable 5.2 calls at exactly ten minutes on 2026-11-10 while the model was thinking.
 PRICE_TABLE_DATE = "2026-11-09"  # the day PRICES below was read from the pricing page; saved in every run file
 
 # Dollars per million tokens (input, output). Source: https://platform.claude.com/docs/en/about-claude/pricing
@@ -143,6 +145,11 @@ def call(client, model: str, prompt: str, sleep=time.sleep) -> dict:
             break
         except Exception as error:
             if not retryable(error) or attempt == MAX_ATTEMPTS:
+                # A call that dies after the model has started is billed by Anthropic for what it generated, and no
+                # file is saved, so the running total cannot count it. Say so loudly instead of failing silently.
+                print(f"run: FAILED {model} after {time.monotonic() - t0:.0f}s on attempt {attempt}: "
+                      f"{type(error).__name__}. No file was saved. If the model had started, this call was billed "
+                      f"and is NOT in the running total.", flush=True)
                 raise
             print(f"retrying {model} after {type(error).__name__} (attempt {attempt} of {MAX_ATTEMPTS})")
             sleep(min(60, 2 ** attempt))
@@ -225,6 +232,12 @@ def load_env(path: Path) -> None:
                 os.environ.setdefault(key.removeprefix("export ").strip(), value.strip().strip("'\""))
 
 
+def make_client():
+    """The SDK client. Its own retries are off: call() retries itself, so every attempt is counted. The read
+    timeout is how long the stream may stay silent, not a limit on the whole answer; connecting still fails fast."""
+    return anthropic.Anthropic(max_retries=0, timeout=anthropic.Timeout(SILENCE_S, connect=30.0))
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--list-models", action="store_true", help="print the live lineup (id, released, retires) and exit")
@@ -242,7 +255,7 @@ def main(argv=None) -> int:
 
     def client():
         load_env(ROOT / ".env")
-        return anthropic.Anthropic(max_retries=0)  # call() retries itself, so every attempt is counted
+        return make_client()
 
     if args.list_models:
         for m in list_models(client()):

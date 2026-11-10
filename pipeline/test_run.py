@@ -189,3 +189,22 @@ def test_a_rejected_request_is_not_retried(tmp_path):
     with pytest.raises(anthropic.BadRequestError):
         go(tmp_path, client, sleep=lambda seconds: None)
     assert len(client.requests) == 1 and not (tmp_path / "runs").exists()
+
+
+def test_a_stream_may_stay_silent_for_an_hour_and_the_sdk_does_not_retry_on_its_own(monkeypatch):
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "not-a-real-key")
+    client = run.make_client()
+    assert client.timeout.read == 3600.0 and client.timeout.connect == 30.0 and client.max_retries == 0
+
+
+def test_a_stream_that_dies_mid_answer_is_not_asked_again_and_says_it_was_not_counted(tmp_path, capsys):
+    class DiesMidStream(FakeClient):
+        def __iter__(self):
+            yield SimpleNamespace(type="message_start")
+            raise httpx2.ReadTimeout("The read operation timed out")
+
+    client = DiesMidStream()
+    with pytest.raises(httpx2.ReadTimeout):
+        go(tmp_path, client, sleep=lambda seconds: None)
+    assert len(client.requests) == 1 and not (tmp_path / "runs").exists()  # asking again would be paid for again
+    assert "NOT in the running total" in capsys.readouterr().out
