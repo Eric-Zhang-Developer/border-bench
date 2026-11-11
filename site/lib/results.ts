@@ -48,3 +48,27 @@ export function loadResults(): { data: Results; sample: boolean } {
   const file = sample ? path.join(process.cwd(), "fixtures", process.env.BB_FIXTURE ?? "results.json") : real;
   return { data: JSON.parse(fs.readFileSync(file, "utf8")), sample };
 }
+
+/** One saved answer. Only the fields the page reads. */
+export type Run = { model_display_name?: string; raw?: string | null };
+
+/**
+ * The saved answers behind the published strips: runs/p1/<prompt id>/<model>/<target>/<n>.json, in sample order,
+ * so `samples(model, target)[median_sample]` is the answer whose drawing the results file shows.
+ * `name` is the name Anthropic gives the model, as the runner saved it. With no run files (the sample fixture)
+ * both come back empty and the page falls back to what the results file holds.
+ */
+export function loadRuns(promptId: string) {
+  const root = path.join(process.cwd(), "..", "runs", "p1", promptId);
+  const list = (dir: string) => (fs.existsSync(dir) ? fs.readdirSync(dir) : []);
+  const samples = (model: string, target: string): Run[] =>
+    list(path.join(root, model, target))
+      .filter((file) => /^\d+\.json$/.test(file))
+      .sort((a, b) => parseInt(a) - parseInt(b))
+      .map((file) => JSON.parse(fs.readFileSync(path.join(root, model, target, file), "utf8")));
+  const name = (model: string): string | undefined => {
+    for (const target of list(path.join(root, model)))
+      for (const run of samples(model, target)) if (run.model_display_name) return run.model_display_name;
+  };
+  return { samples, name };
+}

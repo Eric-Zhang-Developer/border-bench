@@ -1,7 +1,9 @@
 // The smallest check that fails if the shared frame breaks. Runs before every build: node lib/geo.check.mjs
 import assert from "node:assert/strict";
 import fs from "node:fs";
-import { plate } from "./geo.ts";
+import { written } from "./answer.ts";
+import { chart, plate } from "./geo.ts";
+import { loadRuns } from "./results.ts";
 
 const square = (x0, y0, x1, y1) => [[[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]]];
 const mp = (...polys) => ({ type: "MultiPolygon", coordinates: polys });
@@ -32,4 +34,57 @@ assert.ok(width(p.truth[0]) > p.w / 4, "the antimeridian split the frame");
 for (const t of JSON.parse(fs.readFileSync(new URL("../fixtures/results.json", import.meta.url), "utf8")).targets)
   assert.equal(plate(t).shapes.length, t.baselines.length + t.models.length);
 
-process.stdout.write("geo.check: ok\n");
+// The replay follows each vertex of a ring in order, and never loses or reorders one when points are added.
+{
+  const ring = [[0, 0], [3, 0], [3, 0.1], [0, 0]];
+  const placed = chart(mp(square(0, 0, 3, 3)), [mp([ring])]).shapes[0].rings[0][0];
+  assert.equal(placed.stops.length, ring.length);
+  assert.ok(placed.stops.every((s, i) => i === 0 || s > placed.stops[i - 1]), "stops are out of order");
+  assert.equal(placed.stops.at(-1), placed.pts.length - 1);
+  assert.deepEqual(placed.pts[placed.stops[0]], placed.pts[placed.stops[3]], "a closed ring does not end where it began");
+}
+
+// The head-to-head replays the points each model wrote, read from its saved answer. They must be the saved
+// outline: the same pieces in the same order, every written point present in order (to the outline's 4 decimals),
+// and nothing between two of them but points on the straight edge that joins them. The count must be the file's.
+const real = new URL("../../results/results.json", import.meta.url);
+let replayed = 0;
+if (fs.existsSync(real)) {
+  const results = JSON.parse(fs.readFileSync(real, "utf8"));
+  const runs = loadRuns(results.prompt.id);
+  const near = (a, b) => Math.abs(a[0] - b[0]) < 6e-5 && Math.abs(a[1] - b[1]) < 6e-5;
+  for (const target of results.targets)
+    for (const model of target.models) {
+      const run = runs.samples(model.id, target.id)[model.median_sample];
+      const own = run?.raw ? written(run.raw) : null;
+      if (!model.outline) continue;
+      const where = `${model.id} on ${target.id}`;
+      assert.ok(own, `${where}: the saved answer could not be read`);
+      const saved = model.outline.coordinates;
+      assert.deepEqual(own.shape.map((p) => p.length), saved.map((p) => p.length), `${where}: different pieces`);
+      let count = 0;
+      own.shape.forEach((polygon, pi) =>
+        polygon.forEach((ring, ri) => {
+          const outline = saved[pi][ri];
+          let at = 0;
+          ring.forEach((point, i) => {
+            const from = at;
+            while (at < outline.length && !near(outline[at], point)) at++;
+            assert.ok(at < outline.length, `${where}: point ${i} of piece ${pi} is not in the saved outline, in order`);
+            for (let j = from; j < at; j++) {
+              const [a, b, q] = [ring[i - 1], point, outline[j]];
+              const cross = (b[0] - a[0]) * (q[1] - a[1]) - (b[1] - a[1]) * (q[0] - a[0]);
+              assert.ok(i > 0 && Math.abs(cross) < 2e-4 * Math.max(1, Math.hypot(b[0] - a[0], b[1] - a[1])), `${where}: the saved outline leaves the written edge`);
+            }
+            at++;
+          });
+          assert.equal(at, outline.length, `${where}: the saved outline goes on after the last written point`);
+          count += ring.length - (own.added[pi][ri] ? 1 : 0);
+        }),
+      );
+      assert.equal(count, model.points, `${where}: point count`);
+      replayed++;
+    }
+}
+
+process.stdout.write(`geo.check: ok${replayed ? ` (${replayed} replays match their saved outlines)` : ""}\n`);
