@@ -1,11 +1,14 @@
 import { plate } from "@/lib/geo";
-import { loadResults } from "@/lib/results";
+import Link from "next/link";
+import { loadResults, loadRuns } from "@/lib/results";
 import Strips, { type StripTarget } from "./strips";
 
 const REPO = "https://github.com/Eric-Zhang-Developer/border-bench";
 
 export default function Home() {
   const { data, sample } = loadResults();
+  // The results file holds raw model ids as labels; each saved answer holds the name Anthropic gives the model.
+  const runs = loadRuns(data.prompt.id);
 
   // Borders are projected here, at build time. The browser gets finished outlines and only does the overlay.
   const targets: StripTarget[] = data.targets.map((t) => ({
@@ -20,7 +23,7 @@ export default function Home() {
       ...t.baselines.map((b) => ({ id: b.id, label: b.label, score: b.score })),
       ...t.models.map((m) => ({
         id: m.id,
-        label: m.label,
+        label: runs.name(m.id) ?? m.label,
         score: m.score,
         model: {
           released: m.released,
@@ -56,9 +59,14 @@ export default function Home() {
         <header className="pt-5 pb-9 sm:pt-7 lg:pb-12">
           <div className="flex items-baseline justify-between border-b border-ink pb-3">
             <p className="label text-ink">BorderBench</p>
-            <a className="label hover:text-ink" href={REPO}>
-              GitHub <span aria-hidden="true">↗</span>
-            </a>
+            <p className="label flex gap-5">
+              <Link className="hover:text-ink" href="/duel">
+                Head to head <span aria-hidden="true">→</span>
+              </Link>
+              <a className="hover:text-ink" href={REPO}>
+                GitHub <span aria-hidden="true">↗</span>
+              </a>
+            </p>
           </div>
           <div className="mt-7 grid gap-7 lg:mt-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:items-end lg:gap-16">
             <h1 className="text-balance text-[clamp(2.5rem,5.4vw,5.25rem)] leading-[0.95] tracking-[-0.025em]">
