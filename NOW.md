@@ -1,32 +1,33 @@
 # NOW
 
-Updated: 2026-11-09 by Claude (planning session with the maintainer)
+Updated: 2026-11-10 by Claude (planning session with the maintainer)
 
 ## Where things stand
-- `scaffold` is merged: an empty pipeline and an empty page build, test and verify. Nothing else is built.
-- The prompt is tentative: three candidates in `specs/features/prompt-pilot/candidates/`, reasoning in
-  `specs/decisions/001-prompt.md`.
-- No model has been called and no dataset has been downloaded.
+- The page shows real results: fourteen Claude models on six countries, drawn with the frozen prompt `prompts/p1.txt`.
+  Run it with `npm --prefix site run dev`.
+- Done (done note on `main`): scaffold, runner, sonnet-45-archive, truth-modern, truth-history, scorer, prompt-pilot,
+  strip-page.
+- `full-run` is in flight. Fourteen of fifteen models are in. Claude Opus 5 is held after one call that cost $0.73;
+  the maintainer has not said how many tries it gets.
+- The modern true borders are land only, from the 1:10m map, with the Great Lakes cut out
+  (`specs/decisions/004-truth-is-land.md`).
+- Spend: $31.40 in saved answers on `main`, plus the one Opus 5 call on its branch, of the $60 cap. Four lost calls
+  are not counted (issue #31).
+- Not deployed. Nothing is public but the repository.
 
 ## Next step
-Four lanes run in parallel (Maintainer, 2026-11-09: "Start all three"). Each worker takes only features assigned to it.
-- `eric-1`, models: `runner`, `sonnet-45-archive`, then `prompt-pilot` and `full-run`.
-- `eric-2`, data: `truth-modern`, then `truth-history`.
-- `eric-3`, scorer: `scorer`, built on synthetic shapes.
-- `eric-4`, page: `strip-page`, built against the sample results file.
-
-The lanes meet at `prompt-pilot`, which needs the runner, the scorer and the Prussia border, and ends with the maintainer
-choosing the prompt. The full run then goes in two stages: three models first (Sonnet 4.5, Haiku 5.5,
-Sonnet 5.5), the maintainer looks at the strips, then the rest. The archive is still the urgent one: Claude Sonnet 4.5 retires on 2026-11-30.
+`head-to-head` (`specs/features/head-to-head/spec.md`), page lane, `eric-4`: a view where two models draw the same
+country side by side, and a clip of the oldest model against the newest for the maintainer to post.
 
 ## Open questions
-- Maintainer: approve three downloads when asked: Natural Earth 50m countries, HGIS Germany 1820 states (via HistoGIS),
-  CShapes 2.0.
-- Maintainer: a ship date for the `mvp` milestone in `specs/milestones.toml`.
-- Maintainer: whether the pitch goes in this public repo.
-- Not verified: that the HGIS 1820 file includes Prussia's eastern provinces (`truth-history` checks first).
-- Not verified: the $50 cost estimate. The runner's cap is $60.
+- Maintainer: tries for Claude Opus 5 (the `full-run` worker is waiting).
+- Maintainer: issues #18, #22, #27, #28, #31 (`gh issue list --label needs-human`).
+- Maintainer: a ship date for the `mvp` milestone. Claude Sonnet 4.5 retires on 2026-11-30.
+- Maintainer: whether the pitch goes in this public repo; when to deploy.
+- Raised in chat, not decided: a different country list (the lower 48 is saturated; single states and Afghanistan
+  were floated). Any new country needs Claude Sonnet 4.5 collected before it retires.
+- Drafts #40 and #41 (contact sheets and notes for the land-only borders) are not reviewed.
 
 ## Next milestone
 `mvp`, no date yet. In: scaffold, runner, sonnet-45-archive, truth-modern, truth-history, scorer, prompt-pilot,
-full-run, strip-page. Cut list: empty.
+full-run, strip-page, head-to-head. Cut list: empty.
